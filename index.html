@@ -8,120 +8,136 @@
 
 body {
   margin:0;
-  font-family:Arial, sans-serif;
-  color:white;
-  background:black;
+  background:#0a0a0a;
+  color:#eaeaea;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
 }
 
-/* HERO BACKGROUND */
-.hero-bg {
-  background-image:url('website-wallpaper.jpg');
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  height:100vh;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-}
-
-/* OVERLAY */
-.hero-bg::after {
+/* ===== BACKGROUND ===== */
+body::before {
   content:'';
-  position:absolute;
+  position:fixed;
   width:100%;
-  height:100vh;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
-  top:0;
-  left:0;
+  height:100%;
+  background:url('website-wallpaper.jpg') center/cover no-repeat;
+  opacity:0.15; /* subtle, not blasting */
+  z-index:-2;
 }
 
-.hero-content {
-  position:relative;
-  z-index:2;
+/* ===== GRAIN OVERLAY ===== */
+body::after {
+  content:'';
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-image:url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity:0.05;
+  z-index:-1;
+}
+
+/* ===== HEADER ===== */
+.header {
+  padding:40px 20px 10px;
   text-align:center;
 }
 
-/* NEW TAGLINE */
 .tagline {
-  font-size:14px;
-  letter-spacing:3px;
   color:#00ffc3;
-  margin-bottom:10px;
+  letter-spacing:4px;
+  font-size:12px;
 }
 
-/* TITLE */
-h1 {
+.title {
   font-size:42px;
-  letter-spacing:4px;
+  letter-spacing:5px;
   margin:10px 0;
 }
 
-/* NAV */
-nav {
-  margin-top:15px;
+.location {
+  color:#999;
 }
 
-nav a {
+/* ===== NAV ===== */
+.nav {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:20px 0;
+  flex-wrap:wrap;
+}
+
+.nav a {
   color:#00ffc3;
-  margin:0 12px;
   text-decoration:none;
   font-weight:bold;
-  transition:0.2s;
+  font-size:14px;
+  position:relative;
 }
 
-nav a:hover {
-  color:white;
+.nav a::after {
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0;
+  height:2px;
+  background:#00ffc3;
+  transition:0.3s;
 }
 
-/* SECTION */
-.section {
-  padding:60px 20px;
-  max-width:900px;
-  margin:auto;
+.nav a:hover::after {
+  width:100%;
 }
 
-/* STORY */
+/* ===== STORY BLOCK ===== */
 .story {
-  background:#0e0e0e;
-  padding:40px;
-  border-left:5px solid #00ffc3;
+  max-width:700px;
+  margin:60px auto;
+  padding:30px;
+  border-left:4px solid #00ffc3;
+  background:#111;
   line-height:1.7;
+  font-size:16px;
 }
 
-/* FEATURE */
+/* ===== FEATURE ===== */
 .feature {
+  max-width:800px;
+  margin:60px auto;
   text-align:center;
 }
 
 .feature img {
-  width:90%;
+  width:100%;
   max-width:500px;
   border-radius:10px;
+  box-shadow:0 0 40px rgba(0,0,0,0.8);
 }
 
-/* GRID */
+.feature h2 {
+  margin-top:20px;
+  color:#00ffc3;
+}
+
+/* ===== GRID ===== */
 .grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:60px auto;
+  padding:0 20px;
 }
 
 .card {
-  width:220px;
   background:#111;
   padding:10px;
-  border-radius:10px;
+  border-radius:8px;
   transition:0.3s;
 }
 
 .card:hover {
-  transform:scale(1.05);
+  transform:translateY(-5px);
 }
 
 .card img {
@@ -129,169 +145,12 @@ nav a:hover {
   border-radius:6px;
 }
 
-/* SOCIAL */
+.card p {
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* ===== SOCIAL ===== */
 .social {
-  background:#000;
   text-align:center;
-  padding:60px 20px;
-  border-top:1px solid #222;
-}
-
-.social h2 {
-  letter-spacing:2px;
-}
-
-.social a {
-  display:block;
-  color:#00ffc3;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:18px;
-  margin-top:10px;
-}
-
-/* NEWSLETTER */
-.newsletter {
-  background:#0e0e0e;
-  padding:40px;
-  text-align:center;
-  border-top:1px solid #222;
-}
-
-input {
-  padding:10px;
-  width:260px;
-  margin-top:10px;
-  border:none;
-}
-
-button {
-  padding:10px 20px;
-  background:#00ffc3;
-  border:none;
-  margin-top:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* FOOTER */
-.footer {
-  text-align:center;
-  padding:30px;
-  color:#777;
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<div class="hero-bg">
-  <div class="hero-content">
-
-    <div class="tagline">LIVE FREE OR RIDE</div>
-
-    <h1>PEDAL FOREVER</h1>
-    <p>Gate City • Nashua, NH</p>
-
-    <nav>
-      <a href="#">Bikes</a>
-      <a href="#">Parts</a>
-      <a href="#">Gear</a>
-      <a href="#">Merch</a>
-      <a href="#">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-  </div>
-</div>
-
-<!-- STORY -->
-<div class="section">
-  <div class="story">
-    This isn’t a flipped collection.
-
-    Every bike here was found the hard way — face-to-face deals across New England.
-
-    Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.
-
-    Barns. Attics. Garages.
-
-    No shortcuts. No easy wins.
-
-    Anyone can scroll and buy.
-    Not everyone goes out and gets it.
-
-    <br><br><strong>Earned, not assembled.</strong>
-  </div>
-</div>
-
-<!-- FEATURE BIKE -->
-<div class="section feature">
-  <img src="decoster-after.jpg">
-  <h2>1978 Roger DeCoster</h2>
-</div>
-
-<!-- COLLECTION -->
-<div class="section">
-  <h2 style="text-align:center;">Collection</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <img src="haro-mirra-driveside.jpg">
-      <p>1986 Hutch XL</p>
-    </div>
-
-    <div class="card">
-      <img src="haro-mirra-nondriveside.jpg">
-      <p>1986 Dyno Comp</p>
-    </div>
-
-    <div class="card">
-      <img src="decoster-before.jpg">
-      <p>Before Build</p>
-    </div>
-
-    <div class="card">
-      <img src="you-dirtbike.jpg">
-      <p>Raleigh Rampar</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- SOCIAL -->
-<div class="social">
-  <h2>Follow the Build</h2>
-
-  <a href="https://www.tiktok.com/@pedalforever" target="_blank">
-    TikTok → @pedalforever
-  </a>
-
-  <a href="https://www.youtube.com/@pedalforever" target="_blank">
-    YouTube → @pedalforever
-  </a>
-</div>
-
-<!-- NEWSLETTER -->
-<div class="newsletter">
-  <h2>Join the Movement</h2>
-  <p>
-    Restoration tips. Preservation. Real finds. Free giveaways.
-  </p>
-
-  <input type="email" placeholder="Enter your email">
-  <br>
-  <button>Subscribe</button>
-</div>
-
-<!-- CONTACT -->
-<div class="footer" id="contact">
-  <p>jgclsales@gmail.com</p>
-  <p>Rider Owned • Est. 2023</p>
-</div>
-
-</body>
-</html>
+  padding:60
