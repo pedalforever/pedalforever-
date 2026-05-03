@@ -1,110 +1,249 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pedal Forever</title>
+<title>Pedal Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      background: black;
-      color: white;
-      margin: 0;
-      font-family: Arial;
-      text-align: center;
-    }
+<!-- GRAFFITI-STYLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-    /* NAV BAR */
-    .nav {
-      background: #111;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  color:white;
+  background:
+    linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size: cover;
+  background-position: center;
+}
 
-    .nav a {
-      color: yellow;
-      text-decoration: none;
-      margin: 0 12px;
-      font-size: 18px;
-    }
+/* HEADER */
+header {
+  text-align:center;
+  padding:40px 20px 10px;
+}
 
-    .dropdown {
-      display: inline-block;
-      position: relative;
-    }
+/* GRAFFITI LOGO */
+.logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size:52px;
+  letter-spacing:3px;
+  color:#f5d300;
+  text-shadow:
+    2px 2px 0px #000,
+    4px 4px 10px rgba(255,255,0,0.4);
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: #222;
-      min-width: 180px;
-      padding: 10px;
-      text-align: left;
-    }
+.subhead {
+  color:#aaa;
+  margin-top:10px;
+}
 
-    .dropdown-content a {
-      display: block;
-      padding: 6px 10px;
-      color: white;
-    }
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  padding:15px;
+  border-top:1px solid #333;
+  border-bottom:1px solid #333;
+}
 
-    .dropdown-content a:hover {
-      background: #333;
-    }
+nav a {
+  color:#f5d300;
+  text-decoration:none;
+  font-weight:bold;
+  padding:6px 10px;
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+nav a:hover {
+  color:white;
+}
 
-    /* CONTENT */
-    .section {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
+/* HERO */
+.hero {
+  text-align:center;
+  padding:40px 20px;
+}
 
-    img {
-      border-radius: 10px;
-    }
+.hero img {
+  width:90%;
+  max-width:520px;
+  border-radius:10px;
+  border:2px solid #333;
+  box-shadow:0 0 20px rgba(255,255,0,0.2);
+}
 
-  </style>
+/* STATEMENT */
+.statement {
+  max-width:850px;
+  margin:auto;
+  padding:30px 20px;
+  font-size:17px;
+  line-height:1.7;
+  color:#ddd;
+  text-align:center;
+}
+
+/* SECTION TITLE */
+.section-title {
+  text-align:center;
+  color:#f5d300;
+  margin-top:20px;
+}
+
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card {
+  background:#111;
+  border:1px solid #333;
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.25s;
+}
+
+.card:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,0,0.3);
+}
+
+.card img {
+  width:100%;
+}
+
+.card h3 {
+  padding:10px;
+  font-size:15px;
+  color:#f5d300;
+}
+
+/* CONTACT */
+.contact {
+  text-align:center;
+  padding:40px 20px;
+}
+
+.contact a {
+  color:#f5d300;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.contact a:hover {
+  color:white;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:30px;
+  color:#666;
+  font-size:14px;
+}
+</style>
+
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <div class="nav">
-    <a href="index.html">Home</a>
+<header>
+  <div class="logo">PEDAL FOREVER</div>
+  <div class="subhead">Gate City • Nashua, NH</div>
+</header>
 
-    <div class="dropdown">
-      <a href="#">Categories ▼</a>
-      <div class="dropdown-content">
-        <a href="finished-bikes.html">Bikes</a>
-        <a href="#">Parts</a>
-        <a href="#">Gear</a>
-        <a href="#">Merch</a>
-        <a href="#">Supplies</a>
-        <a href="#">Decals</a>
-        <a href="#">Services</a>
-        <a href="#">About Us</a>
-      </div>
-    </div>
+<nav>
+  <a href="#">Bikes</a>
+  <a href="#">Parts</a>
+  <a href="#">Gear</a>
+  <a href="#">Merch</a>
+  <a href="#">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  </div>
+<div class="hero">
+  <a href="decoster-after.jpg">
+    <img src="decoster-after.jpg">
+  </a>
+</div>
 
-  <!-- HEADER -->
-  <div class="section">
-    <h1>PEDAL FOREVER</h1>
-    <p>Gate City • Nashua, NH</p>
+<div class="statement">
+  This isn’t a collection built from clicks and shipping labels.<br><br>
 
-    <p style="color:#ccc; max-width:500px; margin:auto;">
-      Vintage BMX builds, restorations, and shop culture.
-      Built from passion, history, and the love of the ride.
-    </p>
-  </div>
+  Every bike here was found the hard way — face to face, cash in hand, across New England.<br><br>
 
-  <!-- HERO BIKE -->
-  <div class="section">
-    <a href="decoster-after.jpg">
-      <img src="decoster-after.jpg" style="width:80%; max-width:500px;">
+  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.<br><br>
+
+  Attics. Barns. Garages. Backyards. Parking lots. Word of mouth.<br><br>
+
+  No shortcuts. No easy wins.<br><br>
+
+  Anyone can scroll and buy.<br>
+  Not everyone goes out and gets it.<br><br>
+
+  This is a New England-built collection.<br>
+  <strong>Earned, not assembled.</strong>
+</div>
+
+<h2 class="section-title">Finished Builds</h2>
+
+<div class="gallery">
+
+  <div class="card">
+    <a href="haro-mirra-driveside.jpg">
+      <img src="haro-mirra-driveside.jpg">
     </a>
+    <h3>1986 Hutch EXEL</h3>
+  </div>
+
+  <div class="card">
+    <a href="haro-mirra-nondriveside.jpg">
+      <img src="haro-mirra-nondriveside.jpg">
+    </a>
+    <h3>1986 Dyno Comp</h3>
+  </div>
+
+  <div class="card">
+    <a href="decoster-before.jpg">
+      <img src="decoster-before.jpg">
+    </a>
+    <h3>1978 DeCoster (Before)</h3>
+  </div>
+
+  <div class="card">
+    <a href="decoster-after.jpg">
+      <img src="decoster-after.jpg">
+    </a>
+    <h3>1978 DeCoster (After)</h3>
+  </div>
+
+  <div class="card">
+    <a href="you-dirtbike.jpg">
+      <img src="you-dirtbike.jpg">
+    </a>
+    <h3>1978 Raleigh Rampar</h3>
+  </div>
+
+</div>
+
+<div class="contact" id="contact">
+  <h2 style="color:#f5d300;">Contact</h2>
+  <p>For builds, parts, or questions:</p>
+  <a href="mailto:jgclsales@gmail.com">jgclsales@gmail.com</a>
+</div>
+
+<footer>
+  © Pedal Forever • New England Built • BMX Culture
+</footer>
+
+</body>
+</html>
