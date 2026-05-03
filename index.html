@@ -6,7 +6,7 @@
 
 <style>
 
-/* ===== GLOBAL ===== */
+/* ===== BASE ===== */
 body {
   margin:0;
   font-family:Arial, sans-serif;
@@ -15,7 +15,7 @@ body {
   scroll-behavior:smooth;
 }
 
-/* ===== FIXED BACKGROUND ===== */
+/* ===== YOUR BMX NUMBER PLATE BACKGROUND (FIXED + PROPER) ===== */
 body::before {
   content:'';
   position:fixed;
@@ -23,9 +23,9 @@ body::before {
   left:0;
   width:100%;
   height:100%;
-  background:url('website-wallpaper.jpg') center/contain no-repeat;
-  background-color:black;
-  opacity:0.18;
+
+  background:url('website-wallpaper.jpg') center/cover no-repeat;
+  opacity:0.22;
   z-index:-1;
 }
 
@@ -38,30 +38,33 @@ body::before {
 /* ===== HERO ===== */
 .hero {
   text-align:center;
-  padding:100px 20px 60px;
+  padding:120px 20px 80px;
 }
 
 .tagline {
   color:#00ffc3;
-  letter-spacing:6px;
-  font-size:11px;
-  opacity:0.8;
+  letter-spacing:5px;
+  font-size:12px;
 }
 
 .hero h1 {
-  font-size:52px;
-  margin:12px 0;
-  letter-spacing:2px;
+  font-size:60px;
+  margin:10px 0;
 }
 
 .location {
+  color:#888;
+}
+
+.identity {
+  margin-top:10px;
+  font-size:12px;
   color:#777;
-  font-size:14px;
-  margin-bottom:25px;
 }
 
 /* ===== NAV ===== */
 .nav {
+  margin-top:40px;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
@@ -72,12 +75,23 @@ body::before {
   color:#00ffc3;
   text-decoration:none;
   font-weight:bold;
-  font-size:14px;
-  transition:0.2s;
+  font-size:13px;
+  position:relative;
 }
 
-.nav a:hover {
-  color:white;
+.nav a::after {
+  content:'';
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0;
+  height:2px;
+  background:#00ffc3;
+  transition:0.3s;
+}
+
+.nav a:hover::after {
+  width:100%;
 }
 
 /* ===== STRIP ===== */
@@ -86,40 +100,43 @@ body::before {
   justify-content:space-around;
   background:#00ffc3;
   color:black;
-  padding:12px;
+  padding:14px;
   font-weight:bold;
-  letter-spacing:1px;
-  font-size:13px;
+}
+
+/* ===== SECTION ===== */
+.section {
+  max-width:1000px;
+  margin:80px auto;
+  padding:0 20px;
 }
 
 /* ===== STORY ===== */
 .story {
-  max-width:700px;
-  margin:70px auto;
-  padding:35px;
   background:rgba(10,10,10,0.85);
-  border-left:3px solid #00ffc3;
+  padding:40px;
+  border-left:4px solid #00ffc3;
   line-height:1.8;
-  font-size:15px;
 }
 
 /* ===== FEATURE ===== */
 .feature {
   text-align:center;
-  margin:80px auto;
 }
 
 .feature img {
   width:90%;
   max-width:520px;
-  border-radius:12px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.feature img:hover {
+  transform:scale(1.03);
 }
 
 .feature h2 {
   color:#00ffc3;
-  margin-top:15px;
-  font-size:18px;
-  letter-spacing:1px;
 }
 
 /* ===== GRID ===== */
@@ -127,63 +144,47 @@ body::before {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
   gap:25px;
-  max-width:950px;
-  margin:60px auto;
-  padding:0 20px;
 }
 
 .card {
-  background:#0d0d0d;
-  overflow:hidden;
+  background:#111;
   border-radius:8px;
+  overflow:hidden;
   transition:0.3s;
 }
 
 .card img {
   width:100%;
-  display:block;
-  transition:0.3s;
 }
 
 .card:hover {
   transform:translateY(-5px);
 }
 
-.card:hover img {
-  transform:scale(1.05);
+/* ===== DIVIDER ===== */
+.divider {
+  text-align:center;
+  margin:80px 0;
+  color:#00ffc3;
+  letter-spacing:2px;
 }
 
 /* ===== SOCIAL ===== */
 .social {
   text-align:center;
-  padding:60px 20px;
-}
-
-.social h2 {
-  letter-spacing:2px;
 }
 
 .social a {
   display:block;
   color:#00ffc3;
-  margin-top:12px;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.social a:hover {
-  color:white;
+  margin-top:10px;
 }
 
 /* ===== NEWSLETTER ===== */
 .newsletter {
   text-align:center;
-  padding:60px 20px;
   background:#0a0a0a;
-}
-
-.newsletter h2 {
-  letter-spacing:2px;
+  padding:60px 20px;
 }
 
 .newsletter input {
@@ -195,20 +196,17 @@ body::before {
 }
 
 .newsletter button {
-  padding:12px 22px;
+  padding:12px 20px;
   background:#00ffc3;
   border:none;
   margin-top:10px;
-  font-weight:bold;
-  cursor:pointer;
 }
 
 /* ===== FOOTER ===== */
 .footer {
   text-align:center;
-  padding:50px 20px;
+  padding:60px;
   color:#666;
-  font-size:13px;
 }
 
 </style>
@@ -218,18 +216,20 @@ body::before {
 
 <div class="wrapper">
 
+<!-- HERO -->
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
   <div class="location">Gate City • Nashua, NH</div>
+  <div class="identity">USA BUILT • RIDER OWNED</div>
 
   <div class="nav">
-    <a href="#">Bikes</a>
-    <a href="#">Parts</a>
-    <a href="#">Gear</a>
-    <a href="#">Merch</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="finished-bikes.html">Bikes</a>
+    <a href="parts.html">Parts</a>
+    <a href="gear.html">Gear</a>
+    <a href="merch.html">Merch</a>
+    <a href="mopeds.html">Cant forget about the Mopeds</a>
+    <a href="mailto:jgclsales@gmail.com">Contact</a>
   </div>
 </div>
 
@@ -240,46 +240,50 @@ body::before {
   <div>NEW ENGLAND</div>
 </div>
 
-<div class="story">
-  This isn’t a flipped collection.<br><br>
-
-  Every bike here was found the hard way — face-to-face deals across New England.<br><br>
-
-  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.<br>
-  Barns. Attics. Garages.<br><br>
-
-  No shortcuts. No easy wins.<br><br>
-
-  <strong>Earned, not assembled.</strong>
+<!-- STORY -->
+<div class="section">
+  <div class="story">
+    This isn’t a flipped collection.<br><br>
+    Every bike here was found the hard way — face-to-face deals across New England.<br><br>
+    Barns. Attics. Garages.<br><br>
+    <strong>Earned, not assembled.</strong>
+  </div>
 </div>
 
-<div class="feature">
+<!-- FEATURE -->
+<div class="section feature">
   <img src="decoster-after.jpg">
   <h2>1978 Roger DeCoster</h2>
 </div>
 
-<div class="grid">
-  <div class="card"><img src="haro-mirra-driveside.jpg"></div>
-  <div class="card"><img src="haro-mirra-nondriveside.jpg"></div>
-  <div class="card"><img src="decoster-before.jpg"></div>
-  <div class="card"><img src="you-dirtbike.jpg"></div>
+<!-- DIVIDER -->
+<div class="divider">THE COLLECTION</div>
+
+<!-- GRID -->
+<div class="section">
+  <div class="grid">
+    <div class="card"><img src="haro-mirra-driveside.jpg"></div>
+    <div class="card"><img src="haro-mirra-nondriveside.jpg"></div>
+    <div class="card"><img src="decoster-before.jpg"></div>
+    <div class="card"><img src="you-dirtbike.jpg"></div>
+  </div>
 </div>
 
-<div class="social">
+<!-- SOCIAL -->
+<div class="section social">
   <h2>FOLLOW</h2>
   <a href="https://www.tiktok.com/@pedalforever">TikTok → @pedalforever</a>
   <a href="https://www.youtube.com/@pedalforever">YouTube → @pedalforever</a>
 </div>
 
+<!-- NEWSLETTER -->
 <div class="newsletter">
   <h2>JOIN THE MOVEMENT</h2>
-  <p style="color:#777; font-size:14px;">
-    Refurbishing • Restoration • Preservation tips + giveaways
-  </p>
   <input placeholder="Enter email"><br>
   <button>Subscribe</button>
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
   jgclsales@gmail.com<br><br>
   Rider Owned • Est. 2023
