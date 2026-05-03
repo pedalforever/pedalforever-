@@ -2,68 +2,109 @@
 <html>
 <head>
   <title>Pedal Forever</title>
+
+  <style>
+    body {
+      background: black;
+      color: white;
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    /* NAV BAR */
+    .nav {
+      background: #111;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav a {
+      color: yellow;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 18px;
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #222;
+      min-width: 180px;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 6px 10px;
+      color: white;
+    }
+
+    .dropdown-content a:hover {
+      background: #333;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* CONTENT */
+    .section {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    img {
+      border-radius: 10px;
+    }
+
+  </style>
 </head>
 
-<body style="background:black; color:white; text-align:center; font-family:Arial;">
+<body>
 
-  <h1>PEDAL FOREVER</h1>
-  <p>Gate City • Nashua, NH</p>
+  <!-- NAVIGATION -->
+  <div class="nav">
+    <a href="index.html">Home</a>
 
-  <br>
-
-  <!-- HERO IMAGE (CLICKABLE) -->
-  <a href="decoster-after.jpg">
-    <img src="decoster-after.jpg" style="width:80%; max-width:500px; border-radius:10px;">
-  </a>
-
-  <h2 style="color:yellow;">1978 Roger DeCoster</h2>
-
-  <br><br>
-
-  <!-- GALLERY -->
-  <h2 style="color:yellow;">Finished Bikes</h2>
-
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
-
-    <div>
-      <h3>1986 Hutch EXEL</h3>
-      <a href="haro-mirra-driveside.jpg">
-        <img src="haro-mirra-driveside.jpg" width="250">
-      </a>
-    </div>
-
-    <div>
-      <h3>1986 Dyno Comp</h3>
-      <a href="haro-mirra-nondriveside.jpg">
-        <img src="haro-mirra-nondriveside.jpg" width="250">
-      </a>
-    </div>
-
-    <div>
-      <h3>1978 Roger DeCoster</h3>
-      <a href="decoster-before.jpg">
-        <img src="decoster-before.jpg" width="250">
-      </a>
-      <br>
-      <a href="decoster-after.jpg">
-        <img src="decoster-after.jpg" width="250">
-      </a>
-    </div>
-
-    <div>
-      <h3>1978 Raleigh Rampar</h3>
-      <a href="you-dirtbike.jpg">
-        <img src="you-dirtbike.jpg" width="250">
-      </a>
+    <div class="dropdown">
+      <a href="#">Categories ▼</a>
+      <div class="dropdown-content">
+        <a href="finished-bikes.html">Bikes</a>
+        <a href="#">Parts</a>
+        <a href="#">Gear</a>
+        <a href="#">Merch</a>
+        <a href="#">Supplies</a>
+        <a href="#">Decals</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+      </div>
     </div>
 
   </div>
 
-  <br><br>
+  <!-- HEADER -->
+  <div class="section">
+    <h1>PEDAL FOREVER</h1>
+    <p>Gate City • Nashua, NH</p>
 
-  <a href="finished-bikes.html" style="color:yellow; font-size:20px;">
-    VIEW FULL LIST →
-  </a>
+    <p style="color:#ccc; max-width:500px; margin:auto;">
+      Vintage BMX builds, restorations, and shop culture.
+      Built from passion, history, and the love of the ride.
+    </p>
+  </div>
 
-</body>
-</html>
+  <!-- HERO BIKE -->
+  <div class="section">
+    <a href="decoster-after.jpg">
+      <img src="decoster-after.jpg" style="width:80%; max-width:500px;">
+    </a>
