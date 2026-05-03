@@ -2,47 +2,45 @@
 <html>
 <head>
 <title>Pedal Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body {
   margin:0;
-  background: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b') no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  color: white;
+  font-family:Arial, sans-serif;
+  color:white;
+
+  background-image:url('website-wallpaper.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY */
 .overlay {
-  background: rgba(0,0,0,0.85);
-  min-height: 100vh;
-  padding-bottom: 50px;
+  background:rgba(0,0,0,0.55);
+  min-height:100vh;
+  padding-bottom:50px;
 }
 
 /* LOGO */
 .logo {
-  width:280px;
+  width:260px;
   display:block;
   margin:20px auto;
-  filter: drop-shadow(0 0 15px #00ffcc);
 }
 
-/* NAVBAR */
-.nav {
+/* NAV */
+nav {
   text-align:center;
-  margin-bottom:20px;
+  padding:10px;
 }
 
-.nav a {
-  color:#00ffcc;
-  margin:0 15px;
+nav a {
+  color:#00ffc3;
+  margin:0 10px;
   text-decoration:none;
   font-weight:bold;
-  transition:0.3s;
-}
-
-.nav a:hover {
-  color:white;
 }
 
 /* DROPDOWN */
@@ -54,173 +52,187 @@ body {
 .dropdown-content {
   display:none;
   position:absolute;
-  background:black;
+  background:#111;
   padding:10px;
-}
-
-.dropdown:hover .dropdown-content {
-  display:block;
 }
 
 .dropdown-content a {
   display:block;
-  margin:5px 0;
 }
 
-/* HEADINGS */
-h1 {
-  text-align:center;
-  font-size:40px;
-  letter-spacing:3px;
+.dropdown.active .dropdown-content {
+  display:block;
 }
 
-.sub {
-  text-align:center;
-  color:#aaa;
-  margin-bottom:30px;
-}
-
-/* BIO BOX */
-.bio {
+/* DESCRIPTION */
+.description {
   max-width:700px;
-  margin:0 auto 40px auto;
-  background:rgba(0,0,0,0.7);
-  padding:20px;
-  border-left:4px solid #00ffcc;
+  margin:30px auto;
+  padding:25px;
+  background:rgba(0,0,0,0.75);
+  border-left:4px solid #00ffc3;
+  text-align:left;
   line-height:1.6;
 }
 
-/* GALLERY */
-.gallery {
+/* HERO */
+.hero {
+  text-align:center;
+}
+
+.hero img {
+  width:90%;
+  max-width:500px;
+  border-radius:10px;
+}
+
+/* GRID */
+.grid {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:20px;
+  gap:15px;
 }
 
 .card {
+  width:160px;
   background:#111;
   padding:10px;
-  border-radius:10px;
-  width:250px;
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:scale(1.05);
-  box-shadow:0 0 15px #00ffcc;
+  border-radius:8px;
 }
 
 .card img {
   width:100%;
-  border-radius:5px;
 }
 
-.card h3 {
-  color:#00ffcc;
-  margin:10px 0 5px;
+/* NEWSLETTER */
+.newsletter {
+  max-width:500px;
+  margin:40px auto;
+  padding:25px;
+  background:rgba(0,0,0,0.8);
+  border-radius:10px;
+}
+
+input {
+  padding:10px;
+  width:80%;
+  margin-top:10px;
+  border:none;
+}
+
+button {
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  background:#00ffc3;
+  font-weight:bold;
 }
 
 /* CONTACT */
 .contact {
   text-align:center;
-  margin-top:50px;
+  margin-top:30px;
 }
-
-.contact a {
-  color:#00ffcc;
-  text-decoration:none;
-}
-
 </style>
-
 </head>
 
 <body>
+
 <div class="overlay">
 
 <!-- LOGO -->
 <img src="logo.png" class="logo">
 
-<!-- TITLE -->
-<h1>PEDAL FOREVER</h1>
-<p class="sub">Gate City • Nashua, NH</p>
+<h1 style="text-align:center;">PEDAL FOREVER</h1>
+<p style="text-align:center;">Gate City • Nashua, NH</p>
 
 <!-- NAV -->
-<div class="nav">
-  <div class="dropdown">
-    <a href="#">Bikes ▼</a>
-    <div class="dropdown-content">
-      <a href="finished-bikes.html">Finished Bikes</a>
-    </div>
-  </div>
+<nav>
 
-  <a href="#">Parts</a>
-  <a href="#">Gear</a>
-  <a href="#">Merch</a>
-  <a href="#">Services</a>
-  <a href="#contact">Contact</a>
+<div class="dropdown" onclick="this.classList.toggle('active')">
+  <a href="#">Bikes ▼</a>
+  <div class="dropdown-content">
+    <a href="finished-bikes.html">Finished Bikes</a>
+  </div>
 </div>
 
-<!-- BIO -->
-<div class="bio">
+<a href="#">Parts</a>
+<a href="#">Gear</a>
+<a href="#">Merch</a>
+<a href="#">Services</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<!-- DESCRIPTION -->
+<div class="description">
   This isn’t a flipped collection. Every bike here was found the hard way —
-  face-to-face deals across New England. Massachusetts, New Hampshire, Maine,
-  Vermont, Rhode Island.
+  face-to-face deals across New England.
+
+  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.
 
   Barns. Attics. Garages.
 
-  No online sniping. No shortcuts. Just real BMX history pulled out of the dirt
-  and brought back to life.
+  No shortcuts. No easy wins.
+
+  Anyone can scroll and buy.
+  Not everyone goes out and gets it.
+
+  <br><br><strong>Earned, not assembled.</strong>
 </div>
 
-<!-- FEATURE BIKE -->
-<div style="text-align:center; margin-bottom:40px;">
-  <a href="decoster.html">
-    <img src="decoster-after.jpg" style="width:80%; max-width:500px; border-radius:10px;">
-  </a>
-  <h2 style="color:#00ffcc;">1978 Roger DeCoster</h2>
+<!-- HERO -->
+<div class="hero">
+  <img src="decoster-after.jpg">
+  <h2>1978 Roger DeCoster</h2>
 </div>
 
 <!-- GALLERY -->
-<div class="gallery">
+<div class="grid">
 
-  <div class="card">
-    <h3>1986 Hutch XL</h3>
-    <a href="haro-mirra-driveside.jpg">
-      <img src="haro-mirra-driveside.jpg">
-    </a>
-  </div>
+<div class="card">
+  <img src="haro-mirra-driveside.jpg">
+  <p>1986 Hutch XL</p>
+</div>
 
-  <div class="card">
-    <h3>1986 Dyno Comp</h3>
-    <a href="haro-mirra-nondriveside.jpg">
-      <img src="haro-mirra-nondriveside.jpg">
-    </a>
-  </div>
+<div class="card">
+  <img src="haro-mirra-nondriveside.jpg">
+  <p>1986 Dyno Comp</p>
+</div>
 
-  <div class="card">
-    <h3>Before Build</h3>
-    <a href="decoster-before.jpg">
-      <img src="decoster-before.jpg">
-    </a>
-  </div>
+<div class="card">
+  <img src="decoster-before.jpg">
+  <p>Before Build</p>
+</div>
 
-  <div class="card">
-    <h3>Raleigh Rampar</h3>
-    <a href="you-dirtbike.jpg">
-      <img src="you-dirtbike.jpg">
-    </a>
-  </div>
+<div class="card">
+  <img src="you-dirtbike.jpg">
+  <p>Raleigh Rampar</p>
+</div>
 
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Join the Crew</h2>
+  <p>
+    Sign up for refurbishing, restoration, and preservation tips,
+    tricks, and free giveaways.
+  </p>
+
+  <input type="email" placeholder="Enter your email">
+  <br>
+  <button>Subscribe</button>
 </div>
 
 <!-- CONTACT -->
 <div class="contact" id="contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:jgclsales@gmail.com">jgclsales@gmail.com</a></p>
+  <p>jgclsales@gmail.com</p>
 </div>
 
 </div>
+
 </body>
 </html>
