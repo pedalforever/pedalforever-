@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pedal Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  color:white;
+  background:
+    linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size: cover;
+}
+
+/* HEADER */
+header {
+  text-align:center;
+  padding:30px 20px;
+}
+
+header img {
+  width:260px;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#111;
+  padding:15px;
+  position:sticky;
+  top:0;
+}
+
+nav a {
+  color:#f5d300;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* DROPDOWN (WORKS ON CLICK) */
+.dropdown {
+  position:relative;
+}
+
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:#222;
+  padding:10px;
+  top:30px;
+}
+
+.dropdown-content a {
+  display:block;
+  padding:5px 10px;
+  color:white;
+}
+
+.dropdown.active .dropdown-content {
+  display:block;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:40px 20px;
+}
+
+.hero img {
+  width:90%;
+  max-width:520px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.hero img:hover {
+  transform:scale(1.03);
+}
+
+/* DESCRIPTION CARD */
+.statement {
+  max-width:700px;
+  margin:30px auto;
+  padding:25px;
+  background:rgba(0,0,0,0.6);
+  border-left:4px solid #f5d300;
+  font-size:16px;
+  line-height:1.6;
+  text-align:left;
+}
+
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card {
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.card img {
+  width:100%;
+}
+
+.card h3 {
+  padding:10px;
+  color:#f5d300;
+}
+
+/* FADE IN */
+.fade {
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s;
+}
+
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CONTACT */
+.contact {
+  text-align:center;
+  padding:40px;
+}
+
+.contact a {
+  color:#f5d300;
+  text-decoration:none;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png">
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+
+  <div class="dropdown" onclick="this.classList.toggle('active')">
+    <a href="#">Bikes ▼</a>
+    <div class="dropdown-content">
+      <a href="finished-bikes.html">All Bikes</a>
+    </div>
+  </div>
+
+  <a href="#">Parts</a>
+  <a href="#">Gear</a>
+  <a href="#">Merch</a>
+  <a href="#">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero fade">
+  <a href="decoster-after.jpg">
+    <img src="decoster-after.jpg">
+  </a>
+</div>
+
+<div class="statement fade">
+  This isn’t a collection built from clicks and shipping labels.<br><br>
+
+  Every bike here was found the hard way — face to face, cash in hand, across New England.<br><br>
+
+  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.<br><br>
+
+  Attics. Barns. Garages. Backyards. Parking lots.<br><br>
+
+  No shortcuts. No easy wins.<br><br>
+
+  Anyone can scroll and buy. Not everyone goes out and gets it.<br><br>
+
+  <strong>Earned, not assembled.</strong>
+</div>
+
+<div class="gallery">
+
+  <div class="card fade">
+    <a href="haro-mirra-driveside.jpg">
+      <img src="haro-mirra-driveside.jpg">
+    </a>
+    <h3>1986 Hutch EXEL</h3>
+  </div>
+
+  <div class="card fade">
+    <a href="haro-mirra-nondriveside.jpg">
+      <img src="haro-mirra-nondriveside.jpg">
+    </a>
+    <h3>1986 Dyno Comp</h3>
+  </div>
+
+  <div class="card fade">
+    <a href="decoster-before.jpg">
+      <img src="decoster-before.jpg">
+    </a>
+    <h3>1978 DeCoster (Before)</h3>
+  </div>
+
+  <div class="card fade">
+    <a href="decoster-after.jpg">
+      <img src="decoster-after.jpg">
+    </a>
+    <h3>1978 DeCoster (After)</h3>
+  </div>
+
+</div>
+
+<div class="contact" id="contact">
+  <h2>Contact</h2>
+  <a href="mailto:jgclsales@gmail.com">jgclsales@gmail.com</a>
+</div>
+
+<script>
+/* FADE IN ON SCROLL */
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
