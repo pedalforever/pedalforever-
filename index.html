@@ -5,82 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
 body {
   margin:0;
   font-family:Arial, sans-serif;
   color:white;
+  background:black;
+}
 
+/* HERO BACKGROUND */
+.hero-bg {
   background-image:url('website-wallpaper.jpg');
-  background-size:cover;
+  background-size:contain;
   background-position:center;
+  background-repeat:no-repeat;
   background-attachment:fixed;
+  height:100vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position:relative;
 }
 
 /* OVERLAY */
-.overlay {
-  background:rgba(0,0,0,0.55);
-  min-height:100vh;
-  padding-bottom:50px;
+.hero-bg::after {
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  top:0;
+  left:0;
 }
 
-/* LOGO */
-.logo {
-  width:260px;
-  display:block;
-  margin:20px auto;
+.hero-content {
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+/* NEW TAGLINE */
+.tagline {
+  font-size:14px;
+  letter-spacing:3px;
+  color:#00ffc3;
+  margin-bottom:10px;
+}
+
+/* TITLE */
+h1 {
+  font-size:42px;
+  letter-spacing:4px;
+  margin:10px 0;
 }
 
 /* NAV */
 nav {
-  text-align:center;
-  padding:10px;
+  margin-top:15px;
 }
 
 nav a {
   color:#00ffc3;
-  margin:0 10px;
+  margin:0 12px;
   text-decoration:none;
   font-weight:bold;
+  transition:0.2s;
 }
 
-/* DROPDOWN */
-.dropdown {
-  display:inline-block;
-  position:relative;
+nav a:hover {
+  color:white;
 }
 
-.dropdown-content {
-  display:none;
-  position:absolute;
-  background:#111;
-  padding:10px;
+/* SECTION */
+.section {
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
-.dropdown-content a {
-  display:block;
+/* STORY */
+.story {
+  background:#0e0e0e;
+  padding:40px;
+  border-left:5px solid #00ffc3;
+  line-height:1.7;
 }
 
-.dropdown.active .dropdown-content {
-  display:block;
-}
-
-/* DESCRIPTION */
-.description {
-  max-width:700px;
-  margin:30px auto;
-  padding:25px;
-  background:rgba(0,0,0,0.75);
-  border-left:4px solid #00ffc3;
-  text-align:left;
-  line-height:1.6;
-}
-
-/* HERO */
-.hero {
+/* FEATURE */
+.feature {
   text-align:center;
 }
 
-.hero img {
+.feature img {
   width:90%;
   max-width:500px;
   border-radius:10px;
@@ -90,135 +108,178 @@ nav a {
 .grid {
   display:flex;
   flex-wrap:wrap;
+  gap:20px;
   justify-content:center;
-  gap:15px;
 }
 
 .card {
-  width:160px;
+  width:220px;
   background:#111;
   padding:10px;
-  border-radius:8px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:scale(1.05);
 }
 
 .card img {
   width:100%;
+  border-radius:6px;
+}
+
+/* SOCIAL */
+.social {
+  background:#000;
+  text-align:center;
+  padding:60px 20px;
+  border-top:1px solid #222;
+}
+
+.social h2 {
+  letter-spacing:2px;
+}
+
+.social a {
+  display:block;
+  color:#00ffc3;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+  margin-top:10px;
 }
 
 /* NEWSLETTER */
 .newsletter {
-  max-width:500px;
-  margin:40px auto;
-  padding:25px;
-  background:rgba(0,0,0,0.8);
-  border-radius:10px;
+  background:#0e0e0e;
+  padding:40px;
+  text-align:center;
+  border-top:1px solid #222;
 }
 
 input {
   padding:10px;
-  width:80%;
+  width:260px;
   margin-top:10px;
   border:none;
 }
 
 button {
-  margin-top:10px;
   padding:10px 20px;
-  border:none;
   background:#00ffc3;
+  border:none;
+  margin-top:10px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-/* CONTACT */
-.contact {
+/* FOOTER */
+.footer {
   text-align:center;
-  margin-top:30px;
+  padding:30px;
+  color:#777;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="overlay">
+<!-- HERO -->
+<div class="hero-bg">
+  <div class="hero-content">
 
-<!-- LOGO -->
-<img src="logo.png" class="logo">
+    <div class="tagline">LIVE FREE OR RIDE</div>
 
-<h1 style="text-align:center;">PEDAL FOREVER</h1>
-<p style="text-align:center;">Gate City • Nashua, NH</p>
+    <h1>PEDAL FOREVER</h1>
+    <p>Gate City • Nashua, NH</p>
 
-<!-- NAV -->
-<nav>
+    <nav>
+      <a href="#">Bikes</a>
+      <a href="#">Parts</a>
+      <a href="#">Gear</a>
+      <a href="#">Merch</a>
+      <a href="#">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<div class="dropdown" onclick="this.classList.toggle('active')">
-  <a href="#">Bikes ▼</a>
-  <div class="dropdown-content">
-    <a href="finished-bikes.html">Finished Bikes</a>
   </div>
 </div>
 
-<a href="#">Parts</a>
-<a href="#">Gear</a>
-<a href="#">Merch</a>
-<a href="#">Services</a>
-<a href="#contact">Contact</a>
+<!-- STORY -->
+<div class="section">
+  <div class="story">
+    This isn’t a flipped collection.
 
-</nav>
+    Every bike here was found the hard way — face-to-face deals across New England.
 
-<!-- DESCRIPTION -->
-<div class="description">
-  This isn’t a flipped collection. Every bike here was found the hard way —
-  face-to-face deals across New England.
+    Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.
 
-  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.
+    Barns. Attics. Garages.
 
-  Barns. Attics. Garages.
+    No shortcuts. No easy wins.
 
-  No shortcuts. No easy wins.
+    Anyone can scroll and buy.
+    Not everyone goes out and gets it.
 
-  Anyone can scroll and buy.
-  Not everyone goes out and gets it.
-
-  <br><br><strong>Earned, not assembled.</strong>
+    <br><br><strong>Earned, not assembled.</strong>
+  </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
+<!-- FEATURE BIKE -->
+<div class="section feature">
   <img src="decoster-after.jpg">
   <h2>1978 Roger DeCoster</h2>
 </div>
 
-<!-- GALLERY -->
-<div class="grid">
+<!-- COLLECTION -->
+<div class="section">
+  <h2 style="text-align:center;">Collection</h2>
 
-<div class="card">
-  <img src="haro-mirra-driveside.jpg">
-  <p>1986 Hutch XL</p>
+  <div class="grid">
+
+    <div class="card">
+      <img src="haro-mirra-driveside.jpg">
+      <p>1986 Hutch XL</p>
+    </div>
+
+    <div class="card">
+      <img src="haro-mirra-nondriveside.jpg">
+      <p>1986 Dyno Comp</p>
+    </div>
+
+    <div class="card">
+      <img src="decoster-before.jpg">
+      <p>Before Build</p>
+    </div>
+
+    <div class="card">
+      <img src="you-dirtbike.jpg">
+      <p>Raleigh Rampar</p>
+    </div>
+
+  </div>
 </div>
 
-<div class="card">
-  <img src="haro-mirra-nondriveside.jpg">
-  <p>1986 Dyno Comp</p>
-</div>
+<!-- SOCIAL -->
+<div class="social">
+  <h2>Follow the Build</h2>
 
-<div class="card">
-  <img src="decoster-before.jpg">
-  <p>Before Build</p>
-</div>
+  <a href="https://www.tiktok.com/@pedalforever" target="_blank">
+    TikTok → @pedalforever
+  </a>
 
-<div class="card">
-  <img src="you-dirtbike.jpg">
-  <p>Raleigh Rampar</p>
-</div>
-
+  <a href="https://www.youtube.com/@pedalforever" target="_blank">
+    YouTube → @pedalforever
+  </a>
 </div>
 
 <!-- NEWSLETTER -->
 <div class="newsletter">
-  <h2>Join the Crew</h2>
+  <h2>Join the Movement</h2>
   <p>
-    Sign up for refurbishing, restoration, and preservation tips,
-    tricks, and free giveaways.
+    Restoration tips. Preservation. Real finds. Free giveaways.
   </p>
 
   <input type="email" placeholder="Enter your email">
@@ -227,11 +288,9 @@ button {
 </div>
 
 <!-- CONTACT -->
-<div class="contact" id="contact">
-  <h2>Contact</h2>
+<div class="footer" id="contact">
   <p>jgclsales@gmail.com</p>
-</div>
-
+  <p>Rider Owned • Est. 2023</p>
 </div>
 
 </body>
