@@ -49,7 +49,6 @@ body::before {
 .hero h1 {
   font-size:64px;
   margin:10px 0;
-  letter-spacing:2px;
 }
 
 .location {
@@ -103,6 +102,25 @@ body::before {
   font-weight:bold;
 }
 
+/* ===== SOCIAL ICON BAR ===== */
+.icons {
+  text-align:center;
+  margin-top:25px;
+}
+
+.icons a {
+  display:inline-block;
+  margin:0 10px;
+  font-size:18px;
+  color:#00ffc3;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.icons a:hover {
+  transform:scale(1.2);
+}
+
 /* ===== SPLIT ===== */
 .split {
   display:grid;
@@ -116,12 +134,10 @@ body::before {
   background:rgba(10,10,10,0.9);
   padding:40px;
   border-left:4px solid #00ffc3;
-  line-height:1.7;
 }
 
 .story h3 {
   color:#00ffc3;
-  letter-spacing:2px;
 }
 
 .feature img {
@@ -132,8 +148,6 @@ body::before {
 .feature-title {
   margin-top:15px;
   color:#00ffc3;
-  font-size:14px;
-  letter-spacing:1px;
 }
 
 .btn {
@@ -143,7 +157,6 @@ body::before {
   background:none;
   color:#00ffc3;
   cursor:pointer;
-  transition:0.3s;
 }
 
 .btn:hover {
@@ -175,7 +188,6 @@ body::before {
 
 .card img {
   width:100%;
-  display:block;
   transition:0.4s;
 }
 
@@ -185,7 +197,6 @@ body::before {
   width:100%;
   padding:14px;
   font-size:12px;
-  letter-spacing:1px;
   background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 
@@ -194,32 +205,30 @@ body::before {
   box-shadow:0 0 25px rgba(0,255,195,0.7);
 }
 
-/* ===== SOCIAL + NEWSLETTER ===== */
-.bottom {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  margin:100px 0;
+/* ===== SHOP STRIP ===== */
+.shop-strip {
+  background:#111;
+  padding:40px 20px;
+  text-align:center;
 }
 
-.social a {
-  display:block;
-  margin-top:10px;
+.shop-strip h3 {
   color:#00ffc3;
 }
 
-.newsletter input {
-  padding:12px;
-  width:70%;
-  background:#111;
-  border:1px solid #333;
-  color:white;
+.shop-links a {
+  display:inline-block;
+  margin:10px;
+  padding:10px 18px;
+  border:1px solid #00ffc3;
+  color:#00ffc3;
+  text-decoration:none;
+  font-size:13px;
 }
 
-.newsletter button {
-  padding:12px 20px;
+.shop-links a:hover {
   background:#00ffc3;
-  border:none;
+  color:black;
 }
 
 /* ===== FOOTER ===== */
@@ -231,7 +240,7 @@ body::before {
 
 /* ===== MOBILE ===== */
 @media(max-width:800px){
-  .split, .bottom {
+  .split {
     grid-template-columns:1fr;
   }
 }
@@ -257,6 +266,15 @@ body::before {
     <a href="#">Cant forget about the Mopeds</a>
     <a href="mailto:jgclsales@gmail.com">Contact</a>
   </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="icons">
+    <a href="https://www.tiktok.com/@pedalforever">🎵</a>
+    <a href="https://www.youtube.com/@pedalforever">▶</a>
+    <a href="https://instagram.com/pedalforever">📸</a>
+    <a href="https://facebook.com/pedalforever">👍</a>
+  </div>
+
 </div>
 
 <div class="strip">
@@ -292,20 +310,13 @@ body::before {
   <div class="card"><img src="you-dirtbike.jpg"><div class="card-title">FIELD FIND</div></div>
 </div>
 
-<div class="bottom">
-
-  <div class="social">
-    <h3>FOLLOW</h3>
-    <a href="https://www.tiktok.com/@pedalforever">TikTok → @pedalforever</a>
-    <a href="https://www.youtube.com/@pedalforever">YouTube → @pedalforever</a>
+<!-- SHOP HUB -->
+<div class="shop-strip">
+  <h3>SHOP + SUPPORT</h3>
+  <div class="shop-links">
+    <a href="#">TikTok Shop (coming soon)</a>
+    <a href="#">Etsy Store (coming soon)</a>
   </div>
-
-  <div class="newsletter">
-    <h3>JOIN THE MOVEMENT</h3>
-    <input placeholder="Enter email">
-    <button>Subscribe</button>
-  </div>
-
 </div>
 
 <div class="footer">
