@@ -6,14 +6,16 @@
 
 <style>
 
+/* ===== GLOBAL ===== */
 body {
   margin:0;
   font-family:Arial, sans-serif;
   color:#eaeaea;
   background:#000;
+  scroll-behavior:smooth;
 }
 
-/* ===== FIXED BACKGROUND (THIS IS THE KEY) ===== */
+/* ===== FIXED BACKGROUND ===== */
 body::before {
   content:'';
   position:fixed;
@@ -21,15 +23,13 @@ body::before {
   left:0;
   width:100%;
   height:100%;
-
   background:url('website-wallpaper.jpg') center/contain no-repeat;
   background-color:black;
-
-  opacity:0.25; /* controls strength */
+  opacity:0.18;
   z-index:-1;
 }
 
-/* ===== MAIN CONTENT WRAP ===== */
+/* ===== WRAPPER ===== */
 .wrapper {
   position:relative;
   z-index:1;
@@ -38,130 +38,179 @@ body::before {
 /* ===== HERO ===== */
 .hero {
   text-align:center;
-  padding:80px 20px 40px;
+  padding:100px 20px 60px;
 }
 
 .tagline {
   color:#00ffc3;
-  letter-spacing:4px;
-  font-size:12px;
+  letter-spacing:6px;
+  font-size:11px;
+  opacity:0.8;
 }
 
 .hero h1 {
-  font-size:48px;
-  margin:10px 0;
+  font-size:52px;
+  margin:12px 0;
+  letter-spacing:2px;
 }
 
 .location {
-  color:#888;
+  color:#777;
+  font-size:14px;
+  margin-bottom:25px;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 .nav {
-  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
 .nav a {
   color:#00ffc3;
-  margin:0 12px;
   text-decoration:none;
   font-weight:bold;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.nav a:hover {
+  color:white;
+}
+
+/* ===== STRIP ===== */
+.strip {
+  display:flex;
+  justify-content:space-around;
+  background:#00ffc3;
+  color:black;
+  padding:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  font-size:13px;
 }
 
 /* ===== STORY ===== */
 .story {
-  max-width:750px;
-  margin:60px auto;
-  padding:30px;
-  background:rgba(15,15,15,0.9);
-  border-left:4px solid #00ffc3;
-  line-height:1.7;
+  max-width:700px;
+  margin:70px auto;
+  padding:35px;
+  background:rgba(10,10,10,0.85);
+  border-left:3px solid #00ffc3;
+  line-height:1.8;
+  font-size:15px;
 }
 
 /* ===== FEATURE ===== */
 .feature {
   text-align:center;
-  margin:60px auto;
+  margin:80px auto;
 }
 
 .feature img {
   width:90%;
-  max-width:500px;
-  border-radius:10px;
+  max-width:520px;
+  border-radius:12px;
 }
 
 .feature h2 {
   color:#00ffc3;
+  margin-top:15px;
+  font-size:18px;
+  letter-spacing:1px;
 }
 
 /* ===== GRID ===== */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-  gap:20px;
-  max-width:900px;
-  margin:40px auto;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:25px;
+  max-width:950px;
+  margin:60px auto;
   padding:0 20px;
 }
 
 .card {
-  background:#111;
-  padding:10px;
+  background:#0d0d0d;
+  overflow:hidden;
+  border-radius:8px;
+  transition:0.3s;
 }
 
 .card img {
   width:100%;
+  display:block;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.card:hover img {
+  transform:scale(1.05);
 }
 
 /* ===== SOCIAL ===== */
 .social {
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
+}
+
+.social h2 {
+  letter-spacing:2px;
 }
 
 .social a {
   display:block;
   color:#00ffc3;
-  margin-top:10px;
+  margin-top:12px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.social a:hover {
+  color:white;
 }
 
 /* ===== NEWSLETTER ===== */
 .newsletter {
   text-align:center;
-  padding:50px;
-  background:#111;
+  padding:60px 20px;
+  background:#0a0a0a;
+}
+
+.newsletter h2 {
+  letter-spacing:2px;
 }
 
 .newsletter input {
-  padding:10px;
-  width:220px;
+  padding:12px;
+  width:240px;
+  background:#111;
+  border:1px solid #333;
+  color:white;
 }
 
 .newsletter button {
-  padding:10px 20px;
+  padding:12px 22px;
   background:#00ffc3;
   border:none;
   margin-top:10px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* ===== FOOTER ===== */
 .footer {
   text-align:center;
-  padding:40px;
+  padding:50px 20px;
   color:#666;
-}
-img {
-  transition: all 0.3s ease;
+  font-size:13px;
 }
 
-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(0,255,195,0.6);
-}
-
-body {
-  scroll-behavior: smooth;
-}
 </style>
 </head>
 
@@ -184,16 +233,24 @@ body {
   </div>
 </div>
 
+<!-- STRIP -->
+<div class="strip">
+  <div>REAL FINDS</div>
+  <div>RESTORED</div>
+  <div>NEW ENGLAND</div>
+</div>
+
 <div class="story">
-  This isn’t a flipped collection.
+  This isn’t a flipped collection.<br><br>
 
-  Every bike here was found the hard way — face-to-face deals across New England.
+  Every bike here was found the hard way — face-to-face deals across New England.<br><br>
 
-  Barns. Attics. Garages.
+  Massachusetts. New Hampshire. Maine. Vermont. Rhode Island.<br>
+  Barns. Attics. Garages.<br><br>
 
-  No shortcuts. No easy wins.
+  No shortcuts. No easy wins.<br><br>
 
-  <br><br><strong>Earned, not assembled.</strong>
+  <strong>Earned, not assembled.</strong>
 </div>
 
 <div class="feature">
@@ -216,12 +273,15 @@ body {
 
 <div class="newsletter">
   <h2>JOIN THE MOVEMENT</h2>
+  <p style="color:#777; font-size:14px;">
+    Refurbishing • Restoration • Preservation tips + giveaways
+  </p>
   <input placeholder="Enter email"><br>
   <button>Subscribe</button>
 </div>
 
 <div class="footer">
-  jgclsales@gmail.com<br>
+  jgclsales@gmail.com<br><br>
   Rider Owned • Est. 2023
 </div>
 
