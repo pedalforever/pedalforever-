@@ -1,319 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Pedal Forever</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedal Forever - Bike of the Month</title>
 
 <style>
-
 body {
-  margin:0;
-  font-family:'Orbitron', sans-serif;
-  color:#eaeaea;
-  background:#000;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+  text-align: center;
+  padding: 40px;
 }
 
-/* BACKGROUND */
-body::before {
-  content:'';
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:url('website-wallpaper.jpg') center/cover no-repeat;
-  opacity:0.15;
-  z-index:-1;
+h1 {
+  margin-bottom: 10px;
 }
 
-.wrap {
-  max-width:1100px;
-  margin:auto;
-  padding:0 15px;
+.bike-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
 }
 
-/* HERO */
-.hero {
-  text-align:center;
-  padding:90px 15px 50px;
+.bike {
+  border: 2px solid #333;
+  padding: 20px;
 }
 
-.tagline {
-  color:#00ffc3;
-  letter-spacing:5px;
-  font-size:11px;
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 2px solid #00ffcc;
+  background: transparent;
+  color: #00ffcc;
+  cursor: pointer;
 }
 
-.hero h1 {
-  font-size:48px;
+button:hover {
+  background: #00ffcc;
+  color: black;
 }
 
-/* NAV */
-.nav {
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.leader {
+  box-shadow: 0 0 20px #00ffcc;
+  transform: scale(1.05);
 }
 
-.nav a {
-  color:#00ffc3;
-  text-decoration:none;
+input {
+  padding: 10px;
+  margin-top: 20px;
+  width: 250px;
 }
-
-/* STRIP */
-.strip {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  background:#00ffc3;
-  color:black;
-  padding:12px;
-  font-weight:bold;
-}
-
-/* STORY */
-.story {
-  margin:60px auto;
-  max-width:700px;
-  background:rgba(0,0,0,0.75);
-  padding:25px;
-  border-left:4px solid #00ffc3;
-}
-
-/* FEATURE BOX */
-.feature-box {
-  margin:60px 0;
-  padding:25px;
-  background:rgba(0,0,0,0.75);
-  border:1px solid rgba(0,255,195,0.3);
-  border-radius:10px;
-  position:relative;
-}
-
-/* subtle checkered accent */
-.feature-box::after {
-  content:'';
-  position:absolute;
-  bottom:10px;
-  right:10px;
-  width:60px;
-  height:60px;
-  background-image:
-    linear-gradient(45deg, #fff 25%, transparent 25%),
-    linear-gradient(-45deg, #fff 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #fff 75%),
-    linear-gradient(-45deg, transparent 75%, #fff 75%);
-  background-size:12px 12px;
-  opacity:0.08;
-}
-
-/* BUILD GRID */
-.build-strip {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.build-card img {
-  width:100%;
-  border-radius:6px;
-  transition:0.3s;
-}
-
-.build-card:hover img {
-  transform:scale(1.05);
-  box-shadow:0 0 20px rgba(0,255,195,0.4);
-}
-
-/* FEATURE TEXT */
-.feature-caption {
-  margin-top:25px;
-  text-align:center;
-  font-size:13px;
-  line-height:1.6;
-  color:#ffd54a;
-  letter-spacing:1px;
-}
-
-.feature-caption strong {
-  color:#fff;
-  font-size:14px;
-}
-
-/* CTA */
-.collection-cta {
-  text-align:center;
-  padding:40px 20px;
-  background:#0f0f0f;
-  border-top:2px solid #00ffc3;
-  border-bottom:2px solid #00ffc3;
-}
-
-.collection-cta a {
-  padding:12px 24px;
-  border:2px solid #00ffc3;
-  color:#00ffc3;
-  text-decoration:none;
-}
-
-/* APPAREL */
-.apparel {
-  text-align:center;
-  margin:80px 0;
-}
-
-.apparel-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.product {
-  background:#111;
-  padding:15px;
-  border-radius:6px;
-}
-
-.product img {
-  width:100%;
-  height:160px;
-  object-fit:cover;
-}
-
-/* SOCIAL */
-.social-bar {
-  margin:50px 0 20px;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  border-top:1px solid #222;
-  border-bottom:1px solid #222;
-  padding:20px 0;
-}
-
-.social-bar a {
-  color:#00ffc3;
-  font-size:18px;
-  text-decoration:none;
-}
-
-/* CONTACT */
-.contact {
-  text-align:center;
-  margin:40px 0;
-}
-
-.contact a {
-  color:#00ffc3;
-  border-bottom:1px solid #00ffc3;
-  text-decoration:none;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .build-strip { grid-template-columns:repeat(2,1fr); }
-  .apparel-grid { grid-template-columns:1fr; }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<h1>🔥 Bike of the Month 🔥</h1>
+<p>Vote once. Winner gets the glory.</p>
 
-<div class="hero">
-  <div class="tagline">LIVE FREE OR RIDE</div>
-  <h1>PEDAL FOREVER</h1>
+<input id="email" placeholder="Enter your email to vote">
 
-  <div class="nav">
-    <a href="collection.html">Collection</a>
-    <a href="#">Apparel</a>
-    <a href="#">Mopeds</a>
-    <a href="#contact">Contact</a>
+<div class="bike-container">
+  <div class="bike" id="optionA">
+    <h2>Bike A</h2>
+    <button onclick="submitVote('A')">Vote A</button>
+    <p>Votes: <span id="countA">0</span></p>
+  </div>
+
+  <div class="bike" id="optionB">
+    <h2>Bike B</h2>
+    <button onclick="submitVote('B')">Vote B</button>
+    <p>Votes: <span id="countB">0</span></p>
   </div>
 </div>
 
-<div class="strip">
-  <div>REAL FINDS</div>
-  <div>RESTORED</div>
-  <div>NEW ENGLAND</div>
-</div>
-
-<div class="story">
-  Every bike here was found the hard way — barns, attics, garages.<br><br>
-  <strong>Earned, not assembled.</strong>
-</div>
-
-<!-- 🔥 FEATURE BUILD -->
-<div class="feature-box">
-
-<div class="build-strip">
-
-<a href="decoster-before.jpg" target="_blank" class="build-card">
-<img src="decoster-before.jpg">
-</a>
-
-<a href="decoster-table.jpg" target="_blank" class="build-card">
-<img src="decoster-table.jpg">
-</a>
-
-<a href="decoster-after.jpg" target="_blank" class="build-card">
-<img src="decoster-after.jpg">
-</a>
-
-<a href="decoster-basement.jpg" target="_blank" class="build-card">
-<img src="decoster-basement.jpg">
-</a>
-
-</div>
-
-<div class="feature-caption">
-
-<strong>1978 Roger DeCoster – World Champion Build</strong><br><br>
-
-From the 617 to the 603 — rescued just outside of Boston, Massachusetts.<br>
-This DeCoster came back to Nashua and was refurbished 110% in-house using its original parts in Nashua, New Hampshire.<br><br>
-
-Right down to its green Roger DeCoster #1 World Champion number plate.<br>
-This build features Skyway Tuff II wheels, Tange forks, and Race Inc. tall bars in anodized blue.<br><br>
-
-Out back — MX-1000 rear brake caliper paired with a Dia-Compe MX brake lever.<br>
-Drive setup includes a Takagi chromoly 175x24 crankset, CAM USA sprocket, and Wellgo pedals.<br><br>
-
-Cockpit and finishing details include ACS BMX stem, AME grips, ACS seat clamp, and a GT BMX seat.<br>
-Set off with a Tuff Neck USA laid-back seat post and chain tensioners.<br><br>
-
-Still wearing its original nickel plating.<br>
-This one’s not just restored — it’s preserved.<br><br>
-
-<strong>This bike’s a ripper.</strong>
-
-</div>
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv;
-const SUPABASE_KEY = const SUPABASE_KEY = "sb_publishable_XXXXXXXX";;  
+// 🔑 PASTE YOUR KEYS HERE
+const SUPABASE_URL = "https://mpxdtcontzizhbuigjwl.supabase.co";
+const SUPABASE_KEY = sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv;
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-async function submitVote(choice, email) {
-  const { data, error } = await supabase
+let hasVoted = localStorage.getItem("voted");
+
+// SUBMIT VOTE
+async function submitVote(choice) {
+  if (hasVoted) {
+    alert("You already voted 🔒");
+    return;
+  }
+
+  const email = document.getElementById("email").value;
+
+  if (!email || !email.includes("@")) {
+    alert("Enter a valid email");
+    return;
+  }
+
+  // check duplicate email
+  const { data: existing } = await supabase
     .from("votes")
-    .insert([{ choice: choice, email: email }]);
+    .select("*")
+    .eq("email", email);
+
+  if (existing.length > 0) {
+    alert("This email already voted 🚫");
+    return;
+  }
+
+  // insert vote
+  const { error } = await supabase
+    .from("votes")
+    .insert([{ choice, email }]);
 
   if (error) {
-    alert("Error submitting vote");
+    alert("Vote failed");
     console.error(error);
-  } else {
-    alert("Vote submitted 🔥");
-    loadVotes();
+    return;
   }
+
+  localStorage.setItem("voted", true);
+  hasVoted = true;
+
+  alert("Vote locked in 🔥");
+
+  loadVotes();
 }
 
+// LOAD VOTES
 async function loadVotes() {
   const { data, error } = await supabase
     .from("votes")
@@ -329,55 +150,24 @@ async function loadVotes() {
 
   document.getElementById("countA").innerText = countA;
   document.getElementById("countB").innerText = countB;
+
+  // highlight leader
+  if (countA > countB) {
+    document.getElementById("optionA").classList.add("leader");
+    document.getElementById("optionB").classList.remove("leader");
+  } else if (countB > countA) {
+    document.getElementById("optionB").classList.add("leader");
+    document.getElementById("optionA").classList.remove("leader");
+  }
+
+  // 300th vote trigger
+  if (data.length === 300) {
+    alert("🎉 300TH VOTER WINS 🎉");
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadVotes);
 </script>
-</div>
-
-<!-- COLLECTION -->
-<div class="collection-cta">
-  <h2>THE COLLECTION</h2>
-  <a href="collection.html">CLICK HERE TO SEE THE PEDAL FOREVER BIKE COLLECTION</a>
-</div>
-
-<!-- APPAREL -->
-<div class="apparel">
-  <h2>APPAREL</h2>
-
-  <div class="apparel-grid">
-
-    <div class="product">
-      <img src="decoster-after.jpg">
-      <h4>Pedal Forever Tee</h4>
-    </div>
-
-    <div class="product">
-      <img src="decoster-before.jpg">
-      <h4>Pedal Forever Hoodie</h4>
-    </div>
-
-    <div class="product">
-      <img src="decoster-basement.jpg">
-      <h4>Pedal Forever Hat</h4>
-    </div>
-
-  </div>
-</div>
-
-<!-- SOCIAL -->
-<div class="social-bar">
-  <a href="https://www.youtube.com/@pedalforever" target="_blank">YouTube</a>
-  <a href="https://www.tiktok.com/@pedalforever" target="_blank">TikTok</a>
-</div>
-
-<!-- CONTACT -->
-<div class="contact" id="contact">
-  Restoration, builds, or questions — 
-  <a href="mailto:jgclsales@gmail.com">contact me here</a>
-</div>
-
-</div>
 
 </body>
 </html>
