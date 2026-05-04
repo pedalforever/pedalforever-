@@ -24,7 +24,7 @@ body::before {
   width:100%;
   height:100%;
   background:url('website-wallpaper.jpg') center/cover no-repeat;
-  opacity:0.16;
+  opacity:0.18;
   z-index:-1;
 }
 
@@ -51,14 +51,8 @@ body::before {
   margin:10px 0;
 }
 
-.location {
-  color:#888;
-}
-
-.identity {
-  color:#555;
-  font-size:12px;
-}
+.location { color:#888; }
+.identity { color:#555; font-size:12px; }
 
 /* NAV */
 .nav {
@@ -97,19 +91,47 @@ body::before {
   line-height:1.6;
 }
 
-/* FEATURE */
-.feature {
-  text-align:center;
-  margin:60px 0;
+/* 🔥 BUILD STRIP */
+.build-strip {
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:12px;
+  margin:70px 0;
 }
 
-.feature img {
+.build-card {
+  position:relative;
+  overflow:hidden;
+  border-radius:6px;
+  display:block;
+}
+
+.build-card img {
   width:100%;
-  max-width:500px;
-  border-radius:10px;
+  display:block;
+  transition:0.4s ease;
 }
 
-/* 🔥 COLLECTION CTA (THIS IS THE MONEY SECTION) */
+.build-card:hover img {
+  transform:scale(1.05);
+}
+
+.build-card:hover {
+  box-shadow:0 0 25px rgba(0,255,195,0.4);
+}
+
+.build-card span {
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#00ffc3;
+  background:rgba(0,0,0,0.6);
+  padding:5px 8px;
+}
+
+/* COLLECTION CTA */
 .collection-cta {
   margin:80px auto;
   padding:40px 20px;
@@ -121,14 +143,12 @@ body::before {
 
 .collection-cta h2 {
   color:#00ffc3;
-  margin-bottom:15px;
 }
 
 .collection-cta p {
   max-width:700px;
   margin:auto;
   color:#ccc;
-  line-height:1.6;
 }
 
 .collection-cta a {
@@ -138,39 +158,11 @@ body::before {
   border:2px solid #00ffc3;
   color:#00ffc3;
   text-decoration:none;
-  font-size:13px;
 }
 
 .collection-cta a:hover {
   background:#00ffc3;
   color:black;
-}
-
-/* SOCIAL */
-.icons {
-  text-align:center;
-  margin-top:40px;
-}
-
-.icons a {
-  margin:0 10px;
-  font-size:20px;
-  color:#00ffc3;
-}
-
-/* SHOP */
-.shop {
-  text-align:center;
-  margin:80px 0;
-}
-
-.shop a {
-  display:inline-block;
-  margin:8px;
-  padding:10px 18px;
-  border:1px solid #00ffc3;
-  color:#00ffc3;
-  text-decoration:none;
 }
 
 /* FOOTER */
@@ -180,10 +172,14 @@ body::before {
   color:#555;
 }
 
-/* MOBILE FIX */
-@media(max-width:800px){
-  .hero h1 { font-size:36px; }
-  .strip { flex-direction:column; }
+/* MOBILE */
+@media(max-width:900px){
+  .build-strip { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:500px){
+  .build-strip { grid-template-columns:1fr; }
+  .hero h1 { font-size:34px; }
 }
 
 </style>
@@ -200,7 +196,7 @@ body::before {
   <div class="identity">USA BUILT • RIDER OWNED</div>
 
   <div class="nav">
-    <a href="collection.html">The Collection</a>
+    <a href="collection.html">Collection</a>
     <a href="#">Parts</a>
     <a href="#">Gear</a>
     <a href="#">Merch</a>
@@ -222,32 +218,41 @@ body::before {
   <strong>Earned, not assembled.</strong>
 </div>
 
-<div class="feature">
-  <img src="decoster-after.jpg">
+<!-- 🔥 CLICKABLE 4 STRIP -->
+<div class="build-strip">
+
+  <a href="collection.html" target="_blank" class="build-card">
+    <img src="decoster-before.jpg">
+    <span>BEFORE</span>
+  </a>
+
+  <a href="collection.html" target="_blank" class="build-card">
+    <img src="decoster-table.jpg">
+    <span>BUILD</span>
+  </a>
+
+  <a href="collection.html" target="_blank" class="build-card">
+    <img src="decoster-after.jpg">
+    <span>FINISHED</span>
+  </a>
+
+  <a href="collection.html" target="_blank" class="build-card">
+    <img src="decoster-basement.jpg">
+    <span>IN THE WILD</span>
+  </a>
+
 </div>
 
-<!-- 🔥 THIS IS YOUR NEW COLLECTION SECTION -->
+<!-- CTA -->
 <div class="collection-cta">
   <h2>THE COLLECTION</h2>
   <p>
-    No auctions. No easy buys. No internet sniping.<br><br>
-    Every bike in this collection was found the hard way — local deals, face-to-face, all across New England.<br><br>
-    Built over time. Built with effort. Built while raising a family.<br><br>
-    This isn’t money — this is miles.
+    No auctions. No easy buys. No internet flips.<br><br>
+    Every bike here was sourced locally across New England — face-to-face, real deals.<br><br>
+    Built while raising a family. Built the hard way.
   </p>
 
-  <a href="collection.html">ENTER THE COLLECTION</a>
-</div>
-
-<div class="shop">
-  <h3>SHOP + SUPPORT</h3>
-  <a href="#">TikTok Shop (soon)</a>
-  <a href="#">Etsy (soon)</a>
-</div>
-
-<div class="icons">
-  <a href="https://www.tiktok.com/@pedalforever">🎵</a>
-  <a href="https://www.youtube.com/@pedalforever">▶</a>
+  <a href="collection.html">CLICK HERE TO SEE THE PEDAL FOREVER BIKE COLLECTION</a>
 </div>
 
 <div class="footer">
