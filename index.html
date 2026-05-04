@@ -8,7 +8,6 @@
 
 <style>
 
-/* ===== BASE ===== */
 body {
   margin:0;
   font-family:'Orbitron', Arial, sans-serif;
@@ -16,7 +15,7 @@ body {
   background:#000;
 }
 
-/* ===== BACKGROUND ===== */
+/* BACKGROUND */
 body::before {
   content:'';
   position:fixed;
@@ -29,29 +28,28 @@ body::before {
   z-index:-1;
 }
 
-/* ===== WRAP ===== */
+/* WRAP */
 .wrap {
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
-  padding:0 20px;
+  padding:0 15px;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   text-align:center;
-  padding:120px 20px 80px;
+  padding:90px 15px 50px;
 }
 
 .tagline {
   color:#00ffc3;
-  letter-spacing:6px;
+  letter-spacing:5px;
   font-size:11px;
 }
 
 .hero h1 {
-  font-size:64px;
+  font-size:48px;
   margin:10px 0;
-  letter-spacing:3px;
 }
 
 .location {
@@ -61,15 +59,14 @@ body::before {
 .identity {
   color:#555;
   font-size:12px;
-  margin-top:5px;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 .nav {
-  margin-top:30px;
+  margin-top:25px;
   display:flex;
   justify-content:center;
-  gap:25px;
+  gap:15px;
   flex-wrap:wrap;
 }
 
@@ -77,70 +74,43 @@ body::before {
   color:#00ffc3;
   text-decoration:none;
   font-size:13px;
-  position:relative;
 }
 
-.nav a::after {
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0;
-  height:2px;
-  background:#00ffc3;
-  transition:0.3s;
-}
-
-.nav a:hover::after {
-  width:100%;
-}
-
-/* ===== STRIP ===== */
+/* STRIP */
 .strip {
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
+  gap:20px;
   background:#00ffc3;
   color:black;
-  padding:14px 20px;
+  padding:12px;
   font-weight:bold;
+  flex-wrap:wrap;
 }
 
-/* ===== SOCIAL ICONS ===== */
+/* ICONS */
 .icons {
-  text-align:center;
-  margin-top:25px;
+  margin-top:20px;
 }
 
 .icons a {
-  display:inline-block;
-  margin:0 12px;
+  margin:0 10px;
   font-size:20px;
   color:#00ffc3;
-  text-decoration:none;
-  transition:0.3s;
 }
 
-.icons a:hover {
-  transform:scale(1.2);
-}
-
-/* ===== SPLIT ===== */
+/* SPLIT */
 .split {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  margin:100px 0;
-  align-items:center;
+  grid-template-columns:1fr;
+  gap:30px;
+  margin:60px 0;
 }
 
 .story {
   background:rgba(10,10,10,0.9);
-  padding:40px;
+  padding:25px;
   border-left:4px solid #00ffc3;
-}
-
-.story h3 {
-  color:#00ffc3;
 }
 
 .feature img {
@@ -148,104 +118,70 @@ body::before {
   border-radius:10px;
 }
 
-.feature-title {
-  margin-top:15px;
-  color:#00ffc3;
-}
-
 .btn {
-  margin-top:15px;
-  padding:12px 26px;
+  margin-top:10px;
+  padding:10px 20px;
   border:2px solid #00ffc3;
   background:none;
   color:#00ffc3;
-  cursor:pointer;
 }
 
-.btn:hover {
-  background:#00ffc3;
-  color:black;
-}
-
-/* ===== DIVIDER ===== */
+/* DIVIDER */
 .divider {
   text-align:center;
-  margin:80px 0 40px;
+  margin:60px 0 20px;
   color:#00ffc3;
-  letter-spacing:3px;
 }
 
-/* ===== GRID ===== */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-  gap:25px;
+/* COLLECTION */
+.collection {
+  max-width:800px;
+  margin:0 auto;
 }
 
-.card {
-  position:relative;
-  border-radius:10px;
-  overflow:hidden;
-  background:#0d0d0d;
-}
-
-.card img {
-  width:100%;
-  transition:0.4s;
-}
-
-.card-title {
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:14px;
-  font-size:12px;
-  background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-
-.card:hover img {
-  transform:scale(1.08);
-  box-shadow:0 0 25px rgba(0,255,195,0.7);
-}
-
-/* ===== SHOP STRIP ===== */
-.shop-strip {
+.collection details {
   background:#111;
-  padding:40px 20px;
+  margin-bottom:10px;
+  padding:10px;
+  border-left:3px solid #00ffc3;
+}
+
+.collection summary {
+  cursor:pointer;
+  color:#00ffc3;
+  font-size:13px;
+}
+
+.bike {
+  margin-top:10px;
   text-align:center;
 }
 
-.shop-strip h3 {
-  color:#00ffc3;
+.bike img {
+  width:100%;
+  max-width:400px;
+}
+
+/* SHOP */
+.shop-strip {
+  text-align:center;
+  margin:60px 0;
 }
 
 .shop-links a {
   display:inline-block;
-  margin:10px;
-  padding:10px 18px;
+  margin:5px;
+  padding:8px 14px;
   border:1px solid #00ffc3;
   color:#00ffc3;
   text-decoration:none;
-  font-size:13px;
 }
 
-.shop-links a:hover {
-  background:#00ffc3;
-  color:black;
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
   text-align:center;
-  padding:60px;
+  padding:40px;
   color:#555;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:800px){
-  .split {
-    grid-template-columns:1fr;
-  }
 }
 
 </style>
@@ -266,16 +202,14 @@ body::before {
     <a href="#">Parts</a>
     <a href="#">Gear</a>
     <a href="#">Merch</a>
-    <a href="#">Cant forget about the Mopeds</a>
+    <a href="#">Mopeds</a>
     <a href="mailto:jgclsales@gmail.com">Contact</a>
   </div>
 
-  <!-- SOCIAL (ONLY TIKTOK + YOUTUBE) -->
   <div class="icons">
     <a href="https://www.tiktok.com/@pedalforever">🎵</a>
     <a href="https://www.youtube.com/@pedalforever">▶</a>
   </div>
-
 </div>
 
 <div class="strip">
@@ -285,37 +219,46 @@ body::before {
 </div>
 
 <div class="split">
-
   <div class="story">
-    <h3>OUR STORY</h3>
     This isn’t a flipped collection.<br><br>
-    Every bike here was found the hard way — face-to-face deals across New England.<br><br>
-    Barns. Attics. Garages.<br><br>
+    Every bike here was found the hard way — barns, attics, garages.<br><br>
     <strong>Earned, not assembled.</strong>
   </div>
 
   <div class="feature">
     <img src="decoster-after.jpg">
-    <div class="feature-title">1978 ROGER DECOSTER</div>
-    <button class="btn">VIEW BUILD</button>
   </div>
-
 </div>
 
 <div class="divider">THE COLLECTION</div>
 
-<div class="grid">
-  <div class="card"><img src="haro-mirra-driveside.jpg"><div class="card-title">HARO MIRRA — DRIVE</div></div>
-  <div class="card"><img src="haro-mirra-nondriveside.jpg"><div class="card-title">HARO MIRRA — NON DRIVE</div></div>
-  <div class="card"><img src="decoster-before.jpg"><div class="card-title">DECOSTER — BEFORE</div></div>
-  <div class="card"><img src="you-dirtbike.jpg"><div class="card-title">FIELD FIND</div></div>
+<div class="collection">
+
+<details><summary>1978 — Roger DeCoster</summary><div class="bike"><img src="decoster-after.jpg"></div></details>
+<details><summary>1978 — Team Rampower Loop Tail</summary></details>
+
+<details><summary>1986 — Dyno Comp (Lavender)</summary></details>
+<details><summary>1986 — Hutch XL</summary></details>
+
+<details><summary>1995 — GT Performer (Blacklight)</summary></details>
+
+<details><summary>1997 — Specialized Flyboy</summary></details>
+
+<details><summary>1998 — Huffy Flatbed (Chrome)</summary></details>
+<details><summary>1998 — GT Performer (Lime)</summary></details>
+<details><summary>1998 — Haro Blamo</summary></details>
+
+<details><summary>2000 — Free Agent Hellcat</summary></details>
+
+<details><summary>2004 — Stolen The Henry</summary></details>
+
 </div>
 
 <div class="shop-strip">
   <h3>SHOP + SUPPORT</h3>
   <div class="shop-links">
-    <a href="#">TikTok Shop (coming soon)</a>
-    <a href="#">Etsy Store (coming soon)</a>
+    <a href="#">TikTok Shop (soon)</a>
+    <a href="#">Etsy (soon)</a>
   </div>
 </div>
 
