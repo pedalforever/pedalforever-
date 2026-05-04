@@ -1,172 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedal Forever - Bike of the Month</title>
+<title>Pedal Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 body {
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
-  color: #fff;
-  text-align: center;
-  padding: 40px;
+  margin:0;
+  font-family:'Orbitron', sans-serif;
+  color:#eaeaea;
+  background:#000;
 }
 
-h1 {
-  margin-bottom: 10px;
+body::before {
+  content:'';
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:url('website-wallpaper.jpg') center/cover no-repeat;
+  opacity:0.15;
+  z-index:-1;
 }
 
-.bike-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
+.wrap {
+  max-width:1100px;
+  margin:auto;
+  padding:0 15px;
 }
 
-.bike {
-  border: 2px solid #333;
-  padding: 20px;
+/* HERO */
+.hero {
+  text-align:center;
+  padding:90px 15px 50px;
 }
 
-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  border: 2px solid #00ffcc;
-  background: transparent;
-  color: #00ffcc;
-  cursor: pointer;
+.tagline {
+  color:#00ffc3;
+  letter-spacing:5px;
+  font-size:11px;
 }
 
-button:hover {
-  background: #00ffcc;
-  color: black;
+.hero h1 {
+  font-size:48px;
 }
 
-.leader {
-  box-shadow: 0 0 20px #00ffcc;
-  transform: scale(1.05);
+/* NAV */
+.nav {
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-input {
-  padding: 10px;
-  margin-top: 20px;
-  width: 250px;
+.nav a {
+  color:#00ffc3;
+  text-decoration:none;
 }
+
+/* STRIP */
+.strip {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#00ffc3;
+  color:black;
+  padding:12px;
+  font-weight:bold;
+}
+
+/* STORY */
+.story {
+  margin:60px auto;
+  max-width:700px;
+  background:rgba(0,0,0,0.75);
+  padding:25px;
+  border-left:4px solid #00ffc3;
+}
+
+/* FEATURE */
+.feature-box {
+  margin:80px 0;
+  padding:30px 20px;
+  background:rgba(0,0,0,0.75);
+  border:1px solid rgba(0,255,195,0.3);
+  border-radius:10px;
+  position:relative;
+}
+
+.feature-header {
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#000;
+  padding:8px 18px;
+  border:1px solid rgba(0,255,195,0.5);
+  color:#00ffc3;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+/* GRID */
+.build-strip {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.build-card img {
+  width:100%;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.build-card:hover img {
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(0,255,195,0.4);
+}
+
+/* CAPTION */
+.feature-caption {
+  margin-top:25px;
+  text-align:center;
+  font-size:13px;
+  line-height:1.6;
+  color:#ffd54a;
+}
+
+.feature-caption strong {
+  color:#fff;
+}
+
+/* POLL */
+.poll-box {
+  margin-top:30px;
+  padding:20px;
+  background:#111;
+  border-radius:8px;
+  text-align:center;
+}
+
+.poll-btn {
+  display:block;
+  margin:8px auto;
+  padding:10px;
+  border:1px solid #00ffc3;
+  color:#00ffc3;
+  background:none;
+  cursor:pointer;
+}
+
+.poll-btn:hover {
+  background:#00ffc3;
+  color:black;
+}
+
+.vote-count {
+  margin-top:10px;
+  font-size:12px;
+}
+
+.email-box input {
+  margin-top:10px;
+  padding:10px;
+  width:220px;
+  background:#000;
+  border:1px solid #00ffc3;
+  color:white;
+}
+
+/* CTA */
+.collection-cta {
+  text-align:center;
+  padding:40px 20px;
+  background:#0f0f0f;
+  border-top:2px solid #00ffc3;
+  border-bottom:2px solid #00ffc3;
+}
+
+.collection-cta a {
+  padding:12px 24px;
+  border:2px solid #00ffc3;
+  color:#00ffc3;
+  text-decoration:none;
+}
+
+/* SOCIAL */
+.social-bar {
+  margin:50px 0;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+}
+
+.social-bar a {
+  color:#00ffc3;
+}
+
+.contact {
+  text-align:center;
+}
+
+@media(max-width:900px){
+  .build-strip { grid-template-columns:repeat(2,1fr); }
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>🔥 Bike of the Month 🔥</h1>
-<p>Vote once. Winner gets the glory.</p>
+<div class="wrap">
 
-<input id="email" placeholder="Enter your email to vote">
+<div class="hero">
+  <div class="tagline">LIVE FREE OR RIDE</div>
+  <h1>PEDAL FOREVER</h1>
 
-<div class="bike-container">
-  <div class="bike" id="optionA">
-    <h2>Bike A</h2>
-    <button onclick="submitVote('A')">Vote A</button>
-    <p>Votes: <span id="countA">0</span></p>
-  </div>
-
-  <div class="bike" id="optionB">
-    <h2>Bike B</h2>
-    <button onclick="submitVote('B')">Vote B</button>
-    <p>Votes: <span id="countB">0</span></p>
+  <div class="nav">
+    <a href="collection.html">Collection</a>
+    <a href="#">Apparel</a>
+    <a href="#">Mopeds</a>
   </div>
 </div>
 
-<!-- SUPABASE -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div class="strip">
+  <div>REAL FINDS</div>
+  <div>RESTORED</div>
+  <div>NEW ENGLAND</div>
+</div>
+
+<div class="story">
+  Earned, not assembled.
+</div>
+
+<!-- FEATURE -->
+<div class="feature-box">
+
+<div class="feature-header">MAY BIKE OF THE MONTH</div>
+
+<div class="build-strip">
+<a href="decoster-before.jpg" target="_blank"><div class="build-card"><img src="decoster-before.jpg"></div></a>
+<a href="decoster-table.jpg" target="_blank"><div class="build-card"><img src="decoster-table.jpg"></div></a>
+<a href="decoster-after.jpg" target="_blank"><div class="build-card"><img src="decoster-after.jpg"></div></a>
+<a href="decoster-basement.jpg" target="_blank"><div class="build-card"><img src="decoster-basement.jpg"></div></a>
+</div>
+
+<div class="feature-caption">
+<strong>1978 Roger DeCoster – World Champion Build</strong><br><br>
+From the 617 to the 603 — rescued outside Boston.<br>
+Refurbished 110% in-house in Nashua, NH.<br><br>
+Original nickel plating. Preserved, not replaced.<br>
+<strong>This bike’s a ripper.</strong>
+</div>
+
+<div class="poll-box">
+
+<h3>Vote the next feature</h3>
+
+<button class="poll-btn" onclick="submitVote('A')">
+1978 Team Rampar Looptail
+</button>
+
+<button class="poll-btn" onclick="submitVote('B')">
+1990 GT Mach 1 Dayglo Yellow
+</button>
+
+<div class="email-box">
+<input id="email" placeholder="Enter email for giveaway">
+</div>
+
+<p id="status"></p>
+
+<p class="vote-count">
+Total Votes: <span id="total">0</span>
+</p>
+
+</div>
+
+</div>
+
+<div class="collection-cta">
+<a href="collection.html">VIEW FULL COLLECTION</a>
+</div>
+
+<div class="social-bar">
+<a href="https://youtube.com/@pedalforever">YouTube</a>
+<a href="https://tiktok.com/@pedalforever">TikTok</a>
+</div>
+
+<div class="contact">
+<a href="mailto:jgclsales@gmail.com">contact me here</a>
+</div>
+
+</div>
 
 <script>
-// 🔑 PASTE YOUR KEYS HERE
-const SUPABASE_URL = "https://mpxdtcontzizhbuigjwl.supabase.co";
-const SUPABASE_KEY = "sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = window.supabase.createClient(
+  "https://mpxdtcontzizhbuigjwl.supabase.co",
+  "PASTE_YOUR_PUBLISHABLE_KEY"
+);
 
-let hasVoted = localStorage.getItem("voted");
-
-// SUBMIT VOTE
 async function submitVote(choice) {
-  if (hasVoted) {
-    alert("You already voted 🔒");
-    return;
-  }
 
   const email = document.getElementById("email").value;
 
-  if (!email || !email.includes("@")) {
-    alert("Enter a valid email");
+  if(!email){
+    alert("Enter email first");
     return;
   }
 
-  // check duplicate email
-  const { data: existing } = await supabase
-    .from("votes")
-    .select("*")
-    .eq("email", email);
-
-  if (existing.length > 0) {
-    alert("This email already voted 🚫");
-    return;
-  }
-
-  // insert vote
   const { error } = await supabase
     .from("votes")
     .insert([{ choice, email }]);
 
-  if (error) {
-    alert("Vote failed");
-    console.error(error);
-    return;
+  if(error){
+    document.getElementById("status").innerText = "Error submitting vote";
+  } else {
+    document.getElementById("status").innerText = "Vote submitted";
+    loadVotes();
   }
-
-  localStorage.setItem("voted", true);
-  hasVoted = true;
-
-  alert("Vote locked in 🔥");
-
-  loadVotes();
 }
 
-// LOAD VOTES
 async function loadVotes() {
-  const { data, error } = await supabase
-    .from("votes")
-    .select("*");
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  let countA = data.filter(v => v.choice === "A").length;
-  let countB = data.filter(v => v.choice === "B").length;
-
-  document.getElementById("countA").innerText = countA;
-  document.getElementById("countB").innerText = countB;
-
-  // highlight leader
-  if (countA > countB) {
-    document.getElementById("optionA").classList.add("leader");
-    document.getElementById("optionB").classList.remove("leader");
-  } else if (countB > countA) {
-    document.getElementById("optionB").classList.add("leader");
-    document.getElementById("optionA").classList.remove("leader");
-  }
-
-  // 300th vote trigger
-  if (data.length === 300) {
-    alert("🎉 300TH VOTER WINS 🎉");
-  }
+  const { data } = await supabase.from("votes").select("*");
+  document.getElementById("total").innerText = data.length;
 }
 
-document.addEventListener("DOMContentLoaded", loadVotes);
+loadVotes();
+
 </script>
 
 </body>
