@@ -3,214 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bike & Street Art</title>
+<title>Pedal Forever</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: #fff;
-}
-
-/* Layout */
-.container {
-    display: flex;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 220px;
     background: #000;
-    padding: 20px;
-    height: 100vh;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
     position: fixed;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    background: #000;
+    padding: 15px;
+    border-right: 1px solid #111;
+    z-index: 1000;
 }
 
 .sidebar h2 {
-    color: #0f0;
-    margin-bottom: 20px;
+    color: #00ff00;
+    font-size: 14px;
 }
 
 .sidebar a {
     display: block;
-    color: #fff;
+    color: #888;
     text-decoration: none;
-    margin: 10px 0;
+    margin: 8px 0;
+    font-size: 13px;
 }
 
 .sidebar a:hover {
-    color: #0f0;
+    color: #00ff00;
 }
 
-/* Main Content */
+/* MAIN FLOW */
 .main {
-    margin-left: 240px;
-    padding: 20px;
+    margin-left: 170px;
 }
 
-/* Sections */
-.section {
-    margin-bottom: 60px;
+/* HERO */
+.hero {
+    padding: 60px 30px;
 }
 
-.section h1 {
-    border-bottom: 2px solid #0f0;
-    padding-bottom: 10px;
+.hero h1 {
+    font-size: 42px;
+    margin: 0;
 }
 
-/* Image grid */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
+.hero p {
+    color: #aaa;
+    margin-top: 10px;
 }
 
-.gallery img {
+/* TAGLINE STRIP */
+.tagline {
+    padding: 20px 30px;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tagline span {
+    color: #00ff00;
+}
+
+/* STREET FLOW */
+.street-flow img {
     width: 100%;
-    height: auto;
-    border-radius: 6px;
+    display: block;
 }
 
-/* Bike of the Month */
-.highlight {
-    background: #1a1a1a;
-    padding: 20px;
-    border-left: 5px solid #0f0;
+/* GRID TILES */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
 }
 
-/* Contact */
-.contact-box {
-    background: #1a1a1a;
+.tiles div {
+    padding: 40px;
+    border: 1px solid #111;
+}
+
+.tiles div:hover {
+    border-color: #00ff00;
+}
+
+/* FEATURE */
+.feature {
+    padding: 40px;
+    border-top: 2px solid #00ff00;
+}
+
+/* VOTE */
+.vote {
+    padding: 40px;
+}
+
+.vote-option {
+    border: 1px solid #222;
     padding: 15px;
     margin: 10px 0;
 }
 
-/* Poll */
-.poll button {
-    display: block;
-    margin: 5px 0;
-    padding: 10px;
-    width: 100%;
-    background: #222;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+.vote-option:hover {
+    border-color: #00ff00;
 }
 
-.poll button:hover {
-    background: #0f0;
-    color: #000;
+/* CONTACT */
+.contact {
+    padding: 40px;
+    background: #050505;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #111;
+    }
+
+    .main {
+        margin-left: 0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>MENU</h2>
+    <a href="#home">Home</a>
+    <a href="#street">Street Art</a>
+    <a href="#collection">Collection</a>
+    <a href="#vote">Vote</a>
+    <a href="#contact">Contact</a>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>MENU</h2>
+    <h2>FOLLOW</h2>
+    <a href="#">TikTok: pedalforever</a>
+    <a href="#">YouTube: pedalforever</a>
+</div>
 
-        <a href="#home">Home</a>
-        <a href="#streetart">Street Art</a>
-        <a href="#bikeofthemonth">Bike of the Month</a>
-        <a href="#poll">Next Bike Poll</a>
-        <a href="#contact">Contact</a>
+<!-- MAIN -->
+<div class="main">
 
-        <hr>
+<!-- HERO -->
+<div id="home" class="hero">
+    <h1>PEDAL FOREVER</h1>
+    <p>LIVE FREE OR RIDE</p>
+</div>
 
-        <h3>Follow</h3>
-        <a href="#">TikTok</a>
-        <a href="#">YouTube</a>
+<!-- TAGLINE -->
+<div class="tagline">
+    <span>REAL FINDS</span>
+    <span>RESTORED</span>
+    <span>NEW ENGLAND</span>
+    <span>Earned, not assembled.</span>
+</div>
+
+<!-- STREET ART FLOW -->
+<div id="street" class="street-flow">
+    <!-- DROP YOUR IMAGES HERE -->
+    <img src="street1.jpg">
+    <img src="street2.jpg">
+    <img src="street3.jpg">
+</div>
+
+<!-- COLLECTION / MERCH / LINKS -->
+<div id="collection" class="tiles">
+    <div>Collection</div>
+    <div>Apparel</div>
+    <div>Mopeds</div>
+    <div>Finished Bikes</div>
+    <div>Random Drops</div>
+    <div>Lifestyle Shots</div>
+</div>
+
+<!-- FEATURED BIKE -->
+<div class="feature">
+    <h2>Featured Bike</h2>
+    <p>Drop your current feature here.</p>
+</div>
+
+<!-- VOTE -->
+<div id="vote" class="vote">
+    <h2>Vote the Next Bike of the Month</h2>
+
+    <div class="vote-option">
+        1990 GT Mach 1 — Dayglo Yellow  
+        <br>110% Original
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main">
-
-        <!-- HOME -->
-        <div id="home" class="section">
-            <h1>Bike & Street Culture</h1>
-            <p>
-                Documenting bikes, street art, and real-world rides. Every shot is real, no filters, no staging beyond placement.
-            </p>
-        </div>
-
-        <!-- STREET ART -->
-        <div id="streetart" class="section">
-            <h1>Street Art</h1>
-
-            <div class="gallery">
-                <!-- KEEP YOUR IMAGES EXACTLY AS THEY ARE -->
-                <img src="image1.jpg">
-                <img src="image2.jpg">
-                <img src="image3.jpg">
-                <img src="image4.jpg">
-                <img src="image5.jpg">
-                <img src="image6.jpg">
-                <img src="image7.jpg">
-                <img src="image8.jpg">
-                <img src="image9.jpg">
-            </div>
-        </div>
-
-        <!-- BIKE OF THE MONTH -->
-        <div id="bikeofthemonth" class="section">
-            <h1>Bike of the Month</h1>
-
-            <div class="highlight">
-                <h2>Current Feature</h2>
-                <p>Drop your featured bike here each month.</p>
-                <img src="bike-of-month.jpg" style="width:100%; margin-top:10px;">
-            </div>
-        </div>
-
-        <!-- POLL -->
-        <div id="poll" class="section">
-            <h1>Which Bike Next Month?</h1>
-
-            <div class="poll">
-                <button>1986 Hutch XL</button>
-                <button>1986 Dyno</button>
-                <button>Custom Build</button>
-                <button>Street Ride Setup</button>
-            </div>
-        </div>
-
-        <!-- CONTACT -->
-        <div id="contact" class="section">
-            <h1>Contact</h1>
-
-            <div class="contact-box">
-                <h3>Custom Builds</h3>
-                <p>Contact me for your build.</p>
-            </div>
-
-            <div class="contact-box">
-                <h3>Sales</h3>
-                <p>Contact me for available bikes.</p>
-            </div>
-
-            <div class="contact-box">
-                <h3>Services</h3>
-                <p>Repairs, tuning, and restoration.</p>
-            </div>
-
-            <div class="contact-box">
-                <h3>Pricing</h3>
-                <p>Reach out for quotes.</p>
-            </div>
-
-            <div class="contact-box">
-                <h3>Feature Your Bike</h3>
-                <p>
-                    If you are local to New England and you have a retro bike you want featured on the channel, contact me.
-                </p>
-            </div>
-        </div>
-
+    <div class="vote-option">
+        1978 Team Rampar — Nickel Motomag  
+        <br>Refinished w/ Original Parts
     </div>
+
+    <p>Total Votes: 0</p>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="contact">
+
+    <h2>Contact</h2>
+
+    <p>Build Requests</p>
+    <p>Sales</p>
+    <p>Services</p>
+    <p>Pricing</p>
+
+    <p style="margin-top:20px; color:#aaa;">
+    If you are local to New England and have a retro bike you want featured on the channel, contact me.
+    </p>
+
+</div>
+
 </div>
 
 </body>
