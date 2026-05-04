@@ -1,238 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pedal Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
+body{
+  margin:0;
+  font-family:'Orbitron', sans-serif;
+  background:#000;
+  color:#eaeaea;
+}
+
+:root{
+  --accent:#7df9c1;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:url('website-wallpaper.jpg') center/cover no-repeat;
+  opacity:0.12;
+  z-index:-1;
+}
+
+/* LAYOUT */
+.main{
+  display:grid;
+  grid-template-columns:260px 1fr;
+}
+
+@media(max-width:900px){
+  .main{grid-template-columns:1fr;}
 }
 
 /* SIDEBAR */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    background: #000;
-    padding: 15px;
-    border-right: 1px solid #111;
-    z-index: 1000;
+.sidebar{
+  padding:20px;
+  border-right:1px solid rgba(125,249,193,0.15);
 }
 
-.sidebar h2 {
-    color: #00ff00;
-    font-size: 14px;
+.sidebar h3{
+  color:var(--accent);
+  margin-top:20px;
 }
 
-.sidebar a {
-    display: block;
-    color: #888;
-    text-decoration: none;
-    margin: 8px 0;
-    font-size: 13px;
+.sidebar a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:6px 0;
+  font-size:13px;
 }
 
-.sidebar a:hover {
-    color: #00ff00;
+.sidebar img{
+  width:100%;
+  margin-top:10px;
+  border-radius:6px;
 }
 
-/* MAIN FLOW */
-.main {
-    margin-left: 170px;
+/* MAIN CONTENT */
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:0 15px;
 }
 
 /* HERO */
-.hero {
-    padding: 60px 30px;
+.hero{text-align:center;padding:60px 15px 30px;}
+.tagline{color:var(--accent);letter-spacing:4px;font-size:11px;}
+.hero h1{font-size:46px;margin:10px 0;}
+
+/* SOCIAL */
+.social{
+  margin-top:20px;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin: 0;
+.social a{
+  display:inline-block;
+  margin:5px;
+  padding:10px 18px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  text-decoration:none;
+  font-size:13px;
 }
 
-.hero p {
-    color: #aaa;
-    margin-top: 10px;
+/* STRIP */
+.strip{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:var(--accent);
+  color:black;
+  padding:10px;
+  font-weight:bold;
 }
 
-/* TAGLINE STRIP */
-.tagline {
-    padding: 20px 30px;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.tagline span {
-    color: #00ff00;
-}
-
-/* STREET FLOW */
-.street-flow img {
-    width: 100%;
-    display: block;
-}
-
-/* GRID TILES */
-.tiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-}
-
-.tiles div {
-    padding: 40px;
-    border: 1px solid #111;
-}
-
-.tiles div:hover {
-    border-color: #00ff00;
+/* STORY */
+.story{
+  margin:30px auto;
+  max-width:600px;
+  background:rgba(0,0,0,0.7);
+  padding:20px;
+  border-left:4px solid var(--accent);
 }
 
 /* FEATURE */
-.feature {
-    padding: 40px;
-    border-top: 2px solid #00ff00;
+.feature-poster{
+  margin:50px auto;
+  text-align:center;
+}
+
+.feature-poster img{
+  width:100%;
+  max-width:950px;
+  border-radius:10px;
+  box-shadow:0 0 25px rgba(125,249,193,0.3);
 }
 
 /* VOTE */
-.vote {
-    padding: 40px;
+.vote-box{
+  margin:60px 0;
+  padding:25px;
+  background:#0a0a0a;
+  border-radius:10px;
+  text-align:center;
+  border:1px solid rgba(125,249,193,0.2);
 }
 
-.vote-option {
-    border: 1px solid #222;
-    padding: 15px;
-    margin: 10px 0;
+.vote-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
-.vote-option:hover {
-    border-color: #00ff00;
+.vote-card{
+  border:1px solid rgba(125,249,193,0.3);
+  border-radius:8px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-/* CONTACT */
-.contact {
-    padding: 40px;
-    background: #050505;
+.vote-card:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 15px rgba(125,249,193,0.4);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #111;
-    }
+.vote-images{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4px;
+}
 
-    .main {
-        margin-left: 0;
-    }
+.vote-images img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
+
+.vote-title{
+  padding:10px;
+  font-size:13px;
+}
+
+.email-box input{
+  margin-top:20px;
+  padding:10px;
+  width:220px;
+  background:#000;
+  border:1px solid var(--accent);
+  color:white;
+}
+
+/* STREET ART */
+.gallery{
+  margin:60px 0;
+}
+
+.gallery h2{
+  text-align:center;
+  color:var(--accent);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+/* MERCH */
+.merch{
+  margin:60px 0;
+  text-align:center;
+}
+
+.merch-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.merch-item{
+  border:1px solid rgba(125,249,193,0.2);
+  padding:15px;
+}
+
+/* CTA */
+.collection-cta{
+  text-align:center;
+  padding:40px;
+}
+
+.collection-cta a{
+  padding:12px 24px;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <h2>MENU</h2>
-    <a href="#home">Home</a>
-    <a href="#street">Street Art</a>
-    <a href="#collection">Collection</a>
-    <a href="#vote">Vote</a>
-    <a href="#contact">Contact</a>
+<div class="main">
 
-    <h2>FOLLOW</h2>
-    <a href="#">TikTok: pedalforever</a>
-    <a href="#">YouTube: pedalforever</a>
+<!-- LEFT SIDEBAR -->
+<div class="sidebar">
+
+<h3>Quick Links</h3>
+<a href="collection.html">Collection</a>
+<a href="finished-bikes.html">Finished Bikes</a>
+
+<h3>Highlights</h3>
+<img src="you-daughter-bike.jpg">
+<img src="you-skatepark.jpg">
+
 </div>
 
 <!-- MAIN -->
-<div class="main">
+<div class="wrap">
 
-<!-- HERO -->
-<div id="home" class="hero">
-    <h1>PEDAL FOREVER</h1>
-    <p>LIVE FREE OR RIDE</p>
+<div class="hero">
+<div class="tagline">LIVE FREE OR RIDE</div>
+<h1>PEDAL FOREVER</h1>
+
+<div class="social">
+<a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
+<a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
 </div>
 
-<!-- TAGLINE -->
-<div class="tagline">
-    <span>REAL FINDS</span>
-    <span>RESTORED</span>
-    <span>NEW ENGLAND</span>
-    <span>Earned, not assembled.</span>
 </div>
 
-<!-- STREET ART FLOW -->
-<div id="street" class="street-flow">
-    <!-- DROP YOUR IMAGES HERE -->
-    <img src="street1.jpg">
-    <img src="street2.jpg">
-    <img src="street3.jpg">
+<div class="strip">
+<div>REAL FINDS</div>
+<div>RESTORED</div>
+<div>NEW ENGLAND</div>
 </div>
 
-<!-- COLLECTION / MERCH / LINKS -->
-<div id="collection" class="tiles">
-    <div>Collection</div>
-    <div>Apparel</div>
-    <div>Mopeds</div>
-    <div>Finished Bikes</div>
-    <div>Random Drops</div>
-    <div>Lifestyle Shots</div>
-</div>
+<div class="story">Earned, not assembled.</div>
 
-<!-- FEATURED BIKE -->
-<div class="feature">
-    <h2>Featured Bike</h2>
-    <p>Drop your current feature here.</p>
+<!-- FEATURE -->
+<div class="feature-poster">
+<img src="feature-poster.png">
 </div>
 
 <!-- VOTE -->
-<div id="vote" class="vote">
-    <h2>Vote the Next Bike of the Month</h2>
+<div class="vote-box">
+<h2 style="color:var(--accent)">Vote the Next Bike of the Month</h2>
 
-    <div class="vote-option">
-        1990 GT Mach 1 — Dayglo Yellow  
-        <br>110% Original
-    </div>
+<div class="vote-grid">
 
-    <div class="vote-option">
-        1978 Team Rampar — Nickel Motomag  
-        <br>Refinished w/ Original Parts
-    </div>
-
-    <p>Total Votes: 0</p>
+<div class="vote-card" onclick="vote('GT')">
+  <div class="vote-images">
+    <img src="gtmach1-1.jpg">
+    <img src="gtmach1-2.jpg">
+  </div>
+  <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>
 </div>
 
-<!-- CONTACT -->
-<div id="contact" class="contact">
-
-    <h2>Contact</h2>
-
-    <p>Build Requests</p>
-    <p>Sales</p>
-    <p>Services</p>
-    <p>Pricing</p>
-
-    <p style="margin-top:20px; color:#aaa;">
-    If you are local to New England and have a retro bike you want featured on the channel, contact me.
-    </p>
-
+<div class="vote-card" onclick="vote('RAMPAR')">
+  <div class="vote-images">
+    <img src="rampar-1.jpg">
+    <img src="rampar-2.jpg">
+  </div>
+  <div class="vote-title">1978 Team Rampar — Nickel Motomag</div>
 </div>
 
 </div>
+
+<div class="email-box">
+<input id="email" placeholder="Enter email">
+</div>
+
+<p id="status"></p>
+<p>Total Votes: <span id="total">0</span></p>
+
+</div>
+
+<!-- STREET ART -->
+<div class="gallery">
+<h2>Street Art</h2>
+<div class="gallery-grid">
+<img src="you-daughter-carshow.jpg">
+<img src="you-dirtbike.jpg">
+<img src="you-skatepark.jpg">
+</div>
+</div>
+
+<!-- MERCH -->
+<div class="merch">
+<h2 style="color:var(--accent)">Merch</h2>
+<div class="merch-grid">
+<div class="merch-item">Coming Soon</div>
+<div class="merch-item">Coming Soon</div>
+</div>
+</div>
+
+<div class="collection-cta">
+<a href="collection.html">VIEW FULL COLLECTION</a>
+</div>
+
+</div>
+</div>
+
+<script>
+let votes = 0;
+
+function vote(choice){
+  const email = document.getElementById("email").value;
+  if(!email){alert("Enter email first");return;}
+  votes++;
+  document.getElementById("status").innerText = "Vote submitted for " + choice;
+  document.getElementById("total").innerText = votes;
+}
+</script>
 
 </body>
 </html>
