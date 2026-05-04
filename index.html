@@ -16,9 +16,8 @@ body {
   background:#000;
 }
 
-/* NEW COLOR TONE */
 :root {
-  --accent:#7df9c1;     /* softer mint */
+  --accent:#7df9c1;
   --accent-dim:#3bbf8a;
   --gold:#d4a63c;
 }
@@ -75,18 +74,6 @@ body::before {
   position:relative;
 }
 
-/* 🔥 FIXED BADGE (CLEAN + NOT BLOCKING) */
-.feature-badge {
-  position:absolute;
-  top:15px;
-  right:15px;
-  width:110px;
-  opacity:0.55;
-  z-index:5;
-  filter:drop-shadow(0 0 12px rgba(125,249,193,0.4));
-}
-
-/* HEADER */
 .feature-header {
   position:absolute;
   top:-18px;
@@ -100,7 +87,6 @@ body::before {
   letter-spacing:2px;
 }
 
-/* GRID */
 .build-strip {
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -118,19 +104,20 @@ body::before {
   box-shadow:0 0 20px rgba(125,249,193,0.4);
 }
 
-/* SPEC */
+/* 🔥 NEW SPEC LAYOUT */
 .spec-card {
   margin-top:25px;
-  padding:25px;
+  padding:40px 20px;
   background:rgba(0,0,0,0.9);
   border:1px solid rgba(125,249,193,0.25);
   border-radius:10px;
+  position:relative;
+  height:420px;
 }
 
 .spec-title {
   text-align:center;
   font-size:16px;
-  color:#fff;
 }
 
 .spec-sub {
@@ -140,26 +127,51 @@ body::before {
   margin-bottom:20px;
 }
 
-.spec-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+/* CENTER BADGE */
+.spec-center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:180px;
+  opacity:0.12;
+  z-index:1;
 }
 
-.spec-group h4 {
-  color:var(--accent);
+.spec-center img {
+  width:100%;
+}
+
+/* FOUR CORNERS */
+.spec-box {
+  position:absolute;
+  width:40%;
   font-size:12px;
+  z-index:2;
 }
 
-.spec-group ul {
+.spec-box h4 {
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+.spec-box ul {
   list-style:none;
   padding:0;
-  font-size:12px;
+  margin:0;
   color:#ccc;
 }
 
+/* positions */
+.top-left { top:80px; left:20px; }
+.top-right { top:80px; right:20px; text-align:right; }
+.bottom-left { bottom:80px; left:20px; }
+.bottom-right { bottom:80px; right:20px; text-align:right; }
+
 .spec-footer {
-  margin-top:20px;
+  position:absolute;
+  bottom:20px;
+  width:100%;
   text-align:center;
   color:var(--gold);
 }
@@ -197,7 +209,6 @@ body::before {
   color:white;
 }
 
-/* CTA */
 .collection-cta {
   text-align:center;
   padding:40px;
@@ -220,11 +231,6 @@ body::before {
 }
 
 .contact { text-align:center; }
-
-@media(max-width:900px){
-  .build-strip { grid-template-columns:repeat(2,1fr); }
-  .spec-grid { grid-template-columns:1fr; }
-}
 
 </style>
 </head>
@@ -254,9 +260,6 @@ body::before {
 
 <div class="feature-box">
 
-<!-- 🔥 CHANGE THIS IMAGE MONTHLY -->
-<img src="featured-badge.png" class="feature-badge">
-
 <div class="feature-header">MAY BIKE OF THE MONTH</div>
 
 <div class="build-strip">
@@ -267,31 +270,56 @@ body::before {
 </div>
 
 <div class="spec-card">
+
 <div class="spec-title">1978 Roger DeCoster — World Champion Build</div>
 <div class="spec-sub">From the 617 to the 603 — rebuilt in Nashua, NH</div>
 
-<div class="spec-grid">
-<div class="spec-group"><h4>FRAME & FORK</h4><ul>
-<li>Nickel DeCoster frame</li><li>Tange forks</li><li>Original nickel plating</li>
-</ul></div>
+<!-- CENTER BADGE -->
+<div class="spec-center">
+  <img src="featured-badge.png">
+</div>
 
-<div class="spec-group"><h4>COCKPIT</h4><ul>
-<li>Race Inc. tall bars</li><li>ACS BMX stem</li><li>AME grips</li>
-</ul></div>
+<!-- FOUR CORNERS -->
+<div class="spec-box top-left">
+<h4>FRAME & FORK</h4>
+<ul>
+<li>Nickel DeCoster frame</li>
+<li>Tange forks</li>
+<li>Original nickel plating</li>
+</ul>
+</div>
 
-<div class="spec-group"><h4>DRIVETRAIN</h4><ul>
-<li>Takagi cranks</li><li>Cam USA sprocket</li><li>Wellgo pedals</li>
-</ul></div>
+<div class="spec-box top-right">
+<h4>COCKPIT</h4>
+<ul>
+<li>Race Inc. tall bars</li>
+<li>ACS BMX stem</li>
+<li>AME grips</li>
+</ul>
+</div>
 
-<div class="spec-group"><h4>BRAKES</h4><ul>
-<li>MX-1000 rear</li><li>Dia-Compe lever</li>
-</ul></div>
+<div class="spec-box bottom-left">
+<h4>DRIVETRAIN</h4>
+<ul>
+<li>Takagi cranks</li>
+<li>Cam USA sprocket</li>
+<li>Wellgo pedals</li>
+</ul>
+</div>
+
+<div class="spec-box bottom-right">
+<h4>BRAKES</h4>
+<ul>
+<li>MX-1000 rear</li>
+<li>Dia-Compe lever</li>
+</ul>
 </div>
 
 <div class="spec-footer">
 Green #1 World Champion plate<br>
 <strong>This bike’s a ripper.</strong>
 </div>
+
 </div>
 
 <div class="poll-box">
