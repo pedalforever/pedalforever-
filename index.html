@@ -31,15 +31,15 @@ body::before {
   z-index:-1;
 }
 
-.wrap { max-width:1000px; margin:auto; padding:0 15px; }
+.wrap { max-width:900px; margin:auto; padding:0 15px; }
 
 /* HERO */
-.hero { text-align:center; padding:80px 15px 40px; }
+.hero { text-align:center; padding:70px 15px 30px; }
 .tagline { color:var(--accent); letter-spacing:5px; font-size:11px; }
-.hero h1 { font-size:44px; }
+.hero h1 { font-size:42px; }
 
 .nav {
-  margin-top:20px;
+  margin-top:15px;
   display:flex;
   justify-content:center;
   gap:15px;
@@ -59,109 +59,76 @@ body::before {
 
 /* STORY */
 .story {
-  margin:50px auto;
+  margin:40px auto;
   max-width:600px;
   background:rgba(0,0,0,0.75);
-  padding:20px;
+  padding:18px;
   border-left:4px solid var(--accent);
 }
 
 /* FEATURE POSTER */
 .feature-poster {
-  margin:60px auto;
+  margin:40px auto;
   text-align:center;
 }
 
 .feature-poster img {
   width:100%;
-  max-width:850px;
+  max-width:800px;
   border-radius:10px;
+  box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
-/* ===== VOTE SECTION ===== */
+/* VOTE SECTION */
 .vote-section {
-  margin-top:60px;
-  padding:30px;
+  margin-top:40px;
+  padding:25px 15px;
   background:#0c0c0c;
   border-radius:10px;
   text-align:center;
 }
 
 .vote-title {
-  color:var(--accent);
+  font-size:16px;
   margin-bottom:20px;
+  color:var(--accent);
 }
 
-/* BIKE CARDS */
+/* GRID */
 .vote-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  gap:15px;
 }
 
 .vote-card {
   background:#111;
-  border-radius:10px;
+  border-radius:8px;
   overflow:hidden;
   cursor:pointer;
   border:1px solid rgba(125,249,193,0.2);
+  transition:0.25s;
+}
+
+.vote-card:hover {
+  transform:scale(1.02);
+  box-shadow:0 0 15px rgba(125,249,193,0.25);
 }
 
 .vote-card img {
   width:100%;
-  height:260px;
-  object-fit:contain; /* 🔥 FIXES CROPPING */
-  background:#000;
+  height:220px;
+  object-fit:cover;
 }
 
 .vote-info {
-  padding:12px;
-}
-
-/* ===== MODAL ===== */
-.modal {
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  z-index:999;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-
-.modal img {
-  max-width:90%;
-  max-height:70%;
-}
-
-.modal-controls {
-  margin-top:20px;
-}
-
-.modal-btn {
-  padding:10px 20px;
-  margin:0 10px;
-  border:1px solid var(--accent);
-  background:none;
-  color:var(--accent);
-  cursor:pointer;
-}
-
-.close-btn {
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:24px;
-  cursor:pointer;
+  padding:10px;
+  font-size:12px;
 }
 
 /* EMAIL */
 .email-box input {
-  margin-top:20px;
+  margin-top:15px;
   padding:10px;
   width:220px;
   background:#000;
@@ -169,13 +136,27 @@ body::before {
   color:white;
 }
 
+.submit-btn {
+  margin-top:10px;
+  padding:10px 18px;
+  border:1px solid var(--accent);
+  background:none;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+.submit-btn:hover {
+  background:var(--accent);
+  color:black;
+}
+
 /* CTA */
 .collection-cta {
   text-align:center;
-  padding:40px;
+  padding:35px;
   border-top:2px solid var(--accent);
   border-bottom:2px solid var(--accent);
-  margin-top:60px;
+  margin-top:40px;
 }
 
 .collection-cta a {
@@ -186,10 +167,10 @@ body::before {
 }
 
 .social-bar {
-  margin:50px 0;
+  margin:40px 0;
   display:flex;
   justify-content:center;
-  gap:40px;
+  gap:30px;
 }
 
 .contact { text-align:center; }
@@ -208,6 +189,7 @@ body::before {
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
+
   <div class="nav">
     <a href="collection.html">Collection</a>
     <a href="#">Apparel</a>
@@ -223,28 +205,32 @@ body::before {
 
 <div class="story">Earned, not assembled.</div>
 
-<!-- 🔥 YOUR FEATURE POSTER (UNCHANGED) -->
+<!-- 🔥 FEATURE POSTER (THIS IS YOUR FIXED IMAGE) -->
 <div class="feature-poster">
-  <img src="feature-poster.png">
+  <img src="file_00000000bb47f168372bdc9c0280896.png">
 </div>
 
-<!-- 🔥 VOTE SECTION -->
+<!-- 🔥 VOTING -->
 <div class="vote-section">
 
 <div class="vote-title">Vote the Next Bike of the Month</div>
 
 <div class="vote-grid">
 
-<!-- GT -->
-<div class="vote-card" onclick="openGallery('gt')">
+<div class="vote-card" onclick="submitVote('GT')">
   <img src="gtmach1-1.jpg">
-  <div class="vote-info">1990 GT Mach 1 — Dayglo Yellow</div>
+  <div class="vote-info">
+    1990 GT Mach 1<br>
+    Dayglo Yellow — 100% Original
+  </div>
 </div>
 
-<!-- RAMPAR -->
-<div class="vote-card" onclick="openGallery('rampar')">
-  <img src="rampar-1.jpg">
-  <div class="vote-info">1978 Team Rampar — Nickel Motomag</div>
+<div class="vote-card" onclick="submitVote('RAMPAR')">
+  <img src="rampar-2.jpg">
+  <div class="vote-info">
+    1978 Team Rampar Looptail<br>
+    Nickel Finish — Motomag
+  </div>
 </div>
 
 </div>
@@ -252,6 +238,8 @@ body::before {
 <div class="email-box">
 <input id="email" placeholder="Enter email for free giveaway">
 </div>
+
+<button class="submit-btn" onclick="submitVote('entry')">Submit Entry</button>
 
 <p id="status"></p>
 <p>Total Votes: <span id="total">0</span></p>
@@ -273,50 +261,33 @@ body::before {
 
 </div>
 
-<!-- 🔥 MODAL -->
-<div id="modal" class="modal">
-<span class="close-btn" onclick="closeModal()">✕</span>
-<img id="modal-img">
-<div class="modal-controls">
-<button class="modal-btn" onclick="prevImage()">←</button>
-<button class="modal-btn" onclick="nextImage()">→</button>
-</div>
-</div>
-
 <script>
 
-const galleries = {
-  gt: ["gtmach1-1.jpg","gtmach1-2.jpg"],
-  rampar: ["rampar-1.jpg","rampar-2.jpg"]
-};
+const supabase = window.supabase.createClient(
+  "https://mpxdtcontzizhbuigjwl.supabase.co",
+  "sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv"
+);
 
-let currentGallery = [];
-let currentIndex = 0;
+async function submitVote(choice) {
+  const email = document.getElementById("email").value;
 
-function openGallery(type){
-  currentGallery = galleries[type];
-  currentIndex = 0;
-  document.getElementById("modal").style.display="flex";
-  showImage();
+  if(!email){
+    alert("Enter email first");
+    return;
+  }
+
+  await supabase.from("votes").insert([{ choice, email }]);
+
+  document.getElementById("status").innerText = "Vote submitted";
+  loadVotes();
 }
 
-function showImage(){
-  document.getElementById("modal-img").src = currentGallery[currentIndex];
+async function loadVotes() {
+  const { data } = await supabase.from("votes").select("*");
+  document.getElementById("total").innerText = data.length;
 }
 
-function nextImage(){
-  currentIndex = (currentIndex + 1) % currentGallery.length;
-  showImage();
-}
-
-function prevImage(){
-  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-  showImage();
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
+loadVotes();
 
 </script>
 
