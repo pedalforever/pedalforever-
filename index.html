@@ -271,15 +271,53 @@ body::before{
 </div>  <div class="collection-cta">  
 <a href="collection.html">VIEW FULL COLLECTION</a>  
 </div>  </div>  
-</div>  <script>  
-let votes = 0;  
-  
-function vote(choice){  
-  const email = document.getElementById("email").value;  
-  if(!email){alert("Enter email first");return;}  
-  votes++;  
-  document.getElementById("status").innerText = "Vote submitted for " + choice;  
-  document.getElementById("total").innerText = votes;  
-}  
+</div>  <script>
+let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
+
+document.getElementById("total").innerText = votes;
+
+// CHECK IF USER ALREADY VOTED
+function hasVoted(email){
+  let voters = JSON.parse(localStorage.getItem("voters")) || [];
+  return voters.includes(email);
+}
+
+// SAVE VOTER
+function saveVoter(email){
+  let voters = JSON.parse(localStorage.getItem("voters")) || [];
+  voters.push(email);
+  localStorage.setItem("voters", JSON.stringify(voters));
+}
+
+// VOTE FUNCTION
+function vote(choice){
+
+  let email = document.getElementById("email").value ;
+
+  if(!email || !email.includes("@")){
+    alert("Enter a valid email");
+    return;
+  }
+
+  if(hasVoted(email)){
+    alert("You already voted.");
+    return;
+  }
+
+  saveVoter(email);
+
+  votes++;
+  localStorage.setItem("totalVotes", votes);
+
+  document.getElementById("status").innerText =
+    "Vote submitted for " + choice;
+
+document.getElementById("total").innerText = votes;
+document.getElementById("email").value = "";
+  // 🎯 300TH VOTE
+  if(votes === 300){
+    alert("🔥 YOU ARE THE 300TH VOTE! You win the sticker giveaway.");
+  }
+}
 </script>  </body>  
 </html>
