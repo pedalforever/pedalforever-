@@ -16,10 +16,8 @@ body {
   background:#000;
 }
 
-/* COLORS */
 :root {
   --accent:#7df9c1;
-  --accent-dim:#3bbf8a;
   --gold:#d4a63c;
 }
 
@@ -68,7 +66,7 @@ body::before {
   border-left:4px solid var(--accent);
 }
 
-/* FEATURE POSTER (CLEAN) */
+/* FEATURE POSTER */
 .feature-poster {
   margin:60px auto;
   text-align:center;
@@ -78,25 +76,23 @@ body::before {
   width:100%;
   max-width:850px;
   border-radius:10px;
-  box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
-/* VOTE SECTION */
+/* ===== VOTE SECTION ===== */
 .vote-section {
   margin-top:60px;
-  padding:30px 20px;
+  padding:30px;
   background:#0c0c0c;
   border-radius:10px;
   text-align:center;
 }
 
 .vote-title {
-  font-size:18px;
-  margin-bottom:25px;
   color:var(--accent);
+  margin-bottom:20px;
 }
 
-/* BIKE GRID */
+/* BIKE CARDS */
 .vote-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -105,54 +101,72 @@ body::before {
 
 .vote-card {
   background:#111;
-  border-radius:8px;
+  border-radius:10px;
   overflow:hidden;
   cursor:pointer;
-  transition:0.3s;
   border:1px solid rgba(125,249,193,0.2);
-}
-
-.vote-card:hover {
-  transform:scale(1.02);
-  box-shadow:0 0 20px rgba(125,249,193,0.3);
 }
 
 .vote-card img {
   width:100%;
-  height:250px;
-  object-fit:cover;
+  height:260px;
+  object-fit:contain; /* 🔥 FIXES CROPPING */
+  background:#000;
 }
 
 .vote-info {
   padding:12px;
-  font-size:12px;
 }
 
-/* EMAIL BOX */
-.email-box {
-  margin-top:25px;
+/* ===== MODAL ===== */
+.modal {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
-.email-box input {
-  padding:10px;
-  width:240px;
-  background:#000;
-  border:1px solid var(--accent);
-  color:white;
+.modal img {
+  max-width:90%;
+  max-height:70%;
 }
 
-.submit-btn {
-  margin-top:15px;
+.modal-controls {
+  margin-top:20px;
+}
+
+.modal-btn {
   padding:10px 20px;
+  margin:0 10px;
   border:1px solid var(--accent);
   background:none;
   color:var(--accent);
   cursor:pointer;
 }
 
-.submit-btn:hover {
-  background:var(--accent);
-  color:black;
+.close-btn {
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* EMAIL */
+.email-box input {
+  margin-top:20px;
+  padding:10px;
+  width:220px;
+  background:#000;
+  border:1px solid var(--accent);
+  color:white;
 }
 
 /* CTA */
@@ -194,7 +208,6 @@ body::before {
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
-
   <div class="nav">
     <a href="collection.html">Collection</a>
     <a href="#">Apparel</a>
@@ -210,7 +223,7 @@ body::before {
 
 <div class="story">Earned, not assembled.</div>
 
-<!-- 🔥 FEATURE POSTER -->
+<!-- 🔥 YOUR FEATURE POSTER (UNCHANGED) -->
 <div class="feature-poster">
   <img src="feature-poster.png">
 </div>
@@ -222,32 +235,23 @@ body::before {
 
 <div class="vote-grid">
 
-<!-- GT MACH 1 -->
-<div class="vote-card" onclick="submitVote('GT')">
+<!-- GT -->
+<div class="vote-card" onclick="openGallery('gt')">
   <img src="gtmach1-1.jpg">
-  <div class="vote-info">
-    1990 GT Mach 1<br>
-    Dayglo Yellow — 100% Original
-  </div>
+  <div class="vote-info">1990 GT Mach 1 — Dayglo Yellow</div>
 </div>
 
 <!-- RAMPAR -->
-<div class="vote-card" onclick="submitVote('RAMPAR')">
-  <img src="rampar-2.jpg">
-  <div class="vote-info">
-    1978 Team Rampar Looptail<br>
-    Nickel Finish — Motomag
-  </div>
+<div class="vote-card" onclick="openGallery('rampar')">
+  <img src="rampar-1.jpg">
+  <div class="vote-info">1978 Team Rampar — Nickel Motomag</div>
 </div>
 
 </div>
 
-<!-- EMAIL -->
 <div class="email-box">
 <input id="email" placeholder="Enter email for free giveaway">
 </div>
-
-<button class="submit-btn" onclick="submitEmail()">Submit Entry</button>
 
 <p id="status"></p>
 <p>Total Votes: <span id="total">0</span></p>
@@ -269,41 +273,50 @@ body::before {
 
 </div>
 
+<!-- 🔥 MODAL -->
+<div id="modal" class="modal">
+<span class="close-btn" onclick="closeModal()">✕</span>
+<img id="modal-img">
+<div class="modal-controls">
+<button class="modal-btn" onclick="prevImage()">←</button>
+<button class="modal-btn" onclick="nextImage()">→</button>
+</div>
+</div>
+
 <script>
 
-const supabase = window.supabase.createClient(
-  "https://mpxdtcontzizhbuigjwl.supabase.co",
-  "sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv"
-);
+const galleries = {
+  gt: ["gtmach1-1.jpg","gtmach1-2.jpg"],
+  rampar: ["rampar-1.jpg","rampar-2.jpg"]
+};
 
-async function submitVote(choice) {
-  const email = document.getElementById("email").value;
+let currentGallery = [];
+let currentIndex = 0;
 
-  if(!email){
-    alert("Enter email first");
-    return;
-  }
-
-  await supabase.from("votes").insert([{ choice, email }]);
-  document.getElementById("status").innerText = "Vote submitted";
-  loadVotes();
+function openGallery(type){
+  currentGallery = galleries[type];
+  currentIndex = 0;
+  document.getElementById("modal").style.display="flex";
+  showImage();
 }
 
-async function submitEmail(){
-  const email = document.getElementById("email").value;
-  if(!email){
-    alert("Enter email");
-    return;
-  }
-  document.getElementById("status").innerText = "Entered into giveaway";
+function showImage(){
+  document.getElementById("modal-img").src = currentGallery[currentIndex];
 }
 
-async function loadVotes() {
-  const { data } = await supabase.from("votes").select("*");
-  document.getElementById("total").innerText = data.length;
+function nextImage(){
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  showImage();
 }
 
-loadVotes();
+function prevImage(){
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  showImage();
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
 
 </script>
 
