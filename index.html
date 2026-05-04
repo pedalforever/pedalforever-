@@ -16,6 +16,7 @@ body {
   background:#000;
 }
 
+/* COLOR SYSTEM */
 :root {
   --accent:#7df9c1;
   --accent-dim:#3bbf8a;
@@ -65,21 +66,19 @@ body::before {
   border-left:4px solid var(--accent);
 }
 
+/* FEATURE */
 .feature-box {
   margin:80px 0;
   padding:30px 20px;
   background:rgba(0,0,0,0.75);
   border:1px solid rgba(125,249,193,0.25);
   border-radius:10px;
-  position:relative;
+  text-align:center;
 }
 
 .feature-header {
-  position:absolute;
-  top:-18px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#000;
+  display:inline-block;
+  margin-bottom:20px;
   padding:8px 18px;
   border:1px solid rgba(125,249,193,0.5);
   color:var(--accent);
@@ -104,104 +103,102 @@ body::before {
   box-shadow:0 0 20px rgba(125,249,193,0.4);
 }
 
-/* 🔥 NEW SPEC LAYOUT */
+/* SPEC CARD */
 .spec-card {
   margin-top:25px;
-  padding:40px 20px;
+  padding:30px;
   background:rgba(0,0,0,0.9);
   border:1px solid rgba(125,249,193,0.25);
   border-radius:10px;
-  position:relative;
-  height:420px;
-}
-
-.spec-title {
   text-align:center;
-  font-size:16px;
 }
 
-.spec-sub {
-  text-align:center;
-  font-size:11px;
-  color:var(--accent);
-  margin-bottom:20px;
+.spec-title { font-size:16px; }
+.spec-sub { font-size:11px; color:var(--accent); margin-bottom:25px; }
+
+.spec-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
 }
 
-/* CENTER BADGE */
-.spec-center {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:180px;
-  opacity:0.12;
-  z-index:1;
-}
-
-.spec-center img {
-  width:100%;
-}
-
-/* FOUR CORNERS */
-.spec-box {
-  position:absolute;
-  width:40%;
-  font-size:12px;
-  z-index:2;
-}
-
-.spec-box h4 {
-  color:var(--accent);
-  margin-bottom:6px;
-}
-
-.spec-box ul {
+.spec-group h4 { color:var(--accent); font-size:12px; }
+.spec-group ul {
   list-style:none;
   padding:0;
-  margin:0;
+  font-size:12px;
   color:#ccc;
 }
 
-/* positions */
-.top-left { top:80px; left:20px; }
-.top-right { top:80px; right:20px; text-align:right; }
-.bottom-left { bottom:80px; left:20px; }
-.bottom-right { bottom:80px; right:20px; text-align:right; }
-
 .spec-footer {
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
+  margin-top:25px;
   color:var(--gold);
 }
 
-/* POLL */
-.poll-box {
-  margin-top:30px;
-  padding:20px;
-  background:#111;
-  border-radius:8px;
+/* 🔥 VOTE SECTION */
+.vote-section {
+  margin-top:60px;
   text-align:center;
 }
 
-.poll-btn {
-  display:block;
-  margin:8px auto;
-  padding:10px;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  background:none;
-  cursor:pointer;
+.vote-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  margin-top:20px;
 }
 
-.poll-btn:hover {
+.vote-card {
+  background:#0a0a0a;
+  border:1px solid rgba(125,249,193,0.25);
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.25s;
+}
+
+.vote-card:hover {
+  transform:scale(1.02);
+  box-shadow:0 0 20px rgba(125,249,193,0.35);
+}
+
+.vote-images img {
+  width:100%;
+  display:block;
+}
+
+/* CLICKABLE IMAGE LINKS */
+.vote-images a {
+  display:block;
+}
+
+/* LABEL */
+.vote-label {
+  padding:15px;
+  color:var(--accent);
+}
+
+.vote-label span {
+  color:var(--gold);
+  font-size:11px;
+}
+
+/* CTA BUTTON */
+.cta-btn {
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 18px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.cta-btn:hover {
   background:var(--accent);
   color:black;
 }
 
 .email-box input {
-  margin-top:10px;
+  margin-top:20px;
   padding:10px;
   width:220px;
   background:#000;
@@ -232,6 +229,11 @@ body::before {
 
 .contact { text-align:center; }
 
+@media(max-width:900px){
+  .build-strip { grid-template-columns:repeat(2,1fr); }
+  .vote-grid { grid-template-columns:1fr; }
+}
+
 </style>
 </head>
 
@@ -242,7 +244,6 @@ body::before {
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
-
   <div class="nav">
     <a href="collection.html">Collection</a>
     <a href="#">Apparel</a>
@@ -258,6 +259,7 @@ body::before {
 
 <div class="story">Earned, not assembled.</div>
 
+<!-- FEATURE -->
 <div class="feature-box">
 
 <div class="feature-header">MAY BIKE OF THE MONTH</div>
@@ -270,72 +272,82 @@ body::before {
 </div>
 
 <div class="spec-card">
-
 <div class="spec-title">1978 Roger DeCoster — World Champion Build</div>
 <div class="spec-sub">From the 617 to the 603 — rebuilt in Nashua, NH</div>
 
-<!-- CENTER BADGE -->
-<div class="spec-center">
-  <img src="featured-badge.png">
-</div>
+<div class="spec-grid">
 
-<!-- FOUR CORNERS -->
-<div class="spec-box top-left">
+<div class="spec-group">
 <h4>FRAME & FORK</h4>
-<ul>
-<li>Nickel DeCoster frame</li>
-<li>Tange forks</li>
-<li>Original nickel plating</li>
-</ul>
+<ul><li>Nickel DeCoster frame</li><li>Tange forks</li><li>Original nickel plating</li></ul>
 </div>
 
-<div class="spec-box top-right">
+<div class="spec-group">
 <h4>COCKPIT</h4>
-<ul>
-<li>Race Inc. tall bars</li>
-<li>ACS BMX stem</li>
-<li>AME grips</li>
-</ul>
+<ul><li>Race Inc. bars</li><li>ACS stem</li><li>AME grips</li></ul>
 </div>
 
-<div class="spec-box bottom-left">
+<div class="spec-group">
 <h4>DRIVETRAIN</h4>
-<ul>
-<li>Takagi cranks</li>
-<li>Cam USA sprocket</li>
-<li>Wellgo pedals</li>
-</ul>
+<ul><li>Takagi cranks</li><li>Cam USA</li><li>Wellgo pedals</li></ul>
 </div>
 
-<div class="spec-box bottom-right">
+<div class="spec-group">
 <h4>BRAKES</h4>
-<ul>
-<li>MX-1000 rear</li>
-<li>Dia-Compe lever</li>
-</ul>
+<ul><li>MX-1000</li><li>Dia-Compe</li></ul>
+</div>
+
 </div>
 
 <div class="spec-footer">
-Green #1 World Champion plate<br>
-<strong>This bike’s a ripper.</strong>
+Green #1 plate<br><strong>This bike’s a ripper.</strong>
 </div>
 
 </div>
+</div>
 
-<div class="poll-box">
-<h3>Vote the next feature</h3>
+<!-- 🔥 VOTE -->
+<div class="vote-section">
 
-<button class="poll-btn" onclick="submitVote('A')">1978 Team Rampar Looptail</button>
-<button class="poll-btn" onclick="submitVote('B')">1990 GT Mach 1 Dayglo Yellow</button>
+<h2 style="color:var(--accent)">Vote The Next Feature</h2>
+
+<div class="vote-grid">
+
+<!-- GT -->
+<div class="vote-card" onclick="submitVote('GT')">
+  <div class="vote-images">
+    <a href="gtmach1-1.jpg" target="_blank"><img src="gtmach1-1.jpg"></a>
+    <a href="gtmach1-2.jpg" target="_blank"><img src="gtmach1-2.jpg"></a>
+  </div>
+  <div class="vote-label">
+    1990 GT Mach 1<br>
+    <span>Dayglo Yellow • 100% Original</span><br>
+    <a class="cta-btn" href="mailto:jgclsales@gmail.com">Message me for a quote</a>
+  </div>
+</div>
+
+<!-- RAMPAR -->
+<div class="vote-card" onclick="submitVote('RAMPAR')">
+  <div class="vote-images">
+    <a href="rampar-1.jpg" target="_blank"><img src="rampar-1.jpg"></a>
+    <a href="rampar-2.jpg" target="_blank"><img src="rampar-2.jpg"></a>
+  </div>
+  <div class="vote-label">
+    1978 Team Rampar Looptail<br>
+    <span>Nickel Finish • Motomag</span><br>
+    <a class="cta-btn" href="mailto:jgclsales@gmail.com">Message me for a quote</a>
+  </div>
+</div>
+
+</div>
 
 <div class="email-box">
-<input id="email" placeholder="Enter email for giveaway">
+<input id="email" placeholder="Enter email for free giveaway">
 </div>
 
 <p id="status"></p>
 <p>Total Votes: <span id="total">0</span></p>
 
-</div>
 </div>
 
 <div class="collection-cta">
