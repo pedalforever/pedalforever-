@@ -290,25 +290,29 @@ function vote(choice){
     return;
   }
 
-  if(hasVoted(email)){
-    alert("You already voted.");
-    return;
-  }
+ if(hasVoted(email)){
+  document.getElementById("status").innerText =
+    "You already voted with " + email + ". You cannot vote again.";
+  return;
+}
 
   saveVoter(email);
 
   votes++;
   localStorage.setItem("totalVotes", votes);
 
+  if(votes >= 300){
   document.getElementById("status").innerText =
-    "Vote submitted for " + choice;
+    "🎉 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
+} else {
+  document.getElementById("status").innerText =
+    "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+}
 
 document.getElementById("total").innerText = votes;
 document.getElementById("email").value = "";
-  // 🎯 300TH VOTE
-  if(votes === 300){
-    alert("🔥 YOU ARE THE 300TH VOTE! You win the sticker giveaway.");
-  }
+}
+}
 }
 </script>  </body>  
 </html>
