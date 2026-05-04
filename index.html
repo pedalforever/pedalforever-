@@ -10,19 +10,18 @@
 
 body {
   margin:0;
-  font-family:'Orbitron', Arial, sans-serif;
+  font-family:'Orbitron', sans-serif;
   color:#eaeaea;
   background:#000;
 }
 
-/* BACKGROUND */
 body::before {
   content:'';
   position:fixed;
   width:100%;
   height:100%;
   background:url('website-wallpaper.jpg') center/cover no-repeat;
-  opacity:0.18;
+  opacity:0.15;
   z-index:-1;
 }
 
@@ -32,7 +31,6 @@ body::before {
   padding:0 15px;
 }
 
-/* HERO */
 .hero {
   text-align:center;
   padding:90px 15px 50px;
@@ -46,13 +44,8 @@ body::before {
 
 .hero h1 {
   font-size:48px;
-  margin:10px 0;
 }
 
-.location { color:#888; }
-.identity { color:#555; font-size:12px; }
-
-/* NAV */
 .nav {
   margin-top:25px;
   display:flex;
@@ -64,10 +57,8 @@ body::before {
 .nav a {
   color:#00ffc3;
   text-decoration:none;
-  font-size:13px;
 }
 
-/* STRIP */
 .strip {
   display:flex;
   justify-content:center;
@@ -76,90 +67,97 @@ body::before {
   color:black;
   padding:12px;
   font-weight:bold;
-  flex-wrap:wrap;
 }
 
-/* STORY */
 .story {
   margin:60px auto;
   max-width:700px;
-  background:rgba(10,10,10,0.9);
+  background:rgba(0,0,0,0.75);
   padding:25px;
   border-left:4px solid #00ffc3;
-  line-height:1.6;
+}
+
+/* FEATURE BOX */
+.feature-box {
+  margin:60px 0;
+  padding:25px;
+  background:rgba(0,0,0,0.75);
+  border:1px solid rgba(0,255,195,0.3);
+  border-radius:10px;
+  position:relative;
+}
+
+/* checkered accent */
+.feature-box::after {
+  content:'';
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  width:60px;
+  height:60px;
+  background-image:
+    linear-gradient(45deg, #fff 25%, transparent 25%),
+    linear-gradient(-45deg, #fff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #fff 75%),
+    linear-gradient(-45deg, transparent 75%, #fff 75%);
+  background-size:12px 12px;
+  opacity:0.08;
 }
 
 /* BUILD STRIP */
 .build-strip {
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
-  margin:70px 0;
-}
-
-.build-card {
-  position:relative;
-  overflow:hidden;
-  border-radius:6px;
 }
 
 .build-card img {
   width:100%;
-  display:block;
-  transition:0.4s ease;
+  border-radius:6px;
+  transition:0.3s;
 }
 
 .build-card:hover img {
   transform:scale(1.05);
+  box-shadow:0 0 20px rgba(0,255,195,0.4);
 }
 
-.build-card span {
-  position:absolute;
-  bottom:10px;
-  left:10px;
-  font-size:11px;
-  letter-spacing:2px;
-  color:#00ffc3;
-  background:rgba(0,0,0,0.6);
-  padding:5px 8px;
-}
-
-/* COLLECTION CTA */
-.collection-cta {
-  margin:80px auto;
-  padding:40px 20px;
+/* 🔥 FEATURE CAPTION (NEW) */
+.feature-caption {
+  margin-top:20px;
   text-align:center;
+  font-size:13px;
+  line-height:1.6;
+  color:#ffd54a;
+  letter-spacing:1px;
+}
+
+/* CTA */
+.collection-cta {
+  text-align:center;
+  padding:40px 20px;
   background:#0f0f0f;
   border-top:2px solid #00ffc3;
   border-bottom:2px solid #00ffc3;
 }
 
-.collection-cta h2 { color:#00ffc3; }
-
 .collection-cta a {
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 26px;
+  padding:12px 24px;
   border:2px solid #00ffc3;
   color:#00ffc3;
   text-decoration:none;
 }
 
-/* 🔥 APPAREL SECTION */
+/* APPAREL */
 .apparel {
   text-align:center;
   margin:80px 0;
-}
-
-.apparel h2 {
-  color:#00ffc3;
 }
 
 .apparel-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
-  margin-top:30px;
 }
 
 .product {
@@ -170,61 +168,43 @@ body::before {
 
 .product img {
   width:100%;
-}
-
-.product h4 {
-  margin:10px 0 5px;
-}
-
-.product a {
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  border:1px solid #00ffc3;
-  color:#00ffc3;
-  text-decoration:none;
+  height:160px;
+  object-fit:cover;
 }
 
 /* SOCIAL */
-.social {
-  text-align:center;
-  margin:60px 0;
+.social-bar {
+  margin:50px 0 20px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+  padding:20px 0;
 }
 
-.social a {
-  font-size:28px;
-  margin:0 15px;
+.social-bar a {
   color:#00ffc3;
+  font-size:18px;
   text-decoration:none;
 }
 
 /* CONTACT */
 .contact {
   text-align:center;
-  margin:60px auto;
+  margin:40px 0;
 }
 
 .contact a {
   color:#00ffc3;
-  text-decoration:none;
   border-bottom:1px solid #00ffc3;
-}
-
-/* FOOTER */
-.footer {
-  text-align:center;
-  padding:40px;
-  color:#555;
+  text-decoration:none;
 }
 
 /* MOBILE */
 @media(max-width:900px){
   .build-strip { grid-template-columns:repeat(2,1fr); }
   .apparel-grid { grid-template-columns:1fr; }
-}
-
-@media(max-width:500px){
-  .build-strip { grid-template-columns:1fr; }
 }
 
 </style>
@@ -237,7 +217,6 @@ body::before {
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
-  <div class="location">Nashua, NH</div>
 
   <div class="nav">
     <a href="collection.html">Collection</a>
@@ -258,66 +237,74 @@ body::before {
   <strong>Earned, not assembled.</strong>
 </div>
 
-<!-- 🔥 FIXED IMAGE LINKS -->
+<!-- FEATURE -->
+<div class="feature-box">
+
 <div class="build-strip">
 
-<a href="decoster-before.jpg" target="_blank"><div class="build-card"><img src="decoster-before.jpg"><span>BEFORE</span></div></a>
+<a href="decoster-before.jpg" target="_blank" class="build-card">
+<img src="decoster-before.jpg">
+</a>
 
-<a href="decoster-table.jpg" target="_blank"><div class="build-card"><img src="decoster-table.jpg"><span>BUILD</span></div></a>
+<a href="decoster-table.jpg" target="_blank" class="build-card">
+<img src="decoster-table.jpg">
+</a>
 
-<a href="decoster-after.jpg" target="_blank"><div class="build-card"><img src="decoster-after.jpg"><span>FINISHED</span></div></a>
+<a href="decoster-after.jpg" target="_blank" class="build-card">
+<img src="decoster-after.jpg">
+</a>
 
-<a href="decoster-basement.jpg" target="_blank"><div class="build-card"><img src="decoster-basement.jpg"><span>IN THE WILD</span></div></a>
+<a href="decoster-basement.jpg" target="_blank" class="build-card">
+<img src="decoster-basement.jpg">
+</a>
 
 </div>
 
-<!-- COLLECTION CTA -->
+<!-- 🔥 STORY LINE -->
+<div class="feature-caption">
+From the 617 to the 603 — rescued just outside of Boston, Massachusetts.<br>
+This DeCoster came back to Nashua and was refurbished 110% in-house using its original parts in Nashua, New Hampshire.
+</div>
+
+</div>
+
 <div class="collection-cta">
   <h2>THE COLLECTION</h2>
   <a href="collection.html">CLICK HERE TO SEE THE PEDAL FOREVER BIKE COLLECTION</a>
 </div>
 
-<!-- 🔥 APPAREL -->
+<!-- APPAREL -->
 <div class="apparel">
   <h2>APPAREL</h2>
 
   <div class="apparel-grid">
 
     <div class="product">
-      <img src="shirt-placeholder.jpg">
+      <img src="decoster-after.jpg">
       <h4>Pedal Forever Tee</h4>
-      <a href="#">Buy Now</a>
     </div>
 
     <div class="product">
-      <img src="hoodie-placeholder.jpg">
+      <img src="decoster-before.jpg">
       <h4>Pedal Forever Hoodie</h4>
-      <a href="#">Buy Now</a>
     </div>
 
     <div class="product">
-      <img src="hat-placeholder.jpg">
+      <img src="decoster-basement.jpg">
       <h4>Pedal Forever Hat</h4>
-      <a href="#">Buy Now</a>
     </div>
 
   </div>
 </div>
 
-<!-- SOCIAL -->
-<div class="social">
-  <a href="https://www.youtube.com/@pedalforever" target="_blank">▶</a>
-  <a href="https://www.tiktok.com/@pedalforever" target="_blank">🎵</a>
+<div class="social-bar">
+  <a href="https://www.youtube.com/@pedalforever" target="_blank">YouTube</a>
+  <a href="https://www.tiktok.com/@pedalforever" target="_blank">TikTok</a>
 </div>
 
-<!-- CONTACT -->
 <div class="contact" id="contact">
-  Restoration, builds, or questions —  
+  Restoration, builds, or questions — 
   <a href="mailto:jgclsales@gmail.com">contact me here</a>
-</div>
-
-<div class="footer">
-  Rider Owned • Est. 2023
 </div>
 
 </div>
