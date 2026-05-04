@@ -16,7 +16,7 @@ body {
   background:#000;
 }
 
-/* COLOR SYSTEM */
+/* COLORS */
 :root {
   --accent:#7df9c1;
   --accent-dim:#3bbf8a;
@@ -33,184 +33,135 @@ body::before {
   z-index:-1;
 }
 
-.wrap { max-width:1100px; margin:auto; padding:0 15px; }
+.wrap { max-width:1000px; margin:auto; padding:0 15px; }
 
-.hero { text-align:center; padding:90px 15px 50px; }
+/* HERO */
+.hero { text-align:center; padding:80px 15px 40px; }
 .tagline { color:var(--accent); letter-spacing:5px; font-size:11px; }
-.hero h1 { font-size:48px; }
+.hero h1 { font-size:44px; }
 
 .nav {
-  margin-top:25px;
+  margin-top:20px;
   display:flex;
   justify-content:center;
   gap:15px;
-  flex-wrap:wrap;
 }
 .nav a { color:var(--accent); text-decoration:none; }
 
+/* STRIP */
 .strip {
   display:flex;
   justify-content:center;
   gap:20px;
   background:var(--accent);
   color:black;
-  padding:12px;
+  padding:10px;
   font-weight:bold;
 }
 
+/* STORY */
 .story {
-  margin:60px auto;
-  max-width:700px;
+  margin:50px auto;
+  max-width:600px;
   background:rgba(0,0,0,0.75);
-  padding:25px;
+  padding:20px;
   border-left:4px solid var(--accent);
 }
 
-/* FEATURE */
-.feature-box {
-  margin:80px 0;
-  padding:30px 20px;
-  background:rgba(0,0,0,0.75);
-  border:1px solid rgba(125,249,193,0.25);
-  border-radius:10px;
+/* FEATURE POSTER (CLEAN) */
+.feature-poster {
+  margin:60px auto;
   text-align:center;
 }
 
-.feature-header {
-  display:inline-block;
-  margin-bottom:20px;
-  padding:8px 18px;
-  border:1px solid rgba(125,249,193,0.5);
-  color:var(--accent);
-  font-size:12px;
-  letter-spacing:2px;
-}
-
-.build-strip {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.build-card img {
+.feature-poster img {
   width:100%;
-  border-radius:6px;
-  transition:0.3s;
-}
-
-.build-card:hover img {
-  transform:scale(1.05);
-  box-shadow:0 0 20px rgba(125,249,193,0.4);
-}
-
-/* SPEC CARD */
-.spec-card {
-  margin-top:25px;
-  padding:30px;
-  background:rgba(0,0,0,0.9);
-  border:1px solid rgba(125,249,193,0.25);
+  max-width:850px;
   border-radius:10px;
-  text-align:center;
+  box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
-.spec-title { font-size:16px; }
-.spec-sub { font-size:11px; color:var(--accent); margin-bottom:25px; }
-
-.spec-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
-}
-
-.spec-group h4 { color:var(--accent); font-size:12px; }
-.spec-group ul {
-  list-style:none;
-  padding:0;
-  font-size:12px;
-  color:#ccc;
-}
-
-.spec-footer {
-  margin-top:25px;
-  color:var(--gold);
-}
-
-/* 🔥 VOTE SECTION */
+/* VOTE SECTION */
 .vote-section {
   margin-top:60px;
+  padding:30px 20px;
+  background:#0c0c0c;
+  border-radius:10px;
   text-align:center;
 }
 
+.vote-title {
+  font-size:18px;
+  margin-bottom:25px;
+  color:var(--accent);
+}
+
+/* BIKE GRID */
 .vote-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:25px;
-  margin-top:20px;
+  gap:20px;
 }
 
 .vote-card {
-  background:#0a0a0a;
-  border:1px solid rgba(125,249,193,0.25);
-  border-radius:10px;
+  background:#111;
+  border-radius:8px;
   overflow:hidden;
-  transition:0.25s;
+  cursor:pointer;
+  transition:0.3s;
+  border:1px solid rgba(125,249,193,0.2);
 }
 
 .vote-card:hover {
   transform:scale(1.02);
-  box-shadow:0 0 20px rgba(125,249,193,0.35);
+  box-shadow:0 0 20px rgba(125,249,193,0.3);
 }
 
-.vote-images img {
+.vote-card img {
   width:100%;
-  display:block;
+  height:250px;
+  object-fit:cover;
 }
 
-/* CLICKABLE IMAGE LINKS */
-.vote-images a {
-  display:block;
+.vote-info {
+  padding:12px;
+  font-size:12px;
 }
 
-/* LABEL */
-.vote-label {
-  padding:15px;
-  color:var(--accent);
-}
-
-.vote-label span {
-  color:var(--gold);
-  font-size:11px;
-}
-
-/* CTA BUTTON */
-.cta-btn {
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 18px;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  text-decoration:none;
-}
-
-.cta-btn:hover {
-  background:var(--accent);
-  color:black;
+/* EMAIL BOX */
+.email-box {
+  margin-top:25px;
 }
 
 .email-box input {
-  margin-top:20px;
   padding:10px;
-  width:220px;
+  width:240px;
   background:#000;
   border:1px solid var(--accent);
   color:white;
 }
 
+.submit-btn {
+  margin-top:15px;
+  padding:10px 20px;
+  border:1px solid var(--accent);
+  background:none;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+.submit-btn:hover {
+  background:var(--accent);
+  color:black;
+}
+
+/* CTA */
 .collection-cta {
   text-align:center;
   padding:40px;
   border-top:2px solid var(--accent);
   border-bottom:2px solid var(--accent);
+  margin-top:60px;
 }
 
 .collection-cta a {
@@ -230,7 +181,6 @@ body::before {
 .contact { text-align:center; }
 
 @media(max-width:900px){
-  .build-strip { grid-template-columns:repeat(2,1fr); }
   .vote-grid { grid-template-columns:1fr; }
 }
 
@@ -244,6 +194,7 @@ body::before {
 <div class="hero">
   <div class="tagline">LIVE FREE OR RIDE</div>
   <h1>PEDAL FOREVER</h1>
+
   <div class="nav">
     <a href="collection.html">Collection</a>
     <a href="#">Apparel</a>
@@ -259,91 +210,44 @@ body::before {
 
 <div class="story">Earned, not assembled.</div>
 
-<!-- FEATURE -->
-<div class="feature-box">
-
-<div class="feature-header">MAY BIKE OF THE MONTH</div>
-
-<div class="build-strip">
-<a href="decoster-before.jpg" target="_blank"><div class="build-card"><img src="decoster-before.jpg"></div></a>
-<a href="decoster-table.jpg" target="_blank"><div class="build-card"><img src="decoster-table.jpg"></div></a>
-<a href="decoster-after.jpg" target="_blank"><div class="build-card"><img src="decoster-after.jpg"></div></a>
-<a href="decoster-basement.jpg" target="_blank"><div class="build-card"><img src="decoster-basement.jpg"></div></a>
+<!-- 🔥 FEATURE POSTER -->
+<div class="feature-poster">
+  <img src="feature-poster.png">
 </div>
 
-<div class="spec-card">
-<div class="spec-title">1978 Roger DeCoster — World Champion Build</div>
-<div class="spec-sub">From the 617 to the 603 — rebuilt in Nashua, NH</div>
-
-<div class="spec-grid">
-
-<div class="spec-group">
-<h4>FRAME & FORK</h4>
-<ul><li>Nickel DeCoster frame</li><li>Tange forks</li><li>Original nickel plating</li></ul>
-</div>
-
-<div class="spec-group">
-<h4>COCKPIT</h4>
-<ul><li>Race Inc. bars</li><li>ACS stem</li><li>AME grips</li></ul>
-</div>
-
-<div class="spec-group">
-<h4>DRIVETRAIN</h4>
-<ul><li>Takagi cranks</li><li>Cam USA</li><li>Wellgo pedals</li></ul>
-</div>
-
-<div class="spec-group">
-<h4>BRAKES</h4>
-<ul><li>MX-1000</li><li>Dia-Compe</li></ul>
-</div>
-
-</div>
-
-<div class="spec-footer">
-Green #1 plate<br><strong>This bike’s a ripper.</strong>
-</div>
-
-</div>
-</div>
-
-<!-- 🔥 VOTE -->
+<!-- 🔥 VOTE SECTION -->
 <div class="vote-section">
 
-<h2 style="color:var(--accent)">Vote The Next Feature</h2>
+<div class="vote-title">Vote the Next Bike of the Month</div>
 
 <div class="vote-grid">
 
-<!-- GT -->
+<!-- GT MACH 1 -->
 <div class="vote-card" onclick="submitVote('GT')">
-  <div class="vote-images">
-    <a href="gtmach1-1.jpg" target="_blank"><img src="gtmach1-1.jpg"></a>
-    <a href="gtmach1-2.jpg" target="_blank"><img src="gtmach1-2.jpg"></a>
-  </div>
-  <div class="vote-label">
+  <img src="gtmach1-1.jpg">
+  <div class="vote-info">
     1990 GT Mach 1<br>
-    <span>Dayglo Yellow • 100% Original</span><br>
-    <a class="cta-btn" href="mailto:jgclsales@gmail.com">Message me for a quote</a>
+    Dayglo Yellow — 100% Original
   </div>
 </div>
 
 <!-- RAMPAR -->
 <div class="vote-card" onclick="submitVote('RAMPAR')">
-  <div class="vote-images">
-    <a href="rampar-1.jpg" target="_blank"><img src="rampar-1.jpg"></a>
-    <a href="rampar-2.jpg" target="_blank"><img src="rampar-2.jpg"></a>
-  </div>
-  <div class="vote-label">
+  <img src="rampar-2.jpg">
+  <div class="vote-info">
     1978 Team Rampar Looptail<br>
-    <span>Nickel Finish • Motomag</span><br>
-    <a class="cta-btn" href="mailto:jgclsales@gmail.com">Message me for a quote</a>
+    Nickel Finish — Motomag
   </div>
 </div>
 
 </div>
 
+<!-- EMAIL -->
 <div class="email-box">
 <input id="email" placeholder="Enter email for free giveaway">
 </div>
+
+<button class="submit-btn" onclick="submitEmail()">Submit Entry</button>
 
 <p id="status"></p>
 <p>Total Votes: <span id="total">0</span></p>
@@ -380,16 +284,18 @@ async function submitVote(choice) {
     return;
   }
 
-  const { error } = await supabase
-    .from("votes")
-    .insert([{ choice, email }]);
+  await supabase.from("votes").insert([{ choice, email }]);
+  document.getElementById("status").innerText = "Vote submitted";
+  loadVotes();
+}
 
-  if(error){
-    document.getElementById("status").innerText = "Error submitting vote";
-  } else {
-    document.getElementById("status").innerText = "Vote submitted";
-    loadVotes();
+async function submitEmail(){
+  const email = document.getElementById("email").value;
+  if(!email){
+    alert("Enter email");
+    return;
   }
+  document.getElementById("status").innerText = "Entered into giveaway";
 }
 
 async function loadVotes() {
