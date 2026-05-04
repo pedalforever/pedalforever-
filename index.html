@@ -28,7 +28,6 @@ body::before {
   z-index:-1;
 }
 
-/* WRAP */
 .wrap {
   max-width:1100px;
   margin:auto;
@@ -88,9 +87,69 @@ body::before {
   flex-wrap:wrap;
 }
 
-/* ICONS */
-.icons {
+/* STORY */
+.story {
+  margin:60px auto;
+  max-width:700px;
+  background:rgba(10,10,10,0.9);
+  padding:25px;
+  border-left:4px solid #00ffc3;
+  line-height:1.6;
+}
+
+/* FEATURE */
+.feature {
+  text-align:center;
+  margin:60px 0;
+}
+
+.feature img {
+  width:100%;
+  max-width:500px;
+  border-radius:10px;
+}
+
+/* 🔥 COLLECTION CTA (THIS IS THE MONEY SECTION) */
+.collection-cta {
+  margin:80px auto;
+  padding:40px 20px;
+  text-align:center;
+  background:#0f0f0f;
+  border-top:2px solid #00ffc3;
+  border-bottom:2px solid #00ffc3;
+}
+
+.collection-cta h2 {
+  color:#00ffc3;
+  margin-bottom:15px;
+}
+
+.collection-cta p {
+  max-width:700px;
+  margin:auto;
+  color:#ccc;
+  line-height:1.6;
+}
+
+.collection-cta a {
+  display:inline-block;
   margin-top:20px;
+  padding:12px 26px;
+  border:2px solid #00ffc3;
+  color:#00ffc3;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.collection-cta a:hover {
+  background:#00ffc3;
+  color:black;
+}
+
+/* SOCIAL */
+.icons {
+  text-align:center;
+  margin-top:40px;
 }
 
 .icons a {
@@ -99,71 +158,16 @@ body::before {
   color:#00ffc3;
 }
 
-/* SPLIT */
-.split {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:30px;
-  margin:60px 0;
-}
-
-.story {
-  background:rgba(10,10,10,0.9);
-  padding:25px;
-  border-left:4px solid #00ffc3;
-}
-
-.feature img {
-  width:100%;
-  border-radius:10px;
-}
-
-/* DIVIDER */
-.divider {
-  text-align:center;
-  margin:60px 0 20px;
-  color:#00ffc3;
-}
-
-/* COLLECTION */
-.collection {
-  max-width:800px;
-  margin:0 auto;
-}
-
-.collection details {
-  background:#111;
-  margin-bottom:10px;
-  padding:10px;
-  border-left:3px solid #00ffc3;
-}
-
-.collection summary {
-  cursor:pointer;
-  color:#00ffc3;
-  font-size:13px;
-}
-
-.bike {
-  margin-top:10px;
-  text-align:center;
-}
-
-.bike img {
-  width:100%;
-  max-width:400px;
-}
-
 /* SHOP */
-.shop-strip {
+.shop {
   text-align:center;
-  margin:60px 0;
+  margin:80px 0;
 }
 
-.shop-links a {
+.shop a {
   display:inline-block;
-  margin:5px;
-  padding:8px 14px;
+  margin:8px;
+  padding:10px 18px;
   border:1px solid #00ffc3;
   color:#00ffc3;
   text-decoration:none;
@@ -174,6 +178,12 @@ body::before {
   text-align:center;
   padding:40px;
   color:#555;
+}
+
+/* MOBILE FIX */
+@media(max-width:800px){
+  .hero h1 { font-size:36px; }
+  .strip { flex-direction:column; }
 }
 
 </style>
@@ -190,17 +200,12 @@ body::before {
   <div class="identity">USA BUILT • RIDER OWNED</div>
 
   <div class="nav">
-    <a href="#">Bikes</a>
+    <a href="collection.html">The Collection</a>
     <a href="#">Parts</a>
     <a href="#">Gear</a>
     <a href="#">Merch</a>
     <a href="#">Mopeds</a>
     <a href="mailto:jgclsales@gmail.com">Contact</a>
-  </div>
-
-  <div class="icons">
-    <a href="https://www.tiktok.com/@pedalforever">🎵</a>
-    <a href="https://www.youtube.com/@pedalforever">▶</a>
   </div>
 </div>
 
@@ -210,74 +215,39 @@ body::before {
   <div>NEW ENGLAND</div>
 </div>
 
-<div class="split">
-  <div class="story">
-    This isn’t a flipped collection.<br><br>
-    Every bike here was found the hard way — barns, attics, garages.<br><br>
-    <strong>Earned, not assembled.</strong>
-  </div>
-
-  <div class="feature">
-    <img src="decoster-after.jpg">
-  </div>
+<div class="story">
+  This isn’t a flipped collection.<br><br>
+  Every bike here was found the hard way — barns, attics, garages across New England.<br><br>
+  No shortcuts. No easy wins.<br><br>
+  <strong>Earned, not assembled.</strong>
 </div>
 
-<div class="divider">THE COLLECTION</div>
-
-<div class="collection">
-
-<!-- 1978 -->
-<details><summary>1978 — Roger DeCoster</summary><div class="bike"><img src="decoster-after.jpg"></div></details>
-<details><summary>1978 — Team Rampower Loop Tail</summary></details>
-
-<!-- 1984 -->
-<details><summary>1984 — Jetter Lite (Chrome)</summary></details>
-
-<!-- 1986 -->
-<details><summary>1986 — Dyno Comp (Lavender)</summary></details>
-<details><summary>1986 — Hutch XL</summary></details>
-
-<!-- 1990 -->
-<details><summary>1990 — GT Mach 1 (Dayglo Yellow)</summary></details>
-
-<!-- 1995 -->
-<details><summary>1995 — GT Performer (Blacklight)</summary></details>
-
-<!-- 1997 -->
-<details><summary>1997 — Specialized Flyboy</summary></details>
-
-<!-- 1998 -->
-<details><summary>1998 — Huffy Flatbed (Chrome)</summary></details>
-<details><summary>1998 — GT Performer (Lime)</summary></details>
-<details><summary>1998 — Haro Blamo</summary></details>
-
-<!-- 1999 -->
-<details><summary>1999 — DK Six Pack (Army Green)</summary></details>
-<details><summary>1999 — DK Fury (Silver)</summary></details>
-<details><summary>1999 — Huffy Diesel</summary></details>
-<details><summary>1999 — Redline C Note</summary></details>
-
-<!-- 2000 -->
-<details><summary>2000 — Free Agent Hellcat</summary></details>
-<details><summary>2000 — S&M Dirt Bike Classic (Chocolate Brown)</summary></details>
-
-<!-- 2004 -->
-<details><summary>2004 — Stolen The Henry</summary></details>
-
-<!-- 2015 -->
-<details><summary>2015 — Fit Tom Dugan 2</summary></details>
-
-<!-- UNKNOWN -->
-<details><summary>— Fly Bikes Pantera (Sergio Layos)</summary></details>
-
+<div class="feature">
+  <img src="decoster-after.jpg">
 </div>
 
-<div class="shop-strip">
+<!-- 🔥 THIS IS YOUR NEW COLLECTION SECTION -->
+<div class="collection-cta">
+  <h2>THE COLLECTION</h2>
+  <p>
+    No auctions. No easy buys. No internet sniping.<br><br>
+    Every bike in this collection was found the hard way — local deals, face-to-face, all across New England.<br><br>
+    Built over time. Built with effort. Built while raising a family.<br><br>
+    This isn’t money — this is miles.
+  </p>
+
+  <a href="collection.html">ENTER THE COLLECTION</a>
+</div>
+
+<div class="shop">
   <h3>SHOP + SUPPORT</h3>
-  <div class="shop-links">
-    <a href="#">TikTok Shop (soon)</a>
-    <a href="#">Etsy (soon)</a>
-  </div>
+  <a href="#">TikTok Shop (soon)</a>
+  <a href="#">Etsy (soon)</a>
+</div>
+
+<div class="icons">
+  <a href="https://www.tiktok.com/@pedalforever">🎵</a>
+  <a href="https://www.youtube.com/@pedalforever">▶</a>
 </div>
 
 <div class="footer">
