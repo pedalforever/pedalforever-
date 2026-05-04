@@ -292,7 +292,47 @@ This one’s not just restored — it’s preserved.<br><br>
 <strong>This bike’s a ripper.</strong>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv;
+const SUPABASE_KEY = const SUPABASE_KEY = "sb_publishable_XXXXXXXX";;  
+
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function submitVote(choice, email) {
+  const { data, error } = await supabase
+    .from("votes")
+    .insert([{ choice: choice, email: email }]);
+
+  if (error) {
+    alert("Error submitting vote");
+    console.error(error);
+  } else {
+    alert("Vote submitted 🔥");
+    loadVotes();
+  }
+}
+
+async function loadVotes() {
+  const { data, error } = await supabase
+    .from("votes")
+    .select("*");
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  let countA = data.filter(v => v.choice === "A").length;
+  let countB = data.filter(v => v.choice === "B").length;
+
+  document.getElementById("countA").innerText = countA;
+  document.getElementById("countB").innerText = countB;
+}
+
+document.addEventListener("DOMContentLoaded", loadVotes);
+</script>
 </div>
 
 <!-- COLLECTION -->
