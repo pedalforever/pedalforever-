@@ -287,23 +287,22 @@ function vote(choice) {
   }
 
   if (hasVoted(email)) {
-    document.getElementById("status").innerText =
-      "You already voted with " + email + ". You cannot vote again.";
-    return;
-  }
-
+  document.getElementById("status").innerText =
+    "You already voted with " + email + ". You cannot vote again.";
+  return;
+}
   saveVoter(email);
 
   votes++;
   localStorage.setItem("totalVotes", votes);
 
-  if if (votes === 300) {
-    document.getElementById("status").innerText =
-      "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
-  } else {
-    document.getElementById("status").innerText =
-      "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
-  }
+  if (votes === 300) {
+  document.getElementById("status").innerText =
+    "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
+} else {
+  document.getElementById("status").innerText =
+    "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+}
 
   document.getElementById("total").innerText = votes;
   document.getElementById("email").value = "";
