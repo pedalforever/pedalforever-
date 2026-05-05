@@ -267,52 +267,45 @@ let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
 
 document.getElementById("total").innerText = votes;
 
-// CHECK IF USER ALREADY VOTED
-function hasVoted(email){
-  let voters = JSON.parse(localStorage.getItem("voters")) || [];
-  return voters.includes(email);
+function hasVoted(email) {
+    let voters = JSON.parse(localStorage.getItem("voters")) || [];
+    return voters.includes(email);
 }
 
-// SAVE VOTER
-function saveVoter(email){
+function saveVoter(email) {
   let voters = JSON.parse(localStorage.getItem("voters")) || [];
   voters.push(email);
   localStorage.setItem("voters", JSON.stringify(voters));
 }
 
-// VOTE FUNCTION
-function vote(choice){
+function vote(choice) {
+  let email = document.getElementById("email").value;
 
-  let email = document.getElementById("email").value ;
-
-  if(!email || !email.includes("@")){
+  if (!email || !email.includes("@")) {
     alert("Enter a valid email");
     return;
   }
 
- if(hasVoted(email)){
-  document.getElementById("status").innerText =
-    "You already voted with " + email + ". You cannot vote again.";
-  return;
-}
+  if (hasVoted(email)) {
+    document.getElementById("status").innerText =
+      "You already voted with " + email + ". You cannot vote again.";
+    return;
+  }
 
   saveVoter(email);
 
   votes++;
   localStorage.setItem("totalVotes", votes);
 
-  if(votes >= 300){
-  document.getElementById("status").innerText =
-    "🎉 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
-} else {
-  document.getElementById("status").innerText =
-    "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
-}
+  if if (votes === 300) {
+    document.getElementById("status").innerText =
+      "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
+  } else {
+    document.getElementById("status").innerText =
+      "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+  }
 
-document.getElementById("total").innerText = votes;
-document.getElementById("email").value = "";
+  document.getElementById("total").innerText = votes;
+  document.getElementById("email").value = "";
 }
-}
-}
-</script>  </body>  
-</html>
+</script>
