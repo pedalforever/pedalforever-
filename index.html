@@ -3,11 +3,15 @@
 <head>
   <title>Pedal Forever Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --accent: #7df9c1;
+      --dark: #000;
+      --panel: rgba(0,0,0,0.76);
+      --border: rgba(125,249,193,0.25);
     }
 
     body {
@@ -22,7 +26,7 @@
       position: fixed;
       inset: 0;
       background: url('website-wallpaper.jpg') center/cover no-repeat;
-      opacity: 0.12;
+      opacity: 0.13;
       z-index: -1;
     }
 
@@ -37,8 +41,8 @@
 
     .sidebar {
       padding: 20px;
-      border: 1px solid rgba(125,249,193,0.25);
-      background: rgba(0,0,0,0.75);
+      border: 1px solid var(--border);
+      background: var(--panel);
       border-radius: 12px;
       position: sticky;
       top: 20px;
@@ -64,7 +68,15 @@
 
     .hero {
       text-align: center;
-      padding: 50px 15px 25px;
+      padding: 40px 15px 25px;
+    }
+
+    .hero-logo {
+      width: 100%;
+      max-width: 560px;
+      display: block;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 0 18px rgba(125,249,193,0.25));
     }
 
     .tagline {
@@ -88,6 +100,13 @@
       text-decoration: none;
       font-size: 13px;
       background: rgba(0,0,0,0.6);
+      transition: 0.25s;
+    }
+
+    .social a:hover,
+    .button-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(125,249,193,0.45);
     }
 
     .strip {
@@ -110,8 +129,8 @@
     .merch,
     .bottom-feature {
       margin: 40px 0;
-      background: rgba(0,0,0,0.75);
-      border: 1px solid rgba(125,249,193,0.25);
+      background: var(--panel);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 25px;
     }
@@ -191,18 +210,55 @@
       color: var(--accent);
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+    .gallery-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 22px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #d8d8d8;
     }
 
-    .gallery-grid img {
+    .street-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .street-card {
+      border: 1px solid rgba(125,249,193,0.25);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #050505;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+
+    .street-card.hero-shot {
+      grid-column: 1 / -1;
+    }
+
+    .street-card img {
       width: 100%;
-      height: 220px;
+      height: 260px;
       object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid rgba(125,249,193,0.2);
+      display: block;
+      transition: 0.35s;
+    }
+
+    .street-card.hero-shot img {
+      height: 430px;
+    }
+
+    .street-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .street-caption {
+      padding: 12px;
+      font-size: 12px;
+      color: #eaeaea;
+      text-align: center;
+      border-top: 1px solid rgba(125,249,193,0.16);
     }
 
     .merch {
@@ -220,6 +276,16 @@
       padding: 20px;
       border-radius: 10px;
       background: #050505;
+    }
+
+    .merch-callout {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px dashed rgba(125,249,193,0.45);
+      border-radius: 12px;
+      background: rgba(125,249,193,0.05);
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     .collection-cta {
@@ -241,6 +307,32 @@
       background: #050505;
     }
 
+    .merch-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      color: var(--accent);
+      background: rgba(0,0,0,0.9);
+      text-decoration: none;
+      font-size: 12px;
+      box-shadow: 0 0 18px rgba(125,249,193,0.35);
+    }
+
+    .merch-float span {
+      font-size: 22px;
+    }
+
+    .merch-float:hover {
+      transform: scale(1.06);
+    }
+
     @media(max-width:900px) {
       .main {
         grid-template-columns: 1fr;
@@ -256,14 +348,35 @@
         font-size: 34px;
       }
 
-      .vote-grid {
+      .vote-grid,
+      .street-layout {
         grid-template-columns: 1fr;
+      }
+
+      .street-card.hero-shot {
+        grid-column: auto;
+      }
+
+      .street-card img,
+      .street-card.hero-shot img {
+        height: 250px;
+      }
+
+      .merch-float {
+        left: 14px;
+        right: 14px;
+        justify-content: center;
       }
     }
   </style>
 </head>
 
 <body>
+  <a href="#merch" class="merch-float">
+    <span>👕</span>
+    <div>Click here for your shot at Limited Pedal Forever merch</div>
+  </a>
+
   <div class="main">
 
     <div class="sidebar">
@@ -272,14 +385,17 @@
       <a href="finished-bikes.html">Finished Bikes</a>
       <a href="for-sale.html">For Sale</a>
       <a href="sold-bikes.html">Sold Bikes</a>
+      <a href="#street-art">Street Art</a>
+      <a href="#merch">Merch</a>
       <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry">Contact</a>
     </div>
 
     <div class="wrap">
 
       <div class="hero">
+        <img class="hero-logo" src="logo.png" alt="Pedal Forever logo">
         <div class="tagline">LIVE FREE OR RIDE</div>
-        <h1>PEDAL FOREVER</h1>
+
         <div class="social">
           <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
           <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
@@ -329,12 +445,41 @@
         <p>Total Votes: <span id="total">0</span></p>
       </div>
 
-      <div class="gallery">
+      <div class="gallery" id="street-art">
         <h2>Street Art</h2>
-        <div class="gallery-grid">
-          <img src="you-daughter-carshow.jpg" alt="Street art 1">
-          <img src="you-dirtbike.jpg" alt="Street art 2">
-          <img src="you-skatepark.jpg" alt="Street art 3">
+
+        <p class="gallery-intro">
+          Bikes, walls, snow, night rides, graffiti, and real New England street texture.
+          This is the Pedal Forever street layer.
+        </p>
+
+        <div class="street-layout">
+
+          <div class="street-card hero-shot">
+            <img src="street-art-1.jpg" alt="Pedal Forever street art hero">
+            <div class="street-caption">Color blast wall — Pedal Forever street hero</div>
+          </div>
+
+          <div class="street-card">
+            <img src="street-art-2.jpg" alt="Write Your Own Story mural">
+            <div class="street-caption">Write Your Own Story</div>
+          </div>
+
+          <div class="street-card">
+            <img src="street-art-3.jpg" alt="Fat tire bike in snow with graffiti">
+            <div class="street-caption">Snow ride / fat tire street shot</div>
+          </div>
+
+          <div class="street-card">
+            <img src="street-art-4.jpg" alt="Lowrider bike mural">
+            <div class="street-caption">Custom lowrider street style</div>
+          </div>
+
+          <div class="street-card">
+            <img src="street-art-5.jpg" alt="Green BMX cartoon mural">
+            <div class="street-caption">Cartoon wall / BMX culture</div>
+          </div>
+
         </div>
 
         <div class="collection-cta">
@@ -342,11 +487,22 @@
         </div>
       </div>
 
-      <div class="merch">
+      <div class="merch" id="merch">
         <h2>Merch</h2>
+
         <div class="merch-grid">
           <div class="merch-item">Limited Drops Coming Soon</div>
           <div class="merch-item">Pedal Forever Gear</div>
+        </div>
+
+        <div class="merch-callout">
+          <strong>Want first shot?</strong><br>
+          Limited Pedal Forever merch will be small batch, no fake hype, no mass production.
+          Built for riders, collectors, and old-school BMX lifers.
+        </div>
+
+        <div class="collection-cta">
+          <a class="button-link" href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Merch%20Drop">CLAIM YOUR SHOT</a>
         </div>
       </div>
 
