@@ -1,340 +1,427 @@
-<!DOCTYPE html>  <html>        
-<head>  
-<title>Pedal Forever Live </title>  
-<meta name="viewport" content="width=device-width, initial-scale=1">  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">  <style>  
-body{  
-  margin:0;  
-  font-family:'Orbitron', sans-serif;  
-  background:#000;  
-  color:#eaeaea;  
-}  
-  
-:root{  
-  --accent:#7df9c1;  
-}  
-  
-body::before{  
-  content:'';  
-  position:fixed;  
-  width:100%;  
-  height:100%;  
-  background:url('website-wallpaper.jpg') center/cover no-repeat;  
-  opacity:0.12;  
-  z-index:-1;  
-}  
-  
-/* LAYOUT */  
-.main{  
-  display:grid;  
-  grid-template-columns:260px 1fr;  
-}  
-  
-@media(max-width:900px){  
-  .main{grid-template-columns:1fr;}  
-}  
-  
-/* SIDEBAR */  
-.sidebar{  
-  padding:20px;  
-  border-right:1px solid rgba(125,249,193,0.15);  
-}  
-  
-.sidebar h3{  
-  color:var(--accent);  
-  margin-top:20px;  
-}  
-  
-.sidebar a{  
-  display:block;  
-  color:white;  
-  text-decoration:none;  
-  margin:6px 0;  
-  font-size:13px;  
-}  
-  
-.sidebar img{  
-  width:100%;  
-  margin-top:10px;  
-  border-radius:6px;  
-}  
-  
-/* MAIN CONTENT */  
-.wrap{  
-  max-width:1000px;  
-  margin:auto;  
-  padding:0 15px;  
-}  
-  
-/* HERO */  
-.hero{text-align:center;padding:60px 15px 30px;}  
-.tagline{color:var(--accent);letter-spacing:4px;font-size:11px;}  
-.hero h1{font-size:46px;margin:10px 0;}  
-  
-/* SOCIAL */  
-.social{  
-  margin-top:20px;  
-}  
-  
-.social a{  
-  display:inline-block;  
-  margin:5px;  
-  padding:10px 18px;  
-  border:1px solid var(--accent);  
-  color:var(--accent);  
-  text-decoration:none;  
-  font-size:13px;  
-}  
-  
-.strip{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  background:var(--accent);
-  color:black;
-  padding:10px;
-  font-weight:bold;
-  max-height:45px;
-  overflow:hidden;
-  margin:20px 0;
-}  
-  
-/* STORY */  
-.story{  
-  margin:30px auto;  
-  max-width:600px;  
-  background:rgba(0,0,0,0.7);  
-  padding:20px;  
-  border-left:4px solid var(--accent);  
-}  
-  
-/* FEATURE */  
-.feature-poster{  
-  margin:50px auto;  
-  text-align:center;  
-}  
-  
-.feature-poster img{  
-  width:100%;  
-  max-width:950px;  
-  border-radius:10px;  
-  box-shadow:0 0 25px rgba(125,249,193,0.3);  
-}  
-  
-/* VOTE */  
-.vote-box{  
-  margin:60px 0;  
-  padding:25px;  
-  background:#0a0a0a;  
-  border-radius:10px;  
-  text-align:center;  
-  border:1px solid rgba(125,249,193,0.2);  
-}  
-  
-.vote-grid{  
-  display:grid;  
-  grid-template-columns:1fr 1fr;  
-  gap:20px;  
-}  
-  
-.vote-card{  
-  border:1px solid rgba(125,249,193,0.3);  
-  border-radius:8px;  
-  overflow:hidden;  
-  cursor:pointer;  
-  transition:0.3s;  
-}  
-  
-.vote-card:hover{  
-  transform:scale(1.03);  
-  box-shadow:0 0 15px rgba(125,249,193,0.4);  
-}  
-  
-.vote-images img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}  
-  
-  
-.email-box input{  
-  margin-top:20px;  
-  padding:10px;  
-  width:220px;  
-  background:#000;  
-  border:1px solid var(--accent);  
-  color:white;  
-}  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedal Forever Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
+  <style>
+    :root {
+      --accent: #7df9c1;
+    }
 
-/* STREET ART */  
-.gallery{  
-  margin:60px 0;  
-}  
-  
-.gallery h2{  
-  text-align:center;  
-  color:var(--accent);  
-}  
-  
-.gallery-grid{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));  
-  gap:10px;  
-}  
-  
-.gallery-grid img{  
-  width:100%;  
-  height:200px;  
-  object-fit:cover;  
-}  
-  
-/* MERCH */  
-.merch{  
-  margin:60px 0;  
-  text-align:center;  
-}  
-  
-.merch-grid{  
-  display:grid;  
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));  
-  gap:15px;  
-}  
-  
-.merch-item{  
-  border:1px solid rgba(125,249,193,0.2);  
-  padding:15px;  
-}  
-  
-/* CTA */  
-.collection-cta{  
-  text-align:center;  
-  padding:40px;  
-}  
-  
-.collection-cta a{  
-  padding:12px 24px;  
-  border:2px solid var(--accent);  
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #eaeaea;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('website-wallpaper.jpg') center/cover no-repeat;
+      opacity: 0.12;
+      z-index: -1;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 28px;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .sidebar {
+      padding: 20px;
+      border: 1px solid rgba(125,249,193,0.25);
+      background: rgba(0,0,0,0.75);
+      border-radius: 12px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+    }
+
+    .sidebar h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+
+    .wrap {
+      min-width: 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 15px 25px;
+    }
+
+    .tagline {
+      color: var(--accent);
+      letter-spacing: 4px;
+      font-size: 11px;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      margin: 10px 0;
+    }
+
+    .social a,
+    .button-link {
+      display: inline-block;
+      margin: 8px;
+      padding: 12px 20px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background: var(--accent);
+      color: black;
+      padding: 10px;
+      font-weight: bold;
+      margin: 20px 0;
+      border-radius: 8px;
+      flex-wrap: wrap;
+    }
+
+    .story,
+    .vote-box,
+    .gallery,
+    .merch,
+    .bottom-feature {
+      margin: 40px 0;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(125,249,193,0.25);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .story {
+      border-left: 4px solid var(--accent);
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .feature-poster {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .feature-poster img {
+      width: 100%;
+      max-width: 950px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(125,249,193,0.3);
+    }
+
+    .vote-box {
+      text-align: center;
+    }
+
+    .vote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .vote-card {
+      border: 1px solid rgba(125,249,193,0.35);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #050505;
+    }
+
+    .vote-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(125,249,193,0.4);
+    }
+
+    .vote-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .vote-images img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .vote-title {
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    .email-box input {
+      margin-top: 20px;
+      padding: 12px;
+      width: 240px;
+      max-width: 90%;
+      background: #000;
+      border: 1px solid var(--accent);
+      color: white;
+    }
+
+    .gallery h2,
+    .merch h2,
+    .bottom-feature h2 {
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(125,249,193,0.2);
+    }
+
+    .merch {
+      text-align: center;
+    }
+
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .merch-item {
+      border: 1px solid rgba(125,249,193,0.25);
+      padding: 20px;
+      border-radius: 10px;
+      background: #050505;
+    }
+
+    .collection-cta {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      text-align: center;
+    }
+
+    .bottom-card {
+      border: 1px solid rgba(125,249,193,0.25);
+      border-radius: 10px;
+      padding: 20px;
+      background: #050505;
+    }
+
+    @media(max-width:900px) {
+      .main {
+        grid-template-columns: 1fr;
+        padding: 12px;
+      }
+
+      .sidebar {
+        position: relative;
+        top: auto;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .vote-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <div class="main">
 
-<div class="main">
+    <div class="sidebar">
+      <h3>Quick Links</h3>
+      <a href="collection.html">Collection</a>
+      <a href="finished-bikes.html">Finished Bikes</a>
+      <a href="for-sale.html">For Sale</a>
+      <a href="sold-bikes.html">Sold Bikes</a>
+      <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry">Contact</a>
+    </div>
 
-  <!-- LEFT SIDEBAR -->
-  <div class="sidebar">
-    <h3>Quick Links</h3>
-    <a href="collection.html">Collection</a>
-    <a href="finished-bikes.html">Finished Bikes</a>
-    <a href="for-sale.html">For Sale</a>
-    <a href="sold-bikes.html">Sold Bikes</a>
+    <div class="wrap">
+
+      <div class="hero">
+        <div class="tagline">LIVE FREE OR RIDE</div>
+        <h1>PEDAL FOREVER</h1>
+        <div class="social">
+          <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
+          <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div>REAL FINDS</div>
+        <div>RESTORED</div>
+        <div>NEW ENGLAND</div>
+      </div>
+
+      <div class="story">
+        Earned, not assembled.
+      </div>
+
+      <div class="feature-poster">
+        <img src="feature-poster.png" alt="Pedal Forever feature poster">
+      </div>
+
+      <div class="vote-box">
+        <h2 style="color:var(--accent)">Vote the Next Bike of the Month</h2>
+
+        <div class="vote-grid">
+          <div class="vote-card" onclick="vote('GT')">
+            <div class="vote-images">
+              <img src="gtmach1-1.jpg" alt="1990 GT Mach 1">
+              <img src="gtmach1-2.jpg" alt="1990 GT Mach 1">
+            </div>
+            <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>
+          </div>
+
+          <div class="vote-card" onclick="vote('RAMPAR')">
+            <div class="vote-images">
+              <img src="rampar-1.jpg" alt="1978 Team Rampar">
+              <img src="rampar-2.jpg" alt="1978 Team Rampar">
+            </div>
+            <div class="vote-title">1978 Team Rampar — Nickel Motomag</div>
+          </div>
+        </div>
+
+        <div class="email-box">
+          <input id="email" placeholder="Enter email">
+        </div>
+
+        <p id="status"></p>
+        <p>Total Votes: <span id="total">0</span></p>
+      </div>
+
+      <div class="gallery">
+        <h2>Street Art</h2>
+        <div class="gallery-grid">
+          <img src="you-daughter-carshow.jpg" alt="Street art 1">
+          <img src="you-dirtbike.jpg" alt="Street art 2">
+          <img src="you-skatepark.jpg" alt="Street art 3">
+        </div>
+
+        <div class="collection-cta">
+          <a class="button-link" href="collection.html">VIEW FULL GALLERY</a>
+        </div>
+      </div>
+
+      <div class="merch">
+        <h2>Merch</h2>
+        <div class="merch-grid">
+          <div class="merch-item">Limited Drops Coming Soon</div>
+          <div class="merch-item">Pedal Forever Gear</div>
+        </div>
+      </div>
+
+      <div class="bottom-feature">
+        <h2>Built From Real Deals, Real Bikes, Real History</h2>
+
+        <div class="bottom-grid">
+          <div class="bottom-card">
+            <h3>Latest Builds</h3>
+            <p>Survivor BMX bikes, restorations, and New England finds.</p>
+          </div>
+
+          <div class="bottom-card">
+            <h3>Got an Old BMX?</h3>
+            <p>I buy old BMX bikes, frames, parts, pads, wheels, and gear.</p>
+          </div>
+
+          <div class="bottom-card">
+            <h3>Follow the Journey</h3>
+            <p>Watch the builds, the finds, and the preservation process.</p>
+          </div>
+        </div>
+
+        <div class="collection-cta">
+          <a class="button-link" href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry">EMAIL ME</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- MAIN -->
-  <div class="wrap">
-    <div class="hero">
-      <div class="tagline">LIVE FREE OR RIDE</div>
-      <h1>PEDAL FOREVER</h1>
+  <script>
+    let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
+    document.getElementById("total").innerText = votes;
 
-      <div class="social">
-        <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
-        <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
-      </div>
-      </div> <!-- CLOSE HERO -->
+    function hasVoted(email) {
+      let voters = JSON.parse(localStorage.getItem("voters")) || [];
+      return voters.includes(email);
+    }
 
-<div class="strip">
-  <div>REAL FINDS</div>
-  <div>RESTORED</div>
-  <div>NEW ENGLAND</div>
-</div>
-  
-</div>  <div class="story">Earned, not assembled.</div>  <!-- FEATURE -->  <div class="feature-poster">  
-<img src="feature-poster.png">  
-</div>  <!-- VOTE -->  <div class="vote-box">  
-<h2 style="color:var(--accent)">Vote the Next Bike of the Month</h2>  <div class="vote-grid">  <div class="vote-card" onclick="vote('GT')">  
-  <div class="vote-images">  
-    <img src="gtmach1-1.jpg">  
-    <img src="gtmach1-2.jpg">  
-  </div>  
-  <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>  
-</div>  <div class="vote-card" onclick="vote('RAMPAR')">  
-  <div class="vote-images">  
-    <img src="rampar-1.jpg">  
-    <img src="rampar-2.jpg">  
-  </div>  
-  <div class="vote-title">1978 Team Rampar — Nickel Motomag</div>  
-</div>  </div>  <div class="email-box">  
-<input id="email" placeholder="Enter email">  
-</div>  <p id="status"></p>  
-<p>Total Votes: <span id="total">0</span></p>  </div>  <!-- STREET ART -->  <div class="gallery">  
-<h2>Street Art</h2>  
-<div class="gallery-grid">  
-<img src="you-daughter-carshow.jpg">  
-<img src="you-dirtbike.jpg">  
-<img src="you-skatepark.jpg">  
-</div>  
-</div>  <!-- MERCH -->  <div class="merch">  
-<h2 style="color:var(--accent)">Merch</h2>  
-<div class="merch-grid">  
-<div class="merch-item">Coming Soon</div>  
-<div class="merch-item">Coming Soon</div>  
-</div>  
-<div class="collection-cta">
-  <a href="collection.html">VIEW FULL COLLECTION</a>
-</div>
+    function saveVoter(email) {
+      let voters = JSON.parse(localStorage.getItem("voters")) || [];
+      voters.push(email);
+      localStorage.setItem("voters", JSON.stringify(voters));
+    }
 
-<section style="text-align:center; padding:40px;">
-  <h2 style="color:#66ffcc;">Contact Me for Sales & Services</h2>
-  <p>Buying, selling, or restoring BMX bikes?</p>
+    function vote(choice) {
+      let email = document.getElementById("email").value;
 
-  <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry"
-     style="display:inline-block; margin-top:15px; padding:12px 20px; border:1px solid #66ffcc; color:#66ffcc; text-decoration:none;">
-     Email Me!
-  </a>
-</section>
-<script>
-let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
+      if (!email || !email.includes("@")) {
+        alert("Enter a valid email");
+        return;
+      }
 
-document.getElementById("total").innerText = votes;
+      if (hasVoted(email)) {
+        document.getElementById("status").innerText =
+          "You already voted with " + email + ". You cannot vote again.";
+        return;
+      }
 
-function hasVoted(email) {
-    let voters = JSON.parse(localStorage.getItem("voters")) || [];
-    return voters.includes(email);
-}
+      saveVoter(email);
+      votes++;
+      localStorage.setItem("totalVotes", votes);
 
-function saveVoter(email) {
-  let voters = JSON.parse(localStorage.getItem("voters")) || [];
-  voters.push(email);
-  localStorage.setItem("voters", JSON.stringify(voters));
-}
+      if (votes === 300) {
+        document.getElementById("status").innerText =
+          "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
+      } else {
+        document.getElementById("status").innerText =
+          "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+      }
 
-function vote(choice) {
-  let email = document.getElementById("email").value;
-
-  if (!email || !email.includes("@")) {
-    alert("Enter a valid email");
-    return;
-  }
-
-  if (hasVoted(email)) {
-  document.getElementById("status").innerText =
-    "You already voted with " + email + ". You cannot vote again.";
-  return;
-}
-  saveVoter(email);
-
-  votes++;
-  localStorage.setItem("totalVotes", votes);
-
-  if (votes === 300) {
-  document.getElementById("status").innerText =
-    "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
-} else {
-  document.getElementById("status").innerText =
-    "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
-}
-
-  document.getElementById("total").innerText = votes;
-  document.getElementById("email").value = "";
-}
-</script>
+      document.getElementById("total").innerText = votes;
+      document.getElementById("email").value = "";
+    }
+  </script>
+</body>
+</html>
