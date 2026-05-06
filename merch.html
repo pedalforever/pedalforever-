@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedal Forever — First Drop</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Oswald:wght@300;400;500;700&display=swap');
+
+    :root{
+      --black:#050505;
+      --charcoal:#101010;
+      --white:#f5f5f0;
+      --yellow:#ffe100;
+      --pink:#ff006e;
+      --blue:#00bdf2;
+      --red:#e01b24;
+      --line:#292929;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:#000;
+      color:var(--white);
+      font-family:'Oswald',Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      background:#050505;
+      border-left:1px solid #171717;
+      border-right:1px solid #171717;
+      min-height:100vh;
+    }
+
+    header{
+      height:60px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 38px;
+      border-bottom:1px solid #333;
+      background:#030303;
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .logo{
+      font-family:'Permanent Marker',cursive;
+      font-size:31px;
+      line-height:1;
+      transform:rotate(-2deg);
+      white-space:nowrap;
+    }
+    .logo span{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:20px;
+      letter-spacing:1px;
+      background:#07131b;
+      color:#7fe6ff;
+      border:2px solid #7fe6ff;
+      border-radius:5px;
+      padding:1px 8px;
+      display:inline-block;
+      transform:rotate(-1deg) translateY(-4px);
+      box-shadow:inset 0 -3px 0 var(--pink);
+    }
+    nav{display:flex;gap:34px;font-family:'Bebas Neue';font-size:18px;letter-spacing:1px}
+    .icons{display:flex;gap:22px;font-size:28px;font-family:Arial}
+
+    .hero{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      min-height:360px;
+      border-bottom:1px solid #2b2b2b;
+      background:
+        radial-gradient(circle at 25% 20%,rgba(255,0,110,.18),transparent 15%),
+        radial-gradient(circle at 55% 30%,rgba(0,189,242,.18),transparent 18%),
+        linear-gradient(90deg,#040404 0%,#0b0b0b 68%,#050505 68%);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:0;
+      background-image:linear-gradient(45deg,rgba(255,255,255,.03) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.03) 50%,rgba(255,255,255,.03) 75%,transparent 75%);
+      background-size:34px 34px;opacity:.15;
+    }
+    .splatter{position:absolute;inset:0;pointer-events:none;opacity:.8;background:
+      radial-gradient(circle at 18% 22%,var(--yellow) 0 3px,transparent 4px),
+      radial-gradient(circle at 41% 20%,var(--pink) 0 4px,transparent 5px),
+      radial-gradient(circle at 54% 16%,var(--blue) 0 3px,transparent 4px),
+      radial-gradient(circle at 33% 62%,var(--pink) 0 2px,transparent 3px),
+      radial-gradient(circle at 63% 72%,var(--yellow) 0 3px,transparent 4px);
+    }
+    .hero-left{padding:42px 42px 38px;position:relative;z-index:2;display:flex;align-items:center;gap:36px}
+    .headline{max-width:520px;transform:rotate(-2deg)}
+    .crown{font-size:72px;color:var(--yellow);font-family:'Permanent Marker';line-height:.6;margin-bottom:5px}
+    .headline h1{font-family:'Permanent Marker';text-transform:uppercase;line-height:.92;font-size:60px;letter-spacing:1px;text-shadow:4px 4px #000}
+    .headline .white{color:#eee}.headline .pink{color:var(--pink)}.headline .yellow{color:var(--yellow)}.headline .blue{color:var(--blue);font-size:35px;margin-top:8px;display:block}
+    .mascot{width:250px;height:250px;border-radius:50%;border:4px solid #eee;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#111;box-shadow:0 0 0 6px #222,0 0 25px rgba(0,189,242,.25);font-family:'Permanent Marker'}
+    .cap{font-size:42px;color:#eee;border:3px solid var(--blue);padding:0 12px;border-radius:8px;margin-bottom:8px;box-shadow:inset 0 -5px 0 var(--yellow)}
+    .skull{font-size:82px;line-height:.8}.wrenches{font-size:58px;transform:rotate(-25deg);color:#ccc}
+    .hero-right{position:relative;z-index:2;padding:52px 38px;border-left:3px solid var(--yellow)}
+    .hero-right h2{font-family:'Permanent Marker';font-size:35px;line-height:1.15;color:var(--yellow);text-transform:uppercase}.hero-right h2 span{color:#eee;display:block}.hero-right p{font-size:21px;line-height:1.35;margin:24px 0;color:#f3f3f3}.btn{display:inline-block;background:var(--pink);padding:14px 33px;font-family:'Bebas Neue';font-size:25px;letter-spacing:1px;box-shadow:4px 4px 0 #111;border:2px solid var(--pink)}
+
+    section{border-bottom:1px solid #282828;padding:30px 42px;background:#080808;position:relative}.section-title{text-align:center;font-family:'Permanent Marker';font-size:31px;margin-bottom:26px;text-transform:uppercase}.section-title span{color:var(--yellow)}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:46px;align-items:end}.product{text-align:center;position:relative}.shirt{height:330px;margin:0 auto 15px;position:relative;filter:drop-shadow(0 15px 18px rgba(0,0,0,.6))}.tee{width:230px;height:290px;background:#111;border-radius:26px 26px 8px 8px;position:absolute;left:50%;bottom:0;transform:translateX(-50%);border:1px solid #222}.tee:before,.tee:after{content:"";position:absolute;top:42px;width:80px;height:135px;background:#111;border:1px solid #222}.tee:before{left:-55px;transform:rotate(20deg);border-radius:16px 0 20px 20px}.tee:after{right:-55px;transform:rotate(-20deg);border-radius:0 16px 20px 20px}.tee.navy,.tee.navy:before,.tee.navy:after{background:#071329}.tee.tan,.tee.tan:before,.tee.tan:after{background:#b89460}.shirt-art{position:absolute;inset:54px 18px 20px;z-index:3;text-align:center;font-family:'Permanent Marker';font-size:30px;line-height:1;color:#eee;text-shadow:3px 3px #000}.shirt-art .pink{color:var(--pink)}.shirt-art .yellow{color:var(--yellow)}.shirt-art .blue{color:var(--blue)}.shirt-art small{display:block;font-family:'Bebas Neue';font-size:15px;line-height:1.25;margin-top:14px;color:#eee}.shirt-art .bike{font-size:54px;color:var(--yellow);margin:6px 0}.product h3{font-family:'Bebas Neue';font-size:25px;letter-spacing:1px}.price{font-size:25px;margin:1px 0 15px}.outline-btn{display:inline-block;border:2px solid #eee;padding:8px 28px;font-family:'Bebas Neue';font-size:22px;letter-spacing:1px}.view-all{text-align:center;margin-top:20px}.view-all .outline-btn{border-color:var(--pink);color:var(--pink)}.arrow{position:absolute;top:48%;font-size:60px;color:var(--pink);font-family:Arial}.arrow.left{left:28px}.arrow.right{right:28px}
+
+    .stickers{display:grid;grid-template-columns:1.1fr 1fr .8fr;gap:34px;align-items:center}.sticker-title{font-family:'Permanent Marker';font-size:34px;color:var(--pink);line-height:1}.sticker-title span{display:block;color:#eee;font-size:25px}.sticker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.sticker{background:#111;border:2px solid #eee;border-radius:10px;padding:12px;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Bebas Neue';font-size:22px;line-height:1.05;box-shadow:4px 4px 0 #000}.sticker.pink{border-color:var(--pink)}.sticker.blue{border-color:var(--blue)}.pack{height:235px;background:linear-gradient(135deg,#111,#252525);border:2px solid #444;border-radius:12px;transform:rotate(5deg);display:flex;align-items:center;justify-content:center;font-family:'Permanent Marker';font-size:36px;text-align:center;line-height:1.1;box-shadow:0 20px 30px rgba(0,0,0,.5)}.pack span{color:var(--pink)}.sticker-copy h3{font-family:'Bebas Neue';font-size:33px;line-height:1;color:var(--yellow)}.sticker-copy p{font-size:18px;margin:18px 0;line-height:1.4}
+
+    .why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}.why{text-align:center}.why .ico{height:70px;font-size:52px;margin-bottom:8px}.why h4{font-family:'Bebas Neue';font-size:23px;line-height:1.05}.why p{font-size:15px;color:#ddd;margin-top:7px;line-height:1.25}.blue-title{color:var(--blue);font-family:'Permanent Marker';text-align:center;font-size:28px;margin-bottom:25px}
+
+    .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--yellow);color:#060606;padding:17px 30px;border-bottom:0}.strip div{display:flex;align-items:center;gap:12px;justify-content:center;font-family:'Bebas Neue';font-size:24px;line-height:1}.strip b{font-size:36px}
+    footer{display:grid;grid-template-columns:1.5fr repeat(3,1fr) 1.5fr;gap:28px;padding:34px 42px 18px;background:#030303}.foot-logo{font-family:'Permanent Marker';font-size:42px;line-height:1}.foot-logo span{font-family:'Bebas Neue';font-size:23px;color:#7fe6ff;border:2px solid #7fe6ff;padding:0 8px;border-radius:5px;box-shadow:inset 0 -3px 0 var(--pink)}footer p,footer li{font-size:16px;color:#ddd;line-height:1.5}footer h5{font-family:'Bebas Neue';font-size:22px;margin-bottom:8px}ul{list-style:none}.email{display:flex;margin-top:9px}.email input{background:#080808;border:1px solid #888;color:#fff;padding:10px;width:100%;font-family:inherit}.email button{background:var(--pink);color:#fff;border:0;padding:0 16px;font-family:'Bebas Neue';font-size:20px}.copyright{grid-column:1/-1;text-align:center;color:#777;font-size:14px;margin-top:10px}
+
+    @media(max-width:850px){header{padding:0 16px}nav{display:none}.hero{grid-template-columns:1fr}.hero-left{flex-direction:column;padding:30px 22px}.headline h1{font-size:42px}.mascot{width:190px;height:190px}.hero-right{border-left:0;border-top:3px solid var(--yellow);padding:28px}.products,.stickers{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.strip{grid-template-columns:1fr;gap:12px}footer{grid-template-columns:1fr}.arrow{display:none}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">Pedal <span>Forever</span></div>
+      <nav><a href="#">Shop</a><a href="#">Collections</a><a href="#">Stickers</a><a href="#">About</a><a href="#">Why Pedal Forever?</a></nav>
+      <div class="icons">⌕ 🛒</div>
+    </header>
+
+    <section class="hero">
+      <div class="splatter"></div>
+      <div class="hero-left">
+        <div class="headline">
+          <div class="crown">♕</div>
+          <h1><span class="white">Repros</span><br><span class="pink">Don’t Belong</span><br><span class="yellow">On Real Bikes!</span><span class="blue">Pedal Forever</span></h1>
+        </div>
+        <div class="mascot"><div class="cap">PF</div><div class="skull">☠</div><div class="wrenches">⚒</div></div>
+      </div>
+      <div class="hero-right">
+        <h2>We Preserve The Ride.<span>Not Destroy It.</span></h2>
+        <p>We preserve BMX history with original parts, no repros, and no shortcuts. Every ride has a story. We keep it alive.</p>
+        <a class="btn" href="#">Shop Now</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">First Drop Collection — <span>Limited. Loud. Original.</span></div>
+      <div class="arrow left">‹</div><div class="arrow right">›</div>
+      <div class="products">
+        <div class="product"><div class="shirt"><div class="tee"></div><div class="shirt-art">Preserve<br><span class="pink">The Ride</span><div class="bike">🚲</div><small>No repro parts<br>No repaints<br>No shortcuts</small><span class="yellow">Pedal Forever</span></div></div><h3>Preserve The Ride Tee</h3><div class="price">$29.99</div><a class="outline-btn">View Product</a></div>
+        <div class="product"><div class="shirt"><div class="tee navy"></div><div class="shirt-art">Original<br>Over<br>Everything<br><span class="blue" style="font-size:24px">Pedal Forever</span><small>EST. 2023</small></div></div><h3>Original Over Everything Tee</h3><div class="price">$29.99</div><a class="outline-btn">View Product</a></div>
+        <div class="product"><div class="shirt"><div class="tee tan"></div><div class="shirt-art" style="color:#080808;text-shadow:none">Pedal<br>Forever<br><span class="pink">Crew</span><small>20&nbsp;&nbsp; PF &nbsp;&nbsp;23<br>Downtown Nashua, NH<br><span class="pink">Keep It Original</span></small></div></div><h3>Crew Tee</h3><div class="price">$29.99</div><a class="outline-btn">View Product</a></div>
+      </div>
+      <div class="view-all"><a class="outline-btn">View All Apparel</a></div>
+    </section>
+
+    <section class="stickers">
+      <div><div class="sticker-title">Free Sticker Pack <span>With Every Order</span></div><div class="sticker-grid"><div class="sticker">Preserve<br>Replace</div><div class="sticker pink">No<br>Repro</div><div class="sticker blue">Stop<br>Repainting<br>History</div><div class="sticker">PF</div><div class="sticker blue">Pedal<br>Forever</div><div class="sticker pink">If It Ain’t<br>Original<br>It Ain’t It.</div></div></div>
+      <div class="pack">Pedal Forever<br><span>Sticker Pack</span></div>
+      <div class="sticker-copy"><h3>5 Stickers — Free With Every Order</h3><p>Every order comes with 5 exclusive Pedal Forever stickers. While supplies last.</p><a class="btn">Shop Now</a></div>
+    </section>
+
+    <section>
+      <div class="blue-title">Why Pedal Forever?</div>
+      <div class="why-grid">
+        <div class="why"><div class="ico">🛡</div><h4>We Preserve.<br>Not Destroy.</h4><p>We keep BMX history authentic.</p></div>
+        <div class="why"><div class="ico">⚙</div><h4>Original Parts<br>Only.</h4><p>No repros. Ever.</p></div>
+        <div class="why"><div class="ico">🛠</div><h4>No Repaints.<br>No Shortcuts.</h4><p>We don’t fake it.</p></div>
+        <div class="why"><div class="ico">🚲</div><h4>Every Bike Has<br>A Story.</h4><p>We keep it alive.</p></div>
+        <div class="why"><div class="ico">☠</div><h4>This Ain’t Just<br>A Brand.</h4><p>It’s a movement.</p></div>
+        <div class="why"><div class="ico">PF</div><h4>Est. 2023</h4><p>Downtown Nashua, New Hampshire</p></div>
+      </div>
+    </section>
+
+    <div class="strip"><div><b>🚚</b> Free Sticker Pack<br>With Every Order</div><div><b>⚡</b> Limited Runs<br>No Restocks</div><div><b>⏱</b> Secure Checkout<br>Fast Shipping</div><div><b>🔒</b> Built By Riders</div><div><b>☠</b> For Riders</div></div>
+
+    <footer>
+      <div><div class="foot-logo">Pedal <span>Forever</span></div><p>We preserve BMX history. No repros. No shortcuts. Just real bikes & real stories.</p></div>
+      <div><h5>Shop</h5><ul><li>All Products</li><li>Apparel</li><li>Stickers</li><li>Collections</li></ul></div>
+      <div><h5>About</h5><ul><li>Our Mission</li><li>Why No Repros?</li><li>Customer Reviews</li><li>Contact Us</li></ul></div>
+      <div><h5>Info</h5><ul><li>Shipping</li><li>Returns</li><li>FAQ</li><li>Privacy Policy</li></ul></div>
+      <div><h5>Join The Movement</h5><div class="email"><input placeholder="Enter your email"><button>Sign Up</button></div><p style="margin-top:12px">Instagram · TikTok · YouTube</p></div>
+      <div class="copyright">© 2026 Pedal Forever. All rights reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
