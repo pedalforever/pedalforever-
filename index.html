@@ -5,6 +5,7 @@
   <title>Pedal Forever Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --accent:#7df9c1;
@@ -172,12 +173,32 @@
       letter-spacing:1px;
     }
 
+    .feature-poster a{
+      display:block;
+      text-decoration:none;
+    }
+
     .feature-poster img{
       width:100%;
       max-width:950px;
       border-radius:12px;
       box-shadow:0 0 25px rgba(125,249,193,0.3);
       border:1px solid rgba(125,249,193,0.22);
+      transition:0.25s ease;
+      cursor:pointer;
+    }
+
+    .feature-poster img:hover{
+      transform:scale(1.01);
+      box-shadow:0 0 30px rgba(125,249,193,0.45);
+    }
+
+    .feature-click{
+      margin-top:12px;
+      color:var(--accent);
+      font-size:11px;
+      letter-spacing:2px;
+      opacity:0.85;
     }
 
     .vote-box{
@@ -266,10 +287,26 @@
     }
 
     .merch-item{
+      display:block;
       border:1px solid rgba(125,249,193,0.2);
       padding:18px;
       border-radius:10px;
       background:rgba(0,0,0,0.5);
+      text-decoration:none;
+      transition:0.25s ease;
+    }
+
+    .merch-item:hover{
+      transform:scale(1.02);
+      box-shadow:0 0 18px rgba(125,249,193,0.3);
+    }
+
+    .merch-item img{
+      width:100%;
+      max-height:180px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:10px;
     }
 
     .collection-cta{text-align:center;padding:35px 0;}
@@ -324,6 +361,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <div class="main">
@@ -340,6 +378,7 @@
       <img class="site-logo" src="logo.jpg" alt="Pedal Forever logo">
       <div class="tagline">LIVE FREE OR RIDE</div>
       <h1>PEDAL FOREVER</h1>
+
       <div class="social">
         <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
         <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
@@ -359,11 +398,17 @@
 
     <section class="feature-poster">
       <h2>Featured Bike of the Month</h2>
-      <img src="feature-poster.png" alt="Featured Bike of the Month">
+
+      <a href="feature-poster.png" target="_blank">
+        <img src="feature-poster.png" alt="Featured Bike of the Month">
+      </a>
+
+      <div class="feature-click">TAP IMAGE TO VIEW FULL SIZE</div>
     </section>
 
     <section class="vote-box">
       <h2>Vote the Next Bike of the Month</h2>
+
       <div class="vote-grid">
         <div class="vote-card" onclick="vote('GT')">
           <div class="vote-images">
@@ -385,46 +430,44 @@
       <div class="email-box">
         <input id="email" placeholder="Enter email to vote">
       </div>
+
       <p id="status"></p>
       <p>Total Votes: <span id="total">0</span></p>
     </section>
 
     <section class="gallery" id="street-art">
-  <h2>Street Art</h2>
+      <h2>Street Art</h2>
 
-  <div class="gallery-grid">
-    <img src="street-art-1.jpg" alt="Street art 1">
-    <img src="street-art-2.jpg" alt="Street art 2">
-    <img src="street-art-3.jpg" alt="Street art 3">
-    <img src="street-art-4.jpg" alt="Street art 4">
-    <img src="street-art-5.jpg" alt="Street art 5">
-  </div>
-</section>
+      <div class="gallery-grid">
+        <img src="street-art-1.jpg" alt="Street art 1">
+        <img src="street-art-2.jpg" alt="Street art 2">
+        <img src="street-art-3.jpg" alt="Street art 3">
+        <img src="street-art-4.jpg" alt="Street art 4">
+        <img src="street-art-5.jpg" alt="Street art 5">
+      </div>
+    </section>
 
     <section class="merch" id="merch">
-  <h2>MERCH DROP</h2>
+      <h2>MERCH DROP</h2>
 
-  <div class="merch-grid">
+      <div class="merch-grid">
+        <a href="merch.html" class="merch-item">
+          <img src="feature-poster.png" alt="Pedal Forever Merch">
+          <h3>DROP 01</h3>
+          <p>Limited Loud Original</p>
+        </a>
 
-    <a href="merch.html" class="merch-item">
-      <img src="feature-poster.png" alt="Pedal Forever Merch">
-      <h3>DROP 01</h3>
-      <p>Limited Loud Original</p>
-    </a>
+        <a href="merch.html" class="merch-item">
+          <img src="featured-badge.png" alt="Pedal Forever Stickers">
+          <h3>Sticker Packs</h3>
+          <p>Free with every order</p>
+        </a>
+      </div>
 
-    <a href="merch.html" class="merch-item">
-      <img src="featured-badge.png" alt="Pedal Forever Stickers">
-      <h3>Sticker Packs</h3>
-      <p>Free with every order</p>
-    </a>
-
-  </div>
-
-  <div class="collection-cta">
-    <a href="merch.html">OPEN MERCH PAGE</a>
-  </div>
-
-</section>
+      <div class="collection-cta">
+        <a href="merch.html">OPEN MERCH PAGE</a>
+      </div>
+    </section>
 
     <div class="collection-cta">
       <a href="collection.html">VIEW FULL COLLECTION</a>
@@ -439,14 +482,17 @@
           <strong>Got an old BMX bike?</strong>
           <span>Original survivors, barn finds, garage bikes, and forgotten projects are exactly what I am looking for.</span>
         </div>
+
         <div class="contact-card">
           <strong>Parts & Accessories</strong>
           <span>Bars, stems, seats, pads, wheels, tires, grips, decals, plates, and old-school BMX hardware.</span>
         </div>
+
         <div class="contact-card">
           <strong>Preserve Before Replace</strong>
           <span>Family-driven, pride-driven, and focused on keeping original history alive whenever possible.</span>
         </div>
+
         <div class="contact-card">
           <strong>Sales & Services</strong>
           <span>Have something to sell, need help with a build, or want to talk BMX? Reach out anytime.</span>
@@ -503,5 +549,6 @@
     document.getElementById("email").value = "";
   }
 </script>
+
 </body>
 </html>
