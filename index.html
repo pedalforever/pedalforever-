@@ -41,11 +41,6 @@
       min-height:100vh;
     }
 
-    @media(max-width:900px){
-      .main{grid-template-columns:1fr;}
-      .sidebar{border-right:none;border-bottom:1px solid rgba(125,249,193,0.18);}
-    }
-
     .sidebar{
       padding:20px;
       border-right:1px solid rgba(125,249,193,0.15);
@@ -74,13 +69,8 @@
       background:var(--accent);
     }
 
-    .floating-media-box{
-      position:fixed;
-      left:14px;
-      top:50%;
-      transform:translateY(-50%);
-      width:230px;
-      z-index:999;
+    .sidebar-media-box{
+      margin-top:22px;
       padding:10px;
       border:2px solid var(--accent);
       border-radius:16px;
@@ -88,10 +78,10 @@
       box-shadow:0 0 22px rgba(125,249,193,.35);
     }
 
-    .floating-media-title{
+    .sidebar-media-title{
       color:var(--accent);
       text-align:center;
-      font-size:11px;
+      font-size:10px;
       letter-spacing:2px;
       margin:0 0 8px;
     }
@@ -116,7 +106,7 @@
 
     .video-label{
       padding:6px;
-      font-size:9px;
+      font-size:8px;
       color:#fff;
       text-align:center;
       background:rgba(125,249,193,.12);
@@ -157,18 +147,6 @@
       top:82%;
       width:52%;
       height:11%;
-    }
-
-    @media(max-width:900px){
-      .floating-media-box{
-        position:relative;
-        left:auto;
-        top:auto;
-        transform:none;
-        width:100%;
-        max-width:360px;
-        margin:20px auto;
-      }
     }
 
     .wrap{
@@ -245,11 +223,6 @@
 
     .strip div:last-child{border-right:none;}
 
-    @media(max-width:650px){
-      .strip{grid-template-columns:1fr 1fr;}
-      .strip div{border-bottom:1px solid rgba(0,0,0,0.18);}
-    }
-
     .story{
       margin:30px auto;
       max-width:720px;
@@ -317,10 +290,6 @@
       grid-template-columns:1fr 1fr;
       gap:20px;
       margin-top:20px;
-    }
-
-    @media(max-width:700px){
-      .vote-grid{grid-template-columns:1fr;}
     }
 
     .vote-card{
@@ -525,73 +494,50 @@
       line-height:1.55;
       color:#d8d8d8;
     }
+
+    @media(max-width:900px){
+      .main{
+        grid-template-columns:1fr;
+      }
+
+      .wrap{
+        order:1;
+      }
+
+      .sidebar{
+        order:2;
+        border-right:none;
+        border-top:1px solid rgba(125,249,193,0.18);
+      }
+
+      .sidebar-media-box{
+        max-width:360px;
+        margin:22px auto 0;
+      }
+    }
+
+    @media(max-width:700px){
+      .vote-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:650px){
+      .strip{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .strip div{
+        border-bottom:1px solid rgba(0,0,0,0.18);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="floating-media-box">
-    <p class="floating-media-title">PEDAL FOREVER VIDEOS</p>
-
-    <div class="video-stack">
-      <div class="video-card">
-        <video controls muted playsinline>
-          <source src="small-sidebar-video-1.mp4" type="video/mp4">
-        </video>
-        <div class="video-label">SIDEBAR VIDEO</div>
-      </div>
-
-      <div class="video-card">
-        <video controls muted playsinline>
-          <source src="dyno-ghostbusters-video-1.mp4" type="video/mp4">
-        </video>
-        <div class="video-label">DYNO GHOSTBUSTERS</div>
-      </div>
-
-      <div class="video-card">
-        <video controls muted playsinline>
-          <source src="free-agent-video-1.mp4" type="video/mp4">
-        </video>
-        <div class="video-label">FREE AGENT</div>
-      </div>
-
-      <div class="video-card">
-        <video controls muted playsinline>
-          <source src="roger-basement-spin-1.mp4" type="video/mp4">
-        </video>
-        <div class="video-label">ROGER BASEMENT SPIN</div>
-      </div>
-
-      <div class="video-card">
-        <video controls muted playsinline>
-          <source src="roger-decoster-gunsroses-1.mp4" type="video/mp4">
-        </video>
-        <div class="video-label">ROGER DECOSTER</div>
-      </div>
-    </div>
-
-    <div class="bully-promo">
-      <img src="bully-promo.png" alt="Pedal Forever TikTok and YouTube promo">
-
-      <a
-        class="promo-hotspot tiktok"
-        href="https://www.tiktok.com/@pedalforever"
-        target="_blank"
-        rel="noopener"
-        aria-label="Open Pedal Forever TikTok">
-      </a>
-
-      <a
-        class="promo-hotspot youtube"
-        href="https://www.youtube.com/@pedalforever"
-        target="_blank"
-        rel="noopener"
-        aria-label="Open Pedal Forever YouTube">
-      </a>
-    </div>
-  </div>
-
   <div class="main">
+
     <aside class="sidebar">
       <h3>Quick Links</h3>
       <a href="collection.html">Collection</a>
@@ -599,6 +545,67 @@
       <a href="for-sale.html">For Sale</a>
       <a href="sold-bikes.html">Sold Bikes</a>
       <a href="merch.html">Merch</a>
+
+      <div class="sidebar-media-box">
+        <p class="sidebar-media-title">PEDAL FOREVER VIDEOS</p>
+
+        <div class="video-stack">
+          <div class="video-card">
+            <video controls muted playsinline>
+              <source src="small-sidebar-video-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">SIDEBAR VIDEO</div>
+          </div>
+
+          <div class="video-card">
+            <video controls muted playsinline>
+              <source src="dyno-ghostbusters-video-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">DYNO GHOSTBUSTERS</div>
+          </div>
+
+          <div class="video-card">
+            <video controls muted playsinline>
+              <source src="free-agent-video-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">FREE AGENT</div>
+          </div>
+
+          <div class="video-card">
+            <video controls muted playsinline>
+              <source src="roger-basement-spin-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">ROGER BASEMENT SPIN</div>
+          </div>
+
+          <div class="video-card">
+            <video controls muted playsinline>
+              <source src="roger-decoster-gunsroses-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">ROGER DECOSTER</div>
+          </div>
+        </div>
+
+        <div class="bully-promo">
+          <img src="bully-promo.png" alt="Pedal Forever TikTok and YouTube promo">
+
+          <a
+            class="promo-hotspot tiktok"
+            href="https://www.tiktok.com/@pedalforever"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Pedal Forever TikTok">
+          </a>
+
+          <a
+            class="promo-hotspot youtube"
+            href="https://www.youtube.com/@pedalforever"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Pedal Forever YouTube">
+          </a>
+        </div>
+      </div>
     </aside>
 
     <main class="wrap">
