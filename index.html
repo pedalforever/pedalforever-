@@ -74,6 +74,103 @@
       background:var(--accent);
     }
 
+    .floating-media-box{
+      position:fixed;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      width:230px;
+      z-index:999;
+      padding:10px;
+      border:2px solid var(--accent);
+      border-radius:16px;
+      background:rgba(0,0,0,.92);
+      box-shadow:0 0 22px rgba(125,249,193,.35);
+    }
+
+    .floating-media-title{
+      color:var(--accent);
+      text-align:center;
+      font-size:11px;
+      letter-spacing:2px;
+      margin:0 0 8px;
+    }
+
+    .video-stack{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .video-card{
+      border:1px solid rgba(125,249,193,.35);
+      border-radius:10px;
+      overflow:hidden;
+      background:#000;
+    }
+
+    .video-card video{
+      width:100%;
+      display:block;
+    }
+
+    .video-label{
+      padding:6px;
+      font-size:9px;
+      color:#fff;
+      text-align:center;
+      background:rgba(125,249,193,.12);
+      letter-spacing:1px;
+    }
+
+    .bully-promo{
+      position:relative;
+      display:block;
+      margin-top:12px;
+      border-radius:12px;
+      overflow:hidden;
+      border:2px solid rgba(255,79,216,.65);
+      box-shadow:0 0 18px rgba(255,79,216,.35);
+      background:#000;
+    }
+
+    .bully-promo img{
+      width:100%;
+      display:block;
+    }
+
+    .promo-hotspot{
+      position:absolute;
+      z-index:4;
+      display:block;
+    }
+
+    .promo-hotspot.tiktok{
+      left:43%;
+      top:70%;
+      width:52%;
+      height:11%;
+    }
+
+    .promo-hotspot.youtube{
+      left:43%;
+      top:82%;
+      width:52%;
+      height:11%;
+    }
+
+    @media(max-width:900px){
+      .floating-media-box{
+        position:relative;
+        left:auto;
+        top:auto;
+        transform:none;
+        width:100%;
+        max-width:360px;
+        margin:20px auto;
+      }
+    }
+
     .wrap{
       max-width:1050px;
       width:100%;
@@ -428,220 +525,258 @@
       line-height:1.55;
       color:#d8d8d8;
     }
-    .floating-video-box{
-  position:fixed;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  width:210px;
-  z-index:999;
-  border:2px solid var(--accent);
-  border-radius:14px;
-  overflow:hidden;
-  background:#000;
-  box-shadow:0 0 22px rgba(125,249,193,.35);
-}
-
-.floating-video-box video{
-  width:100%;
-  display:block;
-}
-
-@media(max-width:900px){
-  .floating-video-box{
-    position:relative;
-    left:auto;
-    top:auto;
-    transform:none;
-    width:100%;
-    max-width:340px;
-    margin:20px auto;
-  }
-}
   </style>
 </head>
 
 <body>
-  <div class="floating-video-box">
-  <video controls muted playsinline autoplay loop>
-    <source src="small-sidebar-video-1.mp4" type="video/mp4">
-  </video>
-</div>
 
-<div class="main">
-  <aside class="sidebar">
-    <h3>Quick Links</h3>
-    <a href="collection.html">Collection</a>
-    <a href="finished-bikes.html">Finished Bikes</a>
-    <a href="for-sale.html">For Sale</a>
-    <a href="sold-bikes.html">Sold Bikes</a>
-    <a href="merch.html">Merch</a>
-  </aside>
+  <div class="floating-media-box">
+    <p class="floating-media-title">PEDAL FOREVER VIDEOS</p>
 
-  <main class="wrap">
-    <section class="hero">
-      <img class="site-logo" src="logo.jpg" alt="Pedal Forever logo">
-      <div class="tagline">LIVE FREE OR RIDE</div>
-      <h1>PEDAL FOREVER</h1>
-
-      <div class="social">
-        <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
-        <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
+    <div class="video-stack">
+      <div class="video-card">
+        <video controls muted playsinline>
+          <source src="small-sidebar-video-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">SIDEBAR VIDEO</div>
       </div>
-    </section>
 
-    <div class="strip">
-      <div>REAL FINDS</div>
-      <div>RESTORED</div>
-      <div>NEW ENGLAND</div>
-      <div>OLD BMX WANTED</div>
+      <div class="video-card">
+        <video controls muted playsinline>
+          <source src="dyno-ghostbusters-video-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">DYNO GHOSTBUSTERS</div>
+      </div>
+
+      <div class="video-card">
+        <video controls muted playsinline>
+          <source src="free-agent-video-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">FREE AGENT</div>
+      </div>
+
+      <div class="video-card">
+        <video controls muted playsinline>
+          <source src="roger-basement-spin-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">ROGER BASEMENT SPIN</div>
+      </div>
+
+      <div class="video-card">
+        <video controls muted playsinline>
+          <source src="roger-decoster-gunsroses-1.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">ROGER DECOSTER</div>
+      </div>
     </div>
 
-    <section class="story">
-      Earned, not assembled. Preserving old-school BMX history one survivor, rider, and restoration at a time.
-    </section>
+    <div class="bully-promo">
+      <img src="bully-promo.png" alt="Pedal Forever TikTok and YouTube promo">
 
-    <section class="feature-poster">
-      <h2>Featured Bike of the Month</h2>
-
-      <a href="feature-poster.png" target="_blank">
-        <img src="feature-poster.png" alt="Featured Bike of the Month">
+      <a
+        class="promo-hotspot tiktok"
+        href="https://www.tiktok.com/@pedalforever"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open Pedal Forever TikTok">
       </a>
 
-      <div class="feature-click">TAP IMAGE TO VIEW FULL SIZE</div>
-    </section>
-
-    <section class="vote-box">
-      <h2>Vote the Next Bike of the Month</h2>
-
-      <div class="vote-grid">
-        <div class="vote-card" onclick="vote('GT')">
-          <div class="vote-images">
-            <img src="gtmach1-1.jpg" alt="1990 GT Mach 1 photo 1">
-            <img src="gtmach1-2.jpg" alt="1990 GT Mach 1 photo 2">
-          </div>
-          <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>
-        </div>
-
-        <div class="vote-card" onclick="vote('RAMPAR')">
-          <div class="vote-images">
-            <img src="rampar-1.jpg" alt="1978 Team Rampar photo 1">
-            <img src="rampar-2.jpg" alt="1978 Team Rampar photo 2">
-          </div>
-          <div class="vote-title">1978 Team Rampar — Nickel Motomag</div>
-        </div>
-      </div>
-
-      <div class="email-box">
-        <input id="email" placeholder="Enter email to vote">
-      </div>
-
-      <p id="status"></p>
-      <p>Total Votes: <span id="total">0</span></p>
-    </section>
-
-    <section class="gallery" id="street-art">
-      <h2>Street Art</h2>
-
-      <div class="gallery-grid">
-        <img src="street-art-1.jpg" alt="Street art 1">
-        <img src="street-art-2.jpg" alt="Street art 2">
-        <img src="street-art-3.jpg" alt="Street art 3">
-        <img src="street-art-4.jpg" alt="Street art 4">
-        <img src="street-art-5.jpg" alt="Street art 5">
-      </div>
-    </section>
-
-    <section class="comic-merch-banner-section" id="merch">
-      <h2 class="comic-merch-title">PEDAL FOREVER MERCH</h2>
-
-      <a href="merch.html" class="comic-merch-banner">
-        <img src="comic-merch-banner.png" alt="Pedal Forever comic merch banner">
+      <a
+        class="promo-hotspot youtube"
+        href="https://www.youtube.com/@pedalforever"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open Pedal Forever YouTube">
       </a>
-
-      <a href="merch.html" class="merch-small-button">OPEN MERCH PAGE</a>
-    </section>
-
-    <div class="collection-cta">
-      <a href="collection.html">VIEW FULL COLLECTION</a>
     </div>
+  </div>
 
-    <section class="contact-section">
-      <h2>Got an Old BMX Bike?</h2>
-      <p>Buying, selling, preserving, and restoring survivor BMX bikes, parts, accessories, gear, and apparel.</p>
+  <div class="main">
+    <aside class="sidebar">
+      <h3>Quick Links</h3>
+      <a href="collection.html">Collection</a>
+      <a href="finished-bikes.html">Finished Bikes</a>
+      <a href="for-sale.html">For Sale</a>
+      <a href="sold-bikes.html">Sold Bikes</a>
+      <a href="merch.html">Merch</a>
+    </aside>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <strong>Got an old BMX bike?</strong>
-          <span>Original survivors, barn finds, garage bikes, and forgotten projects are exactly what I am looking for.</span>
+    <main class="wrap">
+      <section class="hero">
+        <img class="site-logo" src="logo.jpg" alt="Pedal Forever logo">
+        <div class="tagline">LIVE FREE OR RIDE</div>
+        <h1>PEDAL FOREVER</h1>
+
+        <div class="social">
+          <a href="https://youtube.com/@pedalforever" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://tiktok.com/@pedalforever" target="_blank" rel="noopener">TikTok</a>
         </div>
+      </section>
 
-        <div class="contact-card">
-          <strong>Parts & Accessories</strong>
-          <span>Bars, stems, seats, pads, wheels, tires, grips, decals, plates, and old-school BMX hardware.</span>
-        </div>
-
-        <div class="contact-card">
-          <strong>Preserve Before Replace</strong>
-          <span>Family-driven, pride-driven, and focused on keeping original history alive whenever possible.</span>
-        </div>
-
-        <div class="contact-card">
-          <strong>Sales & Services</strong>
-          <span>Have something to sell, need help with a build, or want to talk BMX? Reach out anytime.</span>
-        </div>
+      <div class="strip">
+        <div>REAL FINDS</div>
+        <div>RESTORED</div>
+        <div>NEW ENGLAND</div>
+        <div>OLD BMX WANTED</div>
       </div>
 
-      <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry">Email Me!</a>
-    </section>
-  </main>
-</div>
+      <section class="story">
+        Earned, not assembled. Preserving old-school BMX history one survivor, rider, and restoration at a time.
+      </section>
 
-<script>
-  let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
-  document.getElementById("total").innerText = votes;
+      <section class="feature-poster">
+        <h2>Featured Bike of the Month</h2>
 
-  function hasVoted(email) {
-    let voters = JSON.parse(localStorage.getItem("voters")) || [];
-    return voters.includes(email);
-  }
+        <a href="feature-poster.png" target="_blank">
+          <img src="feature-poster.png" alt="Featured Bike of the Month">
+        </a>
 
-  function saveVoter(email) {
-    let voters = JSON.parse(localStorage.getItem("voters")) || [];
-    voters.push(email);
-    localStorage.setItem("voters", JSON.stringify(voters));
-  }
+        <div class="feature-click">TAP IMAGE TO VIEW FULL SIZE</div>
+      </section>
 
-  function vote(choice) {
-    let email = document.getElementById("email").value.trim().toLowerCase();
+      <section class="vote-box">
+        <h2>Vote the Next Bike of the Month</h2>
 
-    if (!email || !email.includes("@")) {
-      alert("Enter a valid email");
-      return;
-    }
+        <div class="vote-grid">
+          <div class="vote-card" onclick="vote('GT')">
+            <div class="vote-images">
+              <img src="gtmach1-1.jpg" alt="1990 GT Mach 1 photo 1">
+              <img src="gtmach1-2.jpg" alt="1990 GT Mach 1 photo 2">
+            </div>
+            <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>
+          </div>
 
-    if (hasVoted(email)) {
-      document.getElementById("status").innerText =
-        "You already voted with " + email + ". You cannot vote again.";
-      return;
-    }
+          <div class="vote-card" onclick="vote('RAMPAR')">
+            <div class="vote-images">
+              <img src="rampar-1.jpg" alt="1978 Team Rampar photo 1">
+              <img src="rampar-2.jpg" alt="1978 Team Rampar photo 2">
+            </div>
+            <div class="vote-title">1978 Team Rampar — Nickel Motomag</div>
+          </div>
+        </div>
 
-    saveVoter(email);
-    votes++;
-    localStorage.setItem("totalVotes", votes);
+        <div class="email-box">
+          <input id="email" placeholder="Enter email to vote">
+        </div>
 
-    if (votes === 300) {
-      document.getElementById("status").innerText =
-        "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
-    } else {
-      document.getElementById("status").innerText =
-        "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
-    }
+        <p id="status"></p>
+        <p>Total Votes: <span id="total">0</span></p>
+      </section>
 
+      <section class="gallery" id="street-art">
+        <h2>Street Art</h2>
+
+        <div class="gallery-grid">
+          <img src="street-art-1.jpg" alt="Street art 1">
+          <img src="street-art-2.jpg" alt="Street art 2">
+          <img src="street-art-3.jpg" alt="Street art 3">
+          <img src="street-art-4.jpg" alt="Street art 4">
+          <img src="street-art-5.jpg" alt="Street art 5">
+        </div>
+      </section>
+
+      <section class="comic-merch-banner-section" id="merch">
+        <h2 class="comic-merch-title">PEDAL FOREVER MERCH</h2>
+
+        <a href="merch.html" class="comic-merch-banner">
+          <img src="comic-merch-banner.png" alt="Pedal Forever comic merch banner">
+        </a>
+
+        <a href="merch.html" class="merch-small-button">OPEN MERCH PAGE</a>
+      </section>
+
+      <div class="collection-cta">
+        <a href="collection.html">VIEW FULL COLLECTION</a>
+      </div>
+
+      <section class="contact-section">
+        <h2>Got an Old BMX Bike?</h2>
+        <p>Buying, selling, preserving, and restoring survivor BMX bikes, parts, accessories, gear, and apparel.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <strong>Got an old BMX bike?</strong>
+            <span>Original survivors, barn finds, garage bikes, and forgotten projects are exactly what I am looking for.</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>Parts & Accessories</strong>
+            <span>Bars, stems, seats, pads, wheels, tires, grips, decals, plates, and old-school BMX hardware.</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>Preserve Before Replace</strong>
+            <span>Family-driven, pride-driven, and focused on keeping original history alive whenever possible.</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>Sales & Services</strong>
+            <span>Have something to sell, need help with a build, or want to talk BMX? Reach out anytime.</span>
+          </div>
+        </div>
+
+        <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry">Email Me!</a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
     document.getElementById("total").innerText = votes;
-    document.getElementById("email").value = "";
-  }
-</script>
+
+    function hasVoted(email) {
+      let voters = JSON.parse(localStorage.getItem("voters")) || [];
+      return voters.includes(email);
+    }
+
+    function saveVoter(email) {
+      let voters = JSON.parse(localStorage.getItem("voters")) || [];
+      voters.push(email);
+      localStorage.setItem("voters", JSON.stringify(voters));
+    }
+
+    function vote(choice) {
+      let email = document.getElementById("email").value.trim().toLowerCase();
+
+      if (!email || !email.includes("@")) {
+        alert("Enter a valid email");
+        return;
+      }
+
+      if (hasVoted(email)) {
+        document.getElementById("status").innerText =
+          "You already voted with " + email + ". You cannot vote again.";
+        return;
+      }
+
+      saveVoter(email);
+      votes++;
+      localStorage.setItem("totalVotes", votes);
+
+      if (votes === 300) {
+        document.getElementById("status").innerText =
+          "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
+      } else {
+        document.getElementById("status").innerText =
+          "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+      }
+
+      document.getElementById("total").innerText = votes;
+      document.getElementById("email").value = "";
+    }
+
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach(function(video){
+      video.addEventListener("play", function(){
+        videos.forEach(function(otherVideo){
+          if(otherVideo !== video){
+            otherVideo.pause();
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
