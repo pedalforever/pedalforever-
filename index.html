@@ -251,15 +251,11 @@
       font-size:13px;
     }
 
-    .email-box input{
-      margin-top:22px;
-      padding:12px;
-      width:min(320px,100%);
-      background:#000;
-      border:1px solid var(--accent);
-      color:white;
-      border-radius:6px;
-      font-family:inherit;
+    .vote-hint{
+      margin-top:18px;
+      color:#bfbfbf;
+      font-size:12px;
+      opacity:0.8;
     }
 
     .gallery{margin:55px 0;}
@@ -359,6 +355,102 @@
       line-height:1.55;
       color:#d8d8d8;
     }
+
+    /* VOTE POPUP */
+    .vote-modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(0,0,0,0.82);
+      z-index:9999;
+    }
+
+    .vote-modal.open{
+      display:flex;
+    }
+
+    .vote-popup{
+      width:min(430px,100%);
+      background:#050505;
+      border:2px solid var(--accent);
+      border-radius:16px;
+      padding:22px;
+      text-align:center;
+      box-shadow:0 0 35px rgba(125,249,193,0.45);
+      position:relative;
+    }
+
+    .vote-close{
+      position:absolute;
+      top:10px;
+      right:12px;
+      background:none;
+      border:none;
+      color:var(--accent);
+      font-size:26px;
+      cursor:pointer;
+      line-height:1;
+    }
+
+    .vote-popup h3{
+      color:var(--accent);
+      margin:0 30px 10px;
+      letter-spacing:1px;
+    }
+
+    .vote-popup p{
+      font-size:13px;
+      line-height:1.5;
+      color:#d8d8d8;
+    }
+
+    .vote-popup img{
+      width:100%;
+      max-height:190px;
+      object-fit:cover;
+      border-radius:10px;
+      border:1px solid rgba(125,249,193,0.25);
+      margin:12px 0;
+    }
+
+    .vote-popup input{
+      margin-top:10px;
+      padding:13px;
+      width:100%;
+      background:#000;
+      border:1px solid var(--accent);
+      color:white;
+      border-radius:8px;
+      font-family:inherit;
+    }
+
+    .vote-popup button.vote-submit{
+      margin-top:14px;
+      width:100%;
+      padding:13px;
+      background:var(--accent);
+      color:#000;
+      border:none;
+      border-radius:999px;
+      font-family:inherit;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .vote-popup button.vote-submit:hover{
+      background:var(--accent2);
+      color:#fff;
+    }
+
+    #status{
+      margin-top:14px;
+      color:var(--accent);
+      font-size:12px;
+      line-height:1.5;
+    }
   </style>
 </head>
 
@@ -410,7 +502,7 @@
       <h2>Vote the Next Bike of the Month</h2>
 
       <div class="vote-grid">
-        <div class="vote-card" onclick="vote('GT')">
+        <div class="vote-card" onclick="openVotePopup('GT', '1990 GT Mach 1 — Dayglo Yellow', 'gtmach1-1.jpg')">
           <div class="vote-images">
             <img src="gtmach1-1.jpg" alt="1990 GT Mach 1 photo 1">
             <img src="gtmach1-2.jpg" alt="1990 GT Mach 1 photo 2">
@@ -418,7 +510,7 @@
           <div class="vote-title">1990 GT Mach 1 — Dayglo Yellow</div>
         </div>
 
-        <div class="vote-card" onclick="vote('RAMPAR')">
+        <div class="vote-card" onclick="openVotePopup('RAMPAR', '1978 Team Rampar — Nickel Motomag', 'rampar-1.jpg')">
           <div class="vote-images">
             <img src="rampar-1.jpg" alt="1978 Team Rampar photo 1">
             <img src="rampar-2.jpg" alt="1978 Team Rampar photo 2">
@@ -427,11 +519,7 @@
         </div>
       </div>
 
-      <div class="email-box">
-        <input id="email" placeholder="Enter email to vote">
-      </div>
-
-      <p id="status"></p>
+      <p class="vote-hint">Tap a bike to cast your vote.</p>
       <p>Total Votes: <span id="total">0</span></p>
     </section>
 
@@ -504,9 +592,39 @@
   </main>
 </div>
 
+<div class="vote-modal" id="voteModal">
+  <div class="vote-popup">
+    <button class="vote-close" onclick="closeVotePopup()">×</button>
+    <h3 id="popupBikeTitle">Cast Your Vote</h3>
+    <img id="popupBikeImage" src="" alt="Bike vote preview">
+    <p>Enter your email to vote once. The 300th voter wins the sticker giveaway.</p>
+    <input id="popupEmail" placeholder="Enter email to vote">
+    <button class="vote-submit" onclick="submitPopupVote()">CAST MY VOTE</button>
+    <p id="status"></p>
+  </div>
+</div>
+
 <script>
   let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
+  let selectedChoice = "";
+  let selectedTitle = "";
+
   document.getElementById("total").innerText = votes;
+
+  function openVotePopup(choice, title, image) {
+    selectedChoice = choice;
+    selectedTitle = title;
+
+    document.getElementById("popupBikeTitle").innerText = title;
+    document.getElementById("popupBikeImage").src = image;
+    document.getElementById("popupEmail").value = "";
+    document.getElementById("status").innerText = "";
+    document.getElementById("voteModal").classList.add("open");
+  }
+
+  function closeVotePopup() {
+    document.getElementById("voteModal").classList.remove("open");
+  }
 
   function hasVoted(email) {
     let voters = JSON.parse(localStorage.getItem("voters")) || [];
@@ -519,11 +637,11 @@
     localStorage.setItem("voters", JSON.stringify(voters));
   }
 
-  function vote(choice) {
-    let email = document.getElementById("email").value.trim().toLowerCase();
+  function submitPopupVote() {
+    let email = document.getElementById("popupEmail").value.trim().toLowerCase();
 
     if (!email || !email.includes("@")) {
-      alert("Enter a valid email");
+      document.getElementById("status").innerText = "Enter a valid email.";
       return;
     }
 
@@ -542,12 +660,21 @@
         "🔥 YOU ARE THE 300TH VOTER! " + email + " wins the sticker giveaway!";
     } else {
       document.getElementById("status").innerText =
-        "Thank you! You voted with " + email + " for " + choice + ". You cannot vote again.";
+        "Thank you! You voted for " + selectedTitle + ".";
     }
 
     document.getElementById("total").innerText = votes;
-    document.getElementById("email").value = "";
+
+    setTimeout(function(){
+      closeVotePopup();
+    }, 1800);
   }
+
+  document.getElementById("voteModal").addEventListener("click", function(event){
+    if (event.target.id === "voteModal") {
+      closeVotePopup();
+    }
+  });
 </script>
 
 </body>
