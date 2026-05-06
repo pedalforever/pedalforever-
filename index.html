@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -497,22 +497,55 @@
 
     @media(max-width:900px){
       .main{
-        grid-template-columns:1fr;
+        display:flex;
+        flex-direction:column;
       }
 
       .wrap{
         order:1;
+        width:100%;
+        padding:0 10px 40px;
       }
 
       .sidebar{
         order:2;
+        width:100%;
         border-right:none;
         border-top:1px solid rgba(125,249,193,0.18);
+        padding:18px 14px;
       }
 
       .sidebar-media-box{
-        max-width:360px;
-        margin:22px auto 0;
+        display:none;
+      }
+
+      .hero{
+        padding:30px 10px 20px;
+      }
+
+      .site-logo{
+        width:92%;
+        max-width:320px;
+      }
+
+      .feature-poster{
+        margin:35px auto;
+      }
+
+      .feature-poster img{
+        width:100%;
+      }
+
+      .vote-grid{
+        grid-template-columns:1fr;
+      }
+
+      .strip{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .strip div{
+        border-bottom:1px solid rgba(0,0,0,0.18);
       }
     }
 
@@ -523,12 +556,8 @@
     }
 
     @media(max-width:650px){
-      .strip{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .strip div{
-        border-bottom:1px solid rgba(0,0,0,0.18);
+      .gallery-grid{
+        grid-template-columns:1fr;
       }
     }
   </style>
