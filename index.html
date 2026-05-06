@@ -428,10 +428,45 @@
       line-height:1.55;
       color:#d8d8d8;
     }
+    .floating-video-box{
+  position:fixed;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:210px;
+  z-index:999;
+  border:2px solid var(--accent);
+  border-radius:14px;
+  overflow:hidden;
+  background:#000;
+  box-shadow:0 0 22px rgba(125,249,193,.35);
+}
+
+.floating-video-box video{
+  width:100%;
+  display:block;
+}
+
+@media(max-width:900px){
+  .floating-video-box{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:100%;
+    max-width:340px;
+    margin:20px auto;
+  }
+}
   </style>
 </head>
 
 <body>
+  <div class="floating-video-box">
+  <video controls muted playsinline autoplay loop>
+    <source src="small-sidebar-video-1.mp4" type="video/mp4">
+  </video>
+</div>
 
 <div class="main">
   <aside class="sidebar">
