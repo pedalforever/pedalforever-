@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pedal Forever | The Garage Is Open</title>
+  <title>Pedal Forever | Built From Bad Decisions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
       --accent2:#ff4fd8;
       --dark:#050505;
       --panel:rgba(0,0,0,0.78);
-      --panel2:rgba(0,0,0,0.62);
       --red:#ff2b2b;
       --gold:#ffb347;
       --white:#eaeaea;
@@ -23,7 +22,6 @@
     }
 
     *{box-sizing:border-box;}
-
     html{scroll-behavior:smooth;}
 
     body{
@@ -63,8 +61,8 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:22px;
-      padding:16px 18px;
+      gap:18px;
+      padding:13px 14px;
       background:rgba(0,0,0,0.92);
       border-bottom:1px solid var(--accent);
       box-shadow:0 0 15px rgba(125,249,193,0.18);
@@ -74,7 +72,7 @@
     .topbar a{
       color:var(--white);
       text-decoration:none;
-      font-size:12px;
+      font-size:11px;
       letter-spacing:1px;
       font-weight:700;
       transition:.25s ease;
@@ -95,7 +93,7 @@
 
     .hero{
       text-align:center;
-      padding:60px 15px 40px;
+      padding:54px 15px 34px;
     }
 
     .site-logo{
@@ -103,7 +101,7 @@
       width:82%;
       height:auto;
       display:block;
-      margin:0 auto 18px;
+      margin:0 auto 14px;
       filter:drop-shadow(0 0 18px rgba(125,249,193,0.4));
     }
 
@@ -111,7 +109,7 @@
       color:var(--accent);
       letter-spacing:4px;
       font-size:11px;
-      margin-bottom:12px;
+      margin-bottom:10px;
       text-transform:uppercase;
     }
 
@@ -119,17 +117,18 @@
       color:white;
       font-size:clamp(22px,4vw,42px);
       font-weight:900;
-      margin:12px auto 8px;
+      margin:10px auto 8px;
       text-transform:uppercase;
       letter-spacing:1px;
     }
 
     .hero-sub{
       color:var(--accent2);
-      font-size:14px;
+      font-size:13px;
       letter-spacing:2px;
       text-transform:uppercase;
-      margin-bottom:22px;
+      margin-bottom:20px;
+      line-height:1.5;
     }
 
     .hero h1{
@@ -138,7 +137,7 @@
     }
 
     .social{
-      margin-top:20px;
+      margin-top:18px;
     }
 
     .social a{
@@ -163,20 +162,23 @@
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:0;
-      background:var(--accent);
-      color:black;
+      background:rgba(125,249,193,.12);
+      color:var(--accent);
       font-weight:bold;
       margin:20px 0 60px;
       border-radius:8px;
       overflow:hidden;
-      box-shadow:0 0 18px rgba(125,249,193,0.28);
+      border:1px solid rgba(125,249,193,.25);
+      box-shadow:0 0 18px rgba(125,249,193,0.12);
+      backdrop-filter:blur(6px);
     }
 
     .strip div{
       padding:12px 8px;
       text-align:center;
-      border-right:1px solid rgba(0,0,0,0.22);
+      border-right:1px solid rgba(125,249,193,0.14);
       font-size:12px;
+      letter-spacing:1px;
     }
 
     .strip div:last-child{border-right:none;}
@@ -587,7 +589,10 @@
       border:1px solid rgba(125,249,193,0.22);
       border-radius:12px;
       background:rgba(0,0,0,0.48);
-      min-height:125px;
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
     }
 
     .contact-card strong{
@@ -604,8 +609,9 @@
     }
 
     .footer{
+      position:relative;
       text-align:center;
-      padding:38px 15px;
+      padding:44px 15px 52px;
       color:#aaa;
       border-top:1px solid rgba(125,249,193,.22);
       background:rgba(0,0,0,.7);
@@ -613,20 +619,57 @@
       letter-spacing:1px;
     }
 
+    .footer-brand-line{
+      color:rgba(255,255,255,.65);
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
     .footer a{
       color:var(--accent);
       text-decoration:none;
     }
 
+    .pete-sticker{
+      position:absolute;
+      right:16px;
+      bottom:12px;
+      display:inline-block;
+      transform:rotate(-7deg);
+      padding:7px 10px;
+      border:1px solid rgba(255,79,216,.65);
+      border-radius:6px;
+      color:rgba(255,255,255,.72);
+      background:
+        linear-gradient(135deg, rgba(255,79,216,.18), rgba(0,0,0,.75));
+      font-size:9px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      box-shadow:0 0 10px rgba(255,79,216,.22);
+      opacity:.72;
+      transition:.25s ease;
+    }
+
+    .pete-sticker:hover{
+      opacity:1;
+      color:#fff;
+      border-color:var(--accent2);
+      box-shadow:0 0 18px rgba(255,79,216,.42);
+      transform:rotate(-4deg) scale(1.04);
+    }
+
     @media(max-width:900px){
       .topbar{
         flex-wrap:wrap;
-        gap:12px;
-        padding:13px 10px;
+        gap:8px;
+        padding:9px 6px;
       }
 
       .topbar a{
-        font-size:10px;
+        font-size:9px;
+        letter-spacing:.5px;
       }
 
       .wrap{
@@ -634,7 +677,7 @@
       }
 
       .hero{
-        padding:38px 10px 25px;
+        padding:34px 10px 24px;
       }
 
       .site-logo{
@@ -719,6 +762,11 @@
       .rider-card img{
         height:132px;
       }
+
+      .pete-sticker{
+        position:static;
+        margin-top:18px;
+      }
     }
   </style>
 </head>
@@ -727,12 +775,12 @@
 
   <nav class="topbar">
     <a href="index.html">HOME</a>
-    <a href="team.html">FACTORY TEAM</a>
+    <a href="team.html">TEAM</a>
     <a href="witness-stand.html">WITNESS STAND</a>
     <a href="bmx-basement.html">BMX BASEMENT</a>
-    <a href="#bike-of-month">BIKE OF THE MONTH</a>
+    <a href="#bike-of-month">FEATURED BIKE</a>
     <a href="merch.html">SHOP</a>
-    <a href="berms-and-conditions.html">BERMS & CONDITIONS</a>
+    <a href="berms-and-conditions.html">BERMS</a>
   </nav>
 
   <main class="wrap">
@@ -740,12 +788,12 @@
     <section class="hero">
       <img class="site-logo" src="logo.jpg" alt="Pedal Forever logo">
 
-      <div class="tagline">LIVE FREE OR RIDE</div>
+      <div class="tagline">BUILT FROM BAD DECISIONS.</div>
 
-      <h1>PEDAL FOREVER</h1>
+      <h1>PEDAL FOREVER — BUILT FROM BAD DECISIONS</h1>
 
       <div class="hero-statement">The Garage Is Open</div>
-      <div class="hero-sub">BMX never died. It just went underground.</div>
+      <div class="hero-sub">Preserving BMX history one bad decision at a time.</div>
 
       <div class="social">
         <a href="https://youtube.com/@pedalforever" target="_blank" rel="noopener">YouTube</a>
@@ -885,8 +933,7 @@
         <img src="comic-merch-banner.png" alt="Pedal Forever comic merch banner">
       </a>
 
-      <br>
-      <a href="merch.html" class="merch-small-button">Enter The Shop</a>
+      <a href="merch.html" class="merch-small-button">Open Merch Page</a>
     </section>
 
     <div class="collection-cta">
@@ -928,7 +975,10 @@
   </main>
 
   <footer class="footer">
+    <div class="footer-brand-line">Decals Fade. Stories Don’t.</div>
+
     <p>Pedal Forever — The Garage Is Open</p>
+
     <p>
       <a href="berms-and-conditions.html">Berms & Conditions</a>
       &nbsp; | &nbsp;
@@ -936,6 +986,8 @@
       &nbsp; | &nbsp;
       <a href="https://tiktok.com/@pedalforever" target="_blank" rel="noopener">TikTok</a>
     </p>
+
+    <a class="pete-sticker" href="pete-was-here.html" title="Pete was here">Pete Was Here</a>
   </footer>
 
   <script>
@@ -985,18 +1037,6 @@
       document.getElementById("total").innerText = votes;
       document.getElementById("email").value = "";
     }
-
-    const videos = document.querySelectorAll("video");
-
-    videos.forEach(function(video){
-      video.addEventListener("play", function(){
-        videos.forEach(function(otherVideo){
-          if(otherVideo !== video){
-            otherVideo.pause();
-          }
-        });
-      });
-    });
   </script>
 
 </body>
