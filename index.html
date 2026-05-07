@@ -12,13 +12,13 @@
       --accent:#7df9c1;
       --accent2:#ff4fd8;
       --dark:#050505;
-      --panel:rgba(0,0,0,0.78);
+      --panel:rgba(0,0,0,0.80);
       --red:#ff2b2b;
       --gold:#ffb347;
       --white:#eaeaea;
       --muted:#bdbdbd;
       --border:rgba(125,249,193,0.28);
-      --shadow:0 0 22px rgba(125,249,193,0.24);
+      --shadow:0 0 22px rgba(125,249,193,0.22);
     }
 
     *{box-sizing:border-box;}
@@ -35,8 +35,8 @@
       content:'';
       position:fixed;
       inset:0;
-      background:url('website-wallpaper.jpg') center/cover no-repeat;
-      opacity:0.12;
+      background:url('garage-background.jpg') center/cover no-repeat;
+      opacity:0.16;
       z-index:-2;
     }
 
@@ -45,8 +45,8 @@
       position:fixed;
       inset:0;
       background:
-        radial-gradient(circle at top center, rgba(125,249,193,0.12), transparent 34%),
-        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.42), rgba(0,0,0,0.98));
+        radial-gradient(circle at top center, rgba(125,249,193,0.10), transparent 35%),
+        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.54), rgba(0,0,0,0.98));
       pointer-events:none;
       z-index:-1;
     }
@@ -140,7 +140,8 @@
       margin-top:18px;
     }
 
-    .social a{
+    .social a,
+    .main-button{
       display:inline-block;
       margin:5px;
       padding:10px 18px;
@@ -151,9 +152,11 @@
       border-radius:999px;
       background:rgba(0,0,0,0.45);
       transition:.25s ease;
+      font-weight:700;
     }
 
-    .social a:hover{
+    .social a:hover,
+    .main-button:hover{
       background:var(--accent);
       color:#000;
     }
@@ -211,9 +214,9 @@
       margin:70px auto;
       padding:24px;
       background:
-        linear-gradient(135deg, rgba(125,249,193,0.08), rgba(255,79,216,0.05)),
-        rgba(0,0,0,0.78);
-      border:1px solid rgba(125,249,193,0.5);
+        linear-gradient(135deg, rgba(125,249,193,0.07), rgba(255,79,216,0.045)),
+        rgba(0,0,0,0.82);
+      border:1px solid rgba(125,249,193,0.42);
       border-radius:18px;
       box-shadow:var(--shadow);
       text-align:center;
@@ -248,13 +251,13 @@
 
     .team-card-link{
       display:block;
-      margin:20px auto 10px;
+      margin:22px auto 14px;
       text-decoration:none;
       border-radius:16px;
       overflow:hidden;
-      border:2px solid rgba(125,249,193,0.75);
+      border:2px solid rgba(125,249,193,0.68);
       box-shadow:
-        0 0 18px rgba(125,249,193,0.35),
+        0 0 18px rgba(125,249,193,0.28),
         0 0 42px rgba(0,0,0,0.75);
       background:#000;
       transition:transform .25s ease, box-shadow .25s ease;
@@ -263,8 +266,8 @@
     .team-card-link:hover{
       transform:scale(1.012);
       box-shadow:
-        0 0 25px rgba(125,249,193,0.58),
-        0 0 48px rgba(255,79,216,0.25);
+        0 0 25px rgba(125,249,193,0.45),
+        0 0 48px rgba(255,79,216,0.20);
     }
 
     .team-card-link img{
@@ -277,57 +280,7 @@
       font-size:11px;
       letter-spacing:2px;
       text-transform:uppercase;
-      margin-top:12px;
-    }
-
-    .rider-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .rider-card{
-      display:block;
-      text-decoration:none;
-      background:rgba(0,0,0,0.72);
-      border:1px solid rgba(125,249,193,0.28);
-      border-radius:14px;
-      overflow:hidden;
-      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-    }
-
-    .rider-card:hover{
-      transform:translateY(-4px);
-      border-color:var(--accent);
-      box-shadow:0 0 18px rgba(125,249,193,0.35);
-    }
-
-    .rider-card img{
-      width:100%;
-      display:block;
-      aspect-ratio:3/4;
-      object-fit:cover;
-      background:#000;
-    }
-
-    .rider-card div{
-      padding:12px 10px;
-    }
-
-    .rider-card strong{
-      display:block;
-      color:var(--accent);
-      font-size:13px;
-      margin-bottom:5px;
-      text-transform:uppercase;
-    }
-
-    .rider-card span{
-      display:block;
-      color:#ccc;
-      font-size:10px;
-      line-height:1.45;
+      margin:12px 0 18px;
     }
 
     .witness-home-card{
@@ -394,8 +347,8 @@
 
     .basement-section{
       background:
-        linear-gradient(135deg, rgba(255,179,71,0.08), rgba(125,249,193,0.05)),
-        rgba(0,0,0,0.78);
+        linear-gradient(135deg, rgba(255,179,71,0.08), rgba(125,249,193,0.045)),
+        rgba(0,0,0,0.82);
     }
 
     .basement-button,
@@ -427,16 +380,11 @@
       text-align:center;
     }
 
-    .feature-poster a{
-      display:block;
-      text-decoration:none;
-    }
-
     .feature-poster img{
       width:100%;
       max-width:950px;
       border-radius:12px;
-      box-shadow:0 0 25px rgba(125,249,193,0.3);
+      box-shadow:0 0 25px rgba(125,249,193,0.25);
       border:1px solid rgba(125,249,193,0.22);
       transition:0.25s ease;
       cursor:pointer;
@@ -444,7 +392,7 @@
 
     .feature-poster img:hover{
       transform:scale(1.01);
-      box-shadow:0 0 30px rgba(125,249,193,0.45);
+      box-shadow:0 0 30px rgba(125,249,193,0.38);
     }
 
     .feature-click{
@@ -533,10 +481,10 @@
       position:relative;
       overflow:hidden;
       border-radius:22px;
-      border:2px solid rgba(125,249,193,.45);
+      border:2px solid rgba(125,249,193,.38);
       box-shadow:
         0 0 25px rgba(0,0,0,.7),
-        0 0 18px rgba(125,249,193,.22);
+        0 0 18px rgba(125,249,193,.18);
       transition:
         transform .28s ease,
         box-shadow .28s ease,
@@ -556,8 +504,8 @@
       border-color:var(--red);
       box-shadow:
         0 0 12px var(--red),
-        0 0 28px rgba(255,0,0,.75),
-        0 0 60px rgba(255,0,0,.35);
+        0 0 28px rgba(255,0,0,.65),
+        0 0 60px rgba(255,0,0,.28);
     }
 
     .collection-cta{
@@ -614,7 +562,7 @@
       padding:44px 15px 52px;
       color:#aaa;
       border-top:1px solid rgba(125,249,193,.22);
-      background:rgba(0,0,0,.7);
+      background:rgba(0,0,0,.76);
       font-size:11px;
       letter-spacing:1px;
     }
@@ -698,21 +646,6 @@
         margin:55px auto;
       }
 
-      .rider-grid{
-        grid-template-columns:1fr;
-      }
-
-      .rider-card{
-        display:grid;
-        grid-template-columns:110px 1fr;
-        align-items:center;
-      }
-
-      .rider-card img{
-        height:150px;
-        aspect-ratio:auto;
-      }
-
       .witness-home-card{
         margin:55px auto;
         padding:14px;
@@ -755,14 +688,6 @@
         font-size:22px;
       }
 
-      .rider-card{
-        grid-template-columns:92px 1fr;
-      }
-
-      .rider-card img{
-        height:132px;
-      }
-
       .pete-sticker{
         position:static;
         margin-top:18px;
@@ -775,12 +700,12 @@
 
   <nav class="topbar">
     <a href="index.html">HOME</a>
-    <a href="team.html">TEAM</a>
+    <a href="team.html">THE TEAM</a>
     <a href="witness-stand.html">WITNESS STAND</a>
-    <a href="bmx-basement.html">BMX BASEMENT</a>
-    <a href="#bike-of-month">FEATURED BIKE</a>
+    <a href="bmx-basement.html">THE BASEMENT</a>
+    <a href="#bike-of-month">BIKE OF THE MONTH</a>
     <a href="merch.html">SHOP</a>
-    <a href="berms-and-conditions.html">BERMS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 
   <main class="wrap">
@@ -828,36 +753,12 @@
 
       <div class="tap-note">Tap the team photo to enter their world</div>
 
-      <div class="rider-grid">
-        <a class="rider-card" href="Tomcranks.html">
-          <img src="tom-cranks-bio-v1.png" alt="Tom Cranks biography poster">
-          <div>
-            <strong>Tom Cranks</strong>
-            <span>Corner local legend. Still big in his own head. Loud opinions, questionable knees.</span>
-          </div>
-        </a>
-
-        <a class="rider-card" href="joeytopcap.html">
-          <img src="joey-topcap-bio-v2.png" alt="Joey Topcap biography poster">
-          <div>
-            <strong>Joey Topcap</strong>
-            <span>The garage wizard. Diagnoses loose screws emotionally, spiritually, and occasionally correctly.</span>
-          </div>
-        </a>
-
-        <a class="rider-card" href="Pinchboltpete.html">
-          <img src="pinchbolt-pete-boi-v1.png" alt="Pinchbolt Pete biography poster">
-          <div>
-            <strong>Pinchbolt Pete</strong>
-            <span>Hazard class rider. Do not lend tools unless you enjoy never seeing them again.</span>
-          </div>
-        </a>
-      </div>
+      <a class="main-button" href="team.html">Enter The Team Garage</a>
     </section>
 
     <a class="witness-home-card" href="witness-stand.html">
       <div class="case-file">
-        <h2>NEW WEEKLY CASE FILE</h2>
+        <h2>New Weekly Case File</h2>
         <h3>The Witness Stand</h3>
 
         <p>
@@ -1021,9 +922,7 @@
       }
 
       saveVoter(email);
-
       votes++;
-
       localStorage.setItem("totalVotes", votes);
 
       if (votes === 300) {
