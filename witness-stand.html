@@ -14,15 +14,12 @@
   --accent2:#ff4fd8;
   --red:#ff2b2b;
   --white:#eaeaea;
+  --panel:rgba(0,0,0,.72);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   margin:0;
@@ -32,24 +29,22 @@ body{
   overflow-x:hidden;
 }
 
-/* MAIN BACKGROUND WALLPAPER */
 body::before{
   content:'';
   position:fixed;
   inset:0;
   background:url('witness-stand.png') center center / cover no-repeat;
-  opacity:0.78;
+  opacity:.82;
   z-index:-2;
 }
 
-/* DARK READABILITY OVERLAY */
 body::after{
   content:'';
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at center, rgba(125,249,193,0.08), transparent 42%),
-    linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(0,0,0,0.72));
+    radial-gradient(circle at top center, rgba(125,249,193,.12), transparent 34%),
+    linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
   z-index:-1;
   pointer-events:none;
 }
@@ -64,9 +59,9 @@ body::after{
   gap:18px;
   flex-wrap:wrap;
   padding:13px 10px;
-  background:rgba(0,0,0,0.92);
+  background:rgba(0,0,0,.92);
   border-bottom:1px solid var(--accent);
-  box-shadow:0 0 14px rgba(125,249,193,0.18);
+  box-shadow:0 0 16px rgba(125,249,193,.18);
 }
 
 .topbar a{
@@ -78,22 +73,15 @@ body::after{
   text-transform:uppercase;
 }
 
-.topbar a:hover{
-  color:#000;
-  background:var(--accent);
-  padding:5px 8px;
-  border-radius:999px;
-}
-
 .wrap{
-  max-width:1100px;
+  max-width:1120px;
   margin:0 auto;
-  padding:40px 16px 70px;
+  padding:44px 16px 75px;
 }
 
 .hero{
   text-align:center;
-  padding:50px 12px 35px;
+  padding:54px 12px 38px;
 }
 
 .kicker{
@@ -105,28 +93,35 @@ body::after{
 
 .hero h1{
   color:var(--accent);
-  font-size:clamp(42px,8vw,86px);
+  font-size:clamp(44px,8vw,88px);
   margin:12px 0;
   text-transform:uppercase;
-  text-shadow:0 0 18px rgba(125,249,193,0.45);
+  text-shadow:
+    0 0 12px rgba(125,249,193,.55),
+    0 0 34px rgba(125,249,193,.28);
 }
 
 .hero p{
-  max-width:780px;
+  max-width:800px;
   margin:0 auto;
-  color:#e5e5e5;
+  color:#eee;
   line-height:1.7;
   font-size:13px;
 }
 
+.case-card,
+.video-section,
+.note-card{
+  background:var(--panel);
+  backdrop-filter:blur(4px);
+}
+
 .case-card{
-  background:rgba(0,0,0,0.76);
-  border:1px solid rgba(125,249,193,0.42);
-  border-radius:22px;
-  padding:24px;
-  box-shadow:0 0 28px rgba(125,249,193,0.22);
-  margin:35px auto;
-  backdrop-filter:blur(3px);
+  border:1px solid rgba(125,249,193,.45);
+  border-radius:24px;
+  padding:26px;
+  box-shadow:0 0 32px rgba(125,249,193,.24);
+  margin:38px auto;
 }
 
 .case-header{
@@ -134,22 +129,22 @@ body::after{
   grid-template-columns:1fr auto;
   gap:14px;
   align-items:center;
-  border-bottom:1px solid rgba(125,249,193,0.22);
+  border-bottom:1px solid rgba(125,249,193,.22);
   padding-bottom:16px;
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
 .case-header h2{
   margin:0;
   color:#fff;
-  font-size:clamp(24px,4vw,42px);
+  font-size:clamp(26px,4vw,44px);
   text-transform:uppercase;
 }
 
 .case-number{
   color:#000;
   background:var(--accent);
-  padding:10px 14px;
+  padding:10px 15px;
   border-radius:999px;
   font-weight:900;
   font-size:12px;
@@ -158,17 +153,17 @@ body::after{
 
 .case-grid{
   display:grid;
-  grid-template-columns:1.1fr 0.9fr;
+  grid-template-columns:1.08fr .92fr;
   gap:24px;
   align-items:start;
 }
 
 .case-image{
   background:#000;
-  border:1px solid rgba(125,249,193,0.25);
+  border:1px solid rgba(125,249,193,.28);
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 18px rgba(0,0,0,0.6);
+  box-shadow:0 0 18px rgba(0,0,0,.7);
 }
 
 .case-image img{
@@ -196,9 +191,9 @@ body::after{
 
 .evidence{
   padding:12px;
-  background:rgba(255,255,255,0.06);
+  background:rgba(255,255,255,.07);
   border-left:4px solid var(--accent);
-  border-radius:8px;
+  border-radius:9px;
   color:#ddd;
   font-size:12px;
   line-height:1.5;
@@ -207,7 +202,7 @@ body::after{
 .verdict{
   display:inline-block;
   margin-top:20px;
-  padding:13px 18px;
+  padding:14px 20px;
   background:var(--red);
   color:white;
   border-radius:999px;
@@ -218,13 +213,12 @@ body::after{
 }
 
 .video-section{
-  margin:55px auto;
-  padding:24px;
-  background:rgba(0,0,0,0.76);
-  border:1px solid rgba(255,79,216,0.32);
-  border-radius:22px;
+  margin:58px auto;
+  padding:26px;
+  border:1px solid rgba(255,79,216,.36);
+  border-radius:24px;
   text-align:center;
-  backdrop-filter:blur(3px);
+  box-shadow:0 0 24px rgba(255,79,216,.12);
 }
 
 .video-section h2{
@@ -239,11 +233,11 @@ body::after{
 }
 
 .video-box{
-  margin:20px auto 0;
+  margin:22px auto 0;
   max-width:850px;
   border-radius:18px;
   overflow:hidden;
-  border:1px solid rgba(125,249,193,0.28);
+  border:1px solid rgba(125,249,193,.28);
   background:#000;
 }
 
@@ -253,18 +247,16 @@ body::after{
 }
 
 .notes{
-  margin:55px auto;
+  margin:58px auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:16px;
 }
 
 .note-card{
-  background:rgba(0,0,0,0.76);
-  border:1px solid rgba(125,249,193,0.25);
-  border-radius:16px;
-  padding:18px;
-  backdrop-filter:blur(3px);
+  border:1px solid rgba(125,249,193,.28);
+  border-radius:18px;
+  padding:20px;
 }
 
 .note-card h3{
@@ -281,11 +273,11 @@ body::after{
 .footer{
   text-align:center;
   color:#888;
-  padding:40px 15px;
-  border-top:1px solid rgba(125,249,193,0.18);
+  padding:42px 15px;
+  border-top:1px solid rgba(125,249,193,.18);
   font-size:11px;
   letter-spacing:1px;
-  background:rgba(0,0,0,0.75);
+  background:rgba(0,0,0,.8);
 }
 
 @media(max-width:800px){
@@ -303,7 +295,7 @@ body::after{
   }
 
   .hero{
-    padding-top:35px;
+    padding-top:36px;
   }
 
   .case-header{
@@ -341,9 +333,7 @@ body::after{
 
 <section class="hero">
   <div class="kicker">CURRENT GARAGE TESTIMONY</div>
-
   <h1>The Witness Stand</h1>
-
   <p>
     The only thing in the basement that knows the full truth.
     Every bike has a story. Every scratch has a witness.
@@ -388,7 +378,6 @@ body::after{
 
 <section class="video-section">
   <h2>This Week’s Basement Footage</h2>
-
   <p>
     Upload your weekly short video as <strong>witness-video.mp4</strong>.
     Replace the file each week and this section updates automatically.
