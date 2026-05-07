@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>The Witness Stand | Pedal Forever</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#7df9c1;
+  --accent2:#ff4fd8;
+  --red:#ff2b2b;
+  --white:#eaeaea;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:var(--white);
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:url('witness-stand.jpg') center/cover no-repeat;
+  opacity:.24;
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at center, rgba(125,249,193,.10), transparent 35%),
+    linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.96));
+  z-index:-1;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:99;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  padding:13px 10px;
+  background:rgba(0,0,0,.92);
+  border-bottom:1px solid var(--accent);
+}
+
+.topbar a{
+  color:var(--accent);
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 16px 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:50px 12px 35px;
+}
+
+.kicker{
+  color:var(--accent2);
+  letter-spacing:3px;
+  font-size:12px;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  color:var(--accent);
+  font-size:clamp(42px,8vw,86px);
+  margin:12px 0;
+  text-transform:uppercase;
+}
+
+.hero p{
+  max-width:780px;
+  margin:0 auto;
+  color:#ddd;
+  line-height:1.7;
+}
+
+.case-card{
+  background:rgba(0,0,0,.82);
+  border:1px solid rgba(125,249,193,.38);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 0 28px rgba(125,249,193,.22);
+  margin:35px auto;
+}
+
+.case-header{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;
+  align-items:center;
+  border-bottom:1px solid rgba(125,249,193,.22);
+  padding-bottom:16px;
+  margin-bottom:22px;
+}
+
+.case-header h2{
+  margin:0;
+  color:#fff;
+  font-size:clamp(24px,4vw,42px);
+  text-transform:uppercase;
+}
+
+.case-number{
+  color:#000;
+  background:var(--accent);
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12px;
+}
+
+.case-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+  align-items:start;
+}
+
+.case-image{
+  background:#000;
+  border:1px solid rgba(125,249,193,.25);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.case-image img{
+  width:100%;
+  display:block;
+}
+
+.case-info h3{
+  color:var(--accent);
+  margin-top:0;
+  text-transform:uppercase;
+}
+
+.case-info p{
+  color:#ddd;
+  line-height:1.7;
+  font-size:13px;
+}
+
+.evidence-list{
+  display:grid;
+  gap:10px;
+  margin-top:18px;
+}
+
+.evidence{
+  padding:12px;
+  background:rgba(255,255,255,.04);
+  border-left:4px solid var(--accent);
+  border-radius:8px;
+  color:#ddd;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.verdict{
+  display:inline-block;
+  margin-top:20px;
+  padding:13px 18px;
+  background:var(--red);
+  color:white;
+  border-radius:999px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.video-section{
+  margin:55px auto;
+  padding:24px;
+  background:rgba(0,0,0,.82);
+  border:1px solid rgba(255,79,216,.32);
+  border-radius:22px;
+  text-align:center;
+}
+
+.video-section h2{
+  color:var(--accent2);
+  text-transform:uppercase;
+}
+
+.video-box{
+  margin:20px auto 0;
+  max-width:850px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(125,249,193,.28);
+  background:#000;
+}
+
+.video-box video{
+  width:100%;
+  display:block;
+}
+
+.notes{
+  margin:55px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.note-card{
+  background:rgba(0,0,0,.78);
+  border:1px solid rgba(125,249,193,.25);
+  border-radius:16px;
+  padding:18px;
+}
+
+.note-card h3{
+  margin-top:0;
+  color:var(--accent);
+}
+
+.note-card p{
+  color:#d8d8d8;
+  font-size:12px;
+  line-height:1.65;
+}
+
+.footer{
+  text-align:center;
+  color:#888;
+  padding:40px 15px;
+  border-top:1px solid rgba(125,249,193,.18);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+@media(max-width:800px){
+  .case-header{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .case-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:35px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="topbar">
+  <a href="index.html">HOME</a>
+  <a href="team.html">THE TEAM</a>
+  <a href="bmx-basement.html">THE BASEMENT</a>
+  <a href="merch.html">SHOP</a>
+  <a href="index.html#contact">CONTACT</a>
+</nav>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="kicker">CURRENT GARAGE TESTIMONY</div>
+
+  <h1>The Witness Stand</h1>
+
+  <p>
+    The only thing in the basement that knows the full truth.
+    Every bike has a story. Every scratch has a witness.
+    Every week, one survivor gets called to the stand.
+  </p>
+</section>
+
+<section class="case-card">
+
+  <div class="case-header">
+    <h2>This Week’s Case File</h2>
+    <div class="case-number">CASE FILE #001</div>
+  </div>
+
+  <div class="case-grid">
+
+    <div class="case-image">
+      <img src="feature-poster.png" alt="This week's Witness Stand bike">
+    </div>
+
+    <div class="case-info">
+      <h3>The Basement Has Questions</h3>
+
+      <p>
+        This bike entered the basement under suspicious circumstances,
+        late enough that nobody upstairs was supposed to notice.
+      </p>
+
+      <p>
+        The collector claims it was “basically free,” which is already
+        considered unreliable testimony by everyone involved.
+      </p>
+
+      <div class="evidence-list">
+        <div class="evidence">
+          <strong>Evidence A:</strong> Fresh tire marks near the bulkhead.
+        </div>
+
+        <div class="evidence">
+          <strong>Evidence B:</strong> One nervous collector whispering, “Guys, be nice.”
+        </div>
+
+        <div class="evidence">
+          <strong>Evidence C:</strong> Multiple bikes report hearing, “Watch out. This one’s mean.”
+        </div>
+      </div>
+
+      <div class="verdict">Verdict: Still Under Investigation</div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="video-section">
+  <h2>This Week’s Basement Footage</h2>
+
+  <p>
+    Upload your weekly short video as <strong>witness-video.mp4</strong>.
+    Replace the file each week and this section updates automatically.
+  </p>
+
+  <div class="video-box">
+    <video controls playsinline poster="witness-stand.jpg">
+      <source src="witness-video.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="notes">
+
+  <div class="note-card">
+    <h3>Topcap’s Notes</h3>
+    <p>
+      “Technically fixable” remains a legally dangerous phrase.
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>Tom’s Testimony</h3>
+    <p>
+      Tom insists he once raced one exactly like this, only faster, lighter,
+      and somehow sponsored.
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>Pete Sighting</h3>
+    <p>
+      Pete was seen near the parts drawer. Nothing is confirmed,
+      but several washers are missing.
+    </p>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+  PEDAL FOREVER — DECALS FADE. STORIES DON’T.
+</footer>
+
+</body>
+</html>
