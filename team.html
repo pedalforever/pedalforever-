@@ -1,1 +1,250 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Pedal Forever Factory Team</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:url('garage-background.jpg') center/cover no-repeat;
+  opacity:.22;
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.92));
+  z-index:-1;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,.92);
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid #7df9c1;
+}
+
+.topbar a{
+  color:#7df9c1;
+  text-decoration:none;
+  margin:0 12px;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.hero{
+  text-align:center;
+  padding:60px 20px 20px;
+}
+
+.hero h1{
+  font-size:clamp(32px,7vw,64px);
+  color:#7df9c1;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+.hero p{
+  color:#ccc;
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.team-grid{
+  max-width:1200px;
+  margin:50px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  padding:20px;
+}
+
+.rider-card{
+  background:rgba(0,0,0,.78);
+  border:1px solid rgba(125,249,193,.35);
+  border-radius:20px;
+  overflow:hidden;
+  text-decoration:none;
+  transition:.25s ease;
+  box-shadow:0 0 20px rgba(125,249,193,.12);
+}
+
+.rider-card:hover{
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:0 0 25px rgba(125,249,193,.42);
+}
+
+.rider-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+}
+
+.rider-info{
+  padding:18px;
+}
+
+.rider-info h2{
+  color:#7df9c1;
+  margin:0 0 10px;
+  font-size:24px;
+}
+
+.rider-info p{
+  color:#d7d7d7;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.secret-section{
+  max-width:900px;
+  margin:70px auto;
+  background:rgba(0,0,0,.82);
+  border:1px solid rgba(255,79,216,.35);
+  border-radius:20px;
+  padding:35px;
+  text-align:center;
+}
+
+.secret-section h3{
+  color:#ff4fd8;
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.secret-section p{
+  color:#ddd;
+  line-height:1.8;
+}
+
+.footer{
+  text-align:center;
+  padding:45px 20px;
+  color:#777;
+  border-top:1px solid rgba(125,249,193,.18);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="index.html">HOME</a>
+  <a href="witness-stand.html">WITNESS STAND</a>
+  <a href="bmx-basement.html">BMX BASEMENT</a>
+  <a href="merch.html">MERCH</a>
+</div>
+
+<section class="hero">
+
+<h1>Pedal Forever Factory Team</h1>
+
+<p>
+Three chrome addicted BMX disasters held together by bad decisions,
+old parts, gas station hot dogs, and just enough mechanical knowledge
+to remain legally operational.
+</p>
+
+</section>
+
+<section class="team-grid">
+
+<a class="rider-card" href="Tomcranks.html">
+
+<img src="tom-cranks-bio-v1.png">
+
+<div class="rider-info">
+<h2>Tom Cranks</h2>
+
+<p>
+Neighborhood BMX legend.
+Still talks about races from 1997 like ESPN is covering them live.
+Knees are questionable. Confidence is not.
+</p>
+
+</div>
+</a>
+
+<a class="rider-card" href="joeytopcap.html">
+
+<img src="joey-topcap-bio-v2.png">
+
+<div class="rider-info">
+<h2>Joey Topcap</h2>
+
+<p>
+Can smell loose bearings from 40 feet away.
+Would trade his own lawnmower for a rare midschool stem.
+Will stop an emergency situation for hot dogs.
+</p>
+
+</div>
+</a>
+
+<a class="rider-card" href="Pinchboltpete.html">
+
+<img src="pinchbolt-pete-boi-v1.png">
+
+<div class="rider-info">
+<h2>Pinchbolt Pete</h2>
+
+<p>
+Human disaster.
+Tool borrower.
+Questionable decision maker.
+May or may not still owe somebody handlebars from 2003.
+</p>
+
+</div>
+</a>
+
+</section>
+
+<section class="secret-section">
+
+<h3>Garage Rules</h3>
+
+<p>
+If the lights flicker...
+the bikes are talking again.
+</p>
+
+<p>
+Do not feed Joey after midnight.
+Do not trust Pete near anodized parts.
+And if Tom says he almost got sponsored...
+just nod politely.
+</p>
+
+</section>
+
+<footer class="footer">
+PEDAL FOREVER — BUILT FROM BAD DECISIONS
+</footer>
+
+</body>
+</html>
