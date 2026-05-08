@@ -36,13 +36,11 @@ body::before{
   z-index:-2;
 }
 
-
 body::after{
   content:'';
   position:fixed;
   inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.75));
+  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.75));
   z-index:-1;
   pointer-events:none;
 }
@@ -176,9 +174,65 @@ body::after{
   background:#000;
 }
 
-.feature-img img{
+.artifact-button{
+  display:block;
+  width:100%;
+  padding:0;
+  margin:0;
+  border:0;
+  background:none;
+  cursor:pointer;
+  text-align:left;
+}
+
+.artifact-collage{
+  display:grid;
+  gap:10px;
+  padding:10px;
+}
+
+.artifact-collage img{
   width:100%;
   display:block;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(125,249,193,.22);
+  transition:.25s ease;
+}
+
+.artifact-button:hover img{
+  filter:brightness(1.12);
+  transform:scale(1.01);
+}
+
+.artifact-main{
+  max-height:360px;
+}
+
+.artifact-small-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.artifact-small-grid img{
+  height:160px;
+}
+
+.tap-artifact{
+  padding:0 12px 14px;
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:2px;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.feature-copy h3{
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-top:0;
+  font-size:24px;
 }
 
 .feature-copy p{
@@ -186,221 +240,3 @@ body::after{
   line-height:1.75;
   font-size:13px;
 }
-
-.quote-box{
-  margin-top:18px;
-  padding:16px;
-  border-left:4px solid var(--accent2);
-  background:rgba(255,79,216,.08);
-  color:#fff;
-  line-height:1.6;
-}
-
-.rules{
-  margin:65px auto;
-  padding:28px;
-  background:rgba(0,0,0,.84);
-  border:1px solid rgba(255,79,216,.30);
-  border-radius:22px;
-  text-align:center;
-}
-
-.rules h2{
-  color:var(--accent2);
-  text-transform:uppercase;
-}
-
-.rules-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
-  margin-top:22px;
-}
-
-.rule{
-  padding:15px;
-  background:rgba(255,255,255,.04);
-  border-radius:14px;
-  border:1px solid rgba(125,249,193,.18);
-  color:#ddd;
-  font-size:12px;
-  line-height:1.6;
-}
-
-.cta{
-  text-align:center;
-  margin:65px auto 20px;
-}
-
-.cta a{
-  display:inline-block;
-  margin:6px;
-  padding:13px 22px;
-  border:2px solid var(--accent);
-  color:var(--accent);
-  text-decoration:none;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:900;
-  transition:.25s ease;
-}
-
-.cta a:hover{
-  background:var(--accent);
-  color:#000;
-}
-
-.footer{
-  text-align:center;
-  color:#888;
-  padding:40px 15px;
-  border-top:1px solid rgba(125,249,193,.18);
-  font-size:11px;
-  letter-spacing:1px;
-}
-
-@media(max-width:800px){
-  .feature-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:35px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<nav class="topbar">
-  <a href="index.html">HOME</a>
-  <a href="team.html">THE TEAM</a>
-  <a href="witness-stand.html">WITNESS STAND</a>
-  <a href="merch.html">SHOP</a>
-  <a href="index.html#contact">CONTACT</a>
-</nav>
-
-<main class="wrap">
-
-<section class="hero">
-  <div class="kicker">BELOW THE HOUSE · ABOVE THE LAWNMOWER</div>
-  <h1>The BMX Basement</h1>
-
-  <p>
-    Built under a 1900 house, hidden behind doors, stairs, bulkhead entrances, old tools,
-    survivor bikes, lowriders, parts drawers, stickers, chrome baths, and questionable promises
-    that this is definitely “the last bike.”
-  </p>
-</section>
-
-<div class="warning">
-  If the lights go out and the door shuts, this page changes.
-  The bikes know who came home last. The basement always keeps score.
-</div>
-
-<section class="tour-grid">
-
-  <div class="tour-card">
-    <h2>The Stairs</h2>
-    <p>
-      The official entrance to the underground. Every bike that comes down these stairs gets judged
-      before the kickstand even touches concrete.
-    </p>
-  </div>
-
-  <div class="tour-card">
-    <h2>The Bulkhead</h2>
-    <p>
-      The emergency delivery route for bikes that were absolutely not supposed to come home today.
-      Daylight ends at the doors. The collection begins below.
-    </p>
-  </div>
-
-  <div class="tour-card">
-    <h2>The Chrome Corner</h2>
-    <p>
-      Where rusty parts go into the tub sink and come back acting like they still have factory paperwork.
-      Oxalic acid, patience, and blind faith.
-    </p>
-  </div>
-
-  <div class="tour-card">
-    <h2>The Parts Graveyard</h2>
-    <p>
-      Drawers, boxes, mystery stems, oddball bolts, tires, pads, seats, grips, and the one washer
-      Joey Topcap swears belongs to something important.
-    </p>
-  </div>
-
-  <div class="tour-card">
-    <h2>The Survivor Row</h2>
-    <p>
-      Bikes that stayed original because sometimes the scratches are the story.
-      Barn finds, basement finds, and bikes that already lived a whole life.
-    </p>
-  </div>
-
-  <div class="tour-card">
-    <h2>The Back Room</h2>
-    <p>
-      Nobody really knows what is back there. Pete says he does.
-      That is why nobody trusts the back room.
-    </p>
-  </div>
-
-</section>
-
-<section class="feature-section">
-  <h2>Current Basement Artifact</h2>
-
-  <div class="feature-grid">
-    <div class="feature-img">
-      <img src="pf-basement-feature-v1.png" alt="Pedal Forever basement artifact">
-    </div>
-
-    <div class="feature-copy">
-      <p>
-        This is where one bike, frame, part, sticker, tool, or strange basement object gets pulled
-        out of the pile and treated like evidence.
-      </p>
-
-      <p>
-        Some of it is rare. Some of it is weird. Some of it was saved from trash, barns, rivers,
-        garages, sheds, attics, and bad decisions.
-      </p>
-
-      <div class="quote-box">
-        “Guys, be nice. This one’s had a rough life.”
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="rules">
-  <h2>Basement Rules</h2>
-
-  <div class="rules-list">
-    <div class="rule">Do not ask how many bikes are down here.</div>
-    <div class="rule">Do not move anything Joey said was “sorted.”</div>
-    <div class="rule">Do not leave Pete alone with anodized parts.</div>
-    <div class="rule">If Tom mentions sponsorship, nod politely.</div>
-    <div class="rule">If the tires roll by themselves, pretend you didn’t see it.</div>
-    <div class="rule">If someone upstairs asks, this bike was already here.</div>
-  </div>
-</section>
-
-<div class="cta">
-  <a href="witness-stand.html">Enter The Witness Stand</a>
-  <a href="team.html">Meet The Team</a>
-  <a href="index.html">Back Home</a>
-</div>
-
-</main>
-
-<footer class="footer">
-  PEDAL FOREVER — THE BASEMENT IS REAL
-</footer>
-
-</body>
-</html>
