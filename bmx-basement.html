@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --accent:#7df9c1;
   --accent2:#ff4fd8;
@@ -18,13 +17,9 @@
   --white:#eaeaea;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   margin:0;
@@ -48,8 +43,8 @@ body::after{
   position:fixed;
   inset:0;
   background:
-  radial-gradient(circle at top center, rgba(125,249,193,.08), transparent 40%),
-  linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.82));
+    radial-gradient(circle at top center, rgba(125,249,193,.08), transparent 40%),
+    linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.82));
   z-index:-1;
   pointer-events:none;
 }
@@ -74,12 +69,6 @@ body::after{
   font-size:11px;
   letter-spacing:1px;
   font-weight:700;
-  transition:.25s ease;
-}
-
-.topbar a:hover{
-  color:#fff;
-  text-shadow:0 0 12px var(--accent);
 }
 
 .wrap{
@@ -106,8 +95,8 @@ body::after{
   margin:12px 0;
   text-transform:uppercase;
   text-shadow:
-  0 0 10px rgba(125,249,193,.35),
-  0 0 30px rgba(125,249,193,.18);
+    0 0 10px rgba(125,249,193,.35),
+    0 0 30px rgba(125,249,193,.18);
 }
 
 .hero p{
@@ -144,13 +133,6 @@ body::after{
   border-radius:20px;
   padding:22px;
   backdrop-filter:blur(5px);
-  transition:.25s ease;
-}
-
-.tour-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(125,249,193,.50);
-  box-shadow:0 0 24px rgba(125,249,193,.18);
 }
 
 .tour-card h2{
@@ -231,6 +213,13 @@ body::after{
   font-size:13px;
 }
 
+.artifact-title{
+  color:var(--accent);
+  text-transform:uppercase;
+  font-size:24px;
+  margin:0 0 16px;
+}
+
 .quote-box{
   margin-top:18px;
   padding:16px;
@@ -287,12 +276,6 @@ body::after{
   border-radius:999px;
   font-size:13px;
   font-weight:900;
-  transition:.25s ease;
-}
-
-.cta a:hover{
-  background:var(--accent);
-  color:#000;
 }
 
 .footer{
@@ -304,17 +287,17 @@ body::after{
   letter-spacing:1px;
 }
 
-/* MODAL */
+/* POPUP CASE FILE */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.94);
+  background:rgba(0,0,0,.82);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:99999;
-  padding:20px;
+  padding:18px;
 }
 
 .modal.active{
@@ -322,70 +305,147 @@ body::after{
 }
 
 .modal-content{
-  max-width:950px;
-  width:100%;
+  width:min(940px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  background:rgba(5,5,5,.96);
+  border:1px solid rgba(125,249,193,.35);
+  border-radius:24px;
+  box-shadow:
+    0 0 35px rgba(125,249,193,.22),
+    0 0 70px rgba(0,0,0,.8);
+  padding:18px;
   position:relative;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid rgba(125,249,193,.18);
+  padding-bottom:12px;
+  margin-bottom:18px;
+}
+
+.modal-header h2{
+  margin:0;
+  color:var(--gold);
+  font-size:18px;
+  text-transform:uppercase;
+}
+
+.close-modal{
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-family:'Orbitron',sans-serif;
+}
+
+.case-file-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:20px;
+  align-items:start;
+}
+
+.modal-image-wrap{
+  background:#000;
+  border-radius:18px;
+  border:1px solid rgba(125,249,193,.22);
+  overflow:hidden;
 }
 
 .modal-image{
   width:100%;
-  border-radius:18px;
-  border:1px solid rgba(125,249,193,.25);
-}
-
-.close-modal{
-  position:absolute;
-  top:-55px;
-  right:0;
-  color:#fff;
-  font-size:34px;
-  cursor:pointer;
+  max-height:58vh;
+  object-fit:contain;
+  display:block;
+  background:#000;
 }
 
 .slide-controls{
   display:flex;
   justify-content:space-between;
-  margin-top:18px;
+  gap:12px;
+  margin-top:12px;
 }
 
 .slide-btn{
   background:rgba(125,249,193,.12);
   border:1px solid rgba(125,249,193,.25);
   color:var(--accent);
-  padding:12px 18px;
+  padding:11px 16px;
   border-radius:999px;
   cursor:pointer;
   font-family:'Orbitron',sans-serif;
+  font-size:11px;
 }
 
 .slide-caption{
-  text-align:center;
-  margin-top:18px;
+  margin-top:12px;
   color:#ddd;
-  line-height:1.7;
+  line-height:1.6;
+  font-size:12px;
+  text-align:center;
+}
+
+.popup-story h3{
+  margin:0 0 14px;
+  color:var(--accent);
+  text-transform:uppercase;
+  font-size:22px;
+}
+
+.popup-story p{
+  color:#ddd;
+  line-height:1.75;
   font-size:13px;
 }
 
+.popup-badge{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,179,71,.12);
+  border:1px solid rgba(255,179,71,.35);
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.popup-quote{
+  margin-top:16px;
+  padding:14px;
+  background:rgba(255,79,216,.08);
+  border-left:4px solid var(--accent2);
+  color:#fff;
+  line-height:1.6;
+}
+
 @media(max-width:800px){
+  .feature-grid,
+  .case-file-grid{
+    grid-template-columns:1fr;
+  }
 
-.feature-grid{
-  grid-template-columns:1fr;
+  .hero{
+    padding-top:35px;
+  }
+
+  .topbar{
+    gap:8px;
+  }
+
+  .topbar a{
+    font-size:9px;
+  }
 }
-
-.hero{
-  padding-top:35px;
-}
-
-.topbar{
-  gap:8px;
-}
-
-.topbar a{
-  font-size:9px;
-}
-
-}
-
 </style>
 </head>
 
@@ -402,271 +462,254 @@ body::after{
 <main class="wrap">
 
 <section class="hero">
+  <div class="kicker">BELOW THE HOUSE · ABOVE THE LAWNMOWER</div>
 
-<div class="kicker">
-BELOW THE HOUSE · ABOVE THE LAWNMOWER
-</div>
+  <h1>The BMX Basement</h1>
 
-<h1>The BMX Basement</h1>
-
-<p>
-Built under a 1900 house, hidden behind doors, stairs, bulkhead entrances,
-old tools, survivor bikes, lowriders, parts drawers, stickers, chrome baths,
-and questionable promises that this is definitely “the last bike.”
-</p>
-
+  <p>
+    Built under a 1900 house, hidden behind doors, stairs, bulkhead entrances,
+    old tools, survivor bikes, lowriders, parts drawers, stickers, chrome baths,
+    and questionable promises that this is definitely “the last bike.”
+  </p>
 </section>
 
 <div class="warning">
-If the lights go out and the door shuts, this page changes.
-The bikes know who came home last.
-The basement always keeps score.
+  If the lights go out and the door shuts, this page changes.
+  The bikes know who came home last.
+  The basement always keeps score.
 </div>
 
 <section class="tour-grid">
+  <div class="tour-card">
+    <h2>The Stairs</h2>
+    <p>Every bike that comes down these stairs gets judged before the kickstand touches concrete.</p>
+  </div>
 
-<div class="tour-card">
-<h2>The Stairs</h2>
-<p>
-Every bike that comes down these stairs gets judged before the kickstand touches concrete.
-</p>
-</div>
+  <div class="tour-card">
+    <h2>The Bulkhead</h2>
+    <p>The emergency delivery route for bikes that absolutely were not supposed to come home today.</p>
+  </div>
 
-<div class="tour-card">
-<h2>The Bulkhead</h2>
-<p>
-The emergency delivery route for bikes that absolutely were not supposed to come home today.
-</p>
-</div>
+  <div class="tour-card">
+    <h2>The Chrome Corner</h2>
+    <p>Where rusty parts go into the sink and come back acting like they still have factory paperwork.</p>
+  </div>
 
-<div class="tour-card">
-<h2>The Chrome Corner</h2>
-<p>
-Where rusty parts go into the sink and come back acting like they still have factory paperwork.
-</p>
-</div>
+  <div class="tour-card">
+    <h2>The Parts Graveyard</h2>
+    <p>Mystery stems, oddball bolts, tires, pads, grips, and one washer Joey swears matters.</p>
+  </div>
 
-<div class="tour-card">
-<h2>The Parts Graveyard</h2>
-<p>
-Mystery stems, oddball bolts, tires, pads, grips, and one washer Joey swears matters.
-</p>
-</div>
+  <div class="tour-card">
+    <h2>The Survivor Row</h2>
+    <p>Sometimes the scratches ARE the story.</p>
+  </div>
 
-<div class="tour-card">
-<h2>The Survivor Row</h2>
-<p>
-Sometimes the scratches ARE the story.
-</p>
-</div>
-
-<div class="tour-card">
-<h2>The Back Room</h2>
-<p>
-Nobody really knows what is back there. Pete says he does. Nobody believes Pete.
-</p>
-</div>
-
+  <div class="tour-card">
+    <h2>The Back Room</h2>
+    <p>Nobody really knows what is back there. Pete says he does. Nobody believes Pete.</p>
+  </div>
 </section>
 
 <section class="feature-section">
+  <h2>Current Basement Artifact</h2>
 
-<h2>Current Basement Artifact</h2>
+  <div class="feature-grid">
 
-<div class="feature-grid">
+    <div class="artifact-preview" onclick="openArtifactViewer()">
+      <img src="mirra-artifact-main.jpg" alt="Dave Mirra Haro Artifact">
+      <div class="preview-overlay">
+        <span>CLICK TO OPEN CASE FILE</span>
+      </div>
+    </div>
 
-<div class="artifact-preview" onclick="openArtifactViewer()">
+    <div class="feature-copy">
+      <h3 class="artifact-title">The Miracle Boy Left His Mark</h3>
 
-<img src="mirra-artifact-main.jpg" alt="Dave Mirra Haro Artifact">
+      <p>
+        Less than six minutes from this basement, buried in the dry back room of an old garage,
+        sat a signed Dave Mirra Haro survivor untouched for nearly 26 years.
+      </p>
 
-<div class="preview-overlay">
-<span>CLICK TO OPEN CASE FILE</span>
-</div>
+      <p>
+        Still carrying the autograph of The Miracle Boy himself, this bike somehow escaped
+        being stripped, repainted, parted out, or forgotten completely.
+      </p>
 
-</div>
+      <p>
+        Now the full bike is slowly finding its way back together piece by piece,
+        exactly the way it deserves — era correct at all costs.
+      </p>
 
-<div class="feature-copy">
+      <div class="quote-box">
+        “Some people find bikes. Some people uncover history.”
+      </div>
+    </div>
 
-<p>
-Less than six minutes from this basement, buried in the dry back room of an old garage,
-sat a signed Dave Mirra Haro survivor untouched for nearly 26 years.
-</p>
-
-<p>
-Still carrying the autograph of The Miracle Boy himself — sharpie on steel like he might as well
-have left blood on the frame — this bike somehow escaped everything that usually destroys them:
-being stripped, repainted, parted out, or forgotten.
-</p>
-
-<p>
-Unearthed only two miles from home, the frame surfaced exactly the way real basement legends do:
-dusty, untouched, honest, and carrying stories nobody realized were still alive.
-</p>
-
-<p>
-Now the full bike is slowly finding its way back together piece by piece,
-exactly the way it deserves — era correct at all costs.
-</p>
-
-<div class="quote-box">
-“Some people find bikes. Some people uncover history.”
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <section class="rules">
+  <h2>Basement Rules</h2>
 
-<h2>Basement Rules</h2>
-
-<div class="rules-list">
-
-<div class="rule">
-Do not ask how many bikes are down here.
-</div>
-
-<div class="rule">
-Do not move anything Joey said was “sorted.”
-</div>
-
-<div class="rule">
-Do not leave Pete alone with anodized parts.
-</div>
-
-<div class="rule">
-If Tom mentions sponsorship, nod politely.
-</div>
-
-<div class="rule">
-If the tires roll by themselves, pretend you didn’t see it.
-</div>
-
-<div class="rule">
-If someone upstairs asks, this bike was already here.
-</div>
-
-</div>
-
+  <div class="rules-list">
+    <div class="rule">Do not ask how many bikes are down here.</div>
+    <div class="rule">Do not move anything Joey said was “sorted.”</div>
+    <div class="rule">Do not leave Pete alone with anodized parts.</div>
+    <div class="rule">If Tom mentions sponsorship, nod politely.</div>
+    <div class="rule">If the tires roll by themselves, pretend you didn’t see it.</div>
+    <div class="rule">If someone upstairs asks, this bike was already here.</div>
+  </div>
 </section>
 
 <div class="cta">
-<a href="witness-stand.html">Enter The Witness Stand</a>
-<a href="team.html">Meet The Team</a>
-<a href="index.html">Back Home</a>
+  <a href="witness-stand.html">Enter The Witness Stand</a>
+  <a href="team.html">Meet The Team</a>
+  <a href="index.html">Back Home</a>
 </div>
 
 </main>
 
 <footer class="footer">
-PEDAL FOREVER — THE BASEMENT IS REAL
+  PEDAL FOREVER — THE BASEMENT IS REAL
 </footer>
 
 <div class="modal" id="artifactModal">
+  <div class="modal-content">
 
-<div class="modal-content">
+    <div class="modal-header">
+      <h2>Mirra Artifact Case File</h2>
+      <button class="close-modal" onclick="closeArtifactViewer()">Close</button>
+    </div>
 
-<div class="close-modal" onclick="closeArtifactViewer()">
-×
-</div>
+    <div class="case-file-grid">
 
-<img id="modalImage" class="modal-image" src="">
+      <div>
+        <div class="modal-image-wrap">
+          <img id="modalImage" class="modal-image" src="mirra-artifact-main.jpg" alt="Dave Mirra Haro artifact slideshow">
+        </div>
 
-<div class="slide-controls">
-<button class="slide-btn" onclick="previousSlide()">PREVIOUS</button>
-<button class="slide-btn" onclick="nextSlide()">NEXT</button>
-</div>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="previousSlide()">Previous Evidence</button>
+          <button class="slide-btn" onclick="nextSlide()">Next Evidence</button>
+        </div>
 
-<div class="slide-caption" id="slideCaption"></div>
+        <div class="slide-caption" id="slideCaption">
+          Full basement recovery shot.
+        </div>
+      </div>
 
-</div>
+      <div class="popup-story">
+        <div class="popup-badge">Basement Artifact #001</div>
 
+        <h3>The Miracle Boy Left His Mark</h3>
+
+        <p>
+          Six minutes from home. Two miles from the basement.
+          Buried in the dry back room of an old garage, this signed Dave Mirra Haro had been sitting
+          untouched for nearly 26 years.
+        </p>
+
+        <p>
+          It did not show up polished, staged, or ready for a museum.
+          It surfaced the way real survivor bikes do — dusty, honest, half-forgotten,
+          and still carrying the kind of mark that makes your stomach drop when you realize what you are looking at.
+        </p>
+
+        <p>
+          Autographed by The Miracle Boy himself, the frame escaped the usual fate:
+          stripped, repainted, parted out, or lost forever.
+        </p>
+
+        <p>
+          The full bike is here. It is slowly working its way back together piece by piece,
+          era correct at all costs.
+        </p>
+
+        <div class="popup-quote">
+          “Some people find bikes. Some people uncover history.”
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
 <script>
-
 const artifactSlides = [
-
-{
-image:"mirra-artifact-main.jpg",
-caption:"The full basement recovery shot. Pulled onto the stand and officially entered into evidence."
-},
-
-{
-image:"mirra-artifact-frame.jpg",
-caption:"The signed Haro frame itself. Still carrying the scars and stories from another era."
-},
-
-{
-image:"mirra-artifact-signature.jpg",
-caption:"The Miracle Boy left his mark on this one."
-}
-
+  {
+    image:"mirra-artifact-main.jpg",
+    caption:"Evidence A: the full basement recovery shot — pulled into the light and officially entered into the Pedal Forever archive."
+  },
+  {
+    image:"mirra-artifact-frame.jpg",
+    caption:"Evidence B: the signed Haro survivor frame, still carrying the scars and stories from another lifetime."
+  },
+  {
+    image:"mirra-artifact-signature.jpg",
+    caption:"Evidence C: the signature close-up. The Miracle Boy left his mark on this one."
+  }
 ];
 
 let currentSlide = 0;
 
 function openArtifactViewer(){
-document.getElementById('artifactModal').classList.add('active');
-showSlide(currentSlide);
+  currentSlide = 0;
+  document.getElementById('artifactModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  showSlide(currentSlide);
 }
 
 function closeArtifactViewer(){
-document.getElementById('artifactModal').classList.remove('active');
+  document.getElementById('artifactModal').classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 function showSlide(index){
-
-document.getElementById('modalImage').src =
-artifactSlides[index].image;
-
-document.getElementById('slideCaption').innerText =
-artifactSlides[index].caption;
-
+  document.getElementById('modalImage').src = artifactSlides[index].image;
+  document.getElementById('slideCaption').innerText = artifactSlides[index].caption;
 }
 
 function nextSlide(){
-
-currentSlide++;
-
-if(currentSlide >= artifactSlides.length){
-currentSlide = 0;
-}
-
-showSlide(currentSlide);
-
+  currentSlide++;
+  if(currentSlide >= artifactSlides.length){
+    currentSlide = 0;
+  }
+  showSlide(currentSlide);
 }
 
 function previousSlide(){
-
-currentSlide--;
-
-if(currentSlide < 0){
-currentSlide = artifactSlides.length - 1;
+  currentSlide--;
+  if(currentSlide < 0){
+    currentSlide = artifactSlides.length - 1;
+  }
+  showSlide(currentSlide);
 }
 
-showSlide(currentSlide);
-
-}
-
-document.addEventListener('keydown', function(e){
-
-if(e.key === 'Escape'){
-closeArtifactViewer();
-}
-
-if(e.key === 'ArrowRight'){
-nextSlide();
-}
-
-if(e.key === 'ArrowLeft'){
-previousSlide();
-}
-
+document.getElementById('artifactModal').addEventListener('click', function(e){
+  if(e.target.id === 'artifactModal'){
+    closeArtifactViewer();
+  }
 });
 
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('artifactModal').classList.contains('active')){
+    return;
+  }
+
+  if(e.key === 'Escape'){
+    closeArtifactViewer();
+  }
+
+  if(e.key === 'ArrowRight'){
+    nextSlide();
+  }
+
+  if(e.key === 'ArrowLeft'){
+    previousSlide();
+  }
+});
 </script>
 
 </body>
