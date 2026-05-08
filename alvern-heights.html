@@ -1,1 +1,185 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alvern Heights | Pedal Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    body{
+      margin:0;
+      background:#050505;
+      color:#eaeaea;
+      font-family:'Orbitron', sans-serif;
+      background-image:
+        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.92)),
+        url('website-wallpaper.jpg');
+
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 18px 80px;
+    }
+
+    .hero{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .hero h1{
+      font-size:clamp(40px,8vw,88px);
+      margin:0;
+      color:#7df9c1;
+      text-transform:uppercase;
+      text-shadow:0 0 18px rgba(125,249,193,.35);
+    }
+
+    .hero p{
+      color:#ff4fd8;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-top:14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:rgba(0,0,0,.78);
+      border:1px solid rgba(125,249,193,.22);
+      border-radius:16px;
+      padding:22px;
+      transition:.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 18px rgba(125,249,193,.18);
+    }
+
+    .card h2{
+      margin-top:0;
+      color:#7df9c1;
+      font-size:20px;
+    }
+
+    .card p{
+      color:#d8d8d8;
+      line-height:1.6;
+      font-size:13px;
+    }
+
+    .footer{
+      margin-top:70px;
+      text-align:center;
+      opacity:.6;
+      font-size:11px;
+      letter-spacing:2px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <section class="hero">
+      <h1>ALVERN HEIGHTS</h1>
+
+      <p>
+        Built on BMX, bad decisions, pizza grease, and surviving another night.
+      </p>
+    </section>
+
+    <section class="grid">
+
+      <div class="card">
+        <h2>PF Pizza</h2>
+        <p>
+          The unofficial headquarters of Alvern Heights.
+          Known for late-night deliveries, BMX arguments,
+          and grease stains older than most riders.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Griffin's Pedal Forever</h2>
+        <p>
+          Restoration shop, museum, survivor sanctuary,
+          and accidental gathering place for every BMX disaster in town.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Railside Drive</h2>
+        <p>
+          Fast backroad route through town.
+          Minimal police presence.
+          Maximum questionable decisions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>The Sandpits</h2>
+        <p>
+          Illegal jumps. Burnouts.
+          Broken frames.
+          Some of the best stories in Alvern started here.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Industrial District</h2>
+        <p>
+          Rusted warehouses, hidden garages,
+          scrap piles, and people who somehow always know where rare BMX parts are.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Alvern Raceway</h2>
+        <p>
+          Home of the city's BMX glory days.
+          Every rider in town thinks they could've gone pro here.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Alvern Municipal Police</h2>
+        <p>
+          Constantly attempting to stop Pinchbolt Pete.
+          Constantly failing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Alvern General</h2>
+        <p>
+          The hospital responsible for reattaching
+          half the riders in this city at least once.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="footer">
+      PEDAL FOREVER WORLD BUILDING ARCHIVE
+    </div>
+
+  </div>
+
+</body>
+</html>
