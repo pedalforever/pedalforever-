@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --accent:#7df9c1;
   --accent2:#ff4fd8;
@@ -17,7 +18,13 @@
   --white:#eaeaea;
 }
 
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -32,7 +39,7 @@ body::before{
   position:fixed;
   inset:0;
   background:url('bmx-basement-wallpaper-v1.png') center/cover no-repeat;
-  opacity:.55;
+  opacity:.48;
   z-index:-2;
 }
 
@@ -40,7 +47,9 @@ body::after{
   content:'';
   position:fixed;
   inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.75));
+  background:
+  radial-gradient(circle at top center, rgba(125,249,193,.08), transparent 40%),
+  linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.82));
   z-index:-1;
   pointer-events:none;
 }
@@ -48,14 +57,15 @@ body::after{
 .topbar{
   position:sticky;
   top:0;
-  z-index:99;
+  z-index:999;
   display:flex;
   justify-content:center;
   gap:18px;
   flex-wrap:wrap;
   padding:13px 10px;
   background:rgba(0,0,0,.92);
-  border-bottom:1px solid var(--accent);
+  border-bottom:1px solid rgba(125,249,193,.30);
+  backdrop-filter:blur(10px);
 }
 
 .topbar a{
@@ -64,17 +74,23 @@ body::after{
   font-size:11px;
   letter-spacing:1px;
   font-weight:700;
+  transition:.25s ease;
+}
+
+.topbar a:hover{
+  color:#fff;
+  text-shadow:0 0 12px var(--accent);
 }
 
 .wrap{
   max-width:1150px;
   margin:0 auto;
-  padding:40px 16px 70px;
+  padding:40px 16px 80px;
 }
 
 .hero{
   text-align:center;
-  padding:55px 12px 35px;
+  padding:55px 12px 40px;
 }
 
 .kicker{
@@ -86,16 +102,20 @@ body::after{
 
 .hero h1{
   color:var(--accent);
-  font-size:clamp(40px,8vw,82px);
+  font-size:clamp(42px,8vw,84px);
   margin:12px 0;
   text-transform:uppercase;
+  text-shadow:
+  0 0 10px rgba(125,249,193,.35),
+  0 0 30px rgba(125,249,193,.18);
 }
 
 .hero p{
-  max-width:820px;
+  max-width:830px;
   margin:0 auto;
   color:#ddd;
-  line-height:1.75;
+  line-height:1.8;
+  font-size:13px;
 }
 
 .warning{
@@ -103,11 +123,12 @@ body::after{
   margin:30px auto 55px;
   padding:18px;
   text-align:center;
-  background:rgba(255,43,43,.12);
-  border:1px solid rgba(255,43,43,.45);
+  background:rgba(255,43,43,.10);
+  border:1px solid rgba(255,43,43,.35);
   border-radius:16px;
   color:#fff;
   line-height:1.6;
+  backdrop-filter:blur(5px);
 }
 
 .tour-grid{
@@ -118,17 +139,18 @@ body::after{
 }
 
 .tour-card{
-  background:rgba(0,0,0,.82);
-  border:1px solid rgba(125,249,193,.32);
+  background:rgba(0,0,0,.72);
+  border:1px solid rgba(125,249,193,.22);
   border-radius:20px;
   padding:22px;
-  box-shadow:0 0 22px rgba(125,249,193,.12);
+  backdrop-filter:blur(5px);
   transition:.25s ease;
 }
 
 .tour-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 0 28px rgba(125,249,193,.30);
+  border-color:rgba(125,249,193,.50);
+  box-shadow:0 0 24px rgba(125,249,193,.18);
 }
 
 .tour-card h2{
@@ -146,11 +168,11 @@ body::after{
 
 .feature-section{
   margin:65px auto;
-  padding:26px;
-  background:rgba(0,0,0,.84);
-  border:1px solid rgba(255,179,71,.35);
-  border-radius:22px;
-  box-shadow:0 0 26px rgba(255,179,71,.12);
+  padding:28px;
+  background:rgba(0,0,0,.76);
+  border:1px solid rgba(255,179,71,.26);
+  border-radius:24px;
+  backdrop-filter:blur(6px);
 }
 
 .feature-section h2{
@@ -158,85 +180,489 @@ body::after{
   text-align:center;
   text-transform:uppercase;
   margin-top:0;
+  margin-bottom:28px;
 }
 
 .feature-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:22px;
+  gap:28px;
   align-items:center;
 }
 
-.feature-img{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(125,249,193,.25);
-  background:#000;
-}
-
-.artifact-button{
-  display:block;
-  width:100%;
-  padding:0;
-  margin:0;
-  border:0;
-  background:none;
+.artifact-preview{
+  position:relative;
   cursor:pointer;
-  text-align:left;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid rgba(125,249,193,.28);
+  transition:.3s ease;
 }
 
-.artifact-collage{
-  display:grid;
-  gap:10px;
-  padding:10px;
+.artifact-preview:hover{
+  transform:scale(1.01);
+  box-shadow:0 0 32px rgba(125,249,193,.18);
 }
 
-.artifact-collage img{
+.artifact-preview img{
   width:100%;
   display:block;
-  object-fit:cover;
-  border-radius:12px;
-  border:1px solid rgba(125,249,193,.22);
-  transition:.25s ease;
 }
 
-.artifact-button:hover img{
-  filter:brightness(1.12);
-  transform:scale(1.01);
+.preview-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:end;
+  justify-content:left;
+  padding:20px;
+  background:linear-gradient(to top, rgba(0,0,0,.88), transparent 55%);
 }
 
-.artifact-main{
-  max-height:360px;
-}
-
-.artifact-small-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.artifact-small-grid img{
-  height:160px;
-}
-
-.tap-artifact{
-  padding:0 12px 14px;
-  color:var(--accent);
-  font-size:10px;
-  letter-spacing:2px;
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.feature-copy h3{
-  color:var(--accent);
-  text-transform:uppercase;
-  margin-top:0;
-  font-size:24px;
+.preview-overlay span{
+  color:#fff;
+  font-size:12px;
+  letter-spacing:1px;
 }
 
 .feature-copy p{
   color:#ddd;
-  line-height:1.75;
+  line-height:1.8;
   font-size:13px;
 }
+
+.quote-box{
+  margin-top:18px;
+  padding:16px;
+  border-left:4px solid var(--accent2);
+  background:rgba(255,79,216,.08);
+  color:#fff;
+  line-height:1.7;
+}
+
+.rules{
+  margin:65px auto;
+  padding:28px;
+  background:rgba(0,0,0,.76);
+  border:1px solid rgba(255,79,216,.20);
+  border-radius:22px;
+  text-align:center;
+  backdrop-filter:blur(5px);
+}
+
+.rules h2{
+  color:var(--accent2);
+  text-transform:uppercase;
+}
+
+.rules-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:22px;
+}
+
+.rule{
+  padding:15px;
+  background:rgba(255,255,255,.04);
+  border-radius:14px;
+  border:1px solid rgba(125,249,193,.12);
+  color:#ddd;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.cta{
+  text-align:center;
+  margin:65px auto 20px;
+}
+
+.cta a{
+  display:inline-block;
+  margin:6px;
+  padding:13px 22px;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  text-decoration:none;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  transition:.25s ease;
+}
+
+.cta a:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+.footer{
+  text-align:center;
+  color:#888;
+  padding:40px 15px;
+  border-top:1px solid rgba(125,249,193,.12);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+/* SLIDESHOW MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.94);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  max-width:950px;
+  width:100%;
+  position:relative;
+}
+
+.modal-image{
+  width:100%;
+  border-radius:18px;
+  border:1px solid rgba(125,249,193,.25);
+}
+
+.close-modal{
+  position:absolute;
+  top:-55px;
+  right:0;
+  color:#fff;
+  font-size:34px;
+  cursor:pointer;
+}
+
+.slide-controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:18px;
+}
+
+.slide-btn{
+  background:rgba(125,249,193,.12);
+  border:1px solid rgba(125,249,193,.25);
+  color:var(--accent);
+  padding:12px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  font-family:'Orbitron',sans-serif;
+}
+
+.slide-caption{
+  text-align:center;
+  margin-top:18px;
+  color:#ddd;
+  line-height:1.7;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:35px;
+  }
+
+  .topbar{
+    gap:8px;
+  }
+
+  .topbar a{
+    font-size:9px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="topbar">
+  <a href="index.html">HOME</a>
+  <a href="team.html">THE TEAM</a>
+  <a href="witness-stand.html">WITNESS STAND</a>
+  <a href="merch.html">SHOP</a>
+  <a href="index.html#contact">CONTACT</a>
+</nav>
+
+<main class="wrap">
+
+<section class="hero">
+
+<div class="kicker">
+BELOW THE HOUSE · ABOVE THE LAWNMOWER
+</div>
+
+<h1>The BMX Basement</h1>
+
+<p>
+Built under a 1900 house, hidden behind doors, stairs, bulkhead entrances,
+old tools, survivor bikes, lowriders, parts drawers, stickers, chrome baths,
+and questionable promises that this is definitely “the last bike.”
+</p>
+
+</section>
+
+<div class="warning">
+If the lights go out and the door shuts, this page changes.
+The bikes know who came home last.
+The basement always keeps score.
+</div>
+
+<section class="tour-grid">
+
+<div class="tour-card">
+<h2>The Stairs</h2>
+<p>
+Every bike that comes down these stairs gets judged before the kickstand touches concrete.
+</p>
+</div>
+
+<div class="tour-card">
+<h2>The Bulkhead</h2>
+<p>
+The emergency delivery route for bikes that absolutely were not supposed to come home today.
+</p>
+</div>
+
+<div class="tour-card">
+<h2>The Chrome Corner</h2>
+<p>
+Where rusty parts go into the sink and come back acting like they still have factory paperwork.
+</p>
+</div>
+
+<div class="tour-card">
+<h2>The Parts Graveyard</h2>
+<p>
+Mystery stems, oddball bolts, tires, pads, grips, and one washer Joey swears matters.
+</p>
+</div>
+
+<div class="tour-card">
+<h2>The Survivor Row</h2>
+<p>
+Sometimes the scratches ARE the story.
+</p>
+</div>
+
+<div class="tour-card">
+<h2>The Back Room</h2>
+<p>
+Nobody really knows what is back there. Pete says he does. Nobody believes Pete.
+</p>
+</div>
+
+</section>
+
+<section class="feature-section">
+
+<h2>Current Basement Artifact</h2>
+
+<div class="feature-grid">
+
+<div class="artifact-preview" onclick="openArtifactViewer()">
+
+<img src="mirra-artifact-main.jpg" alt="Dave Mirra Haro Artifact">
+
+<div class="preview-overlay">
+<span>CLICK TO OPEN CASE FILE</span>
+</div>
+
+</div>
+
+<div class="feature-copy">
+
+<p>
+Recovered from the basement pile and pulled onto the stand for investigation:
+a signed Dave Mirra Haro frame still carrying the scars of another lifetime.
+</p>
+
+<p>
+The medical board left its mark. The shop signs stayed in evidence.
+The frame came home rough, honest, and exactly the way basement bikes usually do.
+</p>
+
+<p>
+One part survivor bike. One part time capsule.
+</p>
+
+<div class="quote-box">
+“Guys… be nice. This one’s had a rough life.”
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="rules">
+
+<h2>Basement Rules</h2>
+
+<div class="rules-list">
+
+<div class="rule">
+Do not ask how many bikes are down here.
+</div>
+
+<div class="rule">
+Do not move anything Joey said was “sorted.”
+</div>
+
+<div class="rule">
+Do not leave Pete alone with anodized parts.
+</div>
+
+<div class="rule">
+If Tom mentions sponsorship, nod politely.
+</div>
+
+<div class="rule">
+If the tires roll by themselves, pretend you didn’t see it.
+</div>
+
+<div class="rule">
+If someone upstairs asks, this bike was already here.
+</div>
+
+</div>
+
+</section>
+
+<div class="cta">
+<a href="witness-stand.html">Enter The Witness Stand</a>
+<a href="team.html">Meet The Team</a>
+<a href="index.html">Back Home</a>
+</div>
+
+</main>
+
+<footer class="footer">
+PEDAL FOREVER — THE BASEMENT IS REAL
+</footer>
+
+<!-- MODAL -->
+
+<div class="modal" id="artifactModal">
+
+<div class="modal-content">
+
+<div class="close-modal" onclick="closeArtifactViewer()">
+×
+</div>
+
+<img id="modalImage" class="modal-image" src="">
+
+<div class="slide-controls">
+<button class="slide-btn" onclick="previousSlide()">PREVIOUS</button>
+<button class="slide-btn" onclick="nextSlide()">NEXT</button>
+</div>
+
+<div class="slide-caption" id="slideCaption"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const artifactSlides = [
+
+{
+image:"mirra-artifact-main.jpg",
+caption:"The full basement recovery shot. Pulled onto the stand and officially entered into evidence."
+},
+
+{
+image:"mirra-artifact-frame.jpg",
+caption:"The signed Haro frame itself. Still carrying the scars and stories from another era."
+},
+
+{
+image:"mirra-artifact-signature.jpg",
+caption:"The Mirra signature close-up. The medical board left its mark."
+}
+
+];
+
+let currentSlide = 0;
+
+function openArtifactViewer(){
+document.getElementById('artifactModal').classList.add('active');
+showSlide(currentSlide);
+}
+
+function closeArtifactViewer(){
+document.getElementById('artifactModal').classList.remove('active');
+}
+
+function showSlide(index){
+
+document.getElementById('modalImage').src =
+artifactSlides[index].image;
+
+document.getElementById('slideCaption').innerText =
+artifactSlides[index].caption;
+
+}
+
+function nextSlide(){
+
+currentSlide++;
+
+if(currentSlide >= artifactSlides.length){
+currentSlide = 0;
+}
+
+showSlide(currentSlide);
+
+}
+
+function previousSlide(){
+
+currentSlide--;
+
+if(currentSlide < 0){
+currentSlide = artifactSlides.length - 1;
+}
+
+showSlide(currentSlide);
+
+}
+
+document.addEventListener('keydown', function(e){
+
+if(e.key === 'Escape'){
+closeArtifactViewer();
+}
+
+if(e.key === 'ArrowRight'){
+nextSlide();
+}
+
+if(e.key === 'ArrowLeft'){
+previousSlide();
+}
+
+});
+
+</script>
+
+</body>
+</html>
