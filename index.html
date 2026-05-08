@@ -35,9 +35,12 @@
       content:'';
       position:fixed;
       inset:0;
-      background:url('garage-background.jpg') center/cover no-repeat;
-      opacity:0.16;
+      background:
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.82)),
+        url('website-wallpaper.jpg') center center / cover no-repeat;
+      opacity:0.42;
       z-index:-2;
+      filter:blur(.15px);
     }
 
     body::after{
@@ -45,8 +48,8 @@
       position:fixed;
       inset:0;
       background:
-        radial-gradient(circle at top center, rgba(125,249,193,0.10), transparent 35%),
-        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.54), rgba(0,0,0,0.98));
+        radial-gradient(circle at top center, rgba(125,249,193,0.12), transparent 35%),
+        linear-gradient(90deg, rgba(0,0,0,0.96), rgba(0,0,0,0.50), rgba(0,0,0,0.96));
       pointer-events:none;
       z-index:-1;
     }
@@ -94,6 +97,16 @@
     .hero{
       text-align:center;
       padding:54px 15px 34px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(125,249,193,.08), transparent 65%);
+      pointer-events:none;
     }
 
     .hero-logo-wrap{
@@ -101,6 +114,8 @@
       margin:0 auto 22px;
       padding:0;
       animation:garageLogoWake 1.1s ease-out both;
+      position:relative;
+      z-index:1;
     }
 
     .site-logo{
@@ -118,31 +133,9 @@
     }
 
     @keyframes garageLogoWake{
-      0%{
-        opacity:0;
-        transform:translateY(-12px) scale(.985);
-        filter:blur(4px);
-      }
-
-      60%{
-        opacity:1;
-        transform:translateY(2px) scale(1.005);
-        filter:blur(0);
-      }
-
-      100%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-        filter:blur(0);
-      }
-    }
-
-    .tagline{
-      color:var(--accent);
-      letter-spacing:4px;
-      font-size:11px;
-      margin-bottom:10px;
-      text-transform:uppercase;
+      0%{opacity:0; transform:translateY(-12px) scale(.985); filter:blur(4px);}
+      60%{opacity:1; transform:translateY(2px) scale(1.005); filter:blur(0);}
+      100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
     }
 
     .hero-statement{
@@ -152,15 +145,20 @@
       margin:10px auto 8px;
       text-transform:uppercase;
       letter-spacing:1px;
+      position:relative;
+      z-index:1;
     }
 
     .hero-sub{
-      color:var(--accent2);
-      font-size:13px;
-      letter-spacing:2px;
+      color:#d0d0d0;
+      font-size:12px;
+      letter-spacing:3px;
       text-transform:uppercase;
       margin-bottom:20px;
-      line-height:1.5;
+      line-height:1.7;
+      opacity:.84;
+      position:relative;
+      z-index:1;
     }
 
     .hero h1{
@@ -170,6 +168,8 @@
 
     .social{
       margin-top:18px;
+      position:relative;
+      z-index:1;
     }
 
     .social a,
@@ -328,6 +328,24 @@
       border:1px solid rgba(125,249,193,.35);
       box-shadow:0 0 28px rgba(125,249,193,.22);
       transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .witness-home-card::before{
+      content:'CASE FILE ACTIVE';
+      position:absolute;
+      top:14px;
+      right:-38px;
+      background:#ff2b2b;
+      color:white;
+      padding:8px 40px;
+      font-size:10px;
+      letter-spacing:2px;
+      transform:rotate(35deg);
+      font-weight:900;
+      z-index:5;
+      box-shadow:0 0 12px rgba(255,0,0,.45);
     }
 
     .witness-home-card:hover{
@@ -613,31 +631,107 @@
     }
 
     .pete-sticker{
-      position:absolute;
-      right:16px;
-      bottom:12px;
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      z-index:1000;
       display:inline-block;
       transform:rotate(-7deg);
-      padding:7px 10px;
-      border:1px solid rgba(255,79,216,.65);
-      border-radius:6px;
-      color:rgba(255,255,255,.72);
+      padding:8px 11px;
+      border:1px solid rgba(255,79,216,.72);
+      border-radius:7px;
+      color:rgba(255,255,255,.82);
       background:
-        linear-gradient(135deg, rgba(255,79,216,.18), rgba(0,0,0,.75));
+        linear-gradient(135deg, rgba(255,79,216,.20), rgba(0,0,0,.86));
       font-size:9px;
       letter-spacing:1px;
       text-transform:uppercase;
-      box-shadow:0 0 10px rgba(255,79,216,.22);
-      opacity:.72;
+      box-shadow:0 0 12px rgba(255,79,216,.28);
+      opacity:.78;
       transition:.25s ease;
+      cursor:pointer;
     }
 
     .pete-sticker:hover{
       opacity:1;
       color:#fff;
       border-color:var(--accent2);
-      box-shadow:0 0 18px rgba(255,79,216,.42);
-      transform:rotate(-4deg) scale(1.04);
+      box-shadow:0 0 20px rgba(255,79,216,.48);
+      transform:rotate(-4deg) scale(1.05);
+    }
+
+    .pete-modal{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.88);
+      backdrop-filter:blur(6px);
+    }
+
+    .pete-modal.active{
+      display:flex;
+    }
+
+    .pete-modal-card{
+      width:min(760px,96vw);
+      position:relative;
+      background:rgba(0,0,0,.92);
+      border:1px solid rgba(125,249,193,.36);
+      border-radius:22px;
+      box-shadow:
+        0 0 28px rgba(125,249,193,.22),
+        0 0 60px rgba(255,79,216,.14);
+      overflow:hidden;
+      animation:petePop .28s ease-out both;
+    }
+
+    @keyframes petePop{
+      from{opacity:0; transform:scale(.94) rotate(-1deg);}
+      to{opacity:1; transform:scale(1) rotate(0);}
+    }
+
+    .pete-modal-card img{
+      width:100%;
+      display:block;
+    }
+
+    .pete-close{
+      position:absolute;
+      top:10px;
+      right:10px;
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(0,0,0,.72);
+      color:white;
+      font-size:24px;
+      line-height:34px;
+      text-align:center;
+      cursor:pointer;
+      z-index:2;
+    }
+
+    .pete-rickroll{
+      display:block;
+      text-align:center;
+      padding:14px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:11px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      border-top:1px solid rgba(125,249,193,.18);
+      background:rgba(0,0,0,.76);
+    }
+
+    .pete-rickroll:hover{
+      color:#000;
+      background:var(--accent);
     }
 
     @media(max-width:900px){
@@ -721,8 +815,8 @@
       }
 
       .pete-sticker{
-        position:static;
-        margin-top:18px;
+        right:10px;
+        bottom:10px;
       }
     }
   </style>
@@ -919,9 +1013,19 @@
       &nbsp; | &nbsp;
       <a href="https://tiktok.com/@pedalforever" target="_blank" rel="noopener">TikTok</a>
     </p>
-
-    <a class="pete-sticker" href="pete-was-here.html" title="Pete was here">Pete Was Here</a>
   </footer>
+
+  <button class="pete-sticker" onclick="openPeteModal()" title="Pete was here">Pete Was Here</button>
+
+  <div class="pete-modal" id="peteModal" onclick="closePeteModalOutside(event)">
+    <div class="pete-modal-card">
+      <button class="pete-close" onclick="closePeteModal()">×</button>
+      <img src="pete-secret-spot.png" alt="Pinchbolt Pete secret Easter egg">
+      <a class="pete-rickroll" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">
+        Oops. You found the wrong garage door.
+      </a>
+    </div>
+  </div>
 
   <script>
     let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
@@ -968,6 +1072,26 @@
       document.getElementById("total").innerText = votes;
       document.getElementById("email").value = "";
     }
+
+    function openPeteModal(){
+      document.getElementById("peteModal").classList.add("active");
+    }
+
+    function closePeteModal(){
+      document.getElementById("peteModal").classList.remove("active");
+    }
+
+    function closePeteModalOutside(event){
+      if(event.target.id === "peteModal"){
+        closePeteModal();
+      }
+    }
+
+    document.addEventListener("keydown", function(event){
+      if(event.key === "Escape"){
+        closePeteModal();
+      }
+    });
   </script>
 
 </body>
