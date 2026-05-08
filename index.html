@@ -96,13 +96,45 @@
       padding:54px 15px 34px;
     }
 
+    .hero-logo-wrap{
+      width:min(760px,96%);
+      margin:0 auto 22px;
+      padding:0;
+      animation:garageLogoWake 1.1s ease-out both;
+    }
+
     .site-logo{
-      max-width:360px;
-      width:82%;
+      width:100%;
+      max-width:760px;
       height:auto;
       display:block;
-      margin:0 auto 14px;
-      filter:drop-shadow(0 0 18px rgba(125,249,193,0.4));
+      margin:0 auto;
+    }
+
+    .new-hero-logo{
+      filter:
+        drop-shadow(0 0 10px rgba(0,0,0,.95))
+        drop-shadow(0 0 18px rgba(125,249,193,.16));
+    }
+
+    @keyframes garageLogoWake{
+      0%{
+        opacity:0;
+        transform:translateY(-12px) scale(.985);
+        filter:blur(4px);
+      }
+
+      60%{
+        opacity:1;
+        transform:translateY(2px) scale(1.005);
+        filter:blur(0);
+      }
+
+      100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+      }
     }
 
     .tagline{
@@ -628,9 +660,9 @@
         padding:34px 10px 24px;
       }
 
-      .site-logo{
-        width:92%;
-        max-width:320px;
+      .hero-logo-wrap{
+        width:96%;
+        max-width:640px;
       }
 
       .strip{
@@ -711,9 +743,9 @@
   <main class="wrap">
 
     <section class="hero">
-      <img class="site-logo" src="logo.jpg" alt="Pedal Forever logo">
-
-      <div class="tagline">BUILT FROM BAD DECISIONS.</div>
+      <div class="hero-logo-wrap">
+        <img class="site-logo new-hero-logo" src="built-from-bad-decisions.png" alt="Pedal Forever Built From Bad Decisions">
+      </div>
 
       <h1>PEDAL FOREVER — BUILT FROM BAD DECISIONS</h1>
 
