@@ -9,24 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --accent:#7df9c1;
   --accent2:#ff4fd8;
-  --dark:#050505;
-  --panel:rgba(0,0,0,.72);
+  --panel:rgba(0,0,0,.74);
   --border:rgba(125,249,193,.25);
   --text:#eaeaea;
   --red:#ff2b2b;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   margin:0;
@@ -34,17 +28,14 @@ body{
   background:#000;
   color:var(--text);
   overflow-x:hidden;
-  position:relative;
 }
-
-/* BACKGROUND */
 
 body::before{
   content:'';
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.88)),
+    linear-gradient(rgba(0,0,0,.46),rgba(0,0,0,.88)),
     url('witness-stand.png') center center / cover no-repeat;
   z-index:-3;
   animation:bgPulse 12s ease-in-out infinite;
@@ -55,13 +46,10 @@ body::after{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at center,
-    rgba(125,249,193,.10),
-    rgba(0,0,0,.84));
+    radial-gradient(circle at center, rgba(125,249,193,.10), rgba(0,0,0,.88));
   z-index:-2;
+  pointer-events:none;
 }
-
-/* TOPBAR */
 
 .topbar{
   position:sticky;
@@ -73,15 +61,15 @@ body::after{
   gap:18px;
   flex-wrap:wrap;
   padding:14px;
-  background:rgba(0,0,0,.82);
+  background:rgba(0,0,0,.86);
   backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(125,249,193,.2);
+  border-bottom:1px solid rgba(125,249,193,.22);
 }
 
 .topbar a{
   color:var(--accent);
   text-decoration:none;
-  font-size:11px;
+  font-size:10px;
   letter-spacing:2px;
   transition:.25s;
 }
@@ -91,22 +79,17 @@ body::after{
   background:var(--accent);
   padding:6px 12px;
   border-radius:999px;
-  box-shadow:0 0 18px rgba(125,249,193,.4);
 }
-
-/* WRAP */
 
 .wrap{
   width:min(1120px,94%);
   margin:auto;
-  padding:40px 0 90px;
+  padding:42px 0 90px;
 }
-
-/* HERO */
 
 .hero{
   text-align:center;
-  padding:70px 20px 50px;
+  padding:70px 20px 48px;
 }
 
 .kicker{
@@ -119,25 +102,23 @@ body::after{
 
 .hero h1{
   margin:0;
-  font-size:clamp(52px,9vw,110px);
+  font-size:clamp(50px,9vw,104px);
   line-height:.92;
   text-transform:uppercase;
   color:var(--accent);
   text-shadow:
-    0 0 12px rgba(125,249,193,.7),
-    0 0 40px rgba(125,249,193,.25);
-  animation:titlePulse 5s ease-in-out infinite;
+    0 0 12px rgba(125,249,193,.70),
+    0 0 42px rgba(125,249,193,.28);
+  animation:titleGlow 5s ease-in-out infinite;
 }
 
 .hero p{
-  width:min(760px,92%);
+  width:min(780px,92%);
   margin:28px auto 0;
   line-height:1.8;
   color:#d8d8d8;
   font-size:13px;
 }
-
-/* PANELS */
 
 .panel{
   background:var(--panel);
@@ -147,10 +128,8 @@ body::after{
   backdrop-filter:blur(7px);
   box-shadow:
     0 0 28px rgba(125,249,193,.10),
-    0 0 60px rgba(0,0,0,.6);
+    0 0 60px rgba(0,0,0,.65);
 }
-
-/* CASE */
 
 .case-card{
   margin-top:34px;
@@ -173,7 +152,7 @@ body::after{
   text-transform:uppercase;
 }
 
-.case-file{
+.case-number{
   background:var(--accent);
   color:#000;
   padding:10px 16px;
@@ -181,57 +160,62 @@ body::after{
   font-size:11px;
   font-weight:900;
   letter-spacing:2px;
+  white-space:nowrap;
 }
 
 .case-grid{
   display:grid;
   grid-template-columns:1.08fr .92fr;
   gap:26px;
+  align-items:start;
 }
 
-.case-image{
+.video-box{
   overflow:hidden;
   border-radius:20px;
-  border:1px solid rgba(125,249,193,.22);
-  position:relative;
+  border:1px solid rgba(125,249,193,.24);
+  background:#000;
+  box-shadow:
+    0 0 30px rgba(0,0,0,.72),
+    0 0 22px rgba(125,249,193,.10);
 }
 
-.case-image img{
+.video-box video{
   width:100%;
   display:block;
-  transition:1.2s ease;
-}
-
-.case-image:hover img{
-  transform:scale(1.03);
 }
 
 .case-info h3{
   margin-top:0;
   color:var(--accent);
   text-transform:uppercase;
-  font-size:28px;
+  font-size:clamp(26px,4vw,40px);
+  line-height:1.1;
 }
 
 .case-info p{
   color:#ddd;
-  line-height:1.8;
+  line-height:1.78;
   font-size:13px;
 }
 
-.evidence-list{
+.parts-list{
   display:grid;
-  gap:14px;
+  gap:12px;
   margin-top:24px;
 }
 
-.evidence{
+.part{
   padding:14px;
   border-left:4px solid var(--accent);
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.045);
   border-radius:10px;
   font-size:12px;
   line-height:1.7;
+}
+
+.part strong{
+  color:var(--accent);
 }
 
 .verdict{
@@ -244,44 +228,8 @@ body::after{
   font-weight:900;
   letter-spacing:2px;
   text-transform:uppercase;
-  box-shadow:0 0 24px rgba(255,43,43,.4);
+  box-shadow:0 0 24px rgba(255,43,43,.40);
 }
-
-/* VIDEO */
-
-.video-section{
-  margin-top:60px;
-}
-
-.video-section h2{
-  margin-top:0;
-  color:var(--accent);
-  text-transform:uppercase;
-  font-size:34px;
-}
-
-.video-section p{
-  color:#d8d8d8;
-  line-height:1.8;
-  font-size:13px;
-}
-
-.video-box{
-  margin-top:24px;
-  overflow:hidden;
-  border-radius:22px;
-  border:1px solid rgba(125,249,193,.24);
-  box-shadow:
-    0 0 30px rgba(0,0,0,.7),
-    0 0 20px rgba(125,249,193,.08);
-}
-
-.video-box video{
-  width:100%;
-  display:block;
-}
-
-/* NOTES */
 
 .notes{
   margin-top:60px;
@@ -307,8 +255,6 @@ body::after{
   font-size:12px;
 }
 
-/* FOOTER */
-
 .footer{
   text-align:center;
   padding:50px 20px;
@@ -317,52 +263,33 @@ body::after{
   letter-spacing:2px;
 }
 
-/* ANIMATIONS */
-
 @keyframes bgPulse{
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.02);
-  }
-
-  100%{
-    transform:scale(1);
-  }
+  0%{transform:scale(1);}
+  50%{transform:scale(1.02);}
+  100%{transform:scale(1);}
 }
 
-@keyframes titlePulse{
+@keyframes titleGlow{
   0%{
     text-shadow:
-      0 0 10px rgba(125,249,193,.5),
-      0 0 20px rgba(125,249,193,.2);
+      0 0 10px rgba(125,249,193,.50),
+      0 0 24px rgba(125,249,193,.22);
   }
-
   50%{
     text-shadow:
-      0 0 18px rgba(125,249,193,.8),
-      0 0 48px rgba(125,249,193,.4);
+      0 0 18px rgba(125,249,193,.85),
+      0 0 48px rgba(125,249,193,.42);
   }
-
   100%{
     text-shadow:
-      0 0 10px rgba(125,249,193,.5),
-      0 0 20px rgba(125,249,193,.2);
+      0 0 10px rgba(125,249,193,.50),
+      0 0 24px rgba(125,249,193,.22);
   }
 }
-
-/* MOBILE */
 
 @media(max-width:860px){
-
   .case-grid{
     grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:40px;
   }
 
   .case-header{
@@ -370,12 +297,26 @@ body::after{
     text-align:center;
   }
 
-  .case-file{
+  .case-number{
     justify-self:center;
   }
 
-}
+  .hero{
+    padding-top:44px;
+  }
 
+  .panel{
+    padding:22px;
+  }
+
+  .topbar{
+    gap:10px;
+  }
+
+  .topbar a{
+    font-size:9px;
+  }
+}
 </style>
 </head>
 
@@ -393,137 +334,113 @@ body::after{
 
 <section class="hero">
 
-<div class="kicker">
-CURRENT GARAGE TESTIMONY
-</div>
+  <div class="kicker">CURRENT GARAGE TESTIMONY</div>
 
-<h1>
-THE WITNESS STAND
-</h1>
+  <h1>THE WITNESS STAND</h1>
 
-<p>
-Every bike has a story.
-Every scrape has a witness.
-Every week another survivor gets rolled into the basement and forced to explain itself.
-Some bikes left legends.
-Some left smoke.
-Some should probably never be started again.
-</p>
+  <p>
+    Every bike has a story. Every scrape has a witness.
+    Every week another survivor gets rolled into the basement and asked to explain itself.
+  </p>
 
 </section>
 
 <section class="panel case-card">
 
-<div class="case-header">
-  <h2>THIS WEEK'S CASE FILE</h2>
-  <div class="case-file">CASE FILE #0001</div>
-</div>
+  <div class="case-header">
+    <h2>THIS WEEK'S CASE FILE</h2>
+    <div class="case-number">CASE FILE #0001</div>
+  </div>
 
-<div class="case-grid">
+  <div class="case-grid">
 
-<div class="case-image">
-  <img src="feature-poster.png" alt="Witness Stand Feature">
-</div>
+    <div class="video-box">
+      <video controls playsinline preload="metadata" poster="witness-stand.png">
+        <source src="witness-stand-casefile-0001.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-<div class="case-info">
+    <div class="case-info">
 
-<h3>The Delivery Weapon</h3>
+      <h3>1995 GT Performer — Blacklight Edition</h3>
 
-<p>
-Alvern Heights residents reported excessive tire noise, suspicious late-night pizza activity, and multiple unexplained sightings of BMX parts being removed from the hatch area at gas stations.
-</p>
+      <p>
+        A survivor with a story and a serious coat of magical 1990s splash paint.
+        What an iconic colorway.
+      </p>
 
-<p>
-The vehicle claims all modifications were “necessary.”
-Investigators remain unconvinced.
-The basement remains divided.
-</p>
+      <p>
+        This bike never lost its old-school cool. It just got cooler.
+        The basement has officially accepted it into evidence.
+      </p>
 
-<div class="evidence-list">
+      <div class="parts-list">
 
-<div class="evidence">
-<strong>Evidence A</strong><br>
-Fresh burnout residue near the bulkhead entrance.
-</div>
+        <div class="part">
+          <strong>Frame & Identity</strong><br>
+          1995 GT Performer in Blacklight Edition splash paint.
+        </div>
 
-<div class="evidence">
-<strong>Evidence B</strong><br>
-Witnesses heard somebody yell “drop the clutch” moments before the power outage.
-</div>
+        <div class="part">
+          <strong>Wheels</strong><br>
+          SKYWAY O.E. mags keeping the whole build locked into proper 90s freestyle attitude.
+        </div>
 
-<div class="evidence">
-<strong>Evidence C</strong><br>
-Multiple bikes reported hearing aggressive camshaft noises from three streets away.
-</div>
+        <div class="part">
+          <strong>Stem & Cockpit</strong><br>
+          PRIMO stem with that unmistakable old-school BMX presence.
+        </div>
 
-</div>
+        <div class="part">
+          <strong>Seat Setup</strong><br>
+          GT Viscount seat sitting on a DYNO Drain Pipe laid-back seatpost.
+        </div>
 
-<div class="verdict">
-VERDICT: STILL UNDER INVESTIGATION
-</div>
+        <div class="part">
+          <strong>Cranks</strong><br>
+          DK 3-piece cranks. Strong enough for bad decisions. Clean enough for the stand.
+        </div>
 
-</div>
+        <div class="part">
+          <strong>Next Step</strong><br>
+          Awaiting its pair of orange Kenda Kontact freestyle tires.
+        </div>
 
-</div>
+      </div>
 
-</section>
+      <div class="verdict">
+        VERDICT: CERTIFIED 90s SURVIVOR
+      </div>
 
-<section class="panel video-section">
+    </div>
 
-<h2>BASEMENT FOOTAGE</h2>
-
-<p>
-Recovered footage from the basement archives.
-Late-night deliveries.
-Questionable decisions.
-Garage confessions.
-Evidence continues to surface weekly.
-</p>
-
-<div class="video-box">
-
-<video
-controls
-playsinline
-preload="metadata"
-poster="witness-stand.png"
->
-
-<source
-src="witness-stand-casefile-0001.mp4"
-type="video/mp4"
->
-
-Your browser does not support the video tag.
-
-</video>
-
-</div>
+  </div>
 
 </section>
 
 <section class="notes">
 
-<div class="panel note-card">
-<h3>Topcap's Notes</h3>
-<p>
-“Technically fixable” continues to be used far too confidently around this basement.
-</p>
-</div>
+  <div class="panel note-card">
+    <h3>Topcap's Notes</h3>
+    <p>
+      “That paint job is not loud. Everyone else is just boring.”
+    </p>
+  </div>
 
-<div class="panel note-card">
-<h3>Tom's Testimony</h3>
-<p>
-Tom insists the car once outran responsibility itself somewhere near the county line.
-</p>
-</div>
+  <div class="panel note-card">
+    <h3>Tom's Testimony</h3>
+    <p>
+      Tom claims the bike got faster the second it entered the basement.
+    </p>
+  </div>
 
-<div class="panel note-card">
-<h3>Pete Sighting</h3>
-<p>
-Pinchbolt Pete was reportedly found asleep against the passenger door after “testing the suspension.”
-</p>
-</div>
+  <div class="panel note-card">
+    <h3>Pete Sighting</h3>
+    <p>
+      Pinchbolt Pete was seen staring at the SKYWAY mags and whispering, “Yeah, those would fit.”
+    </p>
+  </div>
 
 </section>
 
