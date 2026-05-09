@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bike Of The Month | Pedal Forever</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --accent:#7df9c1;
+  --accent2:#ff4fd8;
+  --dark:#050505;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.52),
+      rgba(0,0,0,.78)
+    ),
+    url('website-wallpaper.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.55)
+    );
+
+  z-index:-1;
+}
+
+/* TOPBAR */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  background:rgba(0,0,0,.82);
+
+  border-bottom:1px solid rgba(125,249,193,.18);
+
+  text-align:center;
+
+  padding:14px;
+}
+
+.topbar a{
+  color:var(--accent);
+  text-decoration:none;
+  margin:0 10px;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.topbar a:hover{
+  color:var(--accent2);
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:80px 20px 50px;
+}
+
+.hero h1{
+  color:var(--accent);
+
+  font-size:clamp(42px,7vw,92px);
+
+  text-transform:uppercase;
+
+  margin-bottom:14px;
+
+  text-shadow:
+    0 0 20px rgba(125,249,193,.22);
+}
+
+.hero p{
+  max-width:850px;
+  margin:auto;
+  color:#ddd;
+  line-height:1.9;
+  font-size:14px;
+}
+
+/* MAIN WRAP */
+
+.wrap{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+/* FEATURE IMAGE */
+
+.feature-image{
+  width:100%;
+
+  border-radius:22px;
+
+  border:2px solid rgba(125,249,193,.22);
+
+  box-shadow:
+    0 0 35px rgba(125,249,193,.12),
+    0 0 80px rgba(0,0,0,.72);
+
+  margin-bottom:40px;
+}
+
+/* STORY CARD */
+
+.story-card{
+  background:rgba(0,0,0,.76);
+
+  border:1px solid rgba(125,249,193,.18);
+
+  border-radius:24px;
+
+  padding:40px 28px;
+
+  margin-bottom:35px;
+
+  backdrop-filter:blur(5px);
+
+  box-shadow:
+    0 0 30px rgba(125,249,193,.08);
+}
+
+.story-card h2{
+  color:var(--accent);
+  margin-bottom:22px;
+  font-size:38px;
+}
+
+.story-card p{
+  color:#ddd;
+  line-height:1.95;
+  margin-bottom:24px;
+  font-size:14px;
+}
+
+/* INFO GRID */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:35px;
+}
+
+.info-box{
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(125,249,193,.14);
+
+  border-radius:18px;
+
+  padding:20px;
+}
+
+.info-box h3{
+  color:var(--accent2);
+  margin-bottom:12px;
+}
+
+.info-box p{
+  color:#d7d7d7;
+  line-height:1.8;
+  font-size:13px;
+}
+
+/* QUOTE */
+
+.quote{
+  text-align:center;
+
+  margin:70px auto;
+
+  max-width:900px;
+
+  font-size:24px;
+
+  line-height:1.7;
+
+  color:white;
+
+  opacity:.95;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  padding:50px 20px;
+  color:#777;
+  border-top:1px solid rgba(125,249,193,.14);
+  margin-top:60px;
+}
+
+/* BUTTON */
+
+.back-btn{
+  display:inline-block;
+
+  margin-top:30px;
+
+  padding:14px 24px;
+
+  border:1px solid var(--accent);
+
+  border-radius:999px;
+
+  color:var(--accent);
+
+  text-decoration:none;
+
+  transition:.25s ease;
+}
+
+.back-btn:hover{
+  background:var(--accent);
+  color:black;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .hero{
+    padding-top:60px;
+  }
+
+  .story-card{
+    padding:28px 18px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="index.html">HOME</a>
+  <a href="team.html">THE TEAM</a>
+  <a href="witness-stand.html">WITNESS STAND</a>
+  <a href="bmx-basement.html">THE BASEMENT</a>
+  <a href="merch.html">MERCH</a>
+</div>
+
+<section class="hero">
+
+  <h1>Bike Of The Month</h1>
+
+  <p>
+    Preserved history. Real stories. Real survivor BMX bikes.
+    Not built to sit in museums.
+    Built to survive another generation.
+  </p>
+
+</section>
+
+<div class="wrap">
+
+  <img src="feature-poster.png" class="feature-image" alt="1978 Roger DeCoster">
+
+  <div class="story-card">
+
+    <h2>1978 Roger DeCoster Nickel Survivor</h2>
+
+    <p>
+      From beyond the 617 back to the 603 —
+      this 1978 Roger DeCoster came out of the dirt,
+      dust, and yard-sale shadows with a second life waiting for it.
+    </p>
+
+    <p>
+      The only reason this bike even exists inside the Pedal Forever collection
+      is because of years spent posting Craigslist ads across New England searching for:
+      old BMX bikes,
+      forgotten race bikes,
+      banana seat bikes,
+      muscle bikes,
+      old-school mountain bikes,
+      lowriders,
+      and hidden survivor parts collections.
+    </p>
+
+    <p>
+      One day an email came through.
+      A seller sent photos of an old nickel-plated BMX bike.
+      At the time, I honestly didn’t even know what a Roger DeCoster was.
+    </p>
+
+    <p>
+      So I did the research.
+    </p>
+
+    <p>
+      What I discovered was one of the coolest stories in all of 1970s BMX history.
+    </p>
+
+    <p>
+      During the late 1970s,
+      BMX Products Inc. completely dominated BMX culture.
+      Their Mongoose lineup had the world by the throat.
+      Motomags.
+      Supergooses.
+      Nickel plated race frames.
+      Aggressive geometry.
+      Lightweight chromoly construction.
+      Factory race wins.
+    </p>
+
+    <p>
+      Mongoose wasn’t just popular —
+      they were defining BMX itself.
+    </p>
+
+    <p>
+      Meanwhile,
+      Schwinn wanted back into the BMX spotlight.
+      So BMX Products Inc. partnered with Schwinn dealers
+      and created the Roger DeCoster line using the name of legendary motocross icon Roger DeCoster.
+    </p>
+
+    <p>
+      These bikes were sold through Schwinn dealer networks
+      and often built as custom dealer-assembled bikes or framesets.
+      That is why surviving DeCosters are often found with:
+      Schwinn components,
+      Ashtabula parts,
+      race-era modifications,
+      and unique dealer-installed setups.
+    </p>
+
+    <p>
+      One of the most recognizable features of the Roger DeCoster frame
+      is the famous oval top gusset.
+    </p>
+
+    <p>
+      That oval gusset became one of the defining visual signatures separating DeCosters
+      from standard Mongoose frames of the era.
+    </p>
+
+    <p>
+      Then there’s the finish.
+    </p>
+
+    <p>
+      Nickel plating.
+    </p>
+
+    <p>
+      BMX Products Inc. became legendary for their nickel-plated frames,
+      but surviving clean examples today are incredibly difficult to find.
+      Most were raced hard,
+      repainted,
+      rusted,
+      pitted,
+      cracked,
+      or stripped of their original components decades ago.
+    </p>
+
+    <p>
+      Finding a surviving 1978 Roger DeCoster today —
+      especially one retaining strong original nickel finish —
+      is considered extremely desirable among serious BMX collectors.
+    </p>
+
+    <p>
+      The funny part?
+    </p>
+
+    <p>
+      The vehicle I was driving at the time had blown up.
+    </p>
+
+    <p>
+      So this rare 1978 BMX survivor came home stuffed into the backseat of my mother’s tiny car
+      like some kind of BMX rescue mission.
+    </p>
+
+    <p>
+      Somehow...
+      that made the story even better.
+    </p>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h3>Frame</h3>
+        <p>
+          1978 Roger DeCoster nickel-plated BMX race frame
+          featuring the iconic oval top gusset.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>History</h3>
+        <p>
+          Manufactured by BMX Products Inc.
+          and distributed through Schwinn dealer networks during the late 1970s BMX boom.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Collector Status</h3>
+        <p>
+          Extremely desirable among vintage BMX collectors due to:
+          nickel finish,
+          low surviving numbers,
+          and direct ties to BMX Products Inc.
+        </p>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+      Return To Garage
+    </a>
+
+  </div>
+
+  <div class="quote">
+    “Sometimes all it takes is a Craigslist ad,
+    a little research,
+    and a willingness to drive somewhere weird for old bicycles.”
+  </div>
+
+</div>
+
+<footer class="footer">
+  PEDAL FOREVER — DECALS FADE. STORIES DON’T.
+</footer>
+
+</body>
+</html>
