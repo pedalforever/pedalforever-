@@ -12,14 +12,32 @@
 
     body{
       margin:0;
-      font-family:'Orbitron',sans-serif;
-      background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.82)),
-        url('garage.png') center center / cover no-repeat;
-      color:white;
-      min-height:100vh;
-      padding:40px 20px;
-    }
+      body{
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  color:white;
+  min-height:100vh;
+  padding:40px 20px;
+  position:relative;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.72),
+      rgba(0,0,0,.88)
+    ),
+    url('delivery-weapon-bg.png') center center / cover no-repeat fixed;
+
+  opacity:.22;
+
+  z-index:-2;
+}
 
     .page-wrap{
       max-width:1300px;
