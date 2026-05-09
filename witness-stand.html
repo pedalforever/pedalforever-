@@ -13,10 +13,11 @@
 :root{
   --accent:#7df9c1;
   --accent2:#ff4fd8;
-  --red:#ff3131;
-  --white:#f2f2f2;
-  --panel:rgba(0,0,0,.70);
-  --border:rgba(125,249,193,.30);
+  --dark:#050505;
+  --panel:rgba(0,0,0,.72);
+  --border:rgba(125,249,193,.25);
+  --text:#eaeaea;
+  --red:#ff2b2b;
 }
 
 *{
@@ -30,115 +31,67 @@ html{
 body{
   margin:0;
   font-family:'Orbitron',sans-serif;
-  color:var(--white);
   background:#000;
+  color:var(--text);
   overflow-x:hidden;
   position:relative;
 }
 
-/* MAIN BACKGROUND */
+/* BACKGROUND */
 
 body::before{
   content:'';
   position:fixed;
   inset:0;
-
   background:
-    linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)),
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.88)),
     url('witness-stand.png') center center / cover no-repeat;
-
-  opacity:.92;
-
   z-index:-3;
-
-  animation:backgroundPulse 9s ease-in-out infinite;
+  animation:bgPulse 12s ease-in-out infinite;
 }
-
-/* DARK OVERLAY */
 
 body::after{
   content:'';
   position:fixed;
   inset:0;
-
   background:
-    radial-gradient(circle at top center,
-    rgba(125,249,193,.14),
-    transparent 34%),
-
-    linear-gradient(to bottom,
-    rgba(0,0,0,.12),
-    rgba(0,0,0,.82));
-
+    radial-gradient(circle at center,
+    rgba(125,249,193,.10),
+    rgba(0,0,0,.84));
   z-index:-2;
-  pointer-events:none;
 }
 
-/* VIGNETTE */
-
-.vignette{
-  position:fixed;
-  inset:0;
-
-  background:
-  radial-gradient(circle,
-  transparent 45%,
-  rgba(0,0,0,.45) 100%);
-
-  z-index:-1;
-  pointer-events:none;
-}
-
-/* TOP NAV */
+/* TOPBAR */
 
 .topbar{
   position:sticky;
   top:0;
   z-index:999;
-
   display:flex;
   justify-content:center;
   align-items:center;
-  flex-wrap:wrap;
   gap:18px;
-
-  padding:14px 10px;
-
-  background:rgba(0,0,0,.90);
-
-  border-bottom:1px solid rgba(125,249,193,.35);
-
+  flex-wrap:wrap;
+  padding:14px;
+  background:rgba(0,0,0,.82);
   backdrop-filter:blur(8px);
-
-  box-shadow:
-  0 0 18px rgba(125,249,193,.18);
+  border-bottom:1px solid rgba(125,249,193,.2);
 }
 
 .topbar a{
   color:var(--accent);
-
   text-decoration:none;
-
   font-size:11px;
-
-  letter-spacing:1px;
-
-  font-weight:700;
-
-  transition:.25s ease;
+  letter-spacing:2px;
+  transition:.25s;
 }
 
 .topbar a:hover{
   color:#000;
-
   background:var(--accent);
-
-  padding:6px 10px;
-
+  padding:6px 12px;
   border-radius:999px;
-
-  box-shadow:
-  0 0 18px rgba(125,249,193,.45);
+  box-shadow:0 0 18px rgba(125,249,193,.4);
 }
 
 /* WRAP */
@@ -146,164 +99,106 @@ body::after{
 .wrap{
   width:min(1120px,94%);
   margin:auto;
-  padding:45px 0 80px;
+  padding:40px 0 90px;
 }
 
 /* HERO */
 
 .hero{
   text-align:center;
-  padding:60px 0 40px;
+  padding:70px 20px 50px;
 }
 
 .kicker{
   color:var(--accent2);
-
   font-size:12px;
-
-  letter-spacing:3px;
-
+  letter-spacing:4px;
   text-transform:uppercase;
-
-  margin-bottom:12px;
+  margin-bottom:18px;
 }
 
 .hero h1{
   margin:0;
-
-  font-size:clamp(52px,9vw,104px);
-
+  font-size:clamp(52px,9vw,110px);
   line-height:.92;
-
   text-transform:uppercase;
-
   color:var(--accent);
-
   text-shadow:
-    0 0 12px rgba(125,249,193,.75),
-    0 0 32px rgba(125,249,193,.45),
-    0 0 60px rgba(125,249,193,.18);
-
-  animation:titleGlow 5s ease-in-out infinite;
+    0 0 12px rgba(125,249,193,.7),
+    0 0 40px rgba(125,249,193,.25);
+  animation:titlePulse 5s ease-in-out infinite;
 }
 
 .hero p{
-  width:min(780px,92%);
-  margin:24px auto 0;
-
-  color:#e7e7e7;
-
+  width:min(760px,92%);
+  margin:28px auto 0;
   line-height:1.8;
-
+  color:#d8d8d8;
   font-size:13px;
 }
 
-/* SECTION PANELS */
+/* PANELS */
 
-.case-card,
-.video-section,
-.note-card{
+.panel{
   background:var(--panel);
-
-  backdrop-filter:blur(6px);
-
   border:1px solid var(--border);
-
+  border-radius:24px;
+  padding:30px;
+  backdrop-filter:blur(7px);
   box-shadow:
-    0 0 26px rgba(125,249,193,.12);
-
-  transition:.35s ease;
+    0 0 28px rgba(125,249,193,.10),
+    0 0 60px rgba(0,0,0,.6);
 }
 
-.case-card:hover,
-.video-section:hover,
-.note-card:hover{
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 0 36px rgba(125,249,193,.20);
-}
-
-/* CASE CARD */
+/* CASE */
 
 .case-card{
-  margin-top:35px;
-
-  border-radius:24px;
-
-  padding:28px;
+  margin-top:34px;
 }
 
 .case-header{
   display:grid;
-
   grid-template-columns:1fr auto;
-
-  gap:14px;
-
+  gap:20px;
   align-items:center;
-
-  padding-bottom:18px;
-
-  margin-bottom:24px;
-
-  border-bottom:1px solid rgba(125,249,193,.18);
+  margin-bottom:26px;
+  border-bottom:1px solid rgba(125,249,193,.15);
+  padding-bottom:20px;
 }
 
 .case-header h2{
   margin:0;
-
-  font-size:clamp(28px,4vw,50px);
-
+  font-size:clamp(24px,4vw,54px);
+  color:var(--accent);
   text-transform:uppercase;
 }
 
-.case-number{
+.case-file{
   background:var(--accent);
-
   color:#000;
-
-  padding:10px 15px;
-
+  padding:10px 16px;
   border-radius:999px;
-
-  font-size:12px;
-
+  font-size:11px;
   font-weight:900;
-
-  white-space:nowrap;
-
-  box-shadow:
-    0 0 14px rgba(125,249,193,.38);
+  letter-spacing:2px;
 }
 
 .case-grid{
   display:grid;
-
-  grid-template-columns:1.05fr .95fr;
-
-  gap:24px;
+  grid-template-columns:1.08fr .92fr;
+  gap:26px;
 }
-
-/* IMAGE */
 
 .case-image{
   overflow:hidden;
-
-  border-radius:18px;
-
-  border:1px solid rgba(125,249,193,.28);
-
-  background:#000;
-
-  box-shadow:
-    0 0 22px rgba(0,0,0,.7);
+  border-radius:20px;
+  border:1px solid rgba(125,249,193,.22);
+  position:relative;
 }
 
 .case-image img{
   width:100%;
   display:block;
-
   transition:1.2s ease;
 }
 
@@ -311,122 +206,74 @@ body::after{
   transform:scale(1.03);
 }
 
-/* INFO */
-
 .case-info h3{
   margin-top:0;
-
   color:var(--accent);
-
-  font-size:28px;
-
   text-transform:uppercase;
+  font-size:28px;
 }
 
 .case-info p{
   color:#ddd;
-
-  line-height:1.75;
-
+  line-height:1.8;
   font-size:13px;
 }
-
-/* EVIDENCE */
 
 .evidence-list{
   display:grid;
-  gap:12px;
-  margin-top:22px;
+  gap:14px;
+  margin-top:24px;
 }
 
 .evidence{
-  padding:13px;
-
+  padding:14px;
   border-left:4px solid var(--accent);
-
+  background:rgba(255,255,255,.04);
   border-radius:10px;
-
-  background:rgba(255,255,255,.05);
-
   font-size:12px;
-
-  line-height:1.6;
-
-  color:#ddd;
+  line-height:1.7;
 }
-
-/* VERDICT */
 
 .verdict{
   display:inline-block;
-
-  margin-top:24px;
-
-  padding:15px 22px;
-
-  border-radius:999px;
-
+  margin-top:28px;
+  padding:16px 24px;
   background:var(--red);
-
-  color:#fff;
-
-  font-size:13px;
-
+  border-radius:999px;
+  font-size:12px;
   font-weight:900;
-
+  letter-spacing:2px;
   text-transform:uppercase;
-
-  letter-spacing:1px;
-
-  box-shadow:
-    0 0 24px rgba(255,49,49,.35);
-
-  animation:verdictPulse 3s infinite;
+  box-shadow:0 0 24px rgba(255,43,43,.4);
 }
 
 /* VIDEO */
 
 .video-section{
-  margin-top:58px;
-
-  border-radius:24px;
-
-  padding:28px;
-
-  text-align:center;
-
-  border-color:rgba(255,79,216,.28);
+  margin-top:60px;
 }
 
 .video-section h2{
   margin-top:0;
-
-  color:var(--accent2);
-
+  color:var(--accent);
   text-transform:uppercase;
+  font-size:34px;
 }
 
 .video-section p{
-  color:#ddd;
-
-  line-height:1.7;
-
+  color:#d8d8d8;
+  line-height:1.8;
   font-size:13px;
 }
 
 .video-box{
-  margin-top:22px;
-
+  margin-top:24px;
   overflow:hidden;
-
-  border-radius:18px;
-
-  border:1px solid rgba(125,249,193,.26);
-
-  background:#000;
-
+  border-radius:22px;
+  border:1px solid rgba(125,249,193,.24);
   box-shadow:
-    0 0 24px rgba(0,0,0,.6);
+    0 0 30px rgba(0,0,0,.7),
+    0 0 20px rgba(125,249,193,.08);
 }
 
 .video-box video{
@@ -437,130 +284,85 @@ body::after{
 /* NOTES */
 
 .notes{
-  margin-top:58px;
-
+  margin-top:60px;
   display:grid;
-
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-  gap:16px;
+  gap:18px;
 }
 
 .note-card{
-  border-radius:18px;
-
-  padding:20px;
+  border-radius:20px;
+  padding:22px;
 }
 
 .note-card h3{
   margin-top:0;
-
   color:var(--accent);
-
   text-transform:uppercase;
 }
 
 .note-card p{
   color:#ddd;
-
+  line-height:1.8;
   font-size:12px;
-
-  line-height:1.7;
 }
 
 /* FOOTER */
 
 .footer{
   text-align:center;
-
-  padding:42px 18px;
-
+  padding:50px 20px;
   color:#777;
-
   font-size:11px;
-
   letter-spacing:2px;
-
-  border-top:1px solid rgba(125,249,193,.14);
-
-  background:rgba(0,0,0,.82);
 }
 
 /* ANIMATIONS */
 
-@keyframes backgroundPulse{
-
+@keyframes bgPulse{
   0%{
     transform:scale(1);
-    opacity:.90;
   }
 
   50%{
     transform:scale(1.02);
-    opacity:.97;
   }
 
   100%{
     transform:scale(1);
-    opacity:.90;
   }
 }
 
-@keyframes titleGlow{
-
+@keyframes titlePulse{
   0%{
     text-shadow:
-      0 0 10px rgba(125,249,193,.45),
-      0 0 25px rgba(125,249,193,.25);
+      0 0 10px rgba(125,249,193,.5),
+      0 0 20px rgba(125,249,193,.2);
   }
 
   50%{
     text-shadow:
-      0 0 18px rgba(125,249,193,.85),
-      0 0 44px rgba(125,249,193,.45);
+      0 0 18px rgba(125,249,193,.8),
+      0 0 48px rgba(125,249,193,.4);
   }
 
   100%{
     text-shadow:
-      0 0 10px rgba(125,249,193,.45),
-      0 0 25px rgba(125,249,193,.25);
-  }
-}
-
-@keyframes verdictPulse{
-
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.03);
-  }
-
-  100%{
-    transform:scale(1);
+      0 0 10px rgba(125,249,193,.5),
+      0 0 20px rgba(125,249,193,.2);
   }
 }
 
 /* MOBILE */
 
-@media(max-width:820px){
+@media(max-width:860px){
 
-  .topbar{
-    gap:8px;
-    padding:10px 6px;
-  }
-
-  .topbar a{
-    font-size:9px;
+  .case-grid{
+    grid-template-columns:1fr;
   }
 
   .hero{
-    padding-top:36px;
-  }
-
-  .hero h1{
-    line-height:1;
+    padding-top:40px;
   }
 
   .case-header{
@@ -568,17 +370,8 @@ body::after{
     text-align:center;
   }
 
-  .case-number{
+  .case-file{
     justify-self:center;
-  }
-
-  .case-grid{
-    grid-template-columns:1fr;
-  }
-
-  .case-card,
-  .video-section{
-    padding:18px;
   }
 
 }
@@ -588,14 +381,12 @@ body::after{
 
 <body>
 
-<div class="vignette"></div>
-
 <nav class="topbar">
   <a href="index.html">HOME</a>
   <a href="team.html">THE TEAM</a>
   <a href="bmx-basement.html">THE BASEMENT</a>
+  <a href="delivery-weapon.html">DELIVERY WEAPON</a>
   <a href="merch.html">SHOP</a>
-  <a href="index.html#contact">CONTACT</a>
 </nav>
 
 <main class="wrap">
@@ -611,57 +402,58 @@ THE WITNESS STAND
 </h1>
 
 <p>
-The only thing in the basement that knows the full truth.
-Every bike has a story. Every scratch has a witness.
-Every week, one survivor gets called to the stand.
+Every bike has a story.
+Every scrape has a witness.
+Every week another survivor gets rolled into the basement and forced to explain itself.
+Some bikes left legends.
+Some left smoke.
+Some should probably never be started again.
 </p>
 
 </section>
 
-<section class="case-card">
+<section class="panel case-card">
 
 <div class="case-header">
-  <h2>THIS WEEK’S CASE FILE</h2>
-  <div class="case-number">CASE FILE #001</div>
+  <h2>THIS WEEK'S CASE FILE</h2>
+  <div class="case-file">CASE FILE #0001</div>
 </div>
 
 <div class="case-grid">
 
 <div class="case-image">
-  <img src="feature-poster.png" alt="Witness Stand Feature Bike">
+  <img src="feature-poster.png" alt="Witness Stand Feature">
 </div>
 
 <div class="case-info">
 
-<h3>The Basement Has Questions</h3>
+<h3>The Delivery Weapon</h3>
 
 <p>
-This bike entered the basement under suspicious circumstances,
-late enough that nobody upstairs was supposed to notice.
+Alvern Heights residents reported excessive tire noise, suspicious late-night pizza activity, and multiple unexplained sightings of BMX parts being removed from the hatch area at gas stations.
 </p>
 
 <p>
-The collector claims it was “basically free,” which is already
-considered unreliable testimony by everyone involved.
+The vehicle claims all modifications were “necessary.”
+Investigators remain unconvinced.
+The basement remains divided.
 </p>
 
 <div class="evidence-list">
 
 <div class="evidence">
-<strong>Evidence A:</strong>
-Fresh tire marks near the bulkhead.
+<strong>Evidence A</strong><br>
+Fresh burnout residue near the bulkhead entrance.
 </div>
 
 <div class="evidence">
-<strong>Evidence B:</strong>
-One nervous collector whispering,
-“Guys, be nice.”
+<strong>Evidence B</strong><br>
+Witnesses heard somebody yell “drop the clutch” moments before the power outage.
 </div>
 
 <div class="evidence">
-<strong>Evidence C:</strong>
-Multiple bikes report hearing,
-“Watch out. This one’s mean.”
+<strong>Evidence C</strong><br>
+Multiple bikes reported hearing aggressive camshaft noises from three streets away.
 </div>
 
 </div>
@@ -671,25 +463,36 @@ VERDICT: STILL UNDER INVESTIGATION
 </div>
 
 </div>
+
 </div>
 
 </section>
 
-<section class="video-section">
+<section class="panel video-section">
 
-<h2>THIS WEEK’S BASEMENT FOOTAGE</h2>
+<h2>BASEMENT FOOTAGE</h2>
 
 <p>
-Upload your weekly short video as
-<strong>witness-video.mp4</strong>
-and this section updates automatically.
+Recovered footage from the basement archives.
+Late-night deliveries.
+Questionable decisions.
+Garage confessions.
+Evidence continues to surface weekly.
 </p>
 
 <div class="video-box">
 
-<video controls playsinline poster="witness-stand.png">
+<video
+controls
+playsinline
+preload="metadata"
+poster="witness-stand.png"
+>
 
-<source src="witness-video.mp4" type="video/mp4">
+<source
+src="witness-stand-casefile-0001.mp4"
+type="video/mp4"
+>
 
 Your browser does not support the video tag.
 
@@ -701,26 +504,24 @@ Your browser does not support the video tag.
 
 <section class="notes">
 
-<div class="note-card">
-<h3>Topcap’s Notes</h3>
+<div class="panel note-card">
+<h3>Topcap's Notes</h3>
 <p>
-“Technically fixable” remains a legally dangerous phrase.
+“Technically fixable” continues to be used far too confidently around this basement.
 </p>
 </div>
 
-<div class="note-card">
-<h3>Tom’s Testimony</h3>
+<div class="panel note-card">
+<h3>Tom's Testimony</h3>
 <p>
-Tom insists he once raced one exactly like this,
-only faster, lighter, and somehow sponsored.
+Tom insists the car once outran responsibility itself somewhere near the county line.
 </p>
 </div>
 
-<div class="note-card">
+<div class="panel note-card">
 <h3>Pete Sighting</h3>
 <p>
-Pete was seen near the parts drawer.
-Nothing is confirmed, but several washers are missing.
+Pinchbolt Pete was reportedly found asleep against the passenger door after “testing the suspension.”
 </p>
 </div>
 
@@ -729,7 +530,7 @@ Nothing is confirmed, but several washers are missing.
 </main>
 
 <footer class="footer">
-PEDAL FOREVER — DECALS FADE. STORIES DON’T.
+PEDAL FOREVER — DECALS FADE. STORIES DON'T.
 </footer>
 
 </body>
