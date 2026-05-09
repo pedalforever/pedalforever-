@@ -2,27 +2,46 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Pedal Forever Factory Team</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:'Orbitron',sans-serif;
-  background:#000;
   color:white;
   overflow-x:hidden;
+  background:#000;
+  position:relative;
 }
+
+/* GARAGE WALLPAPER */
 
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background:url('garage-background.jpg') center/cover no-repeat;
-  opacity:.22;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.72)
+    ),
+    url('garage.png');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+
   z-index:-2;
 }
 
@@ -30,70 +49,106 @@ body::after{
   content:'';
   position:fixed;
   inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.94));
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0,0,0,.05),
+      rgba(0,0,0,.55)
+    );
+
   z-index:-1;
 }
+
+/* TOP NAV */
 
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(0,0,0,.92);
-  padding:14px;
+
+  background:rgba(0,0,0,.82);
+
+  border-bottom:1px solid rgba(125,249,193,.25);
+
   text-align:center;
-  border-bottom:1px solid #7df9c1;
+
+  padding:14px;
 }
 
 .topbar a{
   color:#7df9c1;
   text-decoration:none;
-  margin:0 12px;
+  margin:0 10px;
   font-size:12px;
   letter-spacing:1px;
 }
 
+.topbar a:hover{
+  color:#ff4fd8;
+}
+
+/* HERO */
+
 .hero{
   text-align:center;
-  padding:60px 20px 20px;
+  padding:90px 20px 40px;
 }
 
 .hero h1{
-  font-size:clamp(32px,7vw,64px);
+  font-size:clamp(42px,7vw,84px);
   color:#7df9c1;
-  margin-bottom:10px;
+  margin-bottom:18px;
   text-transform:uppercase;
+  text-shadow:0 0 18px rgba(125,249,193,.25);
 }
 
 .hero p{
-  color:#ccc;
-  max-width:760px;
+  max-width:820px;
   margin:auto;
-  line-height:1.7;
+  color:#ddd;
+  line-height:1.8;
+  font-size:14px;
 }
+
+/* TEAM GRID */
 
 .team-grid{
-  max-width:1200px;
-  margin:50px auto;
+  max-width:1300px;
+  margin:40px auto;
+  padding:20px;
+
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-  padding:20px;
+  gap:28px;
 }
 
+/* RIDER CARD */
+
 .rider-card{
-  background:rgba(0,0,0,.78);
-  border:1px solid rgba(125,249,193,.35);
-  border-radius:20px;
+  background:rgba(0,0,0,.76);
+
+  border:1px solid rgba(125,249,193,.25);
+
+  border-radius:22px;
+
   overflow:hidden;
-  text-decoration:none;
+
   transition:.25s ease;
-  box-shadow:0 0 20px rgba(125,249,193,.12);
+
   cursor:pointer;
+
+  backdrop-filter:blur(5px);
+
+  box-shadow:
+    0 0 24px rgba(125,249,193,.08);
 }
 
 .rider-card:hover{
   transform:translateY(-6px) scale(1.01);
-  box-shadow:0 0 25px rgba(125,249,193,.42);
+
+  box-shadow:
+    0 0 34px rgba(125,249,193,.28);
 }
 
 .rider-card img{
@@ -104,35 +159,45 @@ body::after{
 }
 
 .rider-info{
-  padding:18px;
+  padding:20px;
 }
 
 .rider-info h2{
   color:#7df9c1;
-  margin:0 0 10px;
-  font-size:24px;
+  margin:0 0 12px;
+  font-size:30px;
 }
 
 .rider-info p{
   color:#d7d7d7;
-  font-size:13px;
   line-height:1.7;
+  font-size:13px;
 }
 
+/* GARAGE RULES */
+
 .secret-section{
-  max-width:900px;
+  max-width:1000px;
+
   margin:70px auto;
-  background:rgba(0,0,0,.82);
-  border:1px solid rgba(255,79,216,.35);
-  border-radius:20px;
-  padding:35px;
+
+  padding:40px 28px;
+
   text-align:center;
+
+  background:rgba(0,0,0,.82);
+
+  border:1px solid rgba(255,79,216,.22);
+
+  border-radius:24px;
+
+  backdrop-filter:blur(6px);
 }
 
 .secret-section h3{
   color:#ff4fd8;
-  font-size:32px;
-  margin-bottom:12px;
+  font-size:38px;
+  margin-bottom:14px;
 }
 
 .secret-section p{
@@ -140,24 +205,33 @@ body::after{
   line-height:1.8;
 }
 
+/* FOOTER */
+
 .footer{
   text-align:center;
   padding:45px 20px;
   color:#777;
-  border-top:1px solid rgba(125,249,193,.18);
+  border-top:1px solid rgba(125,249,193,.15);
 }
 
-/* RIDER POPUP */
+/* MODAL */
+
 .rider-modal{
   display:none;
+
   position:fixed;
   inset:0;
-  z-index:9999;
+
   background:rgba(0,0,0,.9);
-  backdrop-filter:blur(8px);
-  align-items:center;
+
+  z-index:9999;
+
   justify-content:center;
-  padding:18px;
+  align-items:center;
+
+  padding:20px;
+
+  backdrop-filter:blur(8px);
 }
 
 .rider-modal.show{
@@ -166,98 +240,121 @@ body::after{
 
 .modal-box{
   position:relative;
-  width:min(94vw,780px);
+
+  width:min(95vw,900px);
+
   max-height:92vh;
+
   overflow:auto;
+
   background:
-    linear-gradient(135deg, rgba(125,249,193,.08), rgba(255,79,216,.07)),
+    linear-gradient(
+      145deg,
+      rgba(125,249,193,.08),
+      rgba(255,79,216,.06)
+    ),
     #050505;
-  border:2px solid #7df9c1;
-  border-radius:22px;
-  padding:18px;
-  box-shadow:
-    0 0 30px rgba(125,249,193,.45),
-    0 0 70px rgba(255,79,216,.18);
+
+  border:1px solid #7df9c1;
+
+  border-radius:24px;
+
+  padding:20px;
+
   text-align:center;
+
+  box-shadow:
+    0 0 40px rgba(125,249,193,.22),
+    0 0 80px rgba(255,79,216,.12);
 }
 
 .close-btn{
   position:absolute;
-  top:10px;
-  right:10px;
-  width:36px;
-  height:36px;
+  top:12px;
+  right:12px;
+
+  width:38px;
+  height:38px;
+
   border:none;
   border-radius:999px;
+
   background:#ff2b2b;
+
   color:white;
+
   font-weight:900;
+
   cursor:pointer;
-  z-index:3;
 }
 
 .modal-box img{
   width:100%;
-  max-height:62vh;
+  max-height:60vh;
   object-fit:contain;
-  border-radius:14px;
+
+  border-radius:18px;
+
   border:1px solid rgba(125,249,193,.25);
+
   background:#000;
 }
 
 .modal-box h2{
   color:#7df9c1;
-  text-transform:uppercase;
-  margin:18px 0 8px;
+  margin-top:20px;
+  margin-bottom:8px;
 }
 
 .modal-box h4{
   color:#ff4fd8;
-  text-transform:uppercase;
+  margin:0;
   letter-spacing:2px;
-  margin:0 0 14px;
-  font-size:12px;
 }
 
 .modal-box p{
   color:#ddd;
-  line-height:1.65;
-  font-size:13px;
-  max-width:640px;
-  margin:12px auto;
+  line-height:1.7;
+  max-width:700px;
+  margin:16px auto;
 }
 
 .modal-tag{
   display:inline-block;
-  margin-top:12px;
+
+  margin-top:10px;
+
   padding:10px 14px;
+
   border-radius:999px;
+
   border:1px solid #7df9c1;
+
   color:#7df9c1;
+
   font-size:11px;
+
   text-transform:uppercase;
-  letter-spacing:1px;
 }
 
+/* MOBILE */
+
 @media(max-width:700px){
-  .topbar a{
-    display:inline-block;
-    margin:6px 8px;
-    font-size:10px;
+
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    font-size:54px;
   }
 
   .rider-card img{
     height:360px;
   }
 
-  .modal-box{
-    padding:14px;
-  }
-
-  .modal-box img{
-    max-height:58vh;
-  }
 }
+
 </style>
 </head>
 
@@ -271,6 +368,7 @@ body::after{
 </div>
 
 <section class="hero">
+
   <h1>Pedal Forever Factory Team</h1>
 
   <p>
@@ -278,54 +376,82 @@ body::after{
     old parts, gas station hot dogs, and just enough mechanical knowledge
     to remain legally operational.
   </p>
+
 </section>
 
 <section class="team-grid">
 
+  <!-- TOM -->
+
   <div class="rider-card" onclick="openRider('tom')">
+
     <img src="tom-cranks-bio-v1.png" alt="Tom Cranks">
+
     <div class="rider-info">
+
       <h2>Tom Cranks</h2>
+
       <p>
         Neighborhood BMX legend.
         Still talks about races from 1997 like ESPN is covering them live.
-        Knees are questionable. Confidence is not.
+        Knees are questionable.
+        Confidence is not.
       </p>
+
     </div>
+
   </div>
 
+  <!-- JOEY -->
+
   <div class="rider-card" onclick="openRider('joey')">
+
     <img src="joey-topcap-bio-v2.png" alt="Joey Topcap">
+
     <div class="rider-info">
+
       <h2>Joey Topcap</h2>
+
       <p>
         Can smell loose bearings from 40 feet away.
         Would trade his own lawnmower for a rare midschool stem.
         Will stop an emergency situation for hot dogs.
       </p>
+
     </div>
+
   </div>
 
+  <!-- PETE -->
+
   <div class="rider-card" onclick="openRider('pete')">
-    <img src="pinchbolt-pete-boi-v1.png" alt="Pinchbolt Pete">
+
+    <img src="pinchbolt-pete-bio-v1.png" alt="Pinchbolt Pete">
+
     <div class="rider-info">
+
       <h2>Pinchbolt Pete</h2>
+
       <p>
         Human disaster.
         Tool borrower.
         Questionable decision maker.
         May or may not still owe somebody handlebars from 2003.
       </p>
+
     </div>
+
   </div>
 
 </section>
 
 <section class="secret-section">
+
   <h3>Garage Rules</h3>
 
   <p>
-    If the lights flicker... the bikes are talking again.
+    If the lights flicker...
+    the bikes are talking again.
   </p>
 
   <p>
@@ -334,73 +460,94 @@ body::after{
     And if Tom says he almost got sponsored...
     just nod politely.
   </p>
+
 </section>
 
 <footer class="footer">
   PEDAL FOREVER — BUILT FROM BAD DECISIONS
 </footer>
 
+<!-- MODAL -->
+
 <div id="riderModal" class="rider-modal" onclick="closeOnBackdrop(event)">
+
   <div class="modal-box">
-    <button class="close-btn" onclick="closeRider()">X</button>
+
+    <button class="close-btn" onclick="closeRider()">×</button>
+
     <img id="modalImg" src="" alt="">
+
     <h2 id="modalName"></h2>
+
     <h4 id="modalRole"></h4>
+
     <p id="modalText"></p>
+
     <p id="modalQuote"></p>
+
     <div id="modalTag" class="modal-tag"></div>
+
   </div>
+
 </div>
 
 <script>
+
 const riders = {
-  tom: {
-    img: "tom-cranks-bio-v1.png",
-    name: "Tom Cranks",
-    role: "The Self-Proclaimed Local Legend",
-    text: "Tom Cranks rides like every driveway is a final heat and every mailbox is secretly judging his form. He swears he was one clean gate start away from going pro, and nobody has the heart to tell him the race was probably a church parking lot in 1997.",
-    quote: "Official statement: still fast where it counts, which is mostly in his own head.",
-    tag: "Confidence: Factory Spec"
+
+  tom:{
+    img:'tom-cranks-bio-v1.png',
+    name:'Tom Cranks',
+    role:'The Self-Proclaimed Local Legend',
+    text:'Tom Cranks rides like every driveway is a final heat and every curb is nationally televised.',
+    quote:'Official statement: still fast where it counts.',
+    tag:'Confidence Factory Spec'
   },
-  joey: {
-    img: "joey-topcap-bio-v2.png",
-    name: "Joey Topcap",
-    role: "The Basement Mad Scientist",
-    text: "Joey Topcap knows where every rare bolt, stem, washer, spacer, and questionable mystery bearing lives. He can reunite a part with the bike it was meant for like some kind of BMX wizard with grease under his fingernails.",
-    quote: "Official statement: he was fixing it before you knew it was broken.",
-    tag: "Toolbox Clearance: Authorized"
+
+  joey:{
+    img:'joey-topcap-bio-v2.png',
+    name:'Joey Topcap',
+    role:'The Basement Mad Scientist',
+    text:'Joey knows where every rare bolt, stem, washer, spacer and mystery BMX part is hiding.',
+    quote:'Official statement: he was fixing it before you knew it was broken.',
+    tag:'Toolbox Clearance Authorized'
   },
-  pete: {
-    img: "pinchbolt-pete-boi-v1.png",
-    name: "Pinchbolt Pete",
-    role: "The Lovable Liability",
-    text: "Pinchbolt Pete is the reason the garage has rules, warning labels, and a general feeling that something is about to go sideways. He means well. Probably. But if parts go missing, Pete was absolutely standing nearby.",
-    quote: "Official statement: no refunds, no witnesses, no handlebars left unattended.",
-    tag: "Hazard Class: Pete"
+
+  pete:{
+    img:'pinchbolt-pete-bio-v1.png',
+    name:'Pinchbolt Pete',
+    role:'The Lovable Liability',
+    text:'Pinchbolt Pete is the reason the garage has rules, warning labels and backup insurance.',
+    quote:'Official statement: no refunds, no witnesses, no handlebars returned.',
+    tag:'Hazard Class: Pete'
   }
+
 };
 
 function openRider(id){
+
   const rider = riders[id];
-  document.getElementById("modalImg").src = rider.img;
-  document.getElementById("modalImg").alt = rider.name;
-  document.getElementById("modalName").innerText = rider.name;
-  document.getElementById("modalRole").innerText = rider.role;
-  document.getElementById("modalText").innerText = rider.text;
-  document.getElementById("modalQuote").innerText = rider.quote;
-  document.getElementById("modalTag").innerText = rider.tag;
-  document.getElementById("riderModal").classList.add("show");
+
+  document.getElementById('modalImg').src = rider.img;
+  document.getElementById('modalName').innerText = rider.name;
+  document.getElementById('modalRole').innerText = rider.role;
+  document.getElementById('modalText').innerText = rider.text;
+  document.getElementById('modalQuote').innerText = rider.quote;
+  document.getElementById('modalTag').innerText = rider.tag;
+
+  document.getElementById('riderModal').classList.add('show');
 }
 
 function closeRider(){
-  document.getElementById("riderModal").classList.remove("show");
+  document.getElementById('riderModal').classList.remove('show');
 }
 
 function closeOnBackdrop(event){
-  if(event.target.id === "riderModal"){
+  if(event.target.id === 'riderModal'){
     closeRider();
   }
 }
+
 </script>
 
 </body>
