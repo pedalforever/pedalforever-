@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pedal Forever | Berms & Conditions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --accent:#7df9c1;
+  --accent2:#ff4fd8;
+  --dark:#050505;
+  --panel:rgba(0,0,0,0.70);
+  --white:#eaeaea;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.62)),
+    url('garage.png') center center / cover no-repeat;
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top center, rgba(125,249,193,.08), transparent 45%),
+    linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.10), rgba(0,0,0,.55));
+  z-index:-1;
+}
+
+/* NAVIGATION */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:12px 8px;
+  background:rgba(0,0,0,.88);
+  border-bottom:1px solid rgba(125,249,193,.30);
+  backdrop-filter:blur(8px);
+}
+
+.topbar a{
+  color:white;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:1px;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.topbar a:hover{
+  color:var(--accent);
+  text-shadow:0 0 10px var(--accent);
+}
+
+/* MAIN WRAP */
+
+.wrap{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  margin-top:20px;
+}
+
+.hero img{
+  width:100%;
+  max-width:950px;
+  border-radius:18px;
+  border:1px solid rgba(125,249,193,.25);
+  box-shadow:
+    0 0 30px rgba(125,249,193,.18),
+    0 0 80px rgba(0,0,0,.60);
+}
+
+/* PANELS */
+
+.panel{
+  margin:40px auto;
+  background:
+    linear-gradient(135deg, rgba(125,249,193,.06), rgba(255,79,216,.03)),
+    rgba(0,0,0,.70);
+  border:1px solid rgba(125,249,193,.28);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:
+    0 0 24px rgba(125,249,193,.12),
+    0 0 40px rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+}
+
+.panel h1,
+.panel h2{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-top:0;
+}
+
+.panel h1{
+  text-align:center;
+  font-size:34px;
+}
+
+.panel h2{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.panel p{
+  line-height:1.8;
+  color:#d8d8d8;
+  font-size:14px;
+}
+
+.kicker{
+  color:var(--accent2);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  display:block;
+}
+
+/* LEGAL GRID */
+
+.legal-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:20px;
+}
+
+.legal-card{
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(125,249,193,.18);
+  border-radius:14px;
+  padding:20px;
+}
+
+.legal-card strong{
+  display:block;
+  color:var(--accent);
+  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.legal-card span{
+  color:#d4d4d4;
+  line-height:1.7;
+  font-size:13px;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  padding:40px 20px 60px;
+  border-top:1px solid rgba(125,249,193,.18);
+  background:rgba(0,0,0,.70);
+  margin-top:60px;
+}
+
+.footer-title{
+  color:white;
+  font-size:18px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.footer p{
+  color:#aaa;
+  line-height:1.7;
+}
+
+.footer a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* PETE STICKER */
+
+.pete-sticker{
+  position:fixed;
+  right:14px;
+  bottom:14px;
+  z-index:999;
+  padding:9px 13px;
+  border-radius:8px;
+  border:1px solid rgba(255,79,216,.60);
+  background:
+    linear-gradient(135deg, rgba(255,79,216,.18), rgba(0,0,0,.92));
+  color:white;
+  font-size:10px;
+  letter-spacing:1px;
+  transform:rotate(-7deg);
+  box-shadow:0 0 14px rgba(255,79,216,.24);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .legal-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .topbar{
+    gap:8px;
+    padding:10px 6px;
+  }
+
+  .topbar a{
+    font-size:8px;
+  }
+
+  .panel{
+    padding:20px;
+  }
+
+  .panel h1{
+    font-size:26px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav class="topbar">
+  <a href="index.html">HOME</a>
+  <a href="alvern-heights.html">ALVERN HEIGHTS</a>
+  <a href="team.html">FACTORY TEAM</a>
+  <a href="witness-stand.html">WITNESS STAND</a>
+  <a href="bmx-basement.html">THE BASEMENT</a>
+  <a href="delivery-weapon.html">DELIVERY WEAPON</a>
+  <a href="bike-of-the-month.html">BIKE OF THE MONTH</a>
+  <a href="collection.html">COLLECTION</a>
+  <a href="merch.html">MERCH</a>
+  <a href="berms-and-conditions.html">BERMS & CONDITIONS</a>
+  <a href="index.html#contact">CONTACT</a>
+</nav>
+
+<!-- MAIN -->
+
+<main class="wrap">
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <img src="berms-and-conditions-banner.png" alt="Berms and Conditions">
+  </section>
+
+  <!-- INTRO -->
+
+  <section class="panel">
+
+    <span class="kicker">
+      BUILT FROM BAD DECISIONS
+    </span>
+
+    <h1>Berms & Conditions</h1>
+
+    <p>
+      Welcome to Pedal Forever.
+    </p>
+
+    <p>
+      This website exists to preserve BMX history, garage culture, survivor bicycles, New England mythology,
+      weird roadside stories, questionable mechanical decisions, and the kind of memories that usually disappear
+      when old garages get cleaned out.
+    </p>
+
+    <p>
+      By using this website, browsing this website, submitting information, contacting Pedal Forever,
+      or entering any area of this digital garage, you agree to the following Berms & Conditions.
+    </p>
+
+  </section>
+
+  <!-- MISSION -->
+
+  <section class="panel">
+
+    <span class="kicker">
+      THE REASON THIS EXISTS
+    </span>
+
+    <h2>Pedal Forever Mission Statement</h2>
+
+    <p>
+      Pedal Forever was created to preserve BMX history before it disappears.
+    </p>
+
+    <p>
+      From 1970s nickel-plated race bikes to 1980s freestyle survivors,
+      from 1990s parking-lot sessions to early 2000s skatepark culture,
+      this project exists to document the stories, machines, people,
+      scars, dents, and memories that made BMX what it is.
+    </p>
+
+    <p>
+      We believe originality matters.
+      OEM parts matter.
+      Survivor bikes matter.
+      Patina matters.
+      History matters.
+    </p>
+
+    <p>
+      Not every bike needs to become a polished museum piece.
+      Some bikes deserve to stay exactly the way they survived.
+    </p>
+
+  </section>
+
+  <!-- LEGAL -->
+
+  <section class="panel">
+
+    <span class="kicker">
+      LEGAL STUFF
+    </span>
+
+    <h2>Terms & Conditions</h2>
+
+    <div class="legal-grid">
+
+      <div class="legal-card">
+        <strong>Content & Media</strong>
+
+        <span>
+          All graphics, branding, logos, original photography, written stories,
+          concepts, fictional town names, characters, and custom artwork displayed
+          on Pedal Forever remain property of Pedal Forever unless otherwise credited.
+        </span>
+      </div>
+
+      <div class="legal-card">
+        <strong>Entertainment Purposes</strong>
+
+        <span>
+          Portions of Pedal Forever contain fictional storytelling,
+          exaggerated garage mythology, comedic narratives,
+          and satirical BMX culture references created for entertainment purposes.
+        </span>
+      </div>
+
+      <div class="legal-card">
+        <strong>Vehicle & Mechanical Content</strong>
+
+        <span>
+          Do not attempt repairs, modifications, stunts,
+          welds, test drives, jumps, launches,
+          “mill runs,” or questionable mechanical ideas shown on this website
+          without proper safety knowledge and responsibility.
+        </span>
+      </div>
+
+      <div class="legal-card">
+        <strong>User Submissions</strong>
+
+        <span>
+          By submitting stories, photos, emails, bikes,
+          or media to Pedal Forever, you acknowledge that submitted content
+          may be featured on the website or future media projects unless requested otherwise.
+        </span>
+      </div>
+
+      <div class="legal-card">
+        <strong>External Links</strong>
+
+        <span>
+          Pedal Forever may link to third-party websites,
+          videos, social media platforms, or outside sources.
+          We are not responsible for the content or behavior of external sites.
+        </span>
+      </div>
+
+      <div class="legal-card">
+        <strong>The Important One</strong>
+
+        <span>
+          Decals fade. Stories don’t.
+          Preserve before replace.
+          And if Pinchbolt Pete tells you
+          “it should probably hold,”
+          proceed at your own risk.
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="footer-title">
+    Decals Fade. Stories Don’t.
+  </div>
+
+  <p>
+    Pedal Forever — The Garage Is Open
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    &nbsp; | &nbsp;
+    <a href="https://youtube.com/@pedalforever" target="_blank">YouTube</a>
+    &nbsp; | &nbsp;
+    <a href="https://tiktok.com/@pedalforever" target="_blank">TikTok</a>
+  </p>
+
+</footer>
+
+<!-- PETE -->
+
+<div class="pete-sticker">
+  PETE WAS HERE
+</div>
+
+</body>
+</html>
