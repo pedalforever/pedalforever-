@@ -691,66 +691,76 @@ Pedal Forever documents original-owner bikes, family survivors, basement release
 
 </section>
 
-<section class="panel">
+  <section class="panel">
 
-<h2>Pedal Forever Archive System</h2>
+  <h2>Pedal Forever Archive System</h2>
 
-<div class="pete-sticker" onclick="openPeteModal()">
-P was here
-</div>
-</div>
+  <p>
+    SURVIVOR CLASS · REVIVAL CLASS · ARCHIVE RESTORATION · IDENTITY CLASS
+  </p>
 
-<div>
-
-<h2>Contact The Garage</h2>
-
-<p>
-Buying, selling, preserving, documenting, and saving BMX history from New England and beyond.
-</p>
-
-<p>
-Got old BMX bikes, parts, survivor stories, or hidden garage treasures?
-</p>
-
-<div style="margin-top:28px;">
-
-<a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry"
-class="button">
-SEND A SIGNAL
-</a>
-
-</div>
-
-</div>
-
-</div>
+  <p>
+    Some bikes remain untouched. Some deserve mechanical revival. Some deserve catalog-correct restoration.
+    Some earn identity through period-correct stickers, scars, and rider history.
+  </p>
 
 </section>
-</div>
+
+<section class="panel">
+
+  <div class="grid-two">
+
+    <div class="card-image">
+      <img src="contact-the-garage.png" alt="Contact The Garage">
+    </div>
+
+    <div>
+      <h2>Contact The Garage</h2>
+
+      <p>
+        Buying, selling, preserving, documenting, and saving BMX history from New England and beyond.
+      </p>
+
+      <p>
+        Got old BMX bikes, parts, survivor stories, or hidden garage treasures?
+      </p>
+
+      <div style="margin-top:28px;">
+        <a href="mailto:jgclsales@gmail.com?subject=Pedal%20Forever%20Inquiry" class="button">
+          SEND A SIGNAL
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 </main>
 
 <footer class="footer">
 
-<p>© 2026 Pedal Forever LLC</p>
+  <p>© 2026 Pedal Forever LLC</p>
 
-<p>
-Forgotten Machines Trying To Survive Time
-</p>
+  <p>
+    Forgotten Machines Trying To Survive Time
+  </p>
 
-<p>
-<a href="berms-and-conditions.html">Berms & Conditions</a>
-</p>
+  <p>
+    <a href="berms-and-conditions.html">Berms & Conditions</a>
+  </p>
 
 </footer>
-  <div id="peteModal" class="pete-modal">
+
+<div id="peteModal" class="pete-modal">
   <div class="pete-modal-content">
-
     <span class="close-pete" onclick="closePeteModal()">&times;</span>
-
-    <img src="pete-secret-spot.png" alt="Pinchbolt Pete">
-
-
+    <img src="pete-secret-spot.png" alt="Pinchbolt Pete secret Easter egg">
   </div>
+</div>
+
+<div class="pete-sticker" onclick="openPeteModal()">
+  P was here
 </div>
 
 <script>
@@ -761,51 +771,48 @@ function openPeteModal(){
 function closePeteModal(){
   document.getElementById('peteModal').style.display = 'none';
 }
+
 let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
 
 document.getElementById("total").innerText = votes;
 
 function hasVoted(email){
-let voters = JSON.parse(localStorage.getItem("voters")) || [];
-return voters.includes(email);
+  let voters = JSON.parse(localStorage.getItem("voters")) || [];
+  return voters.includes(email);
 }
 
 function saveVoter(email){
-let voters = JSON.parse(localStorage.getItem("voters")) || [];
-voters.push(email);
-localStorage.setItem("voters", JSON.stringify(voters));
+  let voters = JSON.parse(localStorage.getItem("voters")) || [];
+  voters.push(email);
+  localStorage.setItem("voters", JSON.stringify(voters));
 }
 
 function vote(choice){
+  let email = document.getElementById("email").value.trim().toLowerCase();
 
-let email = document.getElementById("email").value.trim().toLowerCase();
+  if(!email || !email.includes("@")){
+    alert("Enter a valid email");
+    return;
+  }
 
-if(!email || !email.includes("@")){
-alert("Enter a valid email");
-return;
+  if(hasVoted(email)){
+    document.getElementById("status").innerText =
+    "You already voted with " + email;
+    return;
+  }
+
+  saveVoter(email);
+  votes++;
+
+  localStorage.setItem("totalVotes", votes);
+
+  document.getElementById("total").innerText = votes;
+
+  document.getElementById("status").innerText =
+  "Thank you for voting for " + choice;
+
+  document.getElementById("email").value = "";
 }
-
-if(hasVoted(email)){
-document.getElementById("status").innerText =
-"You already voted with " + email;
-return;
-}
-
-saveVoter(email);
-
-votes++;
-
-localStorage.setItem("totalVotes", votes);
-
-document.getElementById("total").innerText = votes;
-
-document.getElementById("status").innerText =
-"Thank you for voting for " + choice;
-
-document.getElementById("email").value = "";
-
-}
-
 </script>
 
 </body>
