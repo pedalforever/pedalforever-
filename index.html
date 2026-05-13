@@ -169,7 +169,32 @@ border:1px solid rgba(125,249,193,.18);
 border-radius:10px;
 overflow:hidden;
 }
+.pete-sticker{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:rgba(255,79,216,.14);
+  border:1px solid #ff4fd8;
+  color:#ff4fd8;
+  padding:10px 16px;
+  border-radius:14px;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-family:'Orbitron',sans-serif;
+  cursor:pointer;
+  z-index:9999;
+  box-shadow:0 0 18px rgba(255,79,216,.35);
+  backdrop-filter:blur(8px);
+  transition:.25s;
+}
 
+.pete-sticker:hover{
+  transform:scale(1.06);
+  background:#ff4fd8;
+  color:#000;
+}
+  
 .pete-modal{
 display:none;
 position:fixed;
