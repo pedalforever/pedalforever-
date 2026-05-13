@@ -160,14 +160,58 @@ a{
   color:#000;
 }
 
-.strip{
-  margin:35px auto 50px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  background:rgba(125,249,193,.08);
-  border:1px solid rgba(125,249,193,.18);
-  border-radius:10px;
-  overflow:hidden;
+..strip{
+margin:35px auto 50px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+background:rgba(125,249,193,.08);
+border:1px solid rgba(125,249,193,.18);
+border-radius:10px;
+overflow:hidden;
+}
+
+.pete-modal{
+display:none;
+position:fixed;
+z-index:99999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.pete-modal-content{
+position:relative;
+max-width:700px;
+width:100%;
+}
+
+.pete-modal-content img{
+width:100%;
+border-radius:14px;
+border:2px solid #ff4fd8;
+box-shadow:0 0 40px rgba(255,79,216,.45);
+}
+
+.close-pete{
+position:absolute;
+top:-12px;
+right:-12px;
+background:#ff4fd8;
+color:#000;
+width:34px;
+height:34px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+cursor:pointer;
+font-weight:bold;
 }
 
 .strip div{
@@ -696,9 +740,21 @@ SEND A SIGNAL
 
 </section>
 <div style="text-align:center; margin:40px 0 10px 0;">
-  <button onclick="openPeteModal()" class="button">
-    PINCHBOLT PETE?
-  </button>
+
+<span
+onclick="openPeteModal()"
+style="
+color:#ff4fd8;
+font-size:12px;
+letter-spacing:2px;
+cursor:pointer;
+opacity:.55;
+text-transform:uppercase;
+font-family:'Orbitron',sans-serif;
+">
+pete was here
+</span>
+
 </div>
 </main>
 
@@ -720,14 +776,8 @@ Forgotten Machines Trying To Survive Time
 
     <span class="close-pete" onclick="closePeteModal()">&times;</span>
 
-    <img src="pinchbolt-pete-boi-v1.png" alt="Pinchbolt Pete">
+    <img src="pete-secret-spot.png" alt="Pinchbolt Pete">
 
-    <h2>PINCHBOLT PETE</h2>
-
-    <p>
-      "If the garage smells like burnt grips and gas station hot dogs...
-      Pete was probably here."
-    </p>
 
   </div>
 </div>
