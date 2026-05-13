@@ -1,687 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pedal Forever | Black T-Shirt Movement</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --cream:#e7e0d2;
-  --red:#cf2e2e;
-  --gold:#c89b47;
-  --bg:#050505;
-  --line:#1b1b1b;
-  --panel:#0b0b0b;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:
-    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
-    url('run-what-ya-brung-bg.png');
-
-  background-size:cover;
-  background-position:center top;
-  background-attachment:fixed;
-
-  color:var(--cream);
-  font-family:'Oswald',sans-serif;
-  overflow-x:hidden;
-}
-
-/* =========================
-HEADER
-========================= */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(0,0,0,.92);
-  border-bottom:1px solid var(--line);
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:18px 28px;
-}
-
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:42px;
-  line-height:.8;
-  color:white;
-}
-
-.logo span{
-  border:2px solid white;
-  padding:0 5px;
-  font-size:20px;
-  margin-left:4px;
-}
-
-nav{
-  display:flex;
-  gap:24px;
-}
-
-nav a{
-  color:#aaa;
-  text-decoration:none;
-  font-family:'Bebas Neue',sans-serif;
-  letter-spacing:1px;
-  font-size:18px;
-}
-
-nav a:hover{
-  color:white;
-}
-
-.cart{
-  font-family:'Bebas Neue',sans-serif;
-  color:var(--gold);
-  font-size:20px;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  max-width:1300px;
-  margin:auto;
-
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-
-  align-items:center;
-
-  padding:90px 40px;
-}
-
-.eyebrow{
-  color:var(--gold);
-  font-family:'Bebas Neue';
-  letter-spacing:2px;
-  font-size:24px;
-  margin-bottom:14px;
-}
-
-.hero h1{
-  font-family:'Bebas Neue';
-  font-size:clamp(70px,10vw,150px);
-  line-height:.82;
-  text-transform:uppercase;
-}
-
-.hero h1 .red{
-  color:var(--red);
-}
-
-.hero p{
-  margin-top:28px;
-  font-size:30px;
-  line-height:1.25;
-  max-width:650px;
-}
-
-.mantra{
-  margin-top:28px;
-
-  border-left:5px solid var(--red);
-  padding-left:18px;
-
-  font-family:'Bebas Neue';
-  font-size:42px;
-  color:var(--gold);
-  line-height:1;
-}
-
-.price{
-  margin-top:30px;
-
-  font-family:'Bebas Neue';
-  font-size:58px;
-  color:var(--cream);
-}
-
-.price span{
-  color:var(--gold);
-}
-
-.buttons{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-
-  margin-top:34px;
-}
-
-.btn{
-  display:inline-block;
-  padding:18px 30px;
-
-  text-decoration:none;
-
-  font-family:'Bebas Neue';
-  letter-spacing:1px;
-  font-size:28px;
-
-  transition:.2s ease;
-}
-
-.btn.light{
-  background:var(--cream);
-  color:black;
-}
-
-.btn.dark{
-  border:2px solid var(--cream);
-  color:var(--cream);
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-/* =========================
-REAL SHIRT IMAGE
-========================= */
-
-.shirt-photo{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.shirt-photo img{
-  width:100%;
-  max-width:520px;
-
-  filter:
-    contrast(1.05)
-    saturate(.95)
-    drop-shadow(0 25px 45px rgba(0,0,0,.8));
-}
-
-/* =========================
-STRIP
-========================= */
-
-.strip{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-
-  padding:18px;
-
-  background:#090909;
-
-  text-align:center;
-
-  font-family:'Bebas Neue';
-  letter-spacing:2px;
-  font-size:28px;
-}
-
-/* =========================
-DROP SYSTEM
-========================= */
-
-.section{
-  max-width:1300px;
-  margin:auto;
-  padding:80px 40px;
-}
-
-.section-title{
-  font-family:'Bebas Neue';
-  font-size:clamp(60px,7vw,110px);
-  line-height:.9;
-  margin-bottom:20px;
-}
-
-.section-title .red{
-  color:var(--red);
-}
-
-.section-sub{
-  font-size:28px;
-  line-height:1.3;
-  color:#bcbcbc;
-  max-width:950px;
-}
-
-.drop-grid{
-  margin-top:40px;
-
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.drop-card{
-  background:rgba(0,0,0,.65);
-  border:1px solid var(--line);
-  padding:34px;
-
-  min-height:420px;
-}
-
-.drop-card.active{
-  border:1px solid var(--gold);
-  box-shadow:0 0 35px rgba(200,155,71,.12);
-}
-
-.drop-num{
-  font-family:'Bebas Neue';
-  color:var(--gold);
-  font-size:28px;
-  letter-spacing:2px;
-}
-
-.drop-card h3{
-  margin-top:14px;
-
-  font-family:'Bebas Neue';
-  font-size:72px;
-  line-height:.9;
-}
-
-.drop-card p{
-  margin-top:18px;
-
-  font-size:26px;
-  line-height:1.25;
-  color:#c4c4c4;
-}
-
-.drop-price{
-  margin-top:24px;
-
-  font-family:'Bebas Neue';
-  font-size:54px;
-  color:var(--gold);
-}
-
-.drop-btn{
-  display:inline-block;
-
-  margin-top:28px;
-
-  padding:16px 24px;
-
-  background:var(--cream);
-  color:black;
-
-  text-decoration:none;
-
-  font-family:'Bebas Neue';
-  font-size:30px;
-}
-
-/* =========================
-GRAPHICS WALL
-========================= */
-
-.graphics{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-
-  margin-top:40px;
-}
-
-.graphics img{
-  width:100%;
-  border:1px solid var(--line);
-}
-
-/* =========================
-EMAIL
-========================= */
-
-.join{
-  background:
-    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.9)),
-    url('pedal-forever-grips-artifact.png');
-
-  background-size:cover;
-  background-position:center;
-
-  text-align:center;
-}
-
-.join h2{
-  font-family:'Bebas Neue';
-  font-size:90px;
-  line-height:.9;
-}
-
-.join h2 span{
-  color:var(--red);
-}
-
-.join p{
-  max-width:900px;
-  margin:20px auto 0;
-
-  font-size:28px;
-  color:#d0d0d0;
-}
-
-.email-box{
-  margin:40px auto 0;
-
-  max-width:800px;
-
-  display:flex;
-}
-
-.email-box input{
-  flex:1;
-
-  background:black;
-  border:1px solid #444;
-
-  padding:22px;
-  color:white;
-
-  font-size:20px;
-}
-
-.email-box button{
-  background:var(--cream);
-  color:black;
-
-  border:none;
-
-  padding:0 34px;
-
-  font-family:'Bebas Neue';
-  font-size:34px;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-  border-top:1px solid var(--line);
-
-  padding:30px;
-
-  text-align:center;
-
-  color:#777;
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:900px){
-
-  .hero{
-    grid-template-columns:1fr;
-    padding:60px 24px;
-  }
-
-  nav{
-    display:none;
-  }
-
-  .drop-grid{
-    grid-template-columns:1fr;
-  }
-
-  .graphics{
-    grid-template-columns:1fr;
-  }
-
-  .hero p,
-  .section-sub,
-  .drop-card p{
-    font-size:22px;
-  }
-
-  .btn{
-    width:100%;
-    text-align:center;
-  }
-
-  .email-box{
-    flex-direction:column;
-  }
-
-  .email-box button{
-    height:70px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black T-Shirt Movement | Pedal Forever</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #050505;
+      color: #f1eadc;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #c9bfae;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero img {
+      width: 100%;
+      display: block;
+      border: 1px solid rgba(241,234,220,.25);
+      box-shadow: 0 0 40px rgba(0,0,0,.85);
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 16px 14px;
+      border: 1px solid #b41f1f;
+      background: #8f1717;
+      color: #fff4e8;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(180,31,31,.25);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border-color: rgba(241,234,220,.35);
+      color: #f1eadc;
+    }
+
+    .section {
+      border: 1px solid rgba(241,234,220,.18);
+      background: rgba(255,255,255,.035);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 82px);
+      color: #f1eadc;
+    }
+
+    h2 {
+      font-size: clamp(26px, 5vw, 48px);
+      color: #f1eadc;
+    }
+
+    .red { color: #c62020; }
+
+    .tagline {
+      font-size: clamp(24px, 6vw, 68px);
+      font-weight: 900;
+      line-height: .95;
+      text-transform: uppercase;
+      margin: 18px 0;
+    }
+
+    .muted {
+      color: #c9bfae;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .product-grid img {
+      width: 100%;
+      border: 1px solid rgba(241,234,220,.2);
+      background: #000;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: 900;
+      color: #c62020;
+      margin: 10px 0;
+    }
+
+    .drop-card {
+      border: 1px solid rgba(241,234,220,.18);
+      padding: 18px;
+      margin: 12px 0;
+      background: rgba(0,0,0,.35);
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .artifact-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 1px solid rgba(241,234,220,.22);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      background: #0c0c0c;
+      border: 1px solid rgba(241,234,220,.3);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 0;
+      color: #9f9688;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 760px) {
+      .cta-row,
+      .product-grid,
+      .artifact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-
-<div class="logo">
-PEDAL <span>FOREVER</span>
-</div>
-
-<nav>
-<a href="#drop-system">DROP SYSTEM</a>
-<a href="#graphics">GRAPHICS WALL</a>
-<a href="#join">ENTER THE GARAGE</a>
-<a href="index.html">HOME</a>
-</nav>
-
-<div class="cart">
-$19.99 CONUS
-</div>
-
-</header>
-
-<section class="hero">
-
-<div>
-
-<div class="eyebrow">
-LIMITED-RUN GARAGE CULTURE APPAREL
-</div>
-
-<h1>
-BLACK
-<span class="red">T-SHIRT</span>
-MOVEMENT
-</h1>
-
-<p>
-Built for BMX survivors, garage rats, collectors, riders, machine people, and everyone who never grew out of it.
-</p>
-
-<div class="mantra">
-BUILT ON BAD DECISIONS. PRESERVED ON PURPOSE.
-</div>
-
-<div class="price">
-<span>$19.99</span> SHIPPED ANYWHERE IN THE CONUS
-</div>
-
-<div class="buttons">
-
-<a class="btn light" href="YOUR-CHECKOUT-LINK-HERE">
-GET YOURS NOW
-</a>
-
-<a class="btn dark" href="#drop-system">
-VIEW THE DROPS
-</a>
-
-</div>
-
-</div>
-
-<div class="shirt-photo">
-<img src="built-on-bad-decisions-shirt.png" alt="Built On Bad Decisions Pedal Forever shirt">
-</div>
-
-</section>
-
-<div class="strip">
-BLACK SHIRTS • REAL BIKES • NO FAKE NOSTALGIA • GARAGE CULTURE ONLY
-</div>
-
-<section class="section" id="drop-system">
-
-<h2 class="section-title">
-DROP <span class="red">SYSTEM</span>
-</h2>
-
-<p class="section-sub">
-Small releases. No giant inventory. No fake hype. Every drop becomes part of the Pedal Forever archive.
-</p>
-
-<div class="drop-grid">
-
-<div class="drop-card active">
-
-<div class="drop-num">
-DROP 001
-</div>
-
-<h3>
-BUILT ON BAD DECISIONS
-</h3>
-
-<p>
-The first official Black T-Shirt Movement release. Small left chest print. Dirty cream ink. Black shirt. Built like something you found in the back room of an old BMX shop.
-</p>
-
-<div class="drop-price">
-$19.99 SHIPPED
-</div>
-
-<a class="drop-btn" href="YOUR-CHECKOUT-LINK-HERE">
-GET YOURS
-</a>
-
-</div>
-
-<div class="drop-card">
-
-<div class="drop-num">
-DROP 002
-</div>
-
-<h3>
-COMING SOON
-</h3>
-
-<p>
-The next Pedal Forever artifact is currently locked inside the garage. Preorder signal opening soon.
-</p>
-
-<div class="drop-price">
-PREORDER ACCESS
-</div>
-
-<a class="drop-btn" href="#join">
-SIGN UP
-</a>
-
-</div>
-
-<div class="drop-card">
-
-<div class="drop-num">
-DROP 003
-</div>
-
-<h3>
-ARCHIVE LOCKED
-</h3>
-
-<p>
-Future release currently sealed inside the archive. Case file pending.
-</p>
-
-<div class="drop-price">
-LOCKED
-</div>
-
-<a class="drop-btn" href="#join">
-GET NOTIFIED
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="graphics">
-
-<h2 class="section-title">
-PEDAL FOREVER <span class="red">GRAPHICS WALL</span>
-</h2>
-
-<p class="section-sub">
-The shirts sell because the world around them feels real. Flyers, grips, survivor bikes, garage grime, and BMX history.
-</p>
-
-<div class="graphics">
-
-<img src="pedal-forever-grips-artifact.png" alt="Pedal Forever grips graphic">
-
-<img src="run-what-ya-brung-bg.png" alt="Run What Ya Brung flyer">
-
-</div>
-
-</section>
-
-<section class="section join" id="join">
-
-<h2>
-ENTER THE <span>GARAGE</span>
-</h2>
-
-<p>
-Get first access to future drops, Witness Stand case files, archive updates, and future movement releases.
-</p>
-
-<div class="email-box">
-
-<input type="email" placeholder="Enter your email">
-
-<button>
-I'M IN
-</button>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 PEDAL FOREVER — BLACK SHIRTS. REAL BIKES. NO FAKE NOSTALGIA.
-</footer>
-
+  <main class="page">
+
+    <a class="back-link" href="index.html">← Back to Pedal Forever</a>
+
+    <section class="hero">
+      <img src="black-tshirt-movement-hero.png" alt="Black T-Shirt Movement Pedal Forever hero graphic">
+    </section>
+
+    <div class="cta-row">
+      <a class="btn" href="YOUR_SQUARE_PAYMENT_LINK_HERE" target="_blank" rel="noopener">Reserve Drop 001</a>
+      <a class="btn secondary" href="#early-access">Early Drop Access</a>
+      <a class="btn secondary" href="mailto:jgclsales@gmail.com?subject=Black%20T-Shirt%20Movement%20Inquiry">Contact the Garage</a>
+    </div>
+
+    <section class="section">
+      <h1>Black T-Shirt Movement</h1>
+      <p class="muted">
+        Owner. Rider. Built. Organized. Run. This is not corporate merch.
+        This is Pedal Forever — built in the basement, tested on the streets,
+        and made for the ones who never stopped riding.
+      </p>
+
+      <div class="tagline">
+        Some people stop riding.<br>
+        Some people <span class="red">Pedal Forever.</span>
+      </div>
+    </section>
+
+    <section class="section product-grid">
+      <div>
+        <img src="built-on-bad-decisions-shirt.png" alt="Built On Bad Decisions Pedal Forever black t-shirt">
+      </div>
+
+      <div>
+        <h2>Drop 001</h2>
+        <h3>Built On Bad Decisions</h3>
+        <div class="price">$19.99</div>
+        <p class="muted">
+          Shipped anywhere in the CONUS. Limited first run.
+          No restocks. No excuses. Reserve your piece of Alvern history today.
+        </p>
+
+        <a class="btn" href="YOUR_SQUARE_PAYMENT_LINK_HERE" target="_blank" rel="noopener">
+          Buy / Reserve Through Square
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Real Artifacts. Real Machines. Real Story.</h2>
+      <p class="muted">
+        Pedal Forever is not built from stock photos, fake crews, or empty lifestyle branding.
+        These are real bikes, real parts, real cars, real garage culture, and real New England BMX preservation.
+      </p>
+
+      <div class="artifact-grid">
+        <img src="mustang-dk-roof-golden-hour.jpg" alt="Mustang with DK BMX bike on roof rack at golden hour">
+        <img src="pf-bike-shop-bandit-helmet.png" alt="Griffin's Pedal Forever Bike Shop Simpson Bandit helmet graphic">
+        <img src="pf-vans-gloves-artifact.png" alt="Pedal Forever Vans and riding gloves artifact">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Drop Status</h2>
+
+      <div class="drop-card">
+        <h3><span class="red">Drop 001:</span> Active</h3>
+        <p class="muted">Built On Bad Decisions — black shirt, small left-chest print, PedalForever.com underneath.</p>
+      </div>
+
+      <div class="drop-card">
+        <h3>Drop 002: Coming Soon</h3>
+        <p class="muted">Early access will see the next graphic before it goes public.</p>
+      </div>
+
+      <div class="drop-card">
+        <h3>Drop 003: Archive Locked</h3>
+        <p class="muted">Future Alvern Heights artifact. Not released yet.</p>
+      </div>
+    </section>
+
+    <section class="section" id="early-access">
+      <h2>Get Early Drop Access</h2>
+      <p class="muted">
+        Sign up to see the next graphic early, get preorder options,
+        and know when the next Black T-Shirt Movement drop goes live.
+      </p>
+
+      <form action="mailto:jgclsales@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your name">
+        <input type="email" name="email" placeholder="Your email">
+        <input type="text" name="shirt-size" placeholder="Preferred shirt size">
+        <button class="btn" type="submit">Register for Early Drop Options</button>
+      </form>
+
+      <p class="muted">
+        Temporary email signup. Replace later with Mailchimp, Square Marketing, Shopify, or a real form service.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Human Power. Struggle. Chaos.</h2>
+      <p class="muted">
+        Some people grew out of it. Some never did.
+        Pedal Forever is for the ones who carried BMX, bikes, garages,
+        bad decisions, and machine obsession into adulthood.
+      </p>
+    </section>
+
+    <footer class="footer">
+      Pedal Forever / Black T-Shirt Movement / Built From Bad Decisions
+    </footer>
+
+  </main>
 </body>
 </html>
