@@ -695,7 +695,11 @@ SEND A SIGNAL
 </div>
 
 </section>
-
+<div style="text-align:center; margin:40px 0 10px 0;">
+  <button onclick="openPeteModal()" class="button">
+    PINCHBOLT PETE?
+  </button>
+</div>
 </main>
 
 <footer class="footer">
@@ -711,9 +715,31 @@ Forgotten Machines Trying To Survive Time
 </p>
 
 </footer>
+  <div id="peteModal" class="pete-modal">
+  <div class="pete-modal-content">
+
+    <span class="close-pete" onclick="closePeteModal()">&times;</span>
+
+    <img src="pinchbolt-pete-boi-v1.png" alt="Pinchbolt Pete">
+
+    <h2>PINCHBOLT PETE</h2>
+
+    <p>
+      "If the garage smells like burnt grips and gas station hot dogs...
+      Pete was probably here."
+    </p>
+
+  </div>
+</div>
 
 <script>
+function openPeteModal(){
+  document.getElementById('peteModal').style.display = 'flex';
+}
 
+function closePeteModal(){
+  document.getElementById('peteModal').style.display = 'none';
+}
 let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
 
 document.getElementById("total").innerText = votes;
