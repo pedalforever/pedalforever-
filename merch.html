@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pedal Forever | Black T-Shirt Movement</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -10,14 +11,12 @@
 <style>
 
 :root{
+  --cream:#e7e0d2;
+  --red:#cf2e2e;
+  --gold:#c89b47;
   --bg:#050505;
-  --panel:#090909;
-  --line:#1f1f1f;
-  --cream:#efe7db;
-  --muted:#9f9f9f;
-  --red:#c62828;
-  --gold:#c89b52;
-  --shadow:0 20px 50px rgba(0,0,0,.75);
+  --line:#1b1b1b;
+  --panel:#0b0b0b;
 }
 
 *{
@@ -32,342 +31,447 @@ html{
 
 body{
   background:
-    linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.96)),
+    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
     url('run-what-ya-brung-bg.png');
+
   background-size:cover;
   background-position:center top;
   background-attachment:fixed;
+
   color:var(--cream);
   font-family:'Oswald',sans-serif;
   overflow-x:hidden;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.page{
-  max-width:1180px;
-  margin:auto;
-  background:rgba(5,5,5,.9);
-  border-left:1px solid var(--line);
-  border-right:1px solid var(--line);
-  box-shadow:0 0 80px rgba(0,0,0,.8);
-}
+/* =========================
+HEADER
+========================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(0,0,0,.96);
+  z-index:999;
+  background:rgba(0,0,0,.92);
   border-bottom:1px solid var(--line);
-  padding:18px 32px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  padding:18px 28px;
 }
 
 .logo{
-  font-family:'Bebas Neue';
-  font-size:38px;
-  letter-spacing:1px;
-  text-transform:uppercase;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:42px;
+  line-height:.8;
+  color:white;
 }
 
 .logo span{
-  border:2px solid var(--cream);
-  padding:0 6px;
-  font-size:22px;
+  border:2px solid white;
+  padding:0 5px;
+  font-size:20px;
   margin-left:4px;
 }
 
 nav{
   display:flex;
-  gap:26px;
-  font-family:'Bebas Neue';
+  gap:24px;
+}
+
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;
   letter-spacing:1px;
   font-size:18px;
-  color:var(--muted);
 }
 
 nav a:hover{
-  color:var(--cream);
+  color:white;
 }
 
 .cart{
-  font-family:'Bebas Neue';
+  font-family:'Bebas Neue',sans-serif;
   color:var(--gold);
-  font-size:18px;
+  font-size:20px;
 }
 
+/* =========================
+HERO
+========================= */
+
 .hero{
+  max-width:1300px;
+  margin:auto;
+
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:60px;
+
   align-items:center;
-  padding:70px 42px;
-  border-bottom:1px solid var(--line);
+
+  padding:90px 40px;
 }
 
 .eyebrow{
   color:var(--gold);
   font-family:'Bebas Neue';
   letter-spacing:2px;
-  font-size:22px;
+  font-size:24px;
   margin-bottom:14px;
 }
 
 .hero h1{
   font-family:'Bebas Neue';
-  font-size:clamp(72px,10vw,130px);
-  line-height:.85;
+  font-size:clamp(70px,10vw,150px);
+  line-height:.82;
   text-transform:uppercase;
-  margin-bottom:18px;
 }
 
 .hero h1 .red{
   color:var(--red);
 }
 
-.hero-copy p{
-  max-width:580px;
-  font-size:26px;
-  line-height:1.3;
-  color:var(--cream);
+.hero p{
+  margin-top:28px;
+  font-size:30px;
+  line-height:1.25;
+  max-width:650px;
 }
 
 .mantra{
-  margin-top:26px;
+  margin-top:28px;
+
   border-left:5px solid var(--red);
-  padding-left:16px;
-  color:var(--gold);
+  padding-left:18px;
+
   font-family:'Bebas Neue';
-  font-size:34px;
-  text-transform:uppercase;
+  font-size:42px;
+  color:var(--gold);
+  line-height:1;
+}
+
+.price{
+  margin-top:30px;
+
+  font-family:'Bebas Neue';
+  font-size:58px;
+  color:var(--cream);
+}
+
+.price span{
+  color:var(--gold);
 }
 
 .buttons{
-  margin-top:34px;
   display:flex;
+  gap:18px;
   flex-wrap:wrap;
-  gap:14px;
+
+  margin-top:34px;
 }
 
 .btn{
   display:inline-block;
-  padding:15px 30px;
+  padding:18px 30px;
+
+  text-decoration:none;
+
   font-family:'Bebas Neue';
-  font-size:24px;
   letter-spacing:1px;
-  border:2px solid var(--cream);
-  box-shadow:6px 6px 0 #000;
+  font-size:28px;
+
+  transition:.2s ease;
 }
 
 .btn.light{
   background:var(--cream);
-  color:#050505;
+  color:black;
 }
 
 .btn.dark{
-  background:#050505;
+  border:2px solid var(--cream);
+  color:var(--cream);
 }
 
-.hero-art{
-  border:1px solid var(--line);
-  background:#090909;
-  padding:10px;
-  box-shadow:var(--shadow);
+.btn:hover{
+  transform:translateY(-3px);
 }
 
-.hero-art img{
-  width:100%;
-  display:block;
-}
+/* =========================
+REAL SHIRT IMAGE
+========================= */
 
-.label{
+.shirt-photo{
   display:flex;
-  justify-content:space-between;
-  margin-top:10px;
-  color:var(--muted);
-  font-family:'Bebas Neue';
-  font-size:16px;
-  letter-spacing:1px;
+  justify-content:center;
+  align-items:center;
 }
+
+.shirt-photo img{
+  width:100%;
+  max-width:520px;
+
+  filter:
+    contrast(1.05)
+    saturate(.95)
+    drop-shadow(0 25px 45px rgba(0,0,0,.8));
+}
+
+/* =========================
+STRIP
+========================= */
 
 .strip{
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+
   padding:18px;
-  text-align:center;
-  font-family:'Bebas Neue';
-  font-size:24px;
-  letter-spacing:2px;
+
   background:#090909;
+
+  text-align:center;
+
+  font-family:'Bebas Neue';
+  letter-spacing:2px;
+  font-size:28px;
 }
 
-section{
-  padding:58px 42px;
-  border-bottom:1px solid var(--line);
+/* =========================
+DROP SYSTEM
+========================= */
+
+.section{
+  max-width:1300px;
+  margin:auto;
+  padding:80px 40px;
 }
 
 .section-title{
   font-family:'Bebas Neue';
-  font-size:clamp(52px,7vw,84px);
+  font-size:clamp(60px,7vw,110px);
   line-height:.9;
-  text-transform:uppercase;
-  margin-bottom:16px;
+  margin-bottom:20px;
 }
 
-.section-title span{
+.section-title .red{
   color:var(--red);
 }
 
 .section-sub{
-  max-width:860px;
-  color:var(--muted);
-  font-size:24px;
-  line-height:1.35;
-  margin-bottom:34px;
+  font-size:28px;
+  line-height:1.3;
+  color:#bcbcbc;
+  max-width:950px;
 }
 
-.drop-system{
+.drop-grid{
+  margin-top:40px;
+
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:24px;
 }
 
 .drop-card{
-  background:#090909;
+  background:rgba(0,0,0,.65);
   border:1px solid var(--line);
-  padding:24px;
-  box-shadow:var(--shadow);
+  padding:34px;
+
+  min-height:420px;
 }
 
 .drop-card.active{
-  border:2px solid var(--gold);
+  border:1px solid var(--gold);
+  box-shadow:0 0 35px rgba(200,155,71,.12);
 }
 
-.drop-card.locked{
-  opacity:.7;
-}
-
-.drop-number{
+.drop-num{
   font-family:'Bebas Neue';
   color:var(--gold);
-  font-size:22px;
+  font-size:28px;
   letter-spacing:2px;
-  margin-bottom:12px;
 }
 
 .drop-card h3{
+  margin-top:14px;
+
   font-family:'Bebas Neue';
-  font-size:54px;
+  font-size:72px;
   line-height:.9;
-  margin-bottom:14px;
 }
 
 .drop-card p{
-  color:var(--muted);
-  font-size:21px;
-  line-height:1.35;
-  margin-bottom:18px;
+  margin-top:18px;
+
+  font-size:26px;
+  line-height:1.25;
+  color:#c4c4c4;
 }
 
-.price{
+.drop-price{
+  margin-top:24px;
+
   font-family:'Bebas Neue';
+  font-size:54px;
   color:var(--gold);
-  font-size:40px;
-  margin-bottom:16px;
 }
 
-.restore{
-  margin-top:38px;
-  text-align:center;
+.drop-btn{
+  display:inline-block;
+
+  margin-top:28px;
+
+  padding:16px 24px;
+
+  background:var(--cream);
+  color:black;
+
+  text-decoration:none;
+
   font-family:'Bebas Neue';
-  color:var(--red);
-  font-size:clamp(34px,5vw,58px);
-  letter-spacing:1px;
+  font-size:30px;
 }
+
+/* =========================
+GRAPHICS WALL
+========================= */
 
 .graphics{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
+  gap:30px;
+
+  margin-top:40px;
 }
 
 .graphics img{
   width:100%;
-  display:block;
   border:1px solid var(--line);
-  background:#090909;
-  padding:10px;
-  box-shadow:var(--shadow);
 }
 
-.footer-signup{
+/* =========================
+EMAIL
+========================= */
+
+.join{
   background:
-    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.86)),
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.9)),
     url('pedal-forever-grips-artifact.png');
+
   background-size:cover;
   background-position:center;
+
   text-align:center;
 }
 
-.signup-box{
-  max-width:700px;
-  margin:auto;
-}
-
-.signup-box input{
-  width:100%;
-  background:#050505;
-  border:1px solid var(--cream);
-  color:#fff;
-  padding:16px;
-  font-size:18px;
-  margin-top:22px;
-}
-
-.signup-box button{
-  width:100%;
-  margin-top:12px;
-  background:var(--cream);
-  color:#050505;
-  border:none;
-  padding:16px;
+.join h2{
   font-family:'Bebas Neue';
-  font-size:28px;
+  font-size:90px;
+  line-height:.9;
 }
+
+.join h2 span{
+  color:var(--red);
+}
+
+.join p{
+  max-width:900px;
+  margin:20px auto 0;
+
+  font-size:28px;
+  color:#d0d0d0;
+}
+
+.email-box{
+  margin:40px auto 0;
+
+  max-width:800px;
+
+  display:flex;
+}
+
+.email-box input{
+  flex:1;
+
+  background:black;
+  border:1px solid #444;
+
+  padding:22px;
+  color:white;
+
+  font-size:20px;
+}
+
+.email-box button{
+  background:var(--cream);
+  color:black;
+
+  border:none;
+
+  padding:0 34px;
+
+  font-family:'Bebas Neue';
+  font-size:34px;
+}
+
+/* =========================
+FOOTER
+========================= */
 
 footer{
-  padding:36px;
+  border-top:1px solid var(--line);
+
+  padding:30px;
+
   text-align:center;
+
   color:#777;
-  font-size:15px;
 }
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:900px){
 
-.hero{
-  grid-template-columns:1fr;
-}
+  .hero{
+    grid-template-columns:1fr;
+    padding:60px 24px;
+  }
 
-.drop-system{
-  grid-template-columns:1fr;
-}
+  nav{
+    display:none;
+  }
 
-.graphics{
-  grid-template-columns:1fr;
-}
+  .drop-grid{
+    grid-template-columns:1fr;
+  }
 
-nav{
-  display:none;
-}
+  .graphics{
+    grid-template-columns:1fr;
+  }
 
-.hero h1{
-  font-size:82px;
-}
+  .hero p,
+  .section-sub,
+  .drop-card p{
+    font-size:22px;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .email-box{
+    flex-direction:column;
+  }
+
+  .email-box button{
+    height:70px;
+  }
 
 }
 
@@ -376,145 +480,154 @@ nav{
 
 <body>
 
-<div class="page">
-
 <header>
-  <div class="logo">PEDAL <span>FOREVER</span></div>
 
-  <nav>
-    <a href="#">DROP 001</a>
-    <a href="#">THE CULTURE</a>
-    <a href="#">STICKERS</a>
-    <a href="index.html">HOME</a>
-  </nav>
+<div class="logo">
+PEDAL <span>FOREVER</span>
+</div>
 
-  <div class="cart">CART / 0</div>
+<nav>
+<a href="#drop-system">DROP SYSTEM</a>
+<a href="#graphics">GRAPHICS WALL</a>
+<a href="#join">ENTER THE GARAGE</a>
+<a href="index.html">HOME</a>
+</nav>
+
+<div class="cart">
+$19.99 CONUS
+</div>
+
 </header>
 
 <section class="hero">
 
-<div class="hero-copy">
+<div>
 
 <div class="eyebrow">
 LIMITED-RUN GARAGE CULTURE APPAREL
 </div>
 
 <h1>
-BLACK<br>
-<span class="red">T-SHIRT</span><br>
+BLACK
+<span class="red">T-SHIRT</span>
 MOVEMENT
 </h1>
 
 <p>
-Built for BMX survivors, garage rats, collectors,
-riders, machine people, and everyone who never
-grew out of it.
+Built for BMX survivors, garage rats, collectors, riders, machine people, and everyone who never grew out of it.
 </p>
 
 <div class="mantra">
-BUILT ON BAD DECISIONS.
-PRESERVED ON PURPOSE.
+BUILT ON BAD DECISIONS. PRESERVED ON PURPOSE.
+</div>
+
+<div class="price">
+<span>$19.99</span> SHIPPED ANYWHERE IN THE CONUS
 </div>
 
 <div class="buttons">
-  <a class="btn light" href="#">CLICK HERE TO GET YOURS</a>
-  <a class="btn dark" href="#">WHY IT EXISTS</a>
-</div>
+
+<a class="btn light" href="YOUR-CHECKOUT-LINK-HERE">
+GET YOURS NOW
+</a>
+
+<a class="btn dark" href="#drop-system">
+VIEW THE DROPS
+</a>
 
 </div>
 
-<div class="hero-art">
-  <img src="pedal-forever-grips-artifact.png">
-  <div class="label">
-    <span>PF ARCHIVE / ARTIFACT 001</span>
-    <span>GATE CITY NASHUA NH</span>
-  </div>
+</div>
+
+<div class="shirt-photo">
+<img src="built-on-bad-decisions-shirt.png" alt="Built On Bad Decisions Pedal Forever shirt">
 </div>
 
 </section>
 
 <div class="strip">
-BLACK SHIRTS • REAL BIKES • NO FAKE NOSTALGIA • NO REPRO ENERGY • GARAGE CULTURE ONLY
+BLACK SHIRTS • REAL BIKES • NO FAKE NOSTALGIA • GARAGE CULTURE ONLY
 </div>
 
-<section>
+<section class="section" id="drop-system">
 
 <h2 class="section-title">
-DROP <span>SYSTEM</span>
+DROP <span class="red">SYSTEM</span>
 </h2>
 
 <p class="section-sub">
-Small releases. No giant inventory. No fake hype.
-Every drop becomes part of the Pedal Forever archive.
+Small releases. No giant inventory. No fake hype. Every drop becomes part of the Pedal Forever archive.
 </p>
 
-<div class="drop-system">
+<div class="drop-grid">
 
 <div class="drop-card active">
-<div class="drop-number">DROP 001</div>
+
+<div class="drop-num">
+DROP 001
+</div>
 
 <h3>
-BUILT ON<br>
-BAD DECISIONS
+BUILT ON BAD DECISIONS
 </h3>
 
 <p>
-The first official Black T-Shirt Movement release.
-Small left chest print. Dirty cream ink. Black shirt.
-$19.99 shipped anywhere in the CONUS.
+The first official Black T-Shirt Movement release. Small left chest print. Dirty cream ink. Black shirt. Built like something you found in the back room of an old BMX shop.
 </p>
 
-<div class="price">
+<div class="drop-price">
 $19.99 SHIPPED
 </div>
 
-<a class="btn light" href="#">
-CLICK HERE TO GET YOURS
+<a class="drop-btn" href="YOUR-CHECKOUT-LINK-HERE">
+GET YOURS
 </a>
 
 </div>
 
 <div class="drop-card">
-<div class="drop-number">DROP 002</div>
+
+<div class="drop-num">
+DROP 002
+</div>
 
 <h3>
-COMING<br>
-SOON
+COMING SOON
 </h3>
 
 <p>
-The next Pedal Forever artifact is currently locked
-inside the garage. Preorder signal opening soon.
+The next Pedal Forever artifact is currently locked inside the garage. Preorder signal opening soon.
 </p>
 
-<div class="price">
+<div class="drop-price">
 PREORDER ACCESS
 </div>
 
-<a class="btn dark" href="#">
-SIGN UP FOR ACCESS
+<a class="drop-btn" href="#join">
+SIGN UP
 </a>
 
 </div>
 
-<div class="drop-card locked">
-<div class="drop-number">DROP 003</div>
+<div class="drop-card">
+
+<div class="drop-num">
+DROP 003
+</div>
 
 <h3>
-ARCHIVE<br>
-LOCKED
+ARCHIVE LOCKED
 </h3>
 
 <p>
-Future release currently sealed inside the archive.
-Case file pending.
+Future release currently sealed inside the archive. Case file pending.
 </p>
 
-<div class="price">
+<div class="drop-price">
 LOCKED
 </div>
 
-<a class="btn dark" href="#">
+<a class="drop-btn" href="#join">
 GET NOTIFIED
 </a>
 
@@ -522,60 +635,53 @@ GET NOTIFIED
 
 </div>
 
-<div class="restore">
-CLICK HERE TO RESTORE YOUR YOUTH TODAY
-</div>
-
 </section>
 
-<section>
+<section class="section" id="graphics">
 
 <h2 class="section-title">
-PEDAL FOREVER <span>GRAPHICS WALL</span>
+PEDAL FOREVER <span class="red">GRAPHICS WALL</span>
 </h2>
 
 <p class="section-sub">
-The shirts sell because the world around them feels real.
-Flyers, grips, survivor bikes, garage grime, and BMX history.
+The shirts sell because the world around them feels real. Flyers, grips, survivor bikes, garage grime, and BMX history.
 </p>
 
 <div class="graphics">
 
-<img src="pedal-forever-grips-artifact.png">
+<img src="pedal-forever-grips-artifact.png" alt="Pedal Forever grips graphic">
 
-<img src="run-what-ya-brung-bg.png">
+<img src="run-what-ya-brung-bg.png" alt="Run What Ya Brung flyer">
 
 </div>
 
 </section>
 
-<section class="footer-signup">
+<section class="section join" id="join">
 
-<div class="signup-box">
-
-<h2 class="section-title">
+<h2>
 ENTER THE <span>GARAGE</span>
 </h2>
 
-<p class="section-sub">
-Get first access to future drops, Witness Stand case files,
-sticker packs, archive updates, and future movement releases.
+<p>
+Get first access to future drops, Witness Stand case files, archive updates, and future movement releases.
 </p>
 
-<input type="text" placeholder="Enter your email">
+<div class="email-box">
 
-<button>I'M IN</button>
+<input type="email" placeholder="Enter your email">
+
+<button>
+I'M IN
+</button>
 
 </div>
 
 </section>
 
 <footer>
-© 2026 PEDAL FOREVER —
-BLACK SHIRTS. REAL BIKES. NO FAKE NOSTALGIA.
+© 2026 PEDAL FOREVER — BLACK SHIRTS. REAL BIKES. NO FAKE NOSTALGIA.
 </footer>
-
-</div>
 
 </body>
 </html>
