@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>The BMX Basement | Pedal Forever</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,18 +13,21 @@
   --accent2:#ff4fd8;
   --gold:#ffb347;
   --red:#ff2b2b;
-  --white:#eaeaea;
+  --cream:#fff7e8;
+  --paper:#f7efe0;
+  --dark:#090909;
+  --ink:#151515;
+  --muted:#555;
 }
 
 *{box-sizing:border-box;}
-
 html{scroll-behavior:smooth;}
 
 body{
   margin:0;
   font-family:'Orbitron',sans-serif;
   background:#000;
-  color:var(--white);
+  color:#eaeaea;
   overflow-x:hidden;
 }
 
@@ -34,7 +36,7 @@ body::before{
   position:fixed;
   inset:0;
   background:url('bmx-basement-wallpaper-v1.png') center/cover no-repeat;
-  opacity:.48;
+  opacity:.34;
   z-index:-2;
 }
 
@@ -42,9 +44,7 @@ body::after{
   content:'';
   position:fixed;
   inset:0;
-  background:
-    radial-gradient(circle at top center, rgba(125,249,193,.08), transparent 40%),
-    linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.82));
+  background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.78));
   z-index:-1;
   pointer-events:none;
 }
@@ -79,7 +79,7 @@ body::after{
 
 .hero{
   text-align:center;
-  padding:55px 12px 40px;
+  padding:48px 12px 32px;
 }
 
 .kicker{
@@ -94,26 +94,24 @@ body::after{
   font-size:clamp(42px,8vw,84px);
   margin:12px 0;
   text-transform:uppercase;
-  text-shadow:
-    0 0 10px rgba(125,249,193,.35),
-    0 0 30px rgba(125,249,193,.18);
+  text-shadow:0 0 18px rgba(125,249,193,.28);
 }
 
 .hero p{
-  max-width:830px;
+  max-width:880px;
   margin:0 auto;
-  color:#ddd;
+  color:#eee;
   line-height:1.8;
   font-size:13px;
 }
 
 .warning{
-  max-width:850px;
-  margin:30px auto 55px;
+  max-width:900px;
+  margin:28px auto 45px;
   padding:18px;
   text-align:center;
-  background:rgba(255,43,43,.10);
-  border:1px solid rgba(255,43,43,.35);
+  background:rgba(255,43,43,.12);
+  border:1px solid rgba(255,43,43,.38);
   border-radius:16px;
   color:#fff;
   line-height:1.6;
@@ -122,9 +120,9 @@ body::after{
 
 .tour-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:18px;
-  margin:45px auto;
+  margin:42px auto;
 }
 
 .tour-card{
@@ -146,6 +144,102 @@ body::after{
   color:#d9d9d9;
   line-height:1.65;
   font-size:13px;
+}
+
+.archive-section{
+  margin:58px auto;
+  padding:26px;
+  background:rgba(255,247,232,.94);
+  color:var(--ink);
+  border-radius:24px;
+  border:2px solid rgba(255,179,71,.55);
+  box-shadow:0 0 30px rgba(0,0,0,.45);
+}
+
+.archive-head{
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.archive-head .tag{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#111;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.archive-head h2{
+  margin:0;
+  color:#111;
+  font-size:clamp(26px,5vw,46px);
+  text-transform:uppercase;
+}
+
+.archive-head p{
+  max-width:780px;
+  margin:12px auto 0;
+  color:#333;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.video-card{
+  background:#fff;
+  color:#111;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(0,0,0,.16);
+}
+
+.video-card video{
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+
+.video-card.horizontal video{
+  aspect-ratio:16/9;
+}
+
+.video-copy{
+  padding:18px;
+}
+
+.video-copy h3{
+  margin:0 0 8px;
+  color:#111;
+  text-transform:uppercase;
+  font-size:18px;
+}
+
+.video-copy p{
+  margin:0;
+  color:#444;
+  line-height:1.65;
+  font-size:12px;
+}
+
+.badge-line{
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:1.2px;
+  font-weight:900;
+  margin-bottom:8px;
+  text-transform:uppercase;
 }
 
 .feature-section{
@@ -196,7 +290,6 @@ body::after{
   inset:0;
   display:flex;
   align-items:end;
-  justify-content:left;
   padding:20px;
   background:linear-gradient(to top, rgba(0,0,0,.88), transparent 55%);
 }
@@ -287,8 +380,7 @@ body::after{
   letter-spacing:1px;
 }
 
-/* POPUP CASE FILE */
-
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -300,9 +392,7 @@ body::after{
   padding:18px;
 }
 
-.modal.active{
-  display:flex;
-}
+.modal.active{display:flex;}
 
 .modal-content{
   width:min(940px,96vw);
@@ -311,9 +401,7 @@ body::after{
   background:rgba(5,5,5,.96);
   border:1px solid rgba(125,249,193,.35);
   border-radius:24px;
-  box-shadow:
-    0 0 35px rgba(125,249,193,.22),
-    0 0 70px rgba(0,0,0,.8);
+  box-shadow:0 0 70px rgba(0,0,0,.8);
   padding:18px;
   position:relative;
 }
@@ -430,21 +518,11 @@ body::after{
 
 @media(max-width:800px){
   .feature-grid,
-  .case-file-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:35px;
-  }
-
-  .topbar{
-    gap:8px;
-  }
-
-  .topbar a{
-    font-size:9px;
-  }
+  .case-file-grid{grid-template-columns:1fr;}
+  .hero{padding-top:35px;}
+  .topbar{gap:8px;}
+  .topbar a{font-size:9px;}
+  .archive-section{padding:18px;}
 }
 </style>
 </head>
@@ -463,13 +541,11 @@ body::after{
 
 <section class="hero">
   <div class="kicker">BELOW THE HOUSE · ABOVE THE LAWNMOWER</div>
-
   <h1>The BMX Basement</h1>
-
   <p>
-    Built under a 1900 house, hidden behind doors, stairs, bulkhead entrances,
-    old tools, survivor bikes, lowriders, parts drawers, stickers, chrome baths,
-    and questionable promises that this is definitely “the last bike.”
+    More than BMX. Everything with pedals ends up down here — BMX bikes, mountain bikes,
+    lowriders, cruisers, dad bikes, kid bikes, project bikes, trikes, parts piles,
+    survivor stories, and real rider footage from New England.
   </p>
 </section>
 
@@ -484,30 +560,100 @@ body::after{
     <h2>The Stairs</h2>
     <p>Every bike that comes down these stairs gets judged before the kickstand touches concrete.</p>
   </div>
-
   <div class="tour-card">
     <h2>The Bulkhead</h2>
     <p>The emergency delivery route for bikes that absolutely were not supposed to come home today.</p>
   </div>
-
   <div class="tour-card">
     <h2>The Chrome Corner</h2>
     <p>Where rusty parts go into the sink and come back acting like they still have factory paperwork.</p>
   </div>
-
   <div class="tour-card">
     <h2>The Parts Graveyard</h2>
     <p>Mystery stems, oddball bolts, tires, pads, grips, and one washer Joey swears matters.</p>
   </div>
-
   <div class="tour-card">
     <h2>The Survivor Row</h2>
     <p>Sometimes the scratches ARE the story.</p>
   </div>
-
   <div class="tour-card">
     <h2>The Back Room</h2>
     <p>Nobody really knows what is back there. Pete says he does. Nobody believes Pete.</p>
+  </div>
+</section>
+
+<section class="archive-section">
+  <div class="archive-head">
+    <span class="tag">Living Archive</span>
+    <h2>Basement Archive Files</h2>
+    <p>
+      Some bikes stay. Some sell. Some get protected. Some go back outside.
+      This is where the stories get sorted before the basement swallows them again.
+    </p>
+  </div>
+
+  <div class="video-grid">
+
+    <article class="video-card">
+      <video src="case-file-0002-hutch-exel-survivor.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Case Files</div>
+        <h3>1986 Hutch EXEL — Case File 0002</h3>
+        <p>
+          White and magenta on Skyway Tuff II mags. One-owner, fully documented,
+          and 110% original — with more ’80s air in the tires than most “survivor” builds.
+        </p>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <video src="mine-falls-water-crossing.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Ride Files</div>
+        <h3>Mine Falls After Rain</h3>
+        <p>
+          Some people wait for dry weather. Some people Pedal Forever.
+          Local knowledge. Wet shoes. Still rolling.
+        </p>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <video src="mirra-pro-garage-find.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Garage Finds</div>
+        <h3>2000 Haro Dave Mirra Pro Model</h3>
+        <p>
+          Signed by the Miracle Boy himself. Lost and forgotten in a Nashua garage
+          until Pedal Forever brought it back into the sunlight. GOAT status achieved.
+        </p>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <video src="nashua-attic-rescue-red-tyler.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Returned To The Street</div>
+        <h3>Nashua Attic Rescue</h3>
+        <p>
+          Found in an attic in Nashua, New Hampshire. Rebuilt with survivor soul,
+          BMX-grade upgrades, real 60s/70s Sears handlebars, and local registration history.
+        </p>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <video src="old-school-bmx-backyard-00001.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Backyard Legends</div>
+        <h3>Old School BMX Backyard</h3>
+        <p>
+          The bikes everybody remembers. Before social media. Before smartphones.
+          Before everybody stopped riding.
+        </p>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -515,7 +661,6 @@ body::after{
   <h2>Current Basement Artifact</h2>
 
   <div class="feature-grid">
-
     <div class="artifact-preview" onclick="openArtifactViewer()">
       <img src="mirra-artifact-main.jpg" alt="Dave Mirra Haro Artifact">
       <div class="preview-overlay">
@@ -537,15 +682,14 @@ body::after{
       </p>
 
       <p>
-        Now the full bike is slowly finding its way back together piece by piece,
-        exactly the way it deserves — era correct at all costs.
+        A laser-cut layer of clear 3M protection now shields the signature,
+        preserving the Miracle Boy’s touch without smearing history.
       </p>
 
       <div class="quote-box">
         “Some people find bikes. Some people uncover history.”
       </div>
     </div>
-
   </div>
 </section>
 
@@ -576,14 +720,12 @@ body::after{
 
 <div class="modal" id="artifactModal">
   <div class="modal-content">
-
     <div class="modal-header">
       <h2>Mirra Artifact Case File</h2>
       <button class="close-modal" onclick="closeArtifactViewer()">Close</button>
     </div>
 
     <div class="case-file-grid">
-
       <div>
         <div class="modal-image-wrap">
           <img id="modalImage" class="modal-image" src="mirra-artifact-main.jpg" alt="Dave Mirra Haro artifact slideshow">
@@ -611,28 +753,20 @@ body::after{
         </p>
 
         <p>
-          It did not show up polished, staged, or ready for a museum.
           It surfaced the way real survivor bikes do — dusty, honest, half-forgotten,
           and still carrying the kind of mark that makes your stomach drop when you realize what you are looking at.
         </p>
 
         <p>
-          Autographed by The Miracle Boy himself, the frame escaped the usual fate:
-          stripped, repainted, parted out, or lost forever.
-        </p>
-
-        <p>
-          The full bike is here. It is slowly working its way back together piece by piece,
-          era correct at all costs.
+          Signed by the Miracle Boy himself. Protected with clear 3M preservation film.
+          Dad mode activated. Still rolling. Still legendary. Still here.
         </p>
 
         <div class="popup-quote">
           “Some people find bikes. Some people uncover history.”
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
 
@@ -673,42 +807,25 @@ function showSlide(index){
 
 function nextSlide(){
   currentSlide++;
-  if(currentSlide >= artifactSlides.length){
-    currentSlide = 0;
-  }
+  if(currentSlide >= artifactSlides.length){ currentSlide = 0; }
   showSlide(currentSlide);
 }
 
 function previousSlide(){
   currentSlide--;
-  if(currentSlide < 0){
-    currentSlide = artifactSlides.length - 1;
-  }
+  if(currentSlide < 0){ currentSlide = artifactSlides.length - 1; }
   showSlide(currentSlide);
 }
 
 document.getElementById('artifactModal').addEventListener('click', function(e){
-  if(e.target.id === 'artifactModal'){
-    closeArtifactViewer();
-  }
+  if(e.target.id === 'artifactModal'){ closeArtifactViewer(); }
 });
 
 document.addEventListener('keydown', function(e){
-  if(!document.getElementById('artifactModal').classList.contains('active')){
-    return;
-  }
-
-  if(e.key === 'Escape'){
-    closeArtifactViewer();
-  }
-
-  if(e.key === 'ArrowRight'){
-    nextSlide();
-  }
-
-  if(e.key === 'ArrowLeft'){
-    previousSlide();
-  }
+  if(!document.getElementById('artifactModal').classList.contains('active')){ return; }
+  if(e.key === 'Escape'){ closeArtifactViewer(); }
+  if(e.key === 'ArrowRight'){ nextSlide(); }
+  if(e.key === 'ArrowLeft'){ previousSlide(); }
 });
 </script>
 
