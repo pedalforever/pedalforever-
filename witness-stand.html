@@ -231,6 +231,51 @@ body::after{
   box-shadow:0 0 24px rgba(255,43,43,.40);
 }
 
+.archive{
+  margin-top:34px;
+}
+
+.archive-title{
+  margin:0 0 18px;
+  color:var(--accent);
+  text-transform:uppercase;
+  font-size:clamp(24px,4vw,42px);
+  border-bottom:1px solid rgba(125,249,193,.15);
+  padding-bottom:18px;
+}
+
+.archive-card{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:24px;
+  align-items:start;
+}
+
+.archive-card h3{
+  margin-top:0;
+  color:var(--accent2);
+  text-transform:uppercase;
+  font-size:24px;
+}
+
+.archive-card p{
+  color:#ddd;
+  line-height:1.75;
+  font-size:12px;
+}
+
+.archive-tag{
+  display:inline-block;
+  margin-bottom:12px;
+  color:#000;
+  background:var(--accent);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
 .notes{
   margin-top:60px;
   display:grid;
@@ -288,7 +333,8 @@ body::after{
 }
 
 @media(max-width:860px){
-  .case-grid{
+  .case-grid,
+  .archive-card{
     grid-template-columns:1fr;
   }
 
@@ -349,10 +395,84 @@ body::after{
 
   <div class="case-header">
     <h2>THIS WEEK'S CASE FILE</h2>
-    <div class="case-number">CASE FILE #0001</div>
+    <div class="case-number">CASE FILE #0002</div>
   </div>
 
   <div class="case-grid">
+
+    <div class="video-box">
+      <video controls playsinline preload="metadata" poster="witness-stand.png">
+        <source src="case-file-0002-hutch-exel-survivor.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="case-info">
+
+      <h3>1986 Hutch EXEL — White Survivor</h3>
+
+      <p>
+        A true survivor bike with original 1980s energy still baked into the tires.
+        White frame, white mags, white tires, magenta graphics, and the kind of untouched presence that cannot be recreated once it gets torn apart.
+      </p>
+
+      <p>
+        This one came from the original owner after an unexpected day off, a storage-unit inventory mission, and a fresh Marketplace listing that had only been live for about an hour. The bike was found about an hour away, still glowing out of a shed like it had been waiting since the 80s.
+      </p>
+
+      <p>
+        Months later, the story got even better. The original owner reached back out after finding the original sales receipt, owner's manual, and decal pack. A lunch-break meetup in Nashua brought the paperwork back together with the bike.
+      </p>
+
+      <div class="parts-list">
+
+        <div class="part">
+          <strong>Frame & Identity</strong><br>
+          1986 Hutch EXEL survivor in white with magenta graphics.
+        </div>
+
+        <div class="part">
+          <strong>Wheels</strong><br>
+          Original white Skyway mags with white tires. Full clean 80s freestyle energy.
+        </div>
+
+        <div class="part">
+          <strong>Survivor Details</strong><br>
+          Original fork standers, original components, and that untouched time-capsule look that only exists once.
+        </div>
+
+        <div class="part">
+          <strong>Seat Setup</strong><br>
+          White Trick Top seat still tying the whole survivor build together.
+        </div>
+
+        <div class="part">
+          <strong>Paperwork</strong><br>
+          Original owner's manual, original sales receipt, and original decal pack reunited with the bike after the sale.
+        </div>
+
+        <div class="part">
+          <strong>Preservation Rule</strong><br>
+          This bike does not get stripped. It does not get over-restored. It stays honest.
+        </div>
+
+      </div>
+
+      <div class="verdict">
+        VERDICT: PRESERVE BEFORE REPLACE
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="panel archive">
+
+  <h2 class="archive-title">Case File Archive</h2>
+
+  <div class="archive-card">
 
     <div class="video-box">
       <video controls playsinline preload="metadata" poster="witness-stand.png">
@@ -361,7 +481,9 @@ body::after{
       </video>
     </div>
 
-    <div class="case-info">
+    <div>
+
+      <span class="archive-tag">CASE FILE #0001</span>
 
       <h3>1995 GT Performer — Blacklight Edition</h3>
 
@@ -372,7 +494,7 @@ body::after{
 
       <p>
         This bike never lost its old-school cool. It just got cooler.
-        The basement has officially accepted it into evidence.
+        The basement officially accepted it into evidence as the first Witness Stand case file.
       </p>
 
       <div class="parts-list">
@@ -424,21 +546,21 @@ body::after{
   <div class="panel note-card">
     <h3>Topcap's Notes</h3>
     <p>
-      “That paint job is not loud. Everyone else is just boring.”
+      “Some bikes get restored. This one got reunited with its own paperwork.”
     </p>
   </div>
 
   <div class="panel note-card">
     <h3>Tom's Testimony</h3>
     <p>
-      Tom claims the bike got faster the second it entered the basement.
+      Tom says there was not a better feeling in the 80s than a clean white BMX bike with white mags and white tires.
     </p>
   </div>
 
   <div class="panel note-card">
     <h3>Pete Sighting</h3>
     <p>
-      Pinchbolt Pete was seen staring at the SKYWAY mags and whispering, “Yeah, those would fit.”
+      Pinchbolt Pete was seen staring at the original decal pack and asking if “unused stickers count as evidence.”
     </p>
   </div>
 
