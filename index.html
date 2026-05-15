@@ -787,7 +787,114 @@ Pedal Forever documents original-owner bikes, family survivors, basement release
   Pete was here
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://mpxdtcontzizhbujglwl.supabase.co";
+const SUPABASE_KEY = "sb_publishable_2zgVrnX29Z7G_BKjGQKWFQ_qkRDTaAv";
+
+const pedalForeverDB = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function openPeteModal(){
+  document.getElementById('peteModal').style.display = 'flex';
+}
+
+function closePeteModal(){
+  document.getElementById('peteModal').style.display = 'none';
+}
+
+async function vote(choice){
+
+  const email = document.getElementById("email").value.trim().toLowerCase();
+
+  if(!email || !email.includes("@")){
+    alert("Enter a valid email.");
+    return;
+  }
+
+  const { error } = await pedalForeverDB
+    .from("bike_votes")
+    .insert([
+      {
+        bike_name: choice
+      }
+    ]);
+
+  if(error){
+    console.error(error);
+    alert("The stand rejected the vote.");
+    return;
+  }
+
+  document.getElementById("status").innerText =
+    "Vote logged for " + choice + ".";
+
+  document.getElementById("email").value = "";
+
+  loadVotes();
+}
+
+async function loadVotes(){
+
+  const { data, error } = await pedalForeverDB
+    .from("bike_votes")
+    .select("bike_name");
+
+  if(error){
+    console.error(error);
+    return;
+  }
+
+  let totals = {};
+  let totalVotes = 0;
+
+  data.forEach(vote => {
+
+    totalVotes++;
+
+    if(!totals[vote.bike_name]){
+      totals[vote.bike_name] = 0;
+    }
+
+    totals[vote.bike_name]++;
+  });
+
+  document.getElementById("total").innerText = totalVotes;
+
+  const gtVotes = totals["GT"] || 0;
+  const ramparVotes = totals["RAMPAR"] || 0;
+
+  const gtBar = document.getElementById("gt-bar");
+  const ramparBar = document.getElementById("rampar-bar");
+
+  const highest = Math.max(gtVotes, ramparVotes, 1);
+
+  gtBar.style.width = (gtVotes / highest * 100) + "%";
+  ramparBar.style.width = (ramparVotes / highest * 100) + "%";
+
+  document.getElementById("gt-count").innerText =
+    gtVotes + " votes";
+
+  document.getElementById("rampar-count").innerText =
+    ramparVotes + " votes";
+
+  let leaderText = "Current Garage Leader: ";
+
+  if(gtVotes > ramparVotes){
+    leaderText += "1990 GT Mach 1";
+  }
+  else if(ramparVotes > gtVotes){
+    leaderText += "1978 Team Rampar";
+  }
+  else{
+    leaderText += "Dead Heat";
+  }
+
+  document.getElementById("leader").innerText = leaderText;
+}
+
+document.addEventListener("DOMContentLoaded", loadVotes);
+</script>
   
 
 </body>
