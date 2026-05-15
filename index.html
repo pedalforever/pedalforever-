@@ -277,41 +277,42 @@ font-weight:bold;
 }
 
 .witness-card{
-display:block;
-overflow:hidden;
-border-radius:24px;
-border:1px solid rgba(125,249,193,.24);
-background:
-linear-gradient(to bottom, rgba(0,0,0,.0) 0%, rgba(0,0,0,.0) 58%, rgba(0,0,0,.92) 100%);
-box-shadow:0 0 35px rgba(0,0,0,.45);
-margin:55px auto;
-transition:.3s;
-position:relative;
+  display:flex;
+  align-items:flex-end;
+  min-height:620px;
+  overflow:hidden;
+  border-radius:24px;
+  border:1px solid rgba(125,249,193,.24);
+  background:url('witness-stand.png') center/cover no-repeat;
+  margin:55px auto;
+  transition:.3s;
+  position:relative;
 }
 
 .witness-card:hover{
   transform:scale(1.01);
 }
 
-.witness-card img{
-  width:100%;
-  max-height:520px;
-  display:block;
-  object-fit:cover;
-  }
-  
 .witness-copy{
-padding:34px 26px 30px;
-text-align:center;
-background:
-linear-gradient(to top,
-rgba(0,0,0,.96) 0%,
-rgba(0,0,0,.88) 60%,
-rgba(0,0,0,.0) 100%);
-  
-position:relative;
-z-index:2;
-backdrop-filter:blur(2px);
+  width:100%;
+  padding:34px 26px 30px;
+  text-align:center;
+  background:linear-gradient(to top, rgba(0,0,0,.96), rgba(0,0,0,.72), rgba(0,0,0,0));
+  position:relative;
+  z-index:2;
+}
+
+.witness-copy h2{
+  color:var(--accent2);
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.witness-copy h3{
+  color:var(--accent);
+  font-size:clamp(30px,4vw,56px);
+  margin-bottom:14px;
 }
 
 .witness-copy h2{
@@ -580,8 +581,6 @@ Pedal Forever focuses on survivor BMX bikes, original equipment, low-mile/no-mil
 
 <a class="witness-card" href="witness-stand.html">
 
-  <img src="witness-stand.png">
-
   <div class="witness-copy">
     <h2>THE WITNESS STAND</h2>
     <h3>CASE FILE 0001 — 1995 GT Performer: Blacklight Edition</h3>
@@ -598,8 +597,8 @@ Pedal Forever focuses on survivor BMX bikes, original equipment, low-mile/no-mil
 
     <div class="case-update">
       ★ NEW CASE FILE #0002 — HUTCH EXEL
-
-      </div>
+    </div>
+  </div>
 
 </a>
 <section class="portal-grid">
