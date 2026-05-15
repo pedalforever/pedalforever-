@@ -787,57 +787,8 @@ Pedal Forever documents original-owner bikes, family survivors, basement release
   Pete was here
 </div>
 
-<script>
-function openPeteModal(){
-  document.getElementById('peteModal').style.display = 'flex';
-}
 
-function closePeteModal(){
-  document.getElementById('peteModal').style.display = 'none';
-}
-
-let votes = parseInt(localStorage.getItem("totalVotes")) || 0;
-
-document.getElementById("total").innerText = votes;
-
-function hasVoted(email){
-  let voters = JSON.parse(localStorage.getItem("voters")) || [];
-  return voters.includes(email);
-}
-
-function saveVoter(email){
-  let voters = JSON.parse(localStorage.getItem("voters")) || [];
-  voters.push(email);
-  localStorage.setItem("voters", JSON.stringify(voters));
-}
-
-function vote(choice){
-  let email = document.getElementById("email").value.trim().toLowerCase();
-
-  if(!email || !email.includes("@")){
-    alert("Enter a valid email");
-    return;
-  }
-
-  if(hasVoted(email)){
-    document.getElementById("status").innerText =
-    "You already voted with " + email;
-    return;
-  }
-
-  saveVoter(email);
-  votes++;
-
-  localStorage.setItem("totalVotes", votes);
-
-  document.getElementById("total").innerText = votes;
-
-  document.getElementById("status").innerText =
-  "Thank you for voting for " + choice;
-
-  document.getElementById("email").value = "";
-}
-</script>
+  
 
 </body>
 </html>
