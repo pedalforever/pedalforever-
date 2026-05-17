@@ -11,19 +11,19 @@
 body{
     margin:0;
     padding:0;
-    background:#000;
+    background:#050505;
     color:#f5f5f5;
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
     position:relative;
     min-height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.78)),
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
     url('PF_THE-BOOTH_0001.jpg');
     background-size:cover;
     background-position:center;
@@ -36,7 +36,7 @@ body{
 }
 
 .hero-content{
-    max-width:900px;
+    max-width:950px;
 }
 
 .hero h1{
@@ -47,15 +47,15 @@ body{
 }
 
 .hero p{
-    font-size:20px;
+    font-size:21px;
     color:#d0d0d0;
-    line-height:1.8;
+    line-height:1.9;
 }
 
-/* CONTENT */
+/* MAIN CONTENT */
 
 .section{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
     padding:80px 25px;
 }
@@ -69,42 +69,56 @@ body{
 
 .section p{
     font-size:19px;
-    line-height:1.9;
+    line-height:1.95;
     color:#cfcfcf;
     margin-bottom:30px;
 }
 
-/* GALLERY */
+/* IMAGE GRID */
 
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:25px;
-    margin-top:40px;
+    margin-top:45px;
 }
 
 .gallery img{
     width:100%;
-    border-radius:10px;
-    border:2px solid #222;
-    transition:.3s;
+    border-radius:12px;
+    border:2px solid #1d1d1d;
+    transition:.3s ease;
 }
 
 .gallery img:hover{
     transform:scale(1.01);
-    border-color:#777;
+    border-color:#666;
 }
 
-/* QUOTE */
+/* VIDEO */
+
+.video-section{
+    margin-top:80px;
+}
+
+.video-section video{
+    width:100%;
+    border-radius:12px;
+    border:2px solid #222;
+    box-shadow:0 0 40px rgba(0,0,0,.5);
+}
+
+/* QUOTE BOX */
 
 .quote{
-    margin-top:60px;
+    margin-top:70px;
     padding:35px;
-    background:#111;
-    border-left:4px solid #999;
+    background:#101010;
+    border-left:4px solid #888;
     font-style:italic;
     color:#d8d8d8;
-    line-height:1.8;
+    line-height:1.9;
+    font-size:18px;
 }
 
 /* FOOTER */
@@ -112,15 +126,18 @@ body{
 .footer{
     text-align:center;
     padding:50px 20px;
-    color:#777;
+    color:#666;
     font-size:14px;
-    border-top:1px solid #222;
+    border-top:1px solid #1b1b1b;
+    margin-top:80px;
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -129,14 +146,16 @@ body{
 <h1>THE BOOTH</h1>
 
 <p>
-Base coat. Clear coat. Self-etch. High build. 
-Late nights, overspray, and questionable color decisions.
+Base coat. Clear coat. Self-etch. High build.  
+Overspray, late nights, metallic flake, and questionable color decisions.  
 This is ground zero for Pedal Forever.
 </p>
 
 </div>
 
 </section>
+
+<!-- MAIN SECTION -->
 
 <section class="section">
 
@@ -145,21 +164,23 @@ This is ground zero for Pedal Forever.
 <p>
 At Pedal Forever, preserving original paint will always come first.
 A bike only leaves the factory one time wearing its original finish,
-and once that history is stripped away, it can never truly be replaced.
+and once that history disappears, it can never truly be recreated.
 </p>
 
 <p>
-That said, not every bike survives untouched.
-Some arrive already stripped. Some were repainted decades ago.
-Some have rust too deep to ignore. Some deserve another chance.
+Not every bike survives untouched.
+Some arrive already stripped.
+Some were repainted decades ago.
+Some have rust too deep to ignore.
+Some simply deserve another chance.
 That’s where The Booth comes in.
 </p>
 
 <p>
 Every frame gets evaluated individually.
 Every dent gets assessed.
-Every imperfection tells part of the story.
-Nothing gets buried blindly under filler and shiny paint just for the sake of appearance.
+Every ding gets considered before anything happens.
+Nothing gets blindly buried under filler and shiny paint just for the sake of appearance.
 The goal has never been perfection.
 The goal is respect.
 </p>
@@ -169,11 +190,11 @@ This room is where the decisions happen.
 Color matching.
 Masking lines.
 Primer stages.
-Clear coat flow.
 Metal preparation.
+Clear coat flow.
 Funkadelic colorways.
-Survivor touch-ups.
 Factory-inspired restorations.
+Survivor touch-ups.
 Sometimes restraint matters more than repainting the entire bike.
 Sometimes saving what remains is the real art form.
 </p>
@@ -184,23 +205,55 @@ This is where Pedal Forever bikes either stay alive...
 or come back to life.
 </p>
 
+<!-- IMAGE GALLERY -->
+
 <div class="gallery">
 
-<img src="paint-booth-001.jpg" alt="Paint Booth 001">
+<img src="paint-booth-0001.jpg" alt="Paint Booth Frame">
 
-<img src="paint-booth-002.jpg" alt="Paint Booth 002">
+<img src="paint-booth-0002.jpg" alt="Paint Booth Metallic Paint">
 
 </div>
 
+<!-- VIDEO SECTION -->
+
+<div class="video-section">
+
+<h2>Fresh Out Of The Booth</h2>
+
+<p>
+Metallic flake never looks the same twice.
+Under fluorescent lights it shifts.
+Outside in the sun it changes again.
+This short clip captures one of those moments immediately after cure —
+when the paint finally starts talking back.
+</p>
+
+<video controls autoplay muted loop playsinline>
+
+<source src="paint-booth-0002.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<!-- QUOTE -->
+
 <div class="quote">
+
 “Some bikes need restoration.  
 Some only need respect.”
+
 </div>
 
 </section>
 
+<!-- FOOTER -->
+
 <div class="footer">
+
 PEDALFOREVER.COM • THE BOOTH DIVISION
+
 </div>
 
 </body>
