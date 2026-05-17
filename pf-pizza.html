@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +11,17 @@
 
 body{
   margin:0;
-  background:#050505;
-  color:#f1f1f1;
+  background:#070707;
+  color:#f3f3f3;
   font-family:'Orbitron',sans-serif;
   overflow-x:hidden;
 }
 
-/* HERO VIDEO */
+/* HERO */
 
 .hero{
   position:relative;
-  height:100vh;
+  min-height:72vh;
   overflow:hidden;
   display:flex;
   align-items:center;
@@ -32,15 +31,11 @@ body{
 
 .hero-video{
   position:absolute;
-  top:50%;
-  left:50%;
-  min-width:100%;
-  min-height:100%;
-  width:auto;
-  height:auto;
-  transform:translate(-50%,-50%);
+  inset:0;
+  width:100%;
+  height:100%;
   object-fit:cover;
-  filter:brightness(.42) contrast(1.1);
+  filter:brightness(.62) contrast(1.05) saturate(1.05);
 }
 
 .overlay{
@@ -48,8 +43,8 @@ body{
   inset:0;
   background:linear-gradient(
     to bottom,
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.72)
+    rgba(0,0,0,.18),
+    rgba(0,0,0,.55)
   );
 }
 
@@ -57,82 +52,103 @@ body{
   position:relative;
   z-index:5;
   padding:20px;
+  max-width:900px;
 }
 
 .hero h1{
-  font-size:clamp(58px,10vw,130px);
   margin:0;
-  color:#ff4d4d;
+  font-size:clamp(58px,10vw,120px);
+  color:#ff5757;
+  letter-spacing:2px;
+
   text-shadow:
-    0 0 10px rgba(255,0,0,.5),
-    0 0 25px rgba(255,0,0,.45),
-    0 0 55px rgba(255,0,0,.25);
-  letter-spacing:3px;
+    0 0 8px rgba(255,80,80,.55),
+    0 0 24px rgba(255,80,80,.45);
 }
 
 .hero p{
-  margin-top:18px;
-  color:#7dffc1;
-  font-size:13px;
+  margin-top:14px;
+  color:#b7ffe1;
+  font-size:11px;
   letter-spacing:3px;
   text-transform:uppercase;
 }
 
-/* INFO SECTION */
+/* OLD SCHOOL PIZZA STRIP */
+
+.pizza-strip{
+  background:#101010;
+  border-top:2px solid #ff5757;
+  border-bottom:2px solid #ff5757;
+  padding:14px 10px;
+  text-align:center;
+  font-size:12px;
+  letter-spacing:3px;
+  color:#ffe6c7;
+}
+
+/* CONTENT */
 
 .content{
   max-width:1100px;
   margin:auto;
-  padding:70px 20px;
+  padding:40px 16px 60px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
 }
 
 .card{
-  background:rgba(15,15,15,.95);
+  background:#111;
   border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:24px;
-  box-shadow:0 0 25px rgba(0,0,0,.35);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 0 20px rgba(0,0,0,.25);
 }
 
 .card h2{
   margin-top:0;
-  color:#ff5a5a;
+  margin-bottom:14px;
+  color:#ff6666;
   font-size:24px;
+  line-height:1.1;
 }
 
 .card p{
-  color:#d7d7d7;
-  line-height:1.8;
-  font-size:14px;
+  color:#dddddd;
+  line-height:1.7;
+  font-size:13px;
 }
 
-/* NEON STRIP */
+/* MENU SECTION */
 
-.neon-bar{
-  margin:70px 0;
-  padding:18px;
+.menu-banner{
+  margin:40px 0 24px;
   text-align:center;
-  font-size:13px;
-  letter-spacing:4px;
+}
+
+.menu-banner h2{
   color:#7dffc1;
-  border-top:1px solid rgba(125,249,193,.25);
-  border-bottom:1px solid rgba(125,249,193,.25);
-  background:rgba(125,249,193,.04);
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.menu-banner p{
+  color:#ccc;
+  font-size:13px;
+  letter-spacing:2px;
 }
 
 /* FOOTER */
 
 .footer{
   text-align:center;
+  padding:45px 20px;
   opacity:.45;
-  padding:50px 20px;
-  font-size:11px;
+  font-size:10px;
   letter-spacing:3px;
 }
 
@@ -154,12 +170,16 @@ body{
     <h1>PF’S PIZZA</h1>
 
     <p>
-      Serving Alvern Heights Since 1987 • Pizza • BMX • Bad Decisions
+      SERVING ALVERN HEIGHTS SINCE 1987 • PIZZA • BMX • BAD DECISIONS
     </p>
 
   </div>
 
 </section>
+
+<div class="pizza-strip">
+  HOT PIZZA • COLD SODA • LATE NIGHT DELIVERY • PARKING LOT BMX MEETINGS
+</div>
 
 <section class="content">
 
@@ -177,9 +197,7 @@ only that they never stopped.
 </p>
 
 <p>
-The delivery cars got louder.
-The arguments got worse.
-And somehow the parking lot became the center of Alvern Heights after midnight.
+The parking lot became the center of Alvern Heights after midnight.
 </p>
 
 </div>
@@ -199,10 +217,6 @@ Some arrive with BMX parts.
 A few never arrive at all.
 </p>
 
-<p>
-Management refuses to comment on the incident involving Pinchbolt Pete and the lawn tractor.
-</p>
-
 </div>
 
 <div class="card">
@@ -217,11 +231,10 @@ Every rider in town eventually ends up here.
 Deals get made.
 Bikes get traded.
 Arguments get settled.
-Sometimes somebody disappears into the night headed toward Scotch Row.
 </p>
 
 <p>
-Officer McCarthy drives through at least twice an hour.
+Officer McCarthy drives through twice an hour.
 Nobody leaves.
 </p>
 
@@ -229,29 +242,17 @@ Nobody leaves.
 
 </div>
 
-<div class="neon-bar">
-
-OUT FOR DELIVERY • ALVERN HEIGHTS • GATE CITY DIVISION • PEDAL FOREVER
-
-</div>
-
-<div class="grid">
-
-<div class="card">
+<div class="menu-banner">
 
 <h2>TONIGHT’S SPECIAL</h2>
 
 <p>
-Large cheese pizza.
-Two sodas.
-One questionable BMX decision.
-</p>
-
-<p>
-$19.87
+LARGE CHEESE • TWO SODAS • ONE TERRIBLE IDEA • $19.87
 </p>
 
 </div>
+
+<div class="grid">
 
 <div class="card">
 
@@ -281,6 +282,19 @@ DO NOT:
 • test fireworks behind the dumpsters<br>
 • ask who Ted was<br>
 • open unmarked utility doors
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>MAMMA ALVERN SAYS</h2>
+
+<p>
+“Eat your pizza hot.
+Ride your bike fast.
+And if the cops ask questions,
+you never saw Pinchbolt Pete.”
 </p>
 
 </div>
