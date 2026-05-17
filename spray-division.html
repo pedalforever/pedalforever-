@@ -10,17 +10,20 @@
 
 body{
     margin:0;
-    background:#050505;
     color:#e5e5e5;
     font-family:Arial,sans-serif;
+
     background-image:url('spray-booth-wallpaper.jpg');
     background-size:cover;
-    background-position:center;
+    background-position:center top;
+    background-repeat:no-repeat;
     background-attachment:fixed;
+
+    background-color:#050505;
 }
 
 .overlay{
-    background:rgba(0,0,0,0.82);
+    background:rgba(0,0,0,0.58);
     min-height:100vh;
     padding:40px 20px 80px;
 }
@@ -63,12 +66,18 @@ h1{
 .copy{
     font-size:17px;
     line-height:1.9;
-    color:#cfcfcf;
+    color:#d7d7d7;
     margin-bottom:50px;
+
+    background:rgba(0,0,0,0.42);
+    padding:25px;
+    border-radius:18px;
+    backdrop-filter:blur(3px);
 }
 
 .highlight{
     color:#72ffe2;
+    font-weight:bold;
 }
 
 .media-block{
@@ -82,17 +91,19 @@ h1{
     display:block;
     margin-bottom:25px;
     border:1px solid rgba(255,255,255,0.12);
-    box-shadow:0 0 30px rgba(0,0,0,0.5);
+    box-shadow:0 0 30px rgba(0,0,0,0.55);
 }
 
 .quote{
     margin-top:50px;
     padding:25px;
     border-left:3px solid #72ffe2;
-    background:rgba(255,255,255,0.03);
+    background:rgba(0,0,0,0.42);
+    border-radius:12px;
     font-size:18px;
     line-height:1.8;
     color:#f0f0f0;
+    backdrop-filter:blur(3px);
 }
 
 .footer-note{
@@ -100,7 +111,7 @@ h1{
     text-align:center;
     font-size:13px;
     letter-spacing:2px;
-    color:#777;
+    color:#9a9a9a;
     text-transform:uppercase;
 }
 
