@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 body{
   margin:0;
   background:#050505;
@@ -41,6 +42,7 @@ body{
 }
 
 /* MAP AREA */
+
 .map-box{
   position:relative;
   width:100%;
@@ -59,6 +61,7 @@ body{
 }
 
 /* CLICKABLE MAP DOTS */
+
 .map-pin{
   position:absolute;
   transform:translate(-50%,-50%);
@@ -79,7 +82,34 @@ body{
   color:#050505;
 }
 
+/* SECRET PIN */
+
+.secret-pin{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,.45);
+  color:#7dffc1;
+  border:1px dashed #7dffc1;
+  border-radius:50%;
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  text-decoration:none;
+  opacity:.45;
+  box-shadow:0 0 12px rgba(125,249,193,.25);
+}
+
+.secret-pin:hover{
+  opacity:1;
+  background:rgba(125,249,193,.15);
+  box-shadow:0 0 18px rgba(125,249,193,.8);
+}
+
 /* CARD GRID */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -105,6 +135,11 @@ body{
   font-size:13px;
 }
 
+.secret-card{
+  border-color:#d7ff75;
+  box-shadow:0 0 18px rgba(215,255,117,.25);
+}
+
 .footer{
   margin-top:70px;
   text-align:center;
@@ -112,6 +147,7 @@ body{
   font-size:11px;
   letter-spacing:2px;
 }
+
 </style>
 </head>
 
@@ -125,58 +161,154 @@ body{
 </section>
 
 <section class="map-box">
+
   <img src="mill-run-mapped-0001.png" alt="Alvern Heights Map">
 
   <a class="map-pin" href="#pf-pizza" style="left:47%; top:10%;">PF Pizza</a>
+
   <a class="map-pin" href="#griffins" style="left:32%; top:25%;">Griffin’s</a>
+
   <a class="map-pin" href="#car-wash" style="left:56%; top:16%;">Car Wash</a>
+
   <a class="map-pin" href="#papas" style="left:57%; top:24%;">Papa’s</a>
+
   <a class="map-pin" href="#gas" style="left:56%; top:33%;">Alvern Gas</a>
+
   <a class="map-pin" href="#library" style="left:56%; top:46%;">Library</a>
+
   <a class="map-pin" href="#police" style="left:55%; top:55%;">Police</a>
+
   <a class="map-pin" href="#sandpits" style="left:88%; top:88%;">Sand Pits</a>
+
+  <a class="map-pin"
+     href="#scotch-row"
+     style="left:12%; top:72%;">
+     Scotch Row
+  </a>
+
+  <a class="secret-pin"
+     href="#zone-76"
+     title="???"
+     style="left:82%; top:93%;">
+     ?
+  </a>
+
 </section>
 
 <section class="grid">
 
 <div class="card" id="pf-pizza">
   <h2>PF Pizza</h2>
-  <p>The unofficial headquarters of Alvern Heights. Known for late-night deliveries, BMX arguments, and grease stains older than most riders.</p>
+  <p>
+    The unofficial headquarters of Alvern Heights.
+    Known for late-night deliveries, BMX arguments,
+    and grease stains older than most riders.
+  </p>
 </div>
 
 <div class="card" id="griffins">
   <h2>Griffin’s Pedal Forever</h2>
-  <p>Restoration shop, museum, survivor sanctuary, and accidental gathering place for every BMX disaster in town.</p>
+  <p>
+    Restoration shop, museum, survivor sanctuary,
+    and accidental gathering place for every BMX disaster in town.
+  </p>
 </div>
 
 <div class="card" id="car-wash">
   <h2>Self-Serve Car Wash</h2>
-  <p>Where Officer McCarthy cleans the cruiser, loses his patience, and pretends he isn’t watching the PF Pizza parking lot.</p>
+  <p>
+    Where Officer McCarthy cleans the cruiser,
+    loses his patience,
+    and pretends he isn’t watching the PF Pizza parking lot.
+  </p>
 </div>
 
 <div class="card" id="papas">
   <h2>Papa’s Local Delicatessen</h2>
-  <p>Small-town food, local gossip, and probably the first place someone heard Pinchbolt Pete was up to something.</p>
+  <p>
+    Small-town food, local gossip,
+    and probably the first place someone heard
+    Pinchbolt Pete was up to something.
+  </p>
 </div>
 
 <div class="card" id="gas">
   <h2>Alvern Gas</h2>
-  <p>Fuel, bad coffee, questionable snacks, and the last stop before every terrible idea becomes official.</p>
+  <p>
+    Fuel, bad coffee, questionable snacks,
+    and the last stop before every terrible idea becomes official.
+  </p>
 </div>
 
 <div class="card" id="library">
   <h2>Alvern Library</h2>
-  <p>Quiet on paper. Somehow still full of BMX rumors, old newspaper clippings, and town history nobody agrees on.</p>
+  <p>
+    Quiet on paper.
+    Somehow still full of BMX rumors,
+    old newspaper clippings,
+    and town history nobody agrees on.
+  </p>
 </div>
 
 <div class="card" id="police">
   <h2>Alvern Municipal Police</h2>
-  <p>Constantly attempting to stop Pinchbolt Pete. Constantly failing.</p>
+  <p>
+    Constantly attempting to stop Pinchbolt Pete.
+    Constantly failing.
+  </p>
 </div>
 
 <div class="card" id="sandpits">
   <h2>The Sandpits</h2>
-  <p>Illegal jumps. Burnouts. Broken frames. Some of the best stories in Alvern started here.</p>
+  <p>
+    Illegal jumps. Burnouts. Broken frames.
+    Some of the best stories in Alvern started here.
+  </p>
+</div>
+
+<div class="card" id="scotch-row">
+  <h2>Scotch Row</h2>
+
+  <p>
+    Steep abandoned mill-service road hidden along the edge of Alvern Heights.
+  </p>
+
+  <p>
+    Drainage slalom lines. Fast downhill runs.
+    No guardrails. No forgiveness.
+  </p>
+
+  <p>
+    Nobody’s been man enough to do Scotch Row since Ted did it.
+  </p>
+
+  <p>
+    I still miss Ted.
+  </p>
+</div>
+
+<div class="card secret-card" id="zone-76">
+
+  <h2>ZONE 76</h2>
+
+  <p>
+    Officially, it does not exist.
+  </p>
+
+  <p>
+    Hidden beyond the old drainage system near Scotch Row,
+    Zone 76 was sealed sometime in the late 1980s.
+  </p>
+
+  <p>
+    Most people think it was an abandoned utility tunnel.
+    Others swear it was something much worse.
+  </p>
+
+  <p>
+    Public access permanently restricted.
+  </p>
+
 </div>
 
 </section>
