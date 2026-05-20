@@ -288,7 +288,28 @@ font-weight:bold;
   transition:.3s;
   position:relative;
 }
+}
+.witness-photo-strip{
+display:grid;
+grid-template-columns:2fr 1fr;
+grid-template-rows:160px 160px;
+gap:10px;
+margin-bottom:18px;
+overflow:hidden;
+border-radius:18px;
+}
 
+.witness-photo-strip img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:12px;
+border:2px solid rgba(0,255,200,0.15);
+}
+
+.witness-photo-strip img:first-child{
+grid-row:1 / span 2;
+}
 .witness-card:hover{
   transform:scale(1.01);
 }
@@ -628,7 +649,12 @@ Pedal Forever focuses on survivor BMX bikes, original equipment, low-mile/no-mil
 </section>
 
 <a class="witness-card" href="witness-stand.html">
-
+<div class="witness-copy">
+  <div class="witness-photo-strip">
+  <img src="witness-stand-0003-01.jpeg" alt="1998 GT Performer on the Witness Stand">
+  <img src="witness-stand-0003-02.jpeg" alt="Lime green 1998 GT Performer detail">
+  <img src="witness-stand-0003-03.jpeg" alt="Alvern Heights Case File 0003 evidence tag">
+  </div>
   <div class="witness-copy">
     <h2>THE WITNESS STAND</h2>
     <h3>CASE FILE 0003 - Lime Green 1998 GT Performer - LEFT FOR DEAD</h3>
