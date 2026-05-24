@@ -380,7 +380,6 @@ body::after{
   letter-spacing:1px;
 }
 
-/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -516,30 +515,6 @@ body::after{
   line-height:1.6;
 }
 
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  align-items:start;
-}
-
-.video-card{
-  display:flex;
-  flex-direction:column;
-  height:auto;
-}
-
-.video-card video{
-  width:100%;
-  aspect-ratio:9/16;
-  object-fit:cover;
-}
-
-.video-copy{
-  max-height:230px;
-  overflow:hidden;
-}
-
 @media(max-width:800px){
   .feature-grid,
   .case-file-grid{grid-template-columns:1fr;}
@@ -547,7 +522,6 @@ body::after{
   .topbar{gap:8px;}
   .topbar a{font-size:9px;}
   .archive-section{padding:18px;}
-}
 }
 </style>
 </head>
@@ -615,82 +589,49 @@ body::after{
       Some bikes stay. Some sell. Some get protected. Some go back outside.
       This is where the stories get sorted before the basement swallows them again.
     </p>
+  </div>
+
   <div class="video-grid">
-<article class="video-card">
-  <video src="1998-gt-performer-mag-solo.mp4" controls playsinline preload="metadata"></video>
-  <div class="video-copy">
-    <div class="badge-line">Basement Archive Files</div>
-    <h3>1998 GT Performer — MAG Edition</h3>
-    <p>
-      Lime green survivor build brought back through a three-day preservation process.
-      The original graphics were ordered from Australia twice after the first decal set
-      was stolen while the family was away on vacation — an $80 lesson in unfinished business.
-      <br><br>
 
-      Original paint. Original identity. Original attitude.
-      White mag wheels, color-matched lime green tires, white brake cables,
-      original locking GT brake levers, GT laid-back seat post,
-      44-tooth GT compact disc sprocket, 16-tooth rear freewheel,
-      NOS Trick Top seat, Primo Chad DeGroot grips,
-      and white dice valve caps finish the build exactly the way this era deserved.
-      <br><br>
+    <article class="video-card">
+      <video src="1998-gt-performer-mag-solo.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Basement Archive Files</div>
+        <h3>1998 GT Performer — MAG Edition</h3>
+        <p>
+          Lime green survivor build. Original paint, white mags, white cables,
+          GT laid-back post, NOS Trick Top seat, Primo Chad DeGroot grips,
+          and white dice valve caps. Preserved, not erased.
+        </p>
+      </div>
+    </article>
 
-      Some bikes get restored.
-      Some bikes get remembered forever.
-    </p>
-  </div>
-</article>
+    <article class="video-card">
+      <video src="1990s-gt-performers.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Garage Archive Files</div>
+        <h3>1990s GT Performer Lineup</h3>
+        <p>
+          The 1995 Blacklight Edition beside the 1998 MAG survivor.
+          Original paint on both bikes. OE Skyway six-spokes, Origin8 Hornet rear sprocket,
+          and a childhood GT Fly Cutter sprocket still carrying the story.
+        </p>
+      </div>
+    </article>
 
-<article class="video-card">
-  <video src="1990s-gt-performers.mp4" controls playsinline preload="metadata"></video>
-  <div class="video-copy">
-    <div class="badge-line">Garage Archive Files</div>
-    <h3>1990s GT Performer Lineup</h3>
-    <p>
-      An iconic duo of 1990s GT Performer excellence.
-      The 1995 Blacklight Edition GT Performer stands alongside the
-      1998 MAG Edition survivor — both still wearing their original paint.
-      Their scratches, fading, chips, and scars ARE the story.
-      That is their earned identity. You preserve that.
-      You never erase it.
-      <br><br>
+    <article class="video-card">
+      <video src="wanna-disco-gt-001.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-copy">
+        <div class="badge-line">Basement Sessions</div>
+        <h3>Wanna Disco GT — Saturday Night Basement Rollout</h3>
+        <p>
+          Fresh bars. Fresh stance. Back on the floor with the rest of the survivors.
+          Chrome. Orange tires. Late-night fluorescent lights.
+          The bikes know when one of them made it back.
+        </p>
+      </div>
+    </article>
 
-      The Blacklight Edition wears orange accents, OE Skyway six-spoke wheels,
-      a NOS Trick Top seat, and a freshly reunited graphics kit.
-      The wheels were only produced for a short period and became known
-      for their H-pattern spoke design built for strength and durability.
-      <br><br>
-
-      A brand new Origin8 Hornet rear sprocket was installed —
-      one of the loudest rear sprockets you can buy.
-      Up front sits a 44-tooth aluminum GT Fly Cutter sprocket,
-      the exact same sprocket once owned by the builder as a kid.
-      Years ago, two brothers attempted to drill three holes into it
-      using self-tapping screws in an attempt to mount it to the rear wheel
-      of a moped project. The plan failed completely.
-      The sprocket survived anyway.
-      <br><br>
-
-      Nearly everything else from those years disappeared with time.
-      This artifact didn’t.
-    </p>
-  </div>
-</article>
-  <div class="video-grid">
-<article class="video-card">
-  <video src="wanna-disco-gt-001.mp4" controls playsinline preload="metadata"></video>
-  <div class="video-copy">
-    <div class="badge-line">Basement Sessions</div>
-    <h3>Wanna Disco GT — Saturday Night Basement Rollout</h3>
-    <p>
-      Fresh bars. Fresh stance. Back on the floor with the rest of the survivors.
-      The kind of moment nobody outside the basement would ever understand —
-      rolling a bike back into the lineup and hearing the room come alive again.
-      Chrome. Orange tires. Late-night fluorescent lights.
-      The bikes know when one of them made it back.
-    </p>
-  </div>
-</article>
     <article class="video-card">
       <video src="case-file-0002-hutch-exel-survivor.mp4" controls playsinline preload="metadata"></video>
       <div class="video-copy">
@@ -731,21 +672,11 @@ body::after{
       <video src="nashua-attic-rescue-red-tyler.mp4" controls playsinline preload="metadata"></video>
       <div class="video-copy">
         <div class="badge-line">Official Pace Car</div>
-
-<h3>Laser Red Delivery Weapon</h3>
-
-<p>
-1995 Ford Mustang GT — paint code E9 Laser Red Metallic —
-5.0 pushrod V8, 5-speed manual transmission, paired with a
-1999 DK Fury survivor mounted to the roof using a SeaSucker
-Talon rack system.
-
-The official PACE CAR of Pedal Forever.
-
-An absolute showstopper in the right sunlight.
-New England pavement. Chrome spokes. BMX on the roof.
-Exactly how it should be.
-</p>
+        <h3>Laser Red Delivery Weapon</h3>
+        <p>
+          1995 Ford Mustang GT. Laser Red Metallic. BMX on the roof.
+          Chrome spokes in the sunlight. The official pace car of Pedal Forever.
+        </p>
       </div>
     </article>
 
@@ -760,26 +691,25 @@ Exactly how it should be.
         </p>
       </div>
     </article>
-<article class="video-card">
-  <video 
-    src="haro-blammo-kitchen-0001.mp4"
-    poster="haro-blammo-kitchen-thumb-0001.jpg"
-    controls
-    playsinline
-    preload="metadata">
-  </video>
 
-  <div class="video-copy">
-    <div class="badge-line">Scrap Recovery</div>
+    <article class="video-card">
+      <video 
+        src="haro-blammo-kitchen-0001.mp4"
+        poster="haro-blammo-kitchen-thumb-0001.jpg"
+        controls
+        playsinline
+        preload="metadata">
+      </video>
+      <div class="video-copy">
+        <div class="badge-line">Scrap Recovery</div>
+        <h3>1998 Haro Blammo Survivor</h3>
+        <p>
+          1998 Haro Blammo frame saved from scrap.
+          Original survivor platform recovered during a local cleanout before it disappeared for good.
+        </p>
+      </div>
+    </article>
 
-    <h3>1998 Haro Blammo Survivor</h3>
-
-    <p>
-      1998 Haro Blammo frame saved from scrap. 
-      Original survivor platform recovered during a local cleanout before it disappeared for good.
-    </p>
-  </div>
-</article>
   </div>
 </section>
 
