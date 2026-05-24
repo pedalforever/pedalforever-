@@ -1,1 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <title>Hampton Beach BMX Cruise 2026 | Pedal Forever</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:
+      linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.92)),
+      url('hampton-beach-bmx-2026-001.jpg');
+
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+
+      color:white;
+      font-family:'Inter',sans-serif;
+    }
+
+    .overlay{
+      width:100%;
+      min-height:100vh;
+      backdrop-filter:blur(4px);
+    }
+
+    .topbar{
+      width:100%;
+      padding:20px;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      background:rgba(0,0,0,.6);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .topbar-inner{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-family:'Orbitron',sans-serif;
+      font-size:1.2rem;
+      font-weight:900;
+      letter-spacing:3px;
+      color:#77ff55;
+      text-shadow:0 0 15px rgba(119,255,85,.6);
+    }
+
+    .home-btn{
+      text-decoration:none;
+      color:white;
+      border:1px solid #77ff55;
+      padding:10px 18px;
+      border-radius:50px;
+      font-family:'Orbitron',sans-serif;
+      transition:.2s;
+    }
+
+    .home-btn:hover{
+      background:#77ff55;
+      color:black;
+      box-shadow:0 0 18px rgba(119,255,85,.6);
+    }
+
+    .hero{
+      max-width:1200px;
+      margin:auto;
+      padding:90px 20px 50px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:#ffd84d;
+      font-family:'Orbitron',sans-serif;
+      letter-spacing:3px;
+      margin-bottom:15px;
+      text-transform:uppercase;
+      font-size:.8rem;
+    }
+
+    h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(3rem,8vw,6rem);
+      line-height:.95;
+      margin-bottom:25px;
+      text-transform:uppercase;
+      text-shadow:0 0 30px rgba(119,255,85,.25);
+    }
+
+    .hero-text{
+      max-width:900px;
+      margin:auto;
+      color:#d7d7d7;
+      line-height:1.8;
+      font-size:1.05rem;
+    }
+
+    .story-panel{
+      max-width:950px;
+      margin:40px auto;
+      background:rgba(10,10,10,.72);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:40px;
+      box-shadow:0 0 30px rgba(0,0,0,.45);
+    }
+
+    .story-panel p{
+      line-height:1.9;
+      color:#e5e5e5;
+      margin-bottom:22px;
+      font-size:1rem;
+    }
+
+    .highlight{
+      color:#77ff55;
+      font-weight:700;
+    }
+
+    .gallery-title{
+      text-align:center;
+      font-family:'Orbitron',sans-serif;
+      font-size:2rem;
+      margin:80px 0 25px;
+      color:#ffd84d;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+
+    .gallery{
+      max-width:1250px;
+      margin:auto;
+      padding:0 20px 100px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+
+    .gallery-item{
+      background:rgba(0,0,0,.7);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      overflow:hidden;
+      transition:.2s;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 24px rgba(119,255,85,.18);
+    }
+
+    .gallery-item img,
+    .gallery-item video{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .caption{
+      padding:12px;
+      font-size:.78rem;
+      color:#9d9d9d;
+      letter-spacing:2px;
+      font-family:'Orbitron',sans-serif;
+      text-transform:uppercase;
+    }
+
+    .submit-section{
+      text-align:center;
+      margin:20px auto 70px;
+      padding:0 20px;
+    }
+
+    .submit-btn{
+      display:inline-block;
+      text-decoration:none;
+      background:#77ff55;
+      color:black;
+      padding:16px 24px;
+      border-radius:60px;
+      font-family:'Orbitron',sans-serif;
+      font-weight:900;
+      letter-spacing:1px;
+      box-shadow:0 0 25px rgba(119,255,85,.4);
+      transition:.2s;
+    }
+
+    .submit-btn:hover{
+      transform:scale(1.03);
+    }
+
+    footer{
+      text-align:center;
+      padding:60px 20px 90px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.7);
+    }
+
+    .footer-line{
+      color:#cfcfcf;
+      margin-bottom:10px;
+    }
+
+    .footer-tag{
+      color:#77ff55;
+      font-family:'Orbitron',sans-serif;
+      letter-spacing:3px;
+      font-size:1rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">PEDAL FOREVER</div>
+
+      <a href="https://pedalforever.com" class="home-btn">
+        RETURN TO HOME
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+
+    <div class="eyebrow">
+      Event Archive / Spring 2026
+    </div>
+
+    <h1>
+      Hampton Beach<br>
+      BMX Cruise
+    </h1>
+
+    <div class="hero-text">
+      The Pedal Forever Basement officially went on the road for the 2026 Hampton Beach BMX Cruise to kick off Memorial Day Weekend.
+    </div>
+
+  </section>
+
+  <section class="story-panel">
+
+    <p>
+      For its first appearance at the event, Pedal Forever rolled into Hampton Beach aboard a freshly preserved
+      <span class="highlight">1998 GT Performer Mag Model</span>
+      in the iconic lime green colorway — complete with a custom Pedal Forever touch and a
+      <span class="highlight">Gate City Dust Cap</span>
+      installed for the ride.
+    </p>
+
+    <p>
+      Truthfully, the lime green GT just felt right at the beach.
+      With GT BMX originally starting in
+      <span class="highlight">Santa Ana, California</span>,
+      it only makes sense that a bright lime-green GT Performer would eventually end up cruising the New England coastline decades later.
+      Some bikes are parking lot bikes. Some are trail bikes.
+      This one officially proved itself as a certified beach bike all weekend long.
+    </p>
+
+    <p>
+      This marks the first year Pedal Forever has attended the Hampton Beach cruise, and after seeing the turnout,
+      the bikes, and the people behind the event, it definitely won’t be the last.
+    </p>
+
+    <p>
+      It was also awesome finally putting some faces to names from the local BMX scene throughout Massachusetts and the Granite State.
+      A lot of familiar names from groups like
+      <span class="highlight">New England BMX Plus</span>
+      and
+      <span class="highlight">Granite State BMX</span>
+      were out riding, talking bikes, sharing stories, and keeping the scene alive the way it’s supposed to be.
+    </p>
+
+    <p>
+      Huge thank you to everyone who organized, supported, and helped make the 2026 Hampton Beach BMX Cruise happen.
+      The atmosphere, the riding, and the community surrounding the event made for an unforgettable start to the season.
+    </p>
+
+    <p>
+      Pedal Forever is already looking forward to the
+      <span class="highlight">Chrome and Dirt series</span>
+      next month and continuing to document the bikes, stories, survivors, and rider culture that still exist throughout New England.
+    </p>
+
+    <p>
+      Looking ahead to next year, Pedal Forever hopes to return with even more bikes, more stories,
+      and hopefully bring the next generation along for the cruise — continuing the tradition one ride at a time.
+    </p>
+
+  </section>
+
+  <div class="submit-section">
+
+    <a
+      href="mailto:YOUREMAIL@example.com?subject=2026 Hampton Beach BMX Cruise Ride Photos"
+      class="submit-btn"
+    >
+      SUBMIT YOUR 2026 HAMPTON BEACH BMX CRUISE RIDE PHOTOS HERE
+    </a>
+
+  </div>
+
+  <div class="gallery-title">
+    Ride Archive
+  </div>
+
+  <section class="gallery">
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-001.jpg">
+      <div class="caption">Archive Photo 001</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-002.jpg">
+      <div class="caption">Archive Photo 002</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-003.jpg">
+      <div class="caption">Archive Photo 003</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-004.jpg">
+      <div class="caption">Archive Photo 004</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-005.jpg">
+      <div class="caption">Archive Photo 005</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-006.jpg">
+      <div class="caption">Archive Photo 006</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-007.jpg">
+      <div class="caption">Archive Photo 007</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-008.jpg">
+      <div class="caption">Archive Photo 008</div>
+    </div>
+
+    <!-- VIDEO -->
+
+    <div class="gallery-item">
+      <video controls>
+        <source src="hampton-beach-bmx-2026-009.mp4" type="video/mp4">
+      </video>
+      <div class="caption">Archive Video 009</div>
+    </div>
+
+    <!-- CONTINUE -->
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-010.jpg">
+      <div class="caption">Archive Photo 010</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-011.jpg">
+      <div class="caption">Archive Photo 011</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-012.jpg">
+      <div class="caption">Archive Photo 012</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-013.jpg">
+      <div class="caption">Archive Photo 013</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-014.jpg">
+      <div class="caption">Archive Photo 014</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-015.jpg">
+      <div class="caption">Archive Photo 015</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-016.jpg">
+      <div class="caption">Archive Photo 016</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-017.jpg">
+      <div class="caption">Archive Photo 017</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-018.jpg">
+      <div class="caption">Archive Photo 018</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-019.jpg">
+      <div class="caption">Archive Photo 019</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-020.jpg">
+      <div class="caption">Archive Photo 020</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-021.jpg">
+      <div class="caption">Archive Photo 021</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-022.jpg">
+      <div class="caption">Archive Photo 022</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-023.jpg">
+      <div class="caption">Archive Photo 023</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-024.jpg">
+      <div class="caption">Archive Photo 024</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-025.jpg">
+      <div class="caption">Archive Photo 025</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-026.jpg">
+      <div class="caption">Archive Photo 026</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-027.jpg">
+      <div class="caption">Archive Photo 027</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-028.jpg">
+      <div class="caption">Archive Photo 028</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-029.jpg">
+      <div class="caption">Archive Photo 029</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-030.jpg">
+      <div class="caption">Archive Photo 030</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-031.jpg">
+      <div class="caption">Archive Photo 031</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-032.jpg">
+      <div class="caption">Archive Photo 032</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-033.jpg">
+      <div class="caption">Archive Photo 033</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="hampton-beach-bmx-2026-034.jpg">
+      <div class="caption">Archive Photo 034</div>
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="footer-line">
+      Some bikes got parted out.
+    </div>
+
+    <div class="footer-tag">
+      Some bikes Pedal Forever.
+    </div>
+
+    <br><br>
+
+    <a href="https://pedalforever.com" class="home-btn">
+      RETURN TO HOME
+    </a>
+
+  </footer>
+
+</div>
+
+</body>
+</html>
