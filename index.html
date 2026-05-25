@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6W1QDMMD1"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -17,7 +16,6 @@ gtag('config', 'G-V6W1QDMMD1');
 </script>
 
 <style>
-
 :root{
   --accent:#7df9c1;
   --accent2:#ff4fd8;
@@ -73,6 +71,61 @@ a{
   color:inherit;
 }
 
+.site-masthead{
+  text-align:center;
+  padding:34px 14px 18px;
+  background:rgba(0,0,0,.78);
+  border-bottom:1px solid rgba(125,249,193,.18);
+}
+
+.hero-logo{
+  width:100%;
+  max-width:680px;
+  margin:0 auto 12px;
+}
+
+.masthead-title{
+  color:var(--accent);
+  font-size:clamp(28px,6vw,62px);
+  text-transform:uppercase;
+  margin:10px 0 8px;
+  text-shadow:0 0 18px rgba(125,249,193,.22);
+}
+
+.power-line{
+  color:#fff;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin:8px auto 14px;
+}
+
+.power-line span{
+  color:var(--accent2);
+}
+
+.ride-file-banner{
+  display:inline-block;
+  margin:10px auto 0;
+  color:#000;
+  background:var(--accent);
+  border:1px solid rgba(125,249,193,.55);
+  border-radius:999px;
+  padding:10px 16px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  box-shadow:0 0 22px rgba(125,249,193,.22);
+  transition:.25s;
+}
+
+.ride-file-banner:hover{
+  transform:scale(1.03);
+  background:#fff;
+  color:#000;
+}
+
 .topbar{
   position:sticky;
   top:0;
@@ -82,8 +135,8 @@ a{
   flex-wrap:wrap;
   gap:12px;
   padding:14px 10px;
-  background:rgba(0,0,0,.92);
-  border-bottom:1px solid rgba(125,249,193,.20);
+  background:rgba(0,0,0,.94);
+  border-bottom:1px solid rgba(125,249,193,.24);
   backdrop-filter:blur(8px);
 }
 
@@ -107,13 +160,7 @@ a{
 
 .hero{
   text-align:center;
-  padding:60px 10px 30px;
-}
-
-.hero-logo{
-  width:100%;
-  max-width:760px;
-  margin:0 auto 24px;
+  padding:46px 10px 30px;
 }
 
 .hero h1{
@@ -123,16 +170,86 @@ a{
   margin-bottom:14px;
 }
 
-
-..strip{
-margin:35px auto 50px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-background:rgba(125,249,193,.08);
-border:1px solid rgba(125,249,193,.18);
-border-radius:10px;
-overflow:hidden;
+.hero p{
+  max-width:880px;
+  margin:0 auto;
+  color:#e8e8e8;
+  line-height:1.7;
+  font-size:13px;
 }
+
+.hero-tagline{
+  margin-top:12px;
+  color:#fff;
+  font-size:12px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+
+.socials a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  color:#ff4747;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:.25s;
+}
+
+.socials a:hover{
+  transform:translateY(-2px);
+  background:rgba(255,71,71,.12);
+  border-color:rgba(255,71,71,.45);
+  box-shadow:0 0 14px rgba(255,71,71,.25);
+}
+
+.socials a.tiktok{
+  color:#7df9ff;
+}
+
+.socials a.tiktok:hover{
+  background:rgba(125,249,255,.12);
+  border-color:rgba(125,249,255,.45);
+  box-shadow:0 0 14px rgba(125,249,255,.25);
+}
+
+.strip{
+  margin:35px auto 50px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:rgba(125,249,193,.08);
+  border:1px solid rgba(125,249,193,.18);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.strip div{
+  padding:14px 10px;
+  text-align:center;
+  color:var(--accent);
+  font-size:11px;
+  border-right:1px solid rgba(125,249,193,.10);
+}
+
+.strip div:last-child{
+  border-right:none;
+}
+
 .pete-sticker{
   position:fixed;
   bottom:18px;
@@ -157,7 +274,8 @@ overflow:hidden;
 .pete-sticker:hover{
   transform:rotate(-4deg) scale(1.06);
 }
- .case-update{
+
+.case-update{
   display:inline-block;
   margin-top:16px;
   color:#ff4fd8;
@@ -179,61 +297,68 @@ overflow:hidden;
   background:#ff4fd8;
   color:#000;
   box-shadow:0 0 28px rgba(255,79,216,.45);
-} 
+}
+
+.button{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.25s;
+}
+
+.button:hover{
+  background:var(--accent);
+  color:#000;
+}
+
 .pete-modal{
-display:none;
-position:fixed;
-z-index:99999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.92);
-justify-content:center;
-align-items:center;
-padding:20px;
+  display:none;
+  position:fixed;
+  z-index:99999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
 
 .pete-modal-content{
-position:relative;
-max-width:700px;
-width:100%;
+  position:relative;
+  max-width:700px;
+  width:100%;
 }
 
 .pete-modal-content img{
-width:100%;
-border-radius:14px;
-border:2px solid #ff4fd8;
-box-shadow:0 0 40px rgba(255,79,216,.45);
+  width:100%;
+  border-radius:14px;
+  border:2px solid #ff4fd8;
+  box-shadow:0 0 40px rgba(255,79,216,.45);
 }
 
 .close-pete{
-position:absolute;
-top:-12px;
-right:-12px;
-background:#ff4fd8;
-color:#000;
-width:34px;
-height:34px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.strip div{
-  padding:14px 10px;
-  text-align:center;
-  color:var(--accent);
-  font-size:11px;
-  border-right:1px solid rgba(125,249,193,.10);
-}
-
-.strip div:last-child{
-  border-right:none;
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  background:#ff4fd8;
+  color:#000;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 .panel{
@@ -255,6 +380,7 @@ font-weight:bold;
   color:#d8d8d8;
   line-height:1.8;
   font-size:14px;
+  margin-bottom:12px;
 }
 
 .grid-two{
@@ -288,27 +414,29 @@ font-weight:bold;
   transition:.3s;
   position:relative;
 }
+
 .witness-photo-strip{
-display:flex;
-flex-wrap:nowrap;
-flex-direction:row;
-align-items:center;
-gap:10px;
-margin-bottom:18px;
-overflow-x:auto;
-overflow-y:hidden;
-width:100%;
+  display:flex;
+  flex-wrap:nowrap;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  width:100%;
 }
 
 .witness-photo-strip img{
-width:110px;
-height:110px;
-min-width:110px;
-object-fit:cover;
-border-radius:14px;
-border:2px solid rgba(0,255,200,0.18);
-display:inline-block;
+  width:110px;
+  height:110px;
+  min-width:110px;
+  object-fit:cover;
+  border-radius:14px;
+  border:2px solid rgba(0,255,200,0.18);
+  display:inline-block;
 }
+
 .witness-card:hover{
   transform:scale(1.01);
 }
@@ -320,19 +448,6 @@ display:inline-block;
   background:linear-gradient(to top, rgba(0,0,0,.96), rgba(0,0,0,.72), rgba(0,0,0,0));
   position:relative;
   z-index:2;
-}
-
-.witness-copy h2{
-  color:var(--accent2);
-  font-size:12px;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
-
-.witness-copy h3{
-  color:var(--accent);
-  font-size:clamp(30px,4vw,56px);
-  margin-bottom:14px;
 }
 
 .witness-copy h2{
@@ -378,10 +493,11 @@ display:inline-block;
   transition:.25s;
 }
 
-  .portal-wide{
+.portal-wide{
   grid-column:1 / -1;
   min-height:420px;
 }
+
 .portal:hover{
   transform:scale(1.015);
 }
@@ -457,47 +573,6 @@ display:inline-block;
 .vote-title{
   padding:16px;
   font-size:13px;
-  .socials{
-display:flex;
-justify-content:center;
-gap:14px;
-margin-top:22px;
-flex-wrap:wrap;
-}
-
-.socials a{
-display:flex;
-align-items:center;
-gap:8px;
-padding:10px 18px;
-border:1px solid rgba(255,255,255,.15);
-border-radius:999px;
-background:rgba(255,255,255,.04);
-color:#ff4747;
-font-size:12px;
-font-weight:700;
-letter-spacing:1px;
-text-decoration:none;
-text-transform:uppercase;
-transition:.25s;
-}
-
-.socials a:hover{
-transform:translateY(-2px);
-background:rgba(255,71,71,.12);
-border-color:rgba(255,71,71,.45);
-box-shadow:0 0 14px rgba(255,71,71,.25);
-}
-
-.socials a.tiktok{
-color:#7df9ff;
-}
-
-.socials a.tiktok:hover{
-background:rgba(125,249,255,.12);
-border-color:rgba(125,249,255,.45);
-box-shadow:0 0 14px rgba(125,249,255,.25);
-}
 }
 
 .email-box{
@@ -540,294 +615,283 @@ box-shadow:0 0 14px rgba(125,249,255,.25);
 }
 
 @media(max-width:900px){
+  .grid-two{
+    grid-template-columns:1fr;
+  }
 
-.grid-two{
-  grid-template-columns:1fr;
+  .portal-grid{
+    grid-template-columns:1fr;
+  }
+
+  .vote-grid{
+    grid-template-columns:1fr;
+  }
+
+  .strip{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .topbar a{
+    font-size:9px;
+  }
+
+  .portal{
+    min-height:320px;
+  }
+
+  .site-masthead{
+    padding-top:28px;
+  }
 }
-
-.portal-grid{
-  grid-template-columns:1fr;
-}
-
-.vote-grid{
-  grid-template-columns:1fr;
-}
-
-.strip{
-  grid-template-columns:1fr 1fr;
-}
-
-.topbar a{
-  font-size:9px;
-}
-
-.portal{
-  min-height:320px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
+<header class="site-masthead">
+  <img class="hero-logo" src="built-from-bad-decisions.png" alt="Built On Bad Decisions — Pedal Forever">
+
+  <h1 class="masthead-title">Pedal Forever</h1>
+
+  <div class="power-line">
+    HUMAN POWER <span>/</span> STRUGGLE <span>/</span> CHAOS
+  </div>
+
+  <a href="hampton-beach-cruise-2026.html" target="_blank" class="ride-file-banner">
+    ⚙ NEW FILE UNLOCKED — HAMPTON BEACH BMX CRUISE + SWAP MEET 2026
+  </a>
+</header>
+
 <nav class="topbar">
-<a href="index.html">HOME</a>
+  <a href="index.html">HOME</a>
   <a href="dust-caps.html">GATE CITY DUST CAPS</a>
-<a href="witness-stand.html">WITNESS STAND</a>
-<a href="bike-of-the-month.html">BIKE OF THE MONTH</a>
-<a href="bmx-basement.html">BMX BASEMENT</a>
-<a href="team.html">FACTORY TEAM</a>
-<a href="alvern-heights.html">ALVERN HEIGHTS</a>
-<a href="collection.html">COLLECTION</a>
-<a href="merch.html">MERCH</a>
-<a href="#contact">CONTACT</a>
+  <a href="witness-stand.html">WITNESS STAND</a>
+  <a href="bike-of-the-month.html">BIKE OF THE MONTH</a>
+  <a href="bmx-basement.html">BMX BASEMENT</a>
+  <a href="team.html">FACTORY TEAM</a>
+  <a href="alvern-heights.html">ALVERN HEIGHTS</a>
+  <a href="collection.html">COLLECTION</a>
+  <a href="merch.html">MERCH</a>
+  <a href="#contact">CONTACT</a>
 </nav>
 
 <main class="wrap">
 
 <section class="hero">
+  <p>
+    Pedal Forever is a BMX preservation and garage-culture media brand dedicated to saving forgotten machines, documenting real stories, and keeping old-school BMX history alive.
+  </p>
 
-<img class="hero-logo" src="built-from-bad-decisions.png" alt="Pedal Forever">
+  <div class="hero-tagline">
+    FORGOTTEN MACHINES TRYING TO SURVIVE TIME
+  </div>
 
-<h1>Pedal Forever</h1>
-
-<p>
-Pedal Forever is a BMX preservation and garage-culture media brand dedicated to saving forgotten machines, documenting real stories, and keeping old-school BMX history alive.
-</p>
-
-<div class="hero-tagline">
-FORGOTTEN MACHINES TRYING TO SURVIVE TIME
-</div>
-<div class="socials">
-
-<a href="https://youtube.com/@pedalforever" target="_blank">
-▶ YOUTUBE
-</a>
-
-<a class="tiktok" href="https://tiktok.com/@pedalforever" target="_blank">
-♫ TIKTOK
-</a>
-
-</div>
-
+  <div class="socials">
+    <a href="https://youtube.com/@pedalforever" target="_blank">▶ YOUTUBE</a>
+    <a class="tiktok" href="https://tiktok.com/@pedalforever" target="_blank">♫ TIKTOK</a>
+  </div>
 </section>
-<a href="hampton-beach-cruise-2026.html" target="_blank" class="ride-file-banner">
-  ⚙ NEWEST RIDE FILE — HAMPTON BEACH BMX CRUISE 2026
-</a>
+
 <div class="strip">
-<div>REAL FINDS</div>
-<div>OEM HISTORY</div>
-<div>ONE OWNER</div>
-<div>OLD BMX WANTED</div>
+  <div>REAL FINDS</div>
+  <div>OEM HISTORY</div>
+  <div>ONE OWNER</div>
+  <div>OLD BMX WANTED</div>
 </div>
 
 <section class="panel">
+  <div class="grid-two">
+    <div class="card-image">
+      <img src="gts-backyard-hamptonday-0002.jpg" alt="GT Performers backyard">
+    </div>
 
-<div class="grid-two">
+    <div>
+      <h2>Preserve Before Replace</h2>
 
-<div class="card-image">
-<img src="gts-backyard-hamptonday-0002.jpg">
-</div>
+      <p>
+        Some bikes should not be repainted. Some bikes should not be overbuilt. Some bikes deserve to survive exactly how they made it through time.
+      </p>
 
-<div>
-
-<h2>Preserve Before Replace</h2>
-
-<p>
-Some bikes should not be repainted. Some bikes should not be overbuilt. Some bikes deserve to survive exactly how they made it through time.
-</p>
-
-<p>
-Pedal Forever focuses on survivor BMX bikes, original equipment, low-mile/no-mile examples, archive restorations, and preserving the identity these machines earned over decades.
-</p>
-
-</div>
-
-</div>
-
+      <p>
+        Pedal Forever focuses on survivor BMX bikes, original equipment, low-mile/no-mile examples, archive restorations, and preserving the identity these machines earned over decades.
+      </p>
+    </div>
+  </div>
 </section>
 
 <a class="witness-card" href="witness-stand.html">
+  <div class="witness-copy">
+    <div class="witness-photo-strip">
+      <img src="witness-stand-0003-01.jpeg" alt="1998 GT Performer on the Witness Stand">
+      <img src="witness-stand-0003-02.jpeg" alt="Lime green 1998 GT Performer detail">
+      <img src="witness-stand-0003-03.jpeg" alt="Alvern Heights Case File 0003 evidence tag">
+    </div>
 
-<div class="witness-copy">
+    <h2>THE WITNESS STAND</h2>
 
-<div class="witness-photo-strip">
-<img src="witness-stand-0003-01.jpeg" alt="1998 GT Performer on the Witness Stand">
-<img src="witness-stand-0003-02.jpeg" alt="Lime green 1998 GT Performer detail">
-<img src="witness-stand-0003-03.jpeg" alt="Alvern Heights Case File 0003 evidence tag">
-</div>
+    <h3>CASE FILE 0003 — Lime Green 1998 GT Performer — LEFT FOR DEAD</h3>
 
-<h2>THE WITNESS STAND</h2>
+    <p>
+      Some bikes get restored. Some bikes get remembered.
+      The stand has seen the scratches, the swaps, the missing parts,
+      and the stories nobody wrote down.
+    </p>
 
-<h3>CASE FILE 0003 — Lime Green 1998 GT Performer — LEFT FOR DEAD</h3>
+    <div class="verdict">
+      ENTER THE STAND
+    </div>
 
-<p>
-Some bikes get restored. Some bikes get remembered.
-The stand has seen the scratches, the swaps, the missing parts,
-and the stories nobody wrote down.
-</p>
-
-<div class="verdict">
-ENTER THE STAND
-</div>
-
-<div class="case-update">
-✦ NEW CASE FILE #0003 — 1998 GT Performer Preservation
-</div>
-
-</div>
-
+    <div class="case-update">
+      ✦ NEW CASE FILE #0003 — 1998 GT Performer Preservation
+    </div>
+  </div>
 </a>
-</a>
+
 <section class="portal-grid">
 
-<a class="portal" href="bike-of-the-month.html" style="background-image:url('feature-poster.png');">
-<div class="portal-content">
-<h2>Bike Of The Month</h2>
-<p>
-Monthly archive features dedicated to survivor bikes, race bikes, basement finds, and BMX history.
-</p>
-<span>OPEN FILE</span>
-</div>
-</a>
-
-<a class="portal" href="bmx-basement.html" style="background-image:url('bmx-basement-entry.png');">
-<div class="portal-content" style="margin-top:auto;">
-<h2>BMX Basement</h2>
-<p>
-A living archive of survivors, forgotten frames, project bikes, old parts, and New England BMX history.
-</p>
-<span>ENTER BASEMENT</span>
-</div>
-</a>
-
-<a class="portal" href="merch.html" style="background-image:url('black-tshirt-movement.jpg');">
-<div class="portal-content">
-<h2>Black T-Shirt Movement</h2>
-<p>
-Limited-run black shirts, garage slogans, survivor graphics, decals, and wearable artifacts from the Pedal Forever universe.
-</p>
-<span>OPEN MERCH</span>
-</div>
-</a>
-
-<a class="portal" href="team.html" style="background-image:url('pedalforever-factoryteamphoto-v1.png');">
-<div class="portal-content">
-<h2>Factory Team</h2>
-<p>
-Tom Cranks, Joey Topcap, and Pinchbolt Pete. Mechanically questionable and somehow still operational.
-</p>
-<span>MEET THE TEAM</span>
-</div>
-</a>
-
-<a class="portal portal-wide" href="alvern-heights.html" style="background-image:url('enter-alvern-heights.png');">
-<div class="portal-content">
-<h2>Enter Alvern Heights</h2>
-<p>
-One town. 26,000 people. Endless garage stories, police runs, pizza deliveries, and hidden machines.
-</p>
-<span>ENTER ALVERN</span>
-</div>
-</a>
-<a class="portal" href="spray-division.html" style="background-image:url('pf-spray-division-002.png'); background-size:cover; background-position:center;">
-<div class="portal-content">
-<h2>PF Spray Division</h2>
-
-<p>
-Hidden inside Alvern Heights. Paint, overspray, chrome dust,
-and bad decisions sealed under fluorescent lights.
-</p>
-
-<span>ENTER THE BOOTH</span>
-</div>
-</a>
-</section>
-
-<section class="panel">
-
-<h2>Vote The Next Bike Of The Month</h2>
-
-<div class="vote-grid">
-
-<div class="vote-card" onclick="vote('GT')">
-
-<div class="vote-images">
-<img src="gtmach1-1.jpg">
-<img src="gtmach1-2.jpg">
-</div>
-
-<div class="vote-title">
-1990 GT Mach 1 — Dayglo Yellow
-</div>
-
-</div>
-
-<div class="vote-card" onclick="vote('RAMPAR')">
-
-<div class="vote-images">
-<img src="rampar-1.jpg">
-<img src="rampar-2.jpg">
-</div>
-
-<div class="vote-title">
-1978 Team Rampar — Nickel Motomag
-</div>
-
-</div>
-
-</div>
-
-<div class="email-box">
-<input id="email" placeholder="Enter email to vote">
-</div>
-
-<p id="status"></p>
-
-<p style="text-align:center;margin-top:14px;">
-Total Votes: <span id="total">0</span>
-</p>
-
-</section>
-<section class="panel">
-    <div class="grid-two">
-
-        <img src="gate-city-nights-cover.jpg" alt="Gate City Nights">
-
-        <div>
-            <h2>Gate City Nights</h2>
-
-            <p>
-                Parking garages. Rooftop rides. Wet pavement.
-                Downtown Nashua after midnight.
-                The bikes never stopped moving.
-            </p>
-
-            <a href="gate-city-nights.html" class="case-update">
-                Enter The Night Ride
-            </a>
-
-        </div>
-
+  <a class="portal" href="bike-of-the-month.html" style="background-image:url('feature-poster.png');">
+    <div class="portal-content">
+      <h2>Bike Of The Month</h2>
+      <p>
+        Monthly archive features dedicated to survivor bikes, race bikes, basement finds, and BMX history.
+      </p>
+      <span>OPEN FILE</span>
     </div>
+  </a>
+
+  <a class="portal" href="bmx-basement.html" style="background-image:url('bmx-basement-entry.png');">
+    <div class="portal-content" style="margin-top:auto;">
+      <h2>BMX Basement</h2>
+      <p>
+        A living archive of survivors, forgotten frames, project bikes, old parts, and New England BMX history.
+      </p>
+      <span>ENTER BASEMENT</span>
+    </div>
+  </a>
+
+  <a class="portal" href="merch.html" style="background-image:url('black-tshirt-movement.jpg');">
+    <div class="portal-content">
+      <h2>Black T-Shirt Movement</h2>
+      <p>
+        Limited-run black shirts, garage slogans, survivor graphics, decals, and wearable artifacts from the Pedal Forever universe.
+      </p>
+      <span>OPEN MERCH</span>
+    </div>
+  </a>
+
+  <a class="portal" href="team.html" style="background-image:url('pedalforever-factoryteamphoto-v1.png');">
+    <div class="portal-content">
+      <h2>Factory Team</h2>
+      <p>
+        Tom Cranks, Joey Topcap, and Pinchbolt Pete. Mechanically questionable and somehow still operational.
+      </p>
+      <span>MEET THE TEAM</span>
+    </div>
+  </a>
+
+  <a class="portal portal-wide" href="alvern-heights.html" style="background-image:url('enter-alvern-heights.png');">
+    <div class="portal-content">
+      <h2>Enter Alvern Heights</h2>
+      <p>
+        One town. 26,000 people. Endless garage stories, police runs, pizza deliveries, and hidden machines.
+      </p>
+      <span>ENTER ALVERN</span>
+    </div>
+  </a>
+
+  <a class="portal" href="spray-division.html" style="background-image:url('pf-spray-division-002.png'); background-size:cover; background-position:center;">
+    <div class="portal-content">
+      <h2>PF Spray Division</h2>
+
+      <p>
+        Hidden inside Alvern Heights. Paint, overspray, chrome dust,
+        and bad decisions sealed under fluorescent lights.
+      </p>
+
+      <span>ENTER THE BOOTH</span>
+    </div>
+  </a>
 </section>
+
 <section class="panel">
 
-<h2>One Owner</h2>
+  <h2>Vote The Next Bike Of The Month</h2>
 
-<p>
-One-owner bikes matter. One rider. One family. One garage. One story.
-</p>
+  <div class="vote-grid">
 
-<p>
-Pedal Forever documents original-owner bikes, family survivors, basement releases, estate finds, and the stories attached to them.
-</p>
+    <div class="vote-card" onclick="vote('GT')">
+      <div class="vote-images">
+        <img src="gtmach1-1.jpg" alt="1990 GT Mach 1">
+        <img src="gtmach1-2.jpg" alt="1990 GT Mach 1 detail">
+      </div>
+
+      <div class="vote-title">
+        1990 GT Mach 1 — Dayglo Yellow
+      </div>
+    </div>
+
+    <div class="vote-card" onclick="vote('RAMPAR')">
+      <div class="vote-images">
+        <img src="rampar-1.jpg" alt="1978 Team Rampar">
+        <img src="rampar-2.jpg" alt="1978 Team Rampar detail">
+      </div>
+
+      <div class="vote-title">
+        1978 Team Rampar — Nickel Motomag
+      </div>
+    </div>
+
+  </div>
+
+  <div class="email-box">
+    <input id="email" placeholder="Enter email to vote">
+  </div>
+
+  <p id="status"></p>
+
+  <p style="text-align:center;margin-top:14px;">
+    Total Votes: <span id="total">0</span>
+  </p>
 
 </section>
 
-  <section class="panel">
+<section class="panel">
+  <div class="grid-two">
+
+    <img src="gate-city-nights-cover.jpg" alt="Gate City Nights">
+
+    <div>
+      <h2>Gate City Nights</h2>
+
+      <p>
+        Parking garages. Rooftop rides. Wet pavement.
+        Downtown Nashua after midnight.
+        The bikes never stopped moving.
+      </p>
+
+      <a href="gate-city-nights.html" class="case-update">
+        Enter The Night Ride
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="panel">
+
+  <h2>One Owner</h2>
+
+  <p>
+    One-owner bikes matter. One rider. One family. One garage. One story.
+  </p>
+
+  <p>
+    Pedal Forever documents original-owner bikes, family survivors, basement releases, estate finds, and the stories attached to them.
+  </p>
+
+</section>
+
+<section class="panel">
 
   <h2>Pedal Forever Archive System</h2>
 
@@ -842,7 +906,7 @@ Pedal Forever documents original-owner bikes, family survivors, basement release
 
 </section>
 
-<section class="panel">
+<section class="panel" id="contact">
 
   <div class="grid-two">
 
@@ -978,36 +1042,37 @@ async function loadVotes(){
 
   const gtBar = document.getElementById("gt-bar");
   const ramparBar = document.getElementById("rampar-bar");
+  const gtCount = document.getElementById("gt-count");
+  const ramparCount = document.getElementById("rampar-count");
+  const leader = document.getElementById("leader");
 
   const highest = Math.max(gtVotes, ramparVotes, 1);
 
-  gtBar.style.width = (gtVotes / highest * 100) + "%";
-  ramparBar.style.width = (ramparVotes / highest * 100) + "%";
+  if(gtBar){ gtBar.style.width = (gtVotes / highest * 100) + "%"; }
+  if(ramparBar){ ramparBar.style.width = (ramparVotes / highest * 100) + "%"; }
 
-  document.getElementById("gt-count").innerText =
-    gtVotes + " votes";
+  if(gtCount){ gtCount.innerText = gtVotes + " votes"; }
+  if(ramparCount){ ramparCount.innerText = ramparVotes + " votes"; }
 
-  document.getElementById("rampar-count").innerText =
-    ramparVotes + " votes";
+  if(leader){
+    let leaderText = "Current Garage Leader: ";
 
-  let leaderText = "Current Garage Leader: ";
+    if(gtVotes > ramparVotes){
+      leaderText += "1990 GT Mach 1";
+    }
+    else if(ramparVotes > gtVotes){
+      leaderText += "1978 Team Rampar";
+    }
+    else{
+      leaderText += "Dead Heat";
+    }
 
-  if(gtVotes > ramparVotes){
-    leaderText += "1990 GT Mach 1";
+    leader.innerText = leaderText;
   }
-  else if(ramparVotes > gtVotes){
-    leaderText += "1978 Team Rampar";
-  }
-  else{
-    leaderText += "Dead Heat";
-  }
-
-  document.getElementById("leader").innerText = leaderText;
 }
 
 document.addEventListener("DOMContentLoaded", loadVotes);
 </script>
-  
 
 </body>
 </html>
